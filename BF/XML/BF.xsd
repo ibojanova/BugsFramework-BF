@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--@author Irena Bojanova(ivb); *@date - 2/27/2022 -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="BF">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Cluster" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Class" minOccurs="1" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="Name" type="xs:string" use="required" />
+						<xs:attribute name="Type" type="xs:string" use="required" />
+						<xs:attribute name="Definition" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Definitions" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="Definition" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Class">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Operations"/>
+				<xs:element ref="Operands" minOccurs="0"/>
+				<xs:element ref="Causes"/>
+				<xs:element ref="Consequences"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="NameDefinition"/>
+			<xs:attribute name="Title" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Operations">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Operation" minOccurs="1" maxOccurs="unbounded" >
+					<xs:complexType>
+						<xs:attribute name="Name" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="AttributeType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Operands">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Operand" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="AttributeType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="Name" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Causes">
+		<xs:complexType>
+			<xs:choice>
+				<xs:choice minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="BugCauseType">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="Cause" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attributeGroup ref="NameDefinition"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="WeaknessCauseType">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="Cause" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attributeGroup ref="NameDefinition"/>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="FailureCauseType" minOccurs="1" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="Cause" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+							<xs:attributeGroup ref="NameDefinition"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:choice>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Consequences">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ConsequenceType" minOccurs="1" maxOccurs="unbounded" >
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Consequence" minOccurs="1" maxOccurs="unbounded" >
+								<xs:complexType>
+									<xs:attribute name="Name" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attributeGroup ref="NameDefinition"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	
+	<xs:element name="Cause">
+		<xs:complexType>
+			<xs:attribute name="Name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="AttributeType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Attribute" minOccurs="1" maxOccurs="unbounded" >
+					<xs:complexType>
+						<xs:attribute name="Name" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attributeGroup ref="NameDefinition" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:attributeGroup name="NameDefinition">
+		<xs:attribute name="Name" type="xs:string" use="required" />
+		<xs:attribute name="Definition" type="xs:string" use="required" />
+	</xs:attributeGroup>
+
+	<xs:element name="Definition">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="Name" type="xs:string" use="required" />
+					<xs:attribute name="Type" type="xs:string" use="optional" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+
+</xs:schema>

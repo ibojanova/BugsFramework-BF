@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--@author Irena Bojanova(ivb)
+*@date - 2/27/2022 -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="CVE">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Bug" type="Weakness"/>
+				<xs:element name="Weakness" type="Weakness" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="Failure" type="Weakness"/>
+			</xs:sequence>
+			<xs:attribute name="Name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Weakness">
+		<xs:sequence>
+			<xs:element name="Cause" type="TypeValueComment"/>
+			<xs:element name="Operation" type="ValueComment"/>
+			<xs:element name="Consequence" type="TypeValueComment"/>
+			<xs:element name="Attributes" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Operation" type="Attributes" minOccurs="0"/>
+						<xs:element name="Operand" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="Attributes">
+										<xs:attribute name="Name" type="xs:string" use="required" />
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="Type" use="required"/>
+		<xs:attribute name="Class" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="Attributes">
+		<xs:sequence>
+			<xs:element name="Attribute" type="TypeValueComment" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TypeValueComment">
+		<xs:simpleContent>
+			<xs:extension base="ValueComment">
+				<xs:attribute name="Type" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="ValueComment">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="Comment" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>
