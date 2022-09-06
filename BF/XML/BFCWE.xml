@@ -62,7 +62,7 @@
 				<CWE>554</CWE>
 				<CWE>624</CWE>
 				<CWE>641</CWE>
-		<CWE>646</CWE>
+				<!--<CWE>646</CWE>-->
 				<CWE>707</CWE>
 				<CWE>913</CWE>
 				<CWE>1286</CWE>
@@ -160,7 +160,7 @@
 				<CWE>1336</CWE>
 			</ClassOperation>
 			<ClassOperation name="DVR Check">
-	<CWE>253</CWE>
+				<!--<CWE>253</CWE>-->
 			</ClassOperation>
 			<ClassOperation name="DVR Verify">
 				<CWE>129</CWE>
@@ -168,13 +168,15 @@
 				<CWE>170</CWE>
 				<CWE>230</CWE>
 				<CWE>232</CWE>
-		<CWE>463</CWE><!--peer of 464-->
-		<CWE>464</CWE><!--peer of 170-->
+				<!--<CWE>463</CWE>-->
+				<!--peer of 464-->
+				<!--<CWE>464</CWE>-->
+				<!--peer of 170-->
 				<CWE>472</CWE>
 				<CWE>606</CWE>
 				<CWE>781</CWE>
 				<CWE>914</CWE>
-				<CWE>1039</CWE>
+				<!--<CWE>1039</CWE>-->
 				<CWE>1284</CWE>
 				<CWE>1285</CWE>
 				<CWE>1287</CWE>
@@ -341,7 +343,7 @@
 				<CWE>428</CWE>
 				<CWE>564</CWE>
 				<CWE>626</CWE>
-				<CWE>643</CWE>
+				<!--<CWE>643</CWE>-->
 				<CWE>652</CWE>
 				<CWE>692</CWE>
 				<CWE>790</CWE>
@@ -373,7 +375,7 @@
 				<CWE>707</CWE>
 			</other>
 		</showOtherCWEs>
-			
+
 		<!--fig 2-->
 		<showConsequenceCWEs>
 			<Consequence name="Query Injection">
@@ -595,13 +597,13 @@
 
 		<!--fig 1-->
 		<classStyles>
-			<Caption n="CWEs by DVL and/or DVR operation:" c="FFFFFF" u="sng" x="10858514" y="25852362"/>
+			<Caption n="CWEs by DVL and/or DVR operation:" u="sng" x="10858514" y="25852362"/>
 			<ClassOperation n="DVL Validate" c="0099FF"/>
 			<ClassOperation n="DVL Sanitize" c="339966"/>
 			<ClassOperation n="DVR Verify" c="FF3399"/>
 			<ClassOperation n="DVL Validate and DVR Verify" c="9966FF"/>
 
-			<Caption n="CWEs by Input and/or Output:" c="FFFFFF" u="sng" x="21464743" y="25852362"/>
+			<Caption n="CWEs by Input and/or Output:" u="sng" x="21464743" y="25852362"/>
 			<other n="Input" c="C8C8DA" fill="FFFFFF"/>
 			<other n="Output" c="C8C8DA" fill="D1D1D1"/>
 			<!--xxx these instead could be repeating in each of Input and Output above, and the contour color to be a mix of the two colors-->
@@ -610,14 +612,14 @@
 
 		<!--fig 2-->
 		<consequenceStyles>
-			<Caption n="CWEs by DVL Injection Error:" c="FFFFFF" u="sng" x="10765567" y="25852362"/>
+			<Caption n="CWEs by DVL Injection Error:" u="sng" x="10765567" y="25852362"/>
 			<Consequence n="Query Injection" c="99FF66"/>
 			<Consequence n="Command Injection" c="6699FF"/>
 			<Consequence n="Source Code Injection" c="FF9966"/>
 			<Consequence n="Parameter Injection" c="66FFCC"/>
 			<Consequence n="File Injection" c="CC99FF"/>
 
-			<Caption n="CWEs by DVL or DVR Wrong Data for Next Operation Consequence:" c="FFFFFF" u="sng" x="17278697" y="25852362"/>
+			<Caption n="CWEs by DVL or DVR Wrong Data:" u="sng" x="17278697" y="25852362"/>
 			<Consequence n="DVL Invalid Data" c="FF0000"/>
 			<Consequence n="DVR Wrong Value, Inconsistent Value, and Wrong Type" c="C00000"/>
 			<!--<Consequence n="DVR Wrong Value" c="FF0000"/>
@@ -637,7 +639,7 @@ Pillar: 913???, 20, 77, 74 -->
 		<!--fig 1-->
 		<showClassCWEs>
 			<ClassOperation name="_DTC General">
-		<CWE>573</CWE>
+				<CWE>573</CWE>
 				<CWE>664</CWE>
 				<CWE>668</CWE>
 				<!--<CWE>693</CWE>-->
@@ -647,11 +649,11 @@ Pillar: 913???, 20, 77, 74 -->
 			</ClassOperation>
 
 			<ClassOperation name="DCL Declare">
-		<CWE>104</CWE>
-		<CWE>111</CWE>
-		<CWE>245</CWE>
-		<CWE>246</CWE>
-		<CWE>383</CWE>
+				<CWE>104</CWE>
+				<CWE>111</CWE>
+				<CWE>245</CWE>
+				<CWE>246</CWE>
+				<CWE>383</CWE>
 				<CWE>471</CWE>
 				<CWE>491</CWE>
 				<CWE>492</CWE>
@@ -660,28 +662,28 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>496</CWE>
 				<CWE>499</CWE>
 				<CWE>500</CWE>
-		<CWE>574</CWE>
-		<CWE>575</CWE>
-		<CWE>576</CWE>
+				<CWE>574</CWE>
+				<CWE>575</CWE>
+				<CWE>576</CWE>
 				<CWE>582</CWE>
 				<CWE>583</CWE>
 				<CWE>608</CWE>
-		<CWE>694</CWE>
-		<CWE>695</CWE>
+				<CWE>694</CWE>
+				<CWE>695</CWE>
 				<CWE>766</CWE>
 			</ClassOperation>
 			<ClassOperation name="DCL Define">
-		<CWE>103</CWE>
-		<CWE>374</CWE>
+				<CWE>103</CWE>
+				<CWE>374</CWE>
 				<CWE>374</CWE>
 				<CWE>375</CWE>
 				<CWE>498</CWE>
-		<CWE>568</CWE>
-		<CWE>577</CWE>
-		<CWE>578</CWE>
-		<CWE>579</CWE>
-		<CWE>580</CWE>
-		<CWE>581</CWE>
+				<CWE>568</CWE>
+				<CWE>577</CWE>
+				<CWE>578</CWE>
+				<CWE>579</CWE>
+				<CWE>580</CWE>
+				<CWE>581</CWE>
 				<CWE>580</CWE>
 				<CWE>581</CWE>
 				<CWE>749</CWE>
@@ -712,14 +714,14 @@ Pillar: 913???, 20, 77, 74 -->
 			</ClassOperation>
 			<ClassOperation name="NRS Call">
 				<CWE>386</CWE>
-		<CWE>475</CWE>
-		<CWE>628</CWE>
-		<CWE>683</CWE>
-		<CWE>684</CWE>
-		<CWE>685</CWE>
-		<CWE>686</CWE>
-		<CWE>687</CWE>
-		<CWE>688</CWE>
+				<CWE>475</CWE>
+				<CWE>628</CWE>
+				<CWE>683</CWE>
+				<CWE>684</CWE>
+				<CWE>685</CWE>
+				<CWE>686</CWE>
+				<CWE>687</CWE>
+				<CWE>688</CWE>
 			</ClassOperation>
 			<ClassOperation name="TCV Cast">
 				<CWE>588</CWE>
@@ -752,7 +754,7 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>1339</CWE>
 			</ClassOperation>
 			<ClassOperation name="TCM Evaluate">
-		<CWE>351</CWE>
+				<CWE>351</CWE>
 				<CWE>486</CWE>
 				<CWE>595</CWE>
 				<CWE>597</CWE>
@@ -963,7 +965,7 @@ Pillar: 913???, 20, 77, 74 -->
 
 		<!--fig 1-->
 		<classStyles>
-			<Caption n="CWEs by Data Type Bugs class:" c="FFFFFF" u="sng" x="10858514" y="25852362"/>
+			<Caption n="CWEs by Data Type Bugs class:" u="sng" x="10858514" y="25852362"/>
 			<ClassOperation n="DCL Declare" c="00FF99"/>
 			<ClassOperation n="DCL Define" c="99FF33"/>
 			<ClassOperation n="NRS Refer" c="CC00FF"/>
@@ -973,26 +975,26 @@ Pillar: 913???, 20, 77, 74 -->
 			<ClassOperation n="TCM Calculate" c="9966FF"/>
 			<ClassOperation n="TCM Evaluate" c="0099FF"/>
 
-			<!--<Caption n="General CWEs:" c="FFFFFF" u="sng" x="21464743" y="25852362"/>-->
+			<Caption n="General CWEs:" u="sng" x="21464743" y="25852362"/>
 			<ClassOperation n="_DTC General" c="C8C8DA" fill="FFFFFF"/>
 		</classStyles>
 
 		<!--fig 2-->
 		<consequenceStyles>
-			<Caption n="CWEs by DCL Access Error:" c="FFFFFF" u="sng" x="10765567" y="25852362"/>
+			<Caption n="CWEs by DCL Access Error:" u="sng" x="10765567" y="25852362"/>
 			<Consequence n="Wrong Access" c="4D4DFF"/>
 
-			<Caption n="CWEs by TCM Type Compute Error:" c="FFFFFF" u="sng" x="10765567" y="26852362"/>
+			<Caption n="CWEs by TCM Type Compute Error:" u="sng" x="10765567" y="26852362"/>
 			<Consequence n="Undefined" c="C724B1"/>
 
-			<Caption n="CWEs by DCL and NRS Improper Data Type:" c="FFFFFF" u="sng" x="10765567" y="275852362"/>
+			<Caption n="CWEs by DCL and NRS Improper Data Type:" u="sng" x="10765567" y="275852362"/>
 			<Consequence n="Wrong Type" c="e6194B"/>
 			<Consequence n="Incomplete Type" c="f58231"/>
 			<!--<Consequence n="Wrong Generic Type" c="42d4f4"/>-->
 			<!--<Consequence n="Confused Subtype" c="4363d8"/>-->
 			<!--<Consequence n="Wrong Argument Type" c="911eb4"/>-->
 
-			<Caption n="CWEs by TCV and TCM Improper Data Value:" c="FFFFFF" u="sng" x="17278697" y="25852362"/>
+			<Caption n="CWEs by TCV and TCM Improper Data Value:" u="sng" x="17278697" y="25852362"/>
 			<Consequence n="Wrong Result" c="ffe119"/>
 			<Consequence n="Rounded Value" c="bfef45"/>
 			<Consequence n="Truncated Value" c="42d4f4"/>
@@ -1003,10 +1005,10 @@ Pillar: 913???, 20, 77, 74 -->
 			<Consequence n="No Consequence (only cause listed)" c="a9a9a9"/>
 		</consequenceStyles>
 	</Cluster>
-		
+
 	<!--Created by Irena Bojanova, 07/09/2021-->
 	<!--IB, 12/29/2021 - Added: CWEs MAD 562 & 587; MDL CWE 1091; colors info-->
-	<!--IB, 08/08/2022 - Added: CWEs MAD 588, MDL, 586 ; colors info-->
+	<!--IB, 08/08/2022 - Added: CWEs MAD 588, MDL, 586-->
 	<Cluster Name="_MEM">
 		<!--fig 1-->
 		<showClassCWEs>
@@ -1017,8 +1019,10 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>758</CWE>
 			</ClassOperation>
 			<Class name="MAD">
-				<CWE>562</CWE><!--Wild Pointer-->
-				<CWE>587</CWE><!--Hard Coded Address-->
+				<CWE>562</CWE>
+				<!--Wild Pointer-->
+				<CWE>587</CWE>
+				<!--Hard Coded Address-->
 			</Class>
 			<ClassOperation name="MAL">
 				<CWE>400</CWE>
@@ -1051,13 +1055,14 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>226</CWE>
 				<CWE>244</CWE>
 				<CWE>416</CWE>
-		<CWE>454</CWE>
+				<CWE>454</CWE>
 				<CWE>456</CWE>
 				<CWE>457</CWE>
 				<CWE>459</CWE>
 				<CWE>466</CWE>
 				<CWE>476</CWE>
-				<CWE>588</CWE><!--TCV to MAD to MUS-->
+				<CWE>588</CWE>
+				<!--TCV to MAD to MUS-->
 				<!--<CWE>664</CWE>-->
 				<CWE>665</CWE>
 				<!--<CWE>704</CWE>-->
@@ -1077,117 +1082,117 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>586</CWE>
 			</ClassOperation>
 		</showClassCWEs>
-			
+
 		<!--fig 2-->
 		<showConsequenceCWEs>
-		<Consequence name="Memory Overflow">
-			<CWE>400</CWE>
-			<CWE>770</CWE>
-			<CWE>789</CWE>
-		</Consequence>
-		<Consequence name="Memory Leak">
-			<CWE>401</CWE>
-			<CWE>404</CWE>
-			<CWE>771</CWE>
-			<CWE>772</CWE>
-		</Consequence>
-		<Consequence name="Double Free">
-			<CWE>415</CWE>
-		</Consequence>
-		<Consequence name="Object Corruption">
-			<CWE>404</CWE>
-			<CWE>590</CWE>
-			<CWE>761</CWE>
-			<CWE>762</CWE>
-			<CWE>763</CWE>
-		</Consequence>
-		<Consequence name="Uninitialized Object">
-			<CWE>456</CWE>
-			<CWE>457</CWE>
-			<CWE>665</CWE>
-			<CWE>908</CWE>
-			<CWE>909</CWE>
-		</Consequence>
-		<Consequence name="Not Cleared Object">
-			<CWE>226</CWE>
-			<CWE>244</CWE>
-			<CWE>459</CWE>
-		</Consequence>
-		<Consequence name="NULL Pointer Dereference">
-			<CWE>476</CWE>
-		</Consequence>
-		<Consequence name="Untrusted Pointer Dereference">
-			<CWE>119</CWE>
-			<CWE>822</CWE>
-		</Consequence>
-		<Consequence name="Type Confusion">
-			<CWE>588</CWE>
-			<CWE>843</CWE>
-		</Consequence>
-		<Consequence name="Use After Free">
-			<CWE>119</CWE>
-			<CWE>416</CWE>
-			<CWE>825</CWE>
-		</Consequence>
-		<Consequence name="Buffer Overflow">
-			<CWE>118</CWE>
-			<CWE>119</CWE>
-			<CWE>120</CWE>
-			<CWE>121</CWE>
-			<CWE>122</CWE>
-			<CWE>123</CWE>
-			<CWE>125</CWE>
-			<CWE>126</CWE>
-			<CWE>466</CWE>
-			<CWE>805</CWE>
-			<CWE>806</CWE>
-			<CWE>787</CWE>
-			<CWE>788</CWE>
-		</Consequence>
-		<Consequence name="Buffer Underflow">
-			<CWE>118</CWE>
-			<CWE>119</CWE>
-			<CWE>122</CWE>
-			<CWE>123</CWE>
-			<CWE>124</CWE>
-			<CWE>125</CWE>
-			<CWE>127</CWE>
-			<CWE>466</CWE>
-			<CWE>786</CWE>
-			<CWE>787</CWE>
-			<CWE>805</CWE>
-			<CWE>806</CWE>
-		</Consequence>
-		<Consequence name="Unitialized Pointer Dereference">
-			<CWE>119</CWE>
-			<CWE>824</CWE>
-		</Consequence>
-	</showConsequenceCWEs>
+			<Consequence name="Memory Overflow">
+				<CWE>400</CWE>
+				<CWE>770</CWE>
+				<CWE>789</CWE>
+			</Consequence>
+			<Consequence name="Memory Leak">
+				<CWE>401</CWE>
+				<CWE>404</CWE>
+				<CWE>771</CWE>
+				<CWE>772</CWE>
+			</Consequence>
+			<Consequence name="Double Free">
+				<CWE>415</CWE>
+			</Consequence>
+			<Consequence name="Object Corruption">
+				<CWE>404</CWE>
+				<CWE>590</CWE>
+				<CWE>761</CWE>
+				<CWE>762</CWE>
+				<CWE>763</CWE>
+			</Consequence>
+			<Consequence name="Uninitialized Object">
+				<CWE>456</CWE>
+				<CWE>457</CWE>
+				<CWE>665</CWE>
+				<CWE>908</CWE>
+				<CWE>909</CWE>
+			</Consequence>
+			<Consequence name="Not Cleared Object">
+				<CWE>226</CWE>
+				<CWE>244</CWE>
+				<CWE>459</CWE>
+			</Consequence>
+			<Consequence name="NULL Pointer Dereference">
+				<CWE>476</CWE>
+			</Consequence>
+			<Consequence name="Untrusted Pointer Dereference">
+				<CWE>119</CWE>
+				<CWE>822</CWE>
+			</Consequence>
+			<Consequence name="Type Confusion">
+				<CWE>588</CWE>
+				<CWE>843</CWE>
+			</Consequence>
+			<Consequence name="Use After Free">
+				<CWE>119</CWE>
+				<CWE>416</CWE>
+				<CWE>825</CWE>
+			</Consequence>
+			<Consequence name="Buffer Overflow">
+				<CWE>118</CWE>
+				<CWE>119</CWE>
+				<CWE>120</CWE>
+				<CWE>121</CWE>
+				<CWE>122</CWE>
+				<CWE>123</CWE>
+				<CWE>125</CWE>
+				<CWE>126</CWE>
+				<CWE>466</CWE>
+				<CWE>805</CWE>
+				<CWE>806</CWE>
+				<CWE>787</CWE>
+				<CWE>788</CWE>
+			</Consequence>
+			<Consequence name="Buffer Underflow">
+				<CWE>118</CWE>
+				<CWE>119</CWE>
+				<CWE>122</CWE>
+				<CWE>123</CWE>
+				<CWE>124</CWE>
+				<CWE>125</CWE>
+				<CWE>127</CWE>
+				<CWE>466</CWE>
+				<CWE>786</CWE>
+				<CWE>787</CWE>
+				<CWE>805</CWE>
+				<CWE>806</CWE>
+			</Consequence>
+			<Consequence name="Unitialized Pointer Dereference">
+				<CWE>119</CWE>
+				<CWE>824</CWE>
+			</Consequence>
+		</showConsequenceCWEs>
 
 		<!--fig 1-->
 		<classStyles>
-			<Caption n="CWEs by Memory Bugs class:" c="FFFFFF" u="sng" x="14765567" y="25852362"/>
+			<Caption n="CWEs by Memory Bugs class:" u="sng" x="14765567" y="25852362"/>
 			<ClassOperation n="MAD" c="5DCC90"/>
 			<ClassOperation n="MAL" c="FF5EAE"/>
 			<ClassOperation n="MUS" c="4E9CD2"/>
 			<ClassOperation n="MDL" c="AA5EAA"/>
 			<ClassOperation n="MDL and MAL" c="FF0000"/>
 
-			<Caption n="General CWEs:" c="FFFFFF" u="sng" x="21278697" y="25852362"/>
+			<Caption n="General CWEs:" u="sng" x="21278697" y="25852362"/>
 			<ClassOperation n="_MEM General" c="C8C8DA" fill="FFFFFF"/>
 		</classStyles>
 
 		<!--fig 2-->
 		<consequenceStyles>
 
-			<Caption n="CWEs by MAL Memory Error:" c="FFFFFF" u="sng" x="14765567" y="25852362"/>
+			<Caption n="CWEs by MAL Memory Error:" u="sng" x="14765567" y="25852362"/>
 			<Consequence n="Memory Overflow " c="4D4DFF"/>
 			<!--covered by " MAL or MDL Memory Error
 			<Consequence n="Memory Leak" c="ffe119"/>
 			<Consequence n="Double Free" c="bfef45"/>
 			<Consequence n="Object Corruption" c="42d4f4"/>-->
 
-			<Caption n="CWEs by MUS Memory Error:" c="FFFFFF" u="sng" x="21278697" y="25852362"/>
+			<Caption n="CWEs by MUS Memory Error:" u="sng" x="21278697" y="25852362"/>
 			<Consequence n="Uninitialized Object " c="C724B1"/>
 			<Consequence n="Not Cleared Object" c="08748E"/>
 			<Consequence n="NULL Pointer Dereference" c="4363d8"/>
@@ -1197,8 +1202,8 @@ Pillar: 913???, 20, 77, 74 -->
 			<Consequence n="Buffer Overflow" c="0000FF"/>
 			<Consequence n="Buffer Underflow" c="009900"/>
 			<Consequence n="Unitialized Pointer Dereference" c="FF9900"/>
-				
-			<Caption n="CWEs by MAL or MDL Memory Error:" c="FFFFFF" u="sng" x="14765567" y="28352362"/>
+
+			<Caption n="CWEs by MAL or MDL Memory Error:" u="sng" x="14765567" y="28352362"/>
 			<Consequence n="Memory Leak" c="ffe119"/>
 			<Consequence n="Double Free" c="bfef45"/>
 			<Consequence n="Object Corruption" c="42d4f4"/>
@@ -1251,11 +1256,11 @@ Pillar: 913???, 20, 77, 74 -->
 		<showConsequenceCWEs/>
 
 		<classStyles>
-			<Caption n="CWEs by Data Type Bugs class:" c="FFFFFF" u="sng" x="10858514" y="25852362"/>
+			<Caption n="CWEs by Data Type Bugs class:" u="sng" x="10858514" y="25852362"/>
 			<ClassOperation n="ATN" c="FF5EAE"/>
 			<ClassOperation n="ATZ" c="4E9CD2"/>
 
-			<Caption n="General CWEs:" c="FFFFFF" u="sng" x="21464743" y="25852362"/>
+			<Caption n="General CWEs:" u="sng" x="21464743" y="25852362"/>
 			<ClassOperation n="_ACC Genera" c="C8C8DA" fill="FFFFFF"/>
 		</classStyles>
 		<consequenceStyles/>
@@ -1304,7 +1309,7 @@ Pillar: 913???, 20, 77, 74 -->
 
 		<classStyles>
 			<!-- http://phrogz.net/tmp/24colors.html-->
-			<Caption n="CWEs by Cryptography Bugs class:" c="FFFFFF" u="sng" x="10858514" y="25852362"/>
+			<Caption n="CWEs by Cryptography Bugs class:" u="sng" x="10858514" y="25852362"/>
 			<ClassOperation n="ENC" c="0040FF"/>
 			<ClassOperation n="VRF" c="FF00AA"/>
 			<ClassOperation n="KMN" c="FF0000"/>
@@ -1314,14 +1319,13 @@ Pillar: 913???, 20, 77, 74 -->
 		</classStyles>
 
 		<consequenceStyles>
-			<Caption n="CWEs by ENC xxx Error:" c="FFFFFF" u="sng" x="10765567" y="25852362"/>
+			<Caption n="CWEs by ENC xxx Error:" u="sng" x="10765567" y="25852362"/>
 			<Consequence n="xxx" c="4D4DFF"/>
 
-			<Caption n="CWEs by VRF xxx Error:" c="FFFFFF" u="sng" x="10765567" y="26852362"/>
+			<Caption n="CWEs by VRF xxx Error:" u="sng" x="10765567" y="26852362"/>
 			<Consequence n="xxx" c="C724B1"/>
 
 			<Consequence n="No Consequence (only cause listed)" c="a9a9a9"/>
 		</consequenceStyles>
 	</Cluster>
 </BFCWE>
-

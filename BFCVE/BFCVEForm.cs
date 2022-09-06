@@ -216,7 +216,7 @@ namespace BFCVE
             catch(Exception error) 
             {
                 Editing = false;
-                if (MessageBox.Show($"{error.Message}{Environment.NewLine}Continue anyway?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"{error.Message}.{Environment.NewLine}Cancel the entries for this Bug/Weakness/Failure?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     CurrentWeakness = SelectedCVENode?.Weakness; // Rollback!
                     return true;
@@ -327,7 +327,7 @@ namespace BFCVE
                 return new TreeNodeComment(i.Key.Name, i.Key.Definition, disable: mismatch, children: i.Value.Select(j =>
                     new TreeNodeComment(j, Parser.GetDefinition(j), mismatch))) ;
             }));
-            if (PeerConsequence?.Value is string name) SelectByName(causes, name);
+            if (SelectedCVENode == null && PeerConsequence?.Value is string name) SelectByName(causes, name, hasComment:false);
 
             operations.SetNodes(Parser.GetOperations(selectedClass.Name).Select(i =>
                 new TreeNodeComment(i, Parser.GetDefinition(i))));
@@ -364,7 +364,6 @@ namespace BFCVE
 
         private void Comment_TextChanged(object sender, EventArgs e) => Editing = true;
 
-        //xxxdoes not take the last change 
         private void Comment_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (sender is not TextBox textBox
@@ -387,6 +386,8 @@ namespace BFCVE
                 for (TreeNode peer = node; (peer = peer.NextNode) != null;) yield return peer;
             }
         }
+
+        //xxx not ready
         private void Attributes_AfterCheck(object sender, TreeViewEventArgs e) => Editing = true;
 
         private void ButtonRollback_Click(object sender, EventArgs e) => CurrentWeakness = SelectedCVENode?.Weakness;

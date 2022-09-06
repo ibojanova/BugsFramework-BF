@@ -21,12 +21,12 @@ namespace BFCVE
 
         public IEnumerable<TreeNodeComment> SubNodes => Nodes.OfType<TreeNodeComment>();
 
-        public static bool SelectByName(TreeView treeView, string name, string? comment = null)
+        public static bool SelectByName(TreeView treeView, string name, string? comment = null, bool hasComment = true)
         {
             var node = treeView.Nodes.Find(name, true).FirstOrDefault();
             if (node is TreeNodeComment xNode)
             {
-                xNode.Comment = comment;
+                if (comment != null || hasComment) xNode.Comment = comment;
                 treeView.SelectedNode = xNode.Disabled ? null : node;
             }
             else treeView.SelectedNode = node;

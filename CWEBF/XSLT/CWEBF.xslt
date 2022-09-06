@@ -6,11 +6,11 @@
 	
 	<xsl:output method="xml" indent="yes"/>
 
-	<!-- change in BF.xslt to proper cluster -->
-	<!--<xsl:include href="../../BF/XSLT/BF.xslt"/>-->
+	<!-- change in BFCWE.xslt to proper cluster -->`
 
 	<xsl:param name="Clusters"/>
-	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>
+	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>-->
+	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DTC' or @Name='_MEM']"/>
 	<!--<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>-->
 
 	<xsl:variable name="showClassCWEs" select="$Cluster/showClassCWEs"/>
@@ -110,17 +110,18 @@
 		<CWEabstr n="Class" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="sng"  d="sysDot"/>
 		<CWEabstr n="Base" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="dbl" d="sysDot"/>
 		<CWEabstr n="Variant" f="Calibri" fs="3600" c="7F7F7F" w="70000" cm="sng" d="solid"/>
-		<!--<CWEabstr n="Compound" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="thickThin" d="solid"/>-->
+		<CWEabstr n="Compound" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="thickThin" d="solid"/>
 	</xsl:param>
 	
 	<!-- Arrow style depends on CWE Nature
 	w=width, d=dash, h=head, t=tail -->
 	<xsl:param name="arrowStyles">
-		<ChildOf w="36700" d="solid" h="none" t="stealth"/>
-		<CanPrecede w="36700" d="dash" h="none" t="stealth"/>
-		<CanFollow w="36700" d="dash" h="none" t="stealth"/>
-		<CanAlsoBe w="36700" d="dot" h="none" t="none"/>
-		<PeerOf w="36700" d="dot" h="stealth" t="stealth"/>
+		<!--<Caption n="CWEs Relation by Nature:" c="FFFFFF" u="sng" x="32117693" y="275852362"/>-->
+		<CWEnature n="ChildOf" w="36700" d="solid" h="none" t="stealth"/>
+		<CWEnature n="CanPrecede" w="36700" d="dash" h="none" t="stealth"/>
+		<CWEnature n="CanFollow" w="36700" d="dash" h="none" t="stealth"/>
+		<CWEnature n="CanAlsoBe" w="36700" d="dot" h="none" t="none"/>
+		<CWEnature n="PeerOf" w="36700" d="dot" h="stealth" t="stealth"/>
 	</xsl:param>
 
 	<!-- ================= Generate Node -->
@@ -342,7 +343,7 @@
 
 	<!-- Draw arrow -->
 	<xsl:template mode="drawArrows" match="*">
-		<xsl:variable name="arrowStyle" select="msxsl:node-set($arrowStyles)/*[name()=current()/@N]"/>
+		<xsl:variable name="arrowStyle" select="msxsl:node-set($arrowStyles)/*[@n=current()/@N]"/>
 		<p:cxnSp xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
 			<!--connector-->
 			<xsl:variable name="conn">
@@ -467,10 +468,10 @@
 				<a:t> <xsl:value-of select="@D"/> </a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>
 			<a:tc> <a:txBody><a:bodyPr/> <a:p><a:r> 
 				<a:rPr sz="{$legendTextSize}"> <xsl:if test="$highlight"> <a:highlight> <a:schemeClr val="accent1"/> </a:highlight> </xsl:if> </a:rPr>
-				<a:t> <xsl:for-each select="$class"><xsl:value-of select="."/><xsl:if test="position()&lt;last()"><xsl:value-of select="', '"/></xsl:if></xsl:for-each> </a:t> </a:r> </a:p> </a:txBody> </a:tc>
+				<a:t> <xsl:for-each select="$class"><xsl:value-of select="."/><xsl:if test="position()&lt;last()"><xsl:value-of select="'  xANDx  '"/></xsl:if></xsl:for-each> </a:t> </a:r> </a:p> </a:txBody> </a:tc>
 		</a:tr>
 	</xsl:template>
-
+	
 	<xsl:template mode="drawLegendNodes" match="*">
 		<xsl:variable name="caption" select="(. | preceding-sibling::*)[self::Caption][last()]"/>
 		<xsl:variable name="pos" select="count(preceding-sibling::*) - count($caption/preceding-sibling::*)"/>
@@ -494,23 +495,26 @@
 			</p:grpSpPr>
 			<p:sp>
 				<p:nvSpPr> <p:cNvPr id="{position()}" name="legendNode"></p:cNvPr> <p:cNvSpPr/> <p:nvPr/> </p:nvSpPr>
-				<p:spPr>
-					<a:xfrm> <a:off x="30772678" y="{44366120 - $captionOff}"/> <a:ext cx="1000000" cy="1000000"/> </a:xfrm>
-					<a:prstGeom prst="ellipse"> </a:prstGeom>
-					<xsl:if test="@fill"><a:solidFill><a:srgbClr val="{@fill}"/></a:solidFill></xsl:if>
-					<xsl:variable name="w">
-						<xsl:choose><xsl:when test="@w"><xsl:value-of select="@w"/></xsl:when>
-						<xsl:otherwise>70000</xsl:otherwise></xsl:choose>
-					</xsl:variable>
-					<xsl:variable name="cm">
-						<xsl:choose><xsl:when test="@cm"><xsl:value-of select="@cm"/></xsl:when>
-						<xsl:otherwise>sng</xsl:otherwise></xsl:choose>
-					</xsl:variable>
-					<a:ln w="{$w}" cmpd="{$cm}">
-						<xsl:if test="@c"><a:solidFill><a:srgbClr val="{@c}"/></a:solidFill></xsl:if>
-						<xsl:if test="@d"><a:prstDash val="{@d}"/></xsl:if>
-					</a:ln>					
-				</p:spPr>
+					<p:spPr>
+						<a:xfrm> <a:off x="30772678" y="{44366120 - $captionOff}"/> <a:ext cx="1000000" cy="1000000"/> </a:xfrm>
+						<xsl:if test="not (self::Caption)">
+								<a:prstGeom prst="ellipse"> </a:prstGeom>
+								<xsl:if test="@fill"><a:solidFill><a:srgbClr val="{@fill}"/></a:solidFill></xsl:if>
+					
+								<xsl:variable name="w">
+									<xsl:choose><xsl:when test="@w"><xsl:value-of select="@w"/></xsl:when>
+									<xsl:otherwise>70000</xsl:otherwise></xsl:choose>
+								</xsl:variable>
+								<xsl:variable name="cm">
+									<xsl:choose><xsl:when test="@cm"><xsl:value-of select="@cm"/></xsl:when>
+									<xsl:otherwise>sng</xsl:otherwise></xsl:choose>
+								</xsl:variable>
+								<a:ln w="{$w}" cmpd="{$cm}">
+									<xsl:if test="@c"><a:solidFill><a:srgbClr val="{@c}"/></a:solidFill></xsl:if>
+									<xsl:if test="@d"><a:prstDash val="{@d}"/></xsl:if>
+								</a:ln>		
+						</xsl:if>
+					</p:spPr>
 				<!--<p:txBody>
 					<a:bodyPr lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
 					<a:lstStyle/>
@@ -534,8 +538,7 @@
 		</p:grpSp>
 	</xsl:template>
 	
-	<!--not used-->
-	<!--<xsl:template mode="drawLegendArrows"  match="*">
+	<xsl:template mode="drawLegendArrows"  match="*">
 		<p:grpSp xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
 			<p:nvGrpSpPr> <p:cNvPr id="0" name="GroupLegendArrow"> </p:cNvPr> <p:cNvGrpSpPr/> <p:nvPr/>
 			</p:nvGrpSpPr>
@@ -553,10 +556,10 @@
 			<p:sp>
 				<p:nvSpPr> <p:cNvPr id="{position()}" name="legendArrowTextBox"> </p:cNvPr> <p:cNvSpPr/> <p:nvPr/> </p:nvSpPr>
 				<p:spPr> <a:xfrm> <a:off x="41735458" y="44240717"/> <a:ext cx="4452730" cy="1200329"/> </a:xfrm> </p:spPr>
-				<p:txBody><a:bodyPr/><a:p> <a:r> <a:rPr  sz="{$legendTextSize}"/> <a:t><xsl:value-of select="@name"/></a:t> </a:r> </a:p></p:txBody>
+				<p:txBody><a:bodyPr/><a:p> <a:r> <a:rPr  sz="{$legendTextSize}"/> <a:t><xsl:value-of select="@n"/></a:t> </a:r> </a:p></p:txBody>
 			</p:sp>
 		</p:grpSp>
-	</xsl:template>-->
+	</xsl:template>
 	
 	
 	

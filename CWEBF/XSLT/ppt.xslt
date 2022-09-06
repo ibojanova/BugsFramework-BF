@@ -29,13 +29,25 @@
                             <p:grpSpPr> <a:xfrm> <a:off x="0" y="0"/> <a:ext cx="0" cy="0"/> <a:chOff x="0" y="0"/> <a:chExt cx="0" cy="0"/> </a:xfrm> </p:grpSpPr>
 			  
  			                <!-- Generate nodes and arrows from cwec_vx.x.xml-->
+							
 			                <xsl:apply-templates mode="drawNodes" select="msxsl:node-set($myNodes)//W">
 			                    <xsl:with-param name="useClassStyle" select="$useClassStyle"/>
 			                </xsl:apply-templates>
 			                <xsl:apply-templates mode="drawArrows" select="msxsl:node-set($myNodes)//R"/>
 								
 			                <!-- Generate legend kinds of nodes, kinds of arrows-->
-							<xsl:apply-templates mode="drawLegendNodes" select="msxsl:node-set($styles)/* | msxsl:node-set($nodeStyles)/*" />
+							<!--<xsl:apply-templates mode="drawLegendNodes" select="msxsl:node-set($styles)/* | msxsl:node-set($nodeStyles)/*" />-->
+							<xsl:choose>
+								<xsl:when test="$fromCurrentCWEBF">
+									<!-- keep same node legends-->
+									<xsl:variable name="slide" select="concat('/ppt/slides/slide', $slideNumber,'.xml')"/>
+									<xsl:copy-of select="document('../../_DB/CWEBF/CurrentCWEBF.xml')//pkg:part[@pkg:name=$slide]//p:grpSp[p:nvGrpSpPr/p:cNvPr[@name='GroupLegendNode']]"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:apply-templates mode="drawLegendNodes" select="msxsl:node-set($styles)/* | msxsl:node-set($nodeStyles)/*" />
+								</xsl:otherwise>
+							</xsl:choose>
+							
 			                <!--<xsl:apply-templates mode="drawLegendArrows" select="msxsl:node-set($arrowStyles)"/>-->
 								
 			                <!-- Generate legend table of CWEs-->

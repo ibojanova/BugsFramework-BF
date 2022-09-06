@@ -381,7 +381,7 @@ namespace BFCVE
             this.operationAttributes.Size = new System.Drawing.Size(218, 211);
             this.operationAttributes.TabIndex = 167;
             this.operationAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
-            this.operationAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
+            this.operationAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
             // 
             // operationGroupBox
             // 
@@ -510,7 +510,7 @@ namespace BFCVE
             this.operandAttributes.Size = new System.Drawing.Size(218, 211);
             this.operandAttributes.TabIndex = 182;
             this.operandAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
-            this.operandAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
+            this.operandAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
             // 
             // operandAttributeComment
             // 
@@ -613,7 +613,7 @@ namespace BFCVE
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnFileClose);
             // 
-            // BFForm
+            // BFCVEForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -630,7 +630,7 @@ namespace BFCVE
             this.Controls.Add(this.BWFGroupBox);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "BFForm";
+            this.Name = "BFCVEForm";
             this.Text = "Bugs Framework (BF)";
             this.Load += new System.EventHandler(this.BF_Load);
             this.toolStrip.ResumeLayout(false);
