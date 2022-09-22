@@ -10,10 +10,10 @@
 				<CWE>284</CWE>
 				<CWE>435</CWE>
 				<CWE>664</CWE>
-				<CWE>682</CWE>
+				<!--<CWE>682</CWE>-->
 				<CWE>691</CWE>
 				<CWE>693</CWE>
-				<CWE>697</CWE>
+				<!--<CWE>697</CWE>-->
 				<CWE>703</CWE>
 				<CWE>707</CWE>
 				<CWE>710</CWE>
@@ -642,6 +642,8 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>573</CWE>
 				<CWE>664</CWE>
 				<CWE>668</CWE>
+				<!--<CWE>682</CWE>-->
+				<!--<CWE>697</CWE>-->
 				<!--<CWE>693</CWE>-->
 				<CWE>710</CWE>
 				<CWE>758</CWE>
@@ -649,11 +651,11 @@ Pillar: 913???, 20, 77, 74 -->
 			</ClassOperation>
 
 			<ClassOperation name="DCL Declare">
-				<CWE>104</CWE>
+				<!--<CWE>104</CWE>
 				<CWE>111</CWE>
 				<CWE>245</CWE>
 				<CWE>246</CWE>
-				<CWE>383</CWE>
+				<CWE>383</CWE>-->
 				<CWE>471</CWE>
 				<CWE>491</CWE>
 				<CWE>492</CWE>
@@ -662,29 +664,27 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>496</CWE>
 				<CWE>499</CWE>
 				<CWE>500</CWE>
-				<CWE>574</CWE>
+				<!--<CWE>574</CWE>
 				<CWE>575</CWE>
-				<CWE>576</CWE>
+				<CWE>576</CWE>-->
 				<CWE>582</CWE>
 				<CWE>583</CWE>
 				<CWE>608</CWE>
 				<CWE>694</CWE>
-				<CWE>695</CWE>
+				<!--<CWE>695</CWE>-->
 				<CWE>766</CWE>
 			</ClassOperation>
 			<ClassOperation name="DCL Define">
-				<CWE>103</CWE>
-				<CWE>374</CWE>
+				<!--<CWE>103</CWE>-->
 				<CWE>374</CWE>
 				<CWE>375</CWE>
 				<CWE>498</CWE>
-				<CWE>568</CWE>
+				<!--<CWE>568</CWE>
 				<CWE>577</CWE>
 				<CWE>578</CWE>
-				<CWE>579</CWE>
+				<CWE>579</CWE>-->
 				<CWE>580</CWE>
 				<CWE>581</CWE>
-				<CWE>580</CWE>
 				<CWE>581</CWE>
 				<CWE>749</CWE>
 				<CWE>767</CWE>
@@ -714,14 +714,12 @@ Pillar: 913???, 20, 77, 74 -->
 			</ClassOperation>
 			<ClassOperation name="NRS Call">
 				<CWE>386</CWE>
-				<CWE>475</CWE>
+				<!--<CWE>475</CWE>-->
 				<CWE>628</CWE>
 				<CWE>683</CWE>
-				<CWE>684</CWE>
+				<!--<CWE>684</CWE>-->
 				<CWE>685</CWE>
 				<CWE>686</CWE>
-				<CWE>687</CWE>
-				<CWE>688</CWE>
 			</ClassOperation>
 			<ClassOperation name="TCV Cast">
 				<CWE>588</CWE>
@@ -735,6 +733,7 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>196</CWE>
 				<CWE>681</CWE>
 				<!--<CWE>704</CWE>-->
+				<CWE>843</CWE>
 			</ClassOperation>
 			<ClassOperation name="TCM Calculate">
 				<CWE>128</CWE>
@@ -743,13 +742,14 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>188</CWE>
 				<CWE>190</CWE>
 				<CWE>191</CWE>
-				<CWE>193</CWE>
+				<CWE>193</CWE><!--double color-->
 				<CWE>369</CWE>
 				<CWE>467</CWE>
 				<CWE>468</CWE>
 				<CWE>469</CWE>
 				<CWE>682</CWE>
-				<CWE>843</CWE>
+		<CWE>687</CWE><!--double color-->
+		<CWE>688</CWE><!--double color-->
 				<CWE>1335</CWE>
 				<CWE>1339</CWE>
 			</ClassOperation>
@@ -758,6 +758,8 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>486</CWE>
 				<CWE>595</CWE>
 				<CWE>597</CWE>
+		<CWE>687</CWE><!--double color-->
+		<CWE>688</CWE><!--double color-->
 				<CWE>697</CWE>
 				<CWE>1023</CWE>
 				<CWE>1024</CWE>
@@ -768,16 +770,13 @@ Pillar: 913???, 20, 77, 74 -->
 
 		<!--fig 2-->
 		<showConsequenceCWEs>
-			<Consequence name="Wrong Access">
-				<!-- split by	Wrong Access Object
-						Wrong Access Function
-						Wrong Access Type-->
+			<Consequence name="Wrong Access Object">
 				<CWE>374</CWE>
 				<CWE>375</CWE>
 				<CWE>386</CWE>
 				<CWE>471</CWE>
 				<CWE>491</CWE>
-				<CWE>492</CWE>
+				<CWE>492</CWE><!--double color-->
 				<CWE>493</CWE>
 				<CWE>495</CWE>
 				<CWE>496</CWE>
@@ -785,24 +784,40 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>499</CWE>
 				<CWE>500</CWE>
 				<CWE>582</CWE>
-				<CWE>583</CWE>
 				<CWE>608</CWE>
-				<CWE>749</CWE>
 				<CWE>766</CWE>
 				<CWE>767</CWE>
 				<CWE>1057</CWE>
-				<CWE>1061</CWE>
+				<CWE>1061</CWE><!--double color-->
 				<CWE>1083</CWE>
 				<CWE>1090</CWE>
-				<CWE>1105</CWE>
-				<CWE>1105</CWE>
+				<CWE>1105</CWE><!--double color-->
+			</Consequence>
+			<Consequence name="Wrong Access Function">
+				<CWE>492</CWE><!--double color-->
+				<CWE>583</CWE>
+				<CWE>749</CWE>
+				<CWE>1061</CWE><!--double color-->
+				<CWE>1105</CWE><!--double color-->
 			</Consequence>
 			<Consequence name="Undefined">
 				<CWE>369</CWE>
 			</Consequence>
 
+			<!--Improper Function -->
+			<Consequence name="Wrong Overloaded Function">
+				<CWE>628</CWE>
+				<CWE>683</CWE><!--double color-->
+				<CWE>685</CWE><!--double color-->
+				<CWE>686</CWE><!--double color-->
+			</Consequence>
+			<Consequence name="Wrong Object/Function/Type Resolved">
+				<CWE>694</CWE>
+			</Consequence>
+
 			<!--Improper Data Type -->
 			<Consequence name="Wrong Type">
+				<CWE>351</CWE>
 				<CWE>1043</CWE>
 				<CWE>1054</CWE>
 				<CWE>1055</CWE>
@@ -822,21 +837,6 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>1097</CWE>
 				<CWE>1098</CWE>
 			</Consequence>
-			<!--<Consequence name="Wrong Generic Type">
-        -->
-			<!--<CWE>xxx</CWE>-->
-			<!--
-    </Consequence>
-    <Consequence name="Confused Subtype">
-        -->
-			<!--<CWE>xxx</CWE>-->
-			<!--
-    </Consequence>
-	<Consequence name="Wrong Argument Type">
-		-->
-			<!--<CWE>xxx</CWE>-->
-			<!--
-	</Consequence>-->
 
 			<!--Improper Data Value -->
 			<Consequence name="Wrong Result">
@@ -851,6 +851,11 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>595</CWE>
 				<CWE>597</CWE>
 				<CWE>682</CWE>
+		<CWE>683</CWE><!--double color-->
+		<CWE>685</CWE><!--double color-->
+		<CWE>686</CWE><!--double color-->
+		<CWE>687</CWE>
+		<CWE>688</CWE>
 				<CWE>697</CWE>
 				<CWE>1023</CWE>
 				<CWE>1024</CWE>
@@ -874,11 +879,10 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>191</CWE>
 			</Consequence>
 			<Consequence name="Under Range">
-				<CWE>193</CWE>
+				<CWE>193</CWE><!--double color-->
 			</Consequence>
 			<Consequence name="Over Range">
-				<!--<CWE>193</CWE>-->
-				<!--mark manualy also as "Under Range"-->
+				<CWE>193</CWE><!--double color-->
 				<CWE>843</CWE>
 			</Consequence>
 			<Consequence name="Flipped Sign">
@@ -887,9 +891,6 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>196</CWE>
 			</Consequence>
 
-			<OnlyCause name="No Consequence (only cause listed)">
-				<CWE>102</CWE>
-			</OnlyCause>
 		</showConsequenceCWEs>
 
 		<!-- Hide CWEs-->
@@ -965,7 +966,7 @@ Pillar: 913???, 20, 77, 74 -->
 
 		<!--fig 1-->
 		<classStyles>
-			<Caption n="CWEs by Data Type Bugs class:" u="sng" x="10858514" y="25852362"/>
+			<Caption n="CWEs by DTC, NRS, TCV, and TCM operation:" u="sng" x="10858514" y="25852362"/>
 			<ClassOperation n="DCL Declare" c="00FF99"/>
 			<ClassOperation n="DCL Define" c="99FF33"/>
 			<ClassOperation n="NRS Refer" c="CC00FF"/>
@@ -976,13 +977,14 @@ Pillar: 913???, 20, 77, 74 -->
 			<ClassOperation n="TCM Evaluate" c="0099FF"/>
 
 			<Caption n="General CWEs:" u="sng" x="21464743" y="25852362"/>
-			<ClassOperation n="_DTC General" c="C8C8DA" fill="FFFFFF"/>
+			<ClassOperation n="_DTC General" c="C8C8DA"/>
 		</classStyles>
 
 		<!--fig 2-->
 		<consequenceStyles>
 			<Caption n="CWEs by DCL Access Error:" u="sng" x="10765567" y="25852362"/>
-			<Consequence n="Wrong Access" c="4D4DFF"/>
+			<Consequence n="Wrong Access Object" c="008000"/>
+			<Consequence n="Wrong Access Function" c="00CC66"/>
 
 			<Caption n="CWEs by TCM Type Compute Error:" u="sng" x="10765567" y="26852362"/>
 			<Consequence n="Undefined" c="C724B1"/>
@@ -990,11 +992,11 @@ Pillar: 913???, 20, 77, 74 -->
 			<Caption n="CWEs by DCL and NRS Improper Data Type:" u="sng" x="10765567" y="275852362"/>
 			<Consequence n="Wrong Type" c="e6194B"/>
 			<Consequence n="Incomplete Type" c="f58231"/>
-			<!--<Consequence n="Wrong Generic Type" c="42d4f4"/>-->
-			<!--<Consequence n="Confused Subtype" c="4363d8"/>-->
-			<!--<Consequence n="Wrong Argument Type" c="911eb4"/>-->
 
-			<Caption n="CWEs by TCV and TCM Improper Data Value:" u="sng" x="17278697" y="25852362"/>
+			<Caption n="CWEs by NRS Improper Function:" u="sng" x="10765567" y="285852362"/>
+			<Consequence n="Wrong Overloaded Function" c="800000"/>
+
+			<Caption n="CWEs by TCV and TCM Improper Data Value:" u="sng" x="17278697" y="29852362"/>
 			<Consequence n="Wrong Result" c="ffe119"/>
 			<Consequence n="Rounded Value" c="bfef45"/>
 			<Consequence n="Truncated Value" c="42d4f4"/>
@@ -1179,7 +1181,7 @@ Pillar: 913???, 20, 77, 74 -->
 			<ClassOperation n="MDL and MAL" c="FF0000"/>
 
 			<Caption n="General CWEs:" u="sng" x="21278697" y="25852362"/>
-			<ClassOperation n="_MEM General" c="C8C8DA" fill="FFFFFF"/>
+			<ClassOperation n="_MEM General" c="C8C8DA"/>
 		</classStyles>
 
 		<!--fig 2-->
@@ -1261,7 +1263,7 @@ Pillar: 913???, 20, 77, 74 -->
 			<ClassOperation n="ATZ" c="4E9CD2"/>
 
 			<Caption n="General CWEs:" u="sng" x="21464743" y="25852362"/>
-			<ClassOperation n="_ACC Genera" c="C8C8DA" fill="FFFFFF"/>
+			<ClassOperation n="_ACC Genera" c="C8C8DA"/>
 		</classStyles>
 		<consequenceStyles/>
 	</Cluster>
@@ -1315,7 +1317,7 @@ Pillar: 913???, 20, 77, 74 -->
 			<ClassOperation n="KMN" c="FF0000"/>
 			<ClassOperation n="ENC and VRF" c="6AFF00"/>
 
-			<ClassOperation n="_CRY General" c="C8C8DA" fill="FFFFFF"/>
+			<ClassOperation n="_CRY General" c="C8C8DA"/>
 		</classStyles>
 
 		<consequenceStyles>

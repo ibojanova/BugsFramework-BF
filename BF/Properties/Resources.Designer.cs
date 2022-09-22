@@ -91,10 +91,10 @@ namespace BF.Properties {
         ///				&lt;CWE&gt;284&lt;/CWE&gt;
         ///				&lt;CWE&gt;435&lt;/CWE&gt;
         ///				&lt;CWE&gt;664&lt;/CWE&gt;
-        ///				&lt;CWE&gt;682&lt;/CWE&gt;
+        ///				&lt;!--&lt;CWE&gt;682&lt;/CWE&gt;--&gt;
         ///				&lt;CWE&gt;691&lt;/CWE&gt;
         ///				&lt;CWE&gt;693&lt;/CWE&gt;
-        ///				&lt;CWE&gt;697&lt;/CWE&gt;
+        ///				&lt;!--&lt;CWE&gt;697&lt;/CWE&gt;--&gt;
         ///				&lt;CWE&gt;703&lt;/CWE&gt;
         ///				&lt;CWE&gt;707&lt;/CWE&gt;
         ///				&lt;CWE&gt;710&lt;/CWE&gt;
@@ -103,7 +103,7 @@ namespace BF.Properties {
         ///	&lt;/Cluster&gt;
         ///
         ///	&lt;!--Created by Irena Bojanova, 07/09/2021--&gt;
-        ///	&lt;Cluster Name=&quot; [rest of string was truncated]&quot;;.
+        ///	&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BFCWE {
             get {

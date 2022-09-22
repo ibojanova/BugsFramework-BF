@@ -11,6 +11,8 @@ namespace BFCVE
 {
     public partial class BFCVEForm : Form
     {
+        string Title = "Bugs Framework (BF)";
+        string FileName = "";
         readonly IEnumerable<(TreeView treeView, TextBox textBox)> CommentMap;
 
         public BFCVEForm()
@@ -235,10 +237,9 @@ namespace BFCVE
 
         private void OnFileNew(object sender, EventArgs e)
         {
-            if (Editing || Edited)
-                if (MessageBox.Show("Changes are not saved. Continue anyway?", "New", MessageBoxButtons.YesNo) != DialogResult.Yes) 
-                    return;
+            if ((Editing || Edited) && (MessageBox.Show("Changes are not saved. Continue anyway?", "New", MessageBoxButtons.YesNo) != DialogResult.Yes)) return;
 
+            Text = Title;
             Editing = Edited = false;
             CVE = null;
             NewCVENode(BWF.Bug);
@@ -250,6 +251,8 @@ namespace BFCVE
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
             if (TryLoadCVE(openFileDialog.FileName) is not CVE cve) return;
+            FileName = openFileDialog.FileName;
+            Text = Title + "          " + FileName;
             Editing = Edited = false;
             CVE = cve;
 
@@ -267,6 +270,7 @@ namespace BFCVE
                 if (Editing) Commit();
                 if (CVE is not CVE cve) return;
 
+                saveFileDialog.FileName = FileName;
                 if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
 
                 BFCVESerializer.Save(cve, saveFileDialog.FileName);

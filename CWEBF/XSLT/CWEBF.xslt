@@ -6,11 +6,10 @@
 	
 	<xsl:output method="xml" indent="yes"/>
 
-	<!-- change in BFCWE.xslt to proper cluster -->`
-
 	<xsl:param name="Clusters"/>
-	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>-->
-	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DTC' or @Name='_MEM']"/>
+	<!-- change here to proper cluster -->
+	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>
+	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DTC' or @Name='_MEM']"/>-->
 	<!--<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>-->
 
 	<xsl:variable name="showClassCWEs" select="$Cluster/showClassCWEs"/>
@@ -309,33 +308,42 @@
 
 		<xsl:variable name="outlineColor">
 			<xsl:choose>
-				<xsl:when test="msxsl:node-set($attr)//@c"><xsl:value-of select="msxsl:node-set($attr)//@c[1]"/></xsl:when>
-				<xsl:otherwise>C8C8DA</xsl:otherwise>
+				<xsl:when test="msxsl:node-set($attr)//@c"><xsl:copy-of select="msxsl:node-set($attr)//*[@c]"/></xsl:when>
+				<xsl:otherwise><x c="C8C8DA"/></xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		<!--<xsl:variable name="zzz" select="count(msxsl:node-set($outlineColor)//@c)"/>-->
 		<xsl:variable name="fillColor" select="msxsl:node-set($attr)//@fill[1]"/>
 		<xsl:variable name="fontColor" select="msxsl:node-set($attr)//@fc[1]"/>
 	
-		<p:sp xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">			
-			<!--node id & name-->
-			<p:nvSpPr> <p:cNvPr id="{@Id}" name="nodeCWE"/> <p:cNvSpPr/> <p:nvPr/> </p:nvSpPr>
-			<p:spPr>
-				<!--node coordinates -->
-				<a:xfrm> <a:off x="{$nodeCoordinates/@x -$nodeRadius}" y="{$nodeCoordinates/@y -$nodeRadius}"/> <a:ext cx="{2*$nodeRadius}" cy="{2*$nodeRadius}"/>	</a:xfrm>
-				<a:prstGeom prst="ellipse"/>
-				<xsl:if test="$fillColor"><a:solidFill><a:srgbClr val="{$fillColor}"/></a:solidFill></xsl:if>
-				<a:ln w="{$nodeStyle/@w}" cmpd="{$nodeStyle/@cm}"> <a:solidFill> <a:srgbClr val="{$outlineColor}"/> </a:solidFill> <a:prstDash val="{$nodeStyle/@d}"/> </a:ln>
-			</p:spPr>
-			<p:txBody>
-				<!--node text margins , center-->
-				<a:bodyPr lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/> <a:lstStyle/>
-				<!--node with hyperlink-->
-				<a:p> <a:pPr algn="ctr"/> <a:r> <a:rPr sz="{2700 + 900*(@Id &lt; 1000)}">
-					<a:solidFill><a:srgbClr val="{$fontColor}"/>
-					</a:solidFill><!--<a:hlinkClick r:id="link{@Id}"/>-->
-					</a:rPr> <a:t> <xsl:value-of select="@Id"/> </a:t> </a:r> </a:p>
-			</p:txBody>
-		</p:sp>
+		<xsl:variable name="id" select="@Id"/>
+			
+		<xsl:for-each select="msxsl:node-set($outlineColor)//*">
+			<xsl:variable name="radius" select="$nodeRadius + (position()-1)*80000"/>
+				
+			<p:sp xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">			
+				<!--node id & name-->
+					<p:nvSpPr> <p:cNvPr id="{$id*10 + position()}" name="nodeCWE"/> <p:cNvSpPr/> <p:nvPr/> </p:nvSpPr>
+					<p:spPr>
+						<!--node coordinates -->
+						<a:xfrm> <a:off x="{$nodeCoordinates/@x -$radius}" y="{$nodeCoordinates/@y -$radius}"/> <a:ext cx="{2*$radius}" cy="{2*$radius}"/>	</a:xfrm>
+						<a:prstGeom prst="ellipse"/>
+						<xsl:if test="$fillColor"><a:solidFill><a:srgbClr val="{$fillColor}"/></a:solidFill></xsl:if>
+						<a:ln w="{$nodeStyle/@w}" cmpd="{$nodeStyle/@cm}"> <a:solidFill> <a:srgbClr val="{@c}"/> </a:solidFill> <a:prstDash val="{$nodeStyle/@d}"/> </a:ln>
+					</p:spPr>
+					<xsl:if test="position()=last()">
+						<p:txBody>
+							<!--node text margins , center-->
+							<a:bodyPr lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/> <a:lstStyle/>
+							<!--node with hyperlink-->
+							<a:p> <a:pPr algn="ctr"/> <a:r> <a:rPr sz="{2700 + 900*($id &lt; 1000)}">
+								<a:solidFill><a:srgbClr val="{$fontColor}"/>
+								</a:solidFill><!--<a:hlinkClick r:id="link{@Id}"/>-->
+								</a:rPr> <a:t> <xsl:value-of select="$id"/> </a:t> </a:r> </a:p>
+						</p:txBody>
+					</xsl:if>			
+			</p:sp>			
+		</xsl:for-each>
 
 	</xsl:template>
 	
@@ -358,8 +366,8 @@
 				<p:cNvPr id="{position()}" name="arrowConnector"/>
 				<!-- node connectors, idx = connectors-->
 				<p:cNvCxnSpPr>
-					<a:stCxn id="{@Id}" idx="{$connector/@c}"/>
-					<a:endCxn id="{../@Id}" idx="{($connector/@c+4) mod 8}"/>
+					<a:stCxn id="{@Id*10+1}" idx="{$connector/@c}"/>
+					<a:endCxn id="{../@Id*10+1}" idx="{($connector/@c+4) mod 8}"/>
 				</p:cNvCxnSpPr>
 				<p:nvPr/>
 			</p:nvCxnSpPr>

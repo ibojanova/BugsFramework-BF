@@ -382,6 +382,8 @@ namespace BFCVE
             this.operationAttributes.TabIndex = 167;
             this.operationAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
             this.operationAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
+            this.operationAttributes.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.Any_BeforeSelect);
+            this.operationAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
             // 
             // operationGroupBox
             // 
@@ -511,6 +513,8 @@ namespace BFCVE
             this.operandAttributes.TabIndex = 182;
             this.operandAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
             this.operandAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
+            this.operandAttributes.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.Any_BeforeSelect);
+            this.operandAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
             // 
             // operandAttributeComment
             // 
