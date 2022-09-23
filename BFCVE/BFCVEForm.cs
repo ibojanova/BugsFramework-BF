@@ -250,11 +250,11 @@ namespace BFCVE
             if ((Editing || Edited) && (MessageBox.Show("Changes are not saved. Continue anyway?", "Open", MessageBoxButtons.YesNo) != DialogResult.Yes)) return;
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
-            if (TryLoadCVE(openFileDialog.FileName) is not CVE cve) return;
-            FileName = openFileDialog.FileName;
-            Text = Title + "          " + FileName;
+            if (TryLoadCVE(FileName  = openFileDialog.FileName) is not CVE cve) return;
             Editing = Edited = false;
             CVE = cve;
+
+            updateFrameTitle(FileName);
 
             static CVE? TryLoadCVE(string fileName)
             {
@@ -273,8 +273,10 @@ namespace BFCVE
                 saveFileDialog.FileName = FileName;
                 if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
 
-                BFCVESerializer.Save(cve, saveFileDialog.FileName);
+                BFCVESerializer.Save(cve, FileName = saveFileDialog.FileName);
                 Editing = Edited = false;
+
+                updateFrameTitle(FileName);
             }
             catch (Exception error)
             {
@@ -291,8 +293,9 @@ namespace BFCVE
             Close();
         }
 
-        #endregion
+        private void updateFrameTitle(string fileName) => Text = Title + "          " + Path.GetFileNameWithoutExtension(fileName);
 
+        #endregion
 
         private void CVE_BeforeSelect(object sender, TreeViewCancelEventArgs e) => e.Cancel = !TryCommit();
 
@@ -391,7 +394,6 @@ namespace BFCVE
             }
         }
 
-        //xxx not ready
         private void Attributes_AfterCheck(object sender, TreeViewEventArgs e) => Editing = true;
 
         private void ButtonRollback_Click(object sender, EventArgs e) => CurrentWeakness = SelectedCVENode?.Weakness;

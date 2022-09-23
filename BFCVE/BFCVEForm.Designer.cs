@@ -61,15 +61,15 @@ namespace BFCVE
             this.operationGroupBox = new System.Windows.Forms.GroupBox();
             this.conseqeunceGroupBox = new System.Windows.Forms.GroupBox();
             this.BWFGroupBox = new System.Windows.Forms.GroupBox();
+            this.operandAttributsGgroupBox = new System.Windows.Forms.GroupBox();
+            this.operandAttributes = new Utilities.TreeViewFix();
+            this.operandAttributeComment = new System.Windows.Forms.TextBox();
+            this.operandAttributeCommentLabel = new System.Windows.Forms.Label();
             this.buttonRollback = new System.Windows.Forms.Button();
             this.peerCause = new System.Windows.Forms.TextBox();
             this.peerCauseLabel = new System.Windows.Forms.Label();
             this.operationAttributesGroupBox = new System.Windows.Forms.GroupBox();
             this.operationAttributesCommentLabel = new System.Windows.Forms.Label();
-            this.operandAttributsGgroupBox = new System.Windows.Forms.GroupBox();
-            this.operandAttributes = new Utilities.TreeViewFix();
-            this.operandAttributeComment = new System.Windows.Forms.TextBox();
-            this.operandAttributeCommentLabel = new System.Windows.Forms.Label();
             this.buttonCommit = new System.Windows.Forms.Button();
             this.endButton = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -85,8 +85,8 @@ namespace BFCVE
             this.operationGroupBox.SuspendLayout();
             this.conseqeunceGroupBox.SuspendLayout();
             this.BWFGroupBox.SuspendLayout();
-            this.operationAttributesGroupBox.SuspendLayout();
             this.operandAttributsGgroupBox.SuspendLayout();
+            this.operationAttributesGroupBox.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -361,7 +361,7 @@ namespace BFCVE
             // operationAttributeComment
             // 
             this.operationAttributeComment.Enabled = false;
-            this.operationAttributeComment.Location = new System.Drawing.Point(157, 633);
+            this.operationAttributeComment.Location = new System.Drawing.Point(157, 625);
             this.operationAttributeComment.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.operationAttributeComment.Multiline = true;
             this.operationAttributeComment.Name = "operationAttributeComment";
@@ -374,7 +374,7 @@ namespace BFCVE
             // 
             this.operationAttributes.CheckBoxes = true;
             this.operationAttributes.HideSelection = false;
-            this.operationAttributes.Location = new System.Drawing.Point(157, 406);
+            this.operationAttributes.Location = new System.Drawing.Point(157, 398);
             this.operationAttributes.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.operationAttributes.Name = "operationAttributes";
             this.operationAttributes.ShowNodeToolTips = true;
@@ -415,20 +415,20 @@ namespace BFCVE
             // 
             // BWFGroupBox
             // 
+            this.BWFGroupBox.Controls.Add(this.operandAttributsGgroupBox);
             this.BWFGroupBox.Controls.Add(this.buttonRollback);
             this.BWFGroupBox.Controls.Add(this.operationAttributeComment);
             this.BWFGroupBox.Controls.Add(this.conseqeunceGroupBox);
             this.BWFGroupBox.Controls.Add(this.peerConseqeunce);
-            this.BWFGroupBox.Controls.Add(this.operationAttributes);
             this.BWFGroupBox.Controls.Add(this.peerConseqeunceLabel);
             this.BWFGroupBox.Controls.Add(this.peerCause);
+            this.BWFGroupBox.Controls.Add(this.operationAttributes);
             this.BWFGroupBox.Controls.Add(this.peerCauseLabel);
             this.BWFGroupBox.Controls.Add(this.causeGroupBox);
             this.BWFGroupBox.Controls.Add(this.operationGroupBox);
             this.BWFGroupBox.Controls.Add(this.classes);
             this.BWFGroupBox.Controls.Add(this.classLabel);
             this.BWFGroupBox.Controls.Add(this.operationAttributesGroupBox);
-            this.BWFGroupBox.Controls.Add(this.operandAttributsGgroupBox);
             this.BWFGroupBox.Location = new System.Drawing.Point(142, 56);
             this.BWFGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.BWFGroupBox.Name = "BWFGroupBox";
@@ -437,6 +437,53 @@ namespace BFCVE
             this.BWFGroupBox.TabIndex = 100;
             this.BWFGroupBox.TabStop = false;
             this.BWFGroupBox.Text = "Bug/Weakness/Failure";
+            // 
+            // operandAttributsGgroupBox
+            // 
+            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributes);
+            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeComment);
+            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeCommentLabel);
+            this.operandAttributsGgroupBox.Location = new System.Drawing.Point(393, 382);
+            this.operandAttributsGgroupBox.Name = "operandAttributsGgroupBox";
+            this.operandAttributsGgroupBox.Size = new System.Drawing.Size(229, 278);
+            this.operandAttributsGgroupBox.TabIndex = 205;
+            this.operandAttributsGgroupBox.TabStop = false;
+            this.operandAttributsGgroupBox.Text = "Operand Attributes:";
+            // 
+            // operandAttributes
+            // 
+            this.operandAttributes.CheckBoxes = true;
+            this.operandAttributes.HideSelection = false;
+            this.operandAttributes.Location = new System.Drawing.Point(6, 16);
+            this.operandAttributes.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.operandAttributes.Name = "operandAttributes";
+            this.operandAttributes.ShowNodeToolTips = true;
+            this.operandAttributes.Size = new System.Drawing.Size(218, 211);
+            this.operandAttributes.TabIndex = 182;
+            this.operandAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
+            this.operandAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
+            this.operandAttributes.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.Any_BeforeSelect);
+            this.operandAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
+            // 
+            // operandAttributeComment
+            // 
+            this.operandAttributeComment.Enabled = false;
+            this.operandAttributeComment.Location = new System.Drawing.Point(6, 243);
+            this.operandAttributeComment.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.operandAttributeComment.Multiline = true;
+            this.operandAttributeComment.Name = "operandAttributeComment";
+            this.operandAttributeComment.Size = new System.Drawing.Size(218, 28);
+            this.operandAttributeComment.TabIndex = 184;
+            // 
+            // operandAttributeCommentLabel
+            // 
+            this.operandAttributeCommentLabel.AutoSize = true;
+            this.operandAttributeCommentLabel.Location = new System.Drawing.Point(5, 228);
+            this.operandAttributeCommentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.operandAttributeCommentLabel.Name = "operandAttributeCommentLabel";
+            this.operandAttributeCommentLabel.Size = new System.Drawing.Size(64, 15);
+            this.operandAttributeCommentLabel.TabIndex = 183;
+            this.operandAttributeCommentLabel.Text = "Comment:";
             // 
             // buttonRollback
             // 
@@ -472,7 +519,7 @@ namespace BFCVE
             // operationAttributesGroupBox
             // 
             this.operationAttributesGroupBox.Controls.Add(this.operationAttributesCommentLabel);
-            this.operationAttributesGroupBox.Location = new System.Drawing.Point(151, 390);
+            this.operationAttributesGroupBox.Location = new System.Drawing.Point(151, 382);
             this.operationAttributesGroupBox.Name = "operationAttributesGroupBox";
             this.operationAttributesGroupBox.Size = new System.Drawing.Size(229, 278);
             this.operationAttributesGroupBox.TabIndex = 203;
@@ -488,55 +535,6 @@ namespace BFCVE
             this.operationAttributesCommentLabel.Size = new System.Drawing.Size(64, 15);
             this.operationAttributesCommentLabel.TabIndex = 204;
             this.operationAttributesCommentLabel.Text = "Comment:";
-            // 
-            // operandAttributsGgroupBox
-            // 
-            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributes);
-            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeComment);
-            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeCommentLabel);
-            this.operandAttributsGgroupBox.Location = new System.Drawing.Point(393, 390);
-            this.operandAttributsGgroupBox.Name = "operandAttributsGgroupBox";
-            this.operandAttributsGgroupBox.Size = new System.Drawing.Size(229, 278);
-            this.operandAttributsGgroupBox.TabIndex = 204;
-            this.operandAttributsGgroupBox.TabStop = false;
-            this.operandAttributsGgroupBox.Text = "Operand Attributes:";
-            // 
-            // operandAttributes
-            // 
-            this.operandAttributes.CheckBoxes = true;
-            this.operandAttributes.HideSelection = false;
-            this.operandAttributes.Location = new System.Drawing.Point(6, 16);
-            this.operandAttributes.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.operandAttributes.Name = "operandAttributes";
-            this.operandAttributes.ShowNodeToolTips = true;
-            this.operandAttributes.Size = new System.Drawing.Size(218, 211);
-            this.operandAttributes.TabIndex = 182;
-            this.operandAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
-            this.operandAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
-            this.operandAttributes.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.Any_BeforeSelect);
-            this.operandAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
-            // 
-            // operandAttributeComment
-            // 
-            this.operandAttributeComment.Enabled = false;
-            this.operandAttributeComment.Location = new System.Drawing.Point(6, 243);
-            this.operandAttributeComment.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.operandAttributeComment.Multiline = true;
-            this.operandAttributeComment.Name = "operandAttributeComment";
-            this.operandAttributeComment.Size = new System.Drawing.Size(218, 28);
-            this.operandAttributeComment.TabIndex = 184;
-            this.operandAttributeComment.TextChanged += new System.EventHandler(this.Comment_TextChanged);
-            this.operandAttributeComment.Validating += new System.ComponentModel.CancelEventHandler(this.Comment_Validating);
-            // 
-            // operandAttributeCommentLabel
-            // 
-            this.operandAttributeCommentLabel.AutoSize = true;
-            this.operandAttributeCommentLabel.Location = new System.Drawing.Point(5, 228);
-            this.operandAttributeCommentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.operandAttributeCommentLabel.Name = "operandAttributeCommentLabel";
-            this.operandAttributeCommentLabel.Size = new System.Drawing.Size(64, 15);
-            this.operandAttributeCommentLabel.TabIndex = 183;
-            this.operandAttributeCommentLabel.Text = "Comment:";
             // 
             // buttonCommit
             // 
@@ -647,10 +645,10 @@ namespace BFCVE
             this.conseqeunceGroupBox.PerformLayout();
             this.BWFGroupBox.ResumeLayout(false);
             this.BWFGroupBox.PerformLayout();
-            this.operationAttributesGroupBox.ResumeLayout(false);
-            this.operationAttributesGroupBox.PerformLayout();
             this.operandAttributsGgroupBox.ResumeLayout(false);
             this.operandAttributsGgroupBox.PerformLayout();
+            this.operationAttributesGroupBox.ResumeLayout(false);
+            this.operationAttributesGroupBox.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -715,12 +713,11 @@ namespace BFCVE
 
             private GroupBox operationAttributesGroupBox;
             private TreeViewFix operationAttributes;
-            private Label operandAttributeCommentLabel;
             public TextBox operationAttributeComment;
-
-            private GroupBox operandAttributsGgroupBox;
-            private TreeViewFix operandAttributes;
-            public TextBox operandAttributeComment;
             private Label operationAttributesCommentLabel;
+        private GroupBox operandAttributsGgroupBox;
+        private TreeViewFix operandAttributes;
+        public TextBox operandAttributeComment;
+        private Label operandAttributeCommentLabel;
     }
     }

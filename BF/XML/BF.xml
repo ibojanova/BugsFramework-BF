@@ -1,7 +1,7 @@
 <!--@author Irena Bojanova(ivb)-->
 <!--@date - 2/9/2022-->
 
-<!-- an object contains data and has address, and size; the address and size are data contained by other objects 
+<!-- an object contains data and has address, and size; the address and the size are data contained by other objects 
 (the address specifically is the data of a pointer) - the data contained by this object and the other objects 
 has value and type - we use this level to connect the classes-->
 
@@ -18,11 +18,6 @@ has value and type - we use this level to connect the classes-->
 					<Attribute Name="Length"/>
 				</AttributeType>
 				<!--The operation attributes Source Code and Execution Space explain where a bug is – where the operation is in the program and where its code runs.-->
-				
-				<!--xxx
-				Attribute
-					Value
-					Value-->
 				<AttributeType Name="Source Code" Definition="Shows where the operation is in the program.">
 					<Attribute Name="Codebase"/>
 					<Attribute Name="Third Party"/>
@@ -48,11 +43,6 @@ has value and type - we use this level to connect the classes-->
 			</Operands>
 			<Causes>
 				<!--Improper Operation - "The Bug" - could be improper code or improper rules (Policy, Keying Material, Domain Parameter) code that has to be fixed to resolve to vulnerablity cause by this bug."-->
-
-				<!--xxx
-				BugCause
-					Value
-					Value-->
 				<BugCauseType Name="Improper Operation" Definition="The Bug is a Coding Error">
 					<Cause Name="Missing"/>
 					<Cause Name="Erroneous"/>
@@ -61,8 +51,8 @@ has value and type - we use this level to connect the classes-->
 					<Cause Name="Under-Restrictive Policy"/>
 					<Cause Name="Over-Restrictive Policy"/>
 				</BugCauseType>
-				<!--Improper Operand - "Output (Result) From Previous Operation"-->
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data" Definition="A Weakness - Result From Previous Operation">
+					<!--NOTE: Improper Data is like the parent of Improper Data Value and Improper Data Type - so each of these should be able to connect to an Improper Data cause for next weakness-->
 					<Cause Name="Corrupted Data"/>
 					<Cause Name="Tampered Data"/>
 				</WeaknessCauseType>
@@ -72,11 +62,9 @@ has value and type - we use this level to connect the classes-->
 				</WeaknessCauseType>
 			</Causes>
 			<Consequences>
-				<!--Improper Operand - "Data Error - Input To Next Operation"-->
 				<WeaknessConsequenceType Name="Improper Data Type" Definition="Input To Next Operation">
 					<Consequence Name="Invalid Data"/>
 				</WeaknessConsequenceType>
-				<!--Final Error - "Undefined or exploitable system behavior"-->
 				<FinalErrorConsequenceType Name="Injection Error" Definition="Final Error">
 					<Consequence Name="Query Injection"/>
 					<Consequence Name="Command Injection"/>
@@ -571,8 +559,7 @@ referred in source code via its declared name.">
 				</WeaknessConsequenceType>
 				<WeaknessConsequenceType Name="Improper Object Size" Definition="Input To Next Operation">
 					<Consequence Name="Not Enough Memory Allocated"/>
-					<!--xxx Wrong Size Memory Allocated - not enough; too much-->
-					<!--xxx Too Much Memory Allocated ???-->
+					<!--xxx Wrong Size Memory Allocated - not enough; too much; or just add Too Much Memory Allocated ???-->
 				</WeaknessConsequenceType>
 				<FinalErrorConsequenceType Name="Memory Error" Definition="Final Error">
 					<Consequence Name="Memory Overflow"/>
@@ -645,8 +632,6 @@ referred in source code via its declared name.">
 				</WeaknessCauseType>
 				<WeaknessCauseType Name="Improper Object Size" Definition="A Weakness - Result From Previous Operation">
 					<Cause Name="Not Enough Memory Allocated"/>
-					<!--xxx Wrong Size Memory Allocated - not enough; too much-->
-					<!--xxx Too Much Memory Allocated ?-->
 				</WeaknessCauseType>
 			</Causes>
 			<Consequences>
@@ -735,7 +720,7 @@ referred in source code via its declared name.">
 			</Consequences>
 		</Class>
 	</Cluster>
-	<Cluster Name="_CRY" Type="Bug/Weakness" Definition="Cryptographic Store or Transfer Bugs (incl. xxx Errors)">
+	<!--<Cluster Name="_CRY" Type="Bug/Weakness" Definition="Cryptographic Store or Transfer Bugs (incl. xxx Errors)">
 		<Class Name="ENC" Title="Encryption Bugs" Definition="Sensitive data (plaintext) are improperly transformed into unintelligible form (ciphertext) using a cryptographic algorithm and key(s).">
 			<Operations>
 				<Operation Name="Encrypt"/>
@@ -764,7 +749,7 @@ referred in source code via its declared name.">
 					</AttributeType>
 					<AttributeType Name="State" Definition="Shows where the data come from.">
 						<Attribute Name="Stored"/>
-						<!--<Attribute Name="In Use"/> IB: Shoulf we add this?-->
+						<Attribute Name="xxx??? In Use"/>
 						<Attribute Name="Transferred"/>
 					</AttributeType>
 				</Operand>
@@ -773,7 +758,7 @@ referred in source code via its declared name.">
 						<Attribute Name="Private Key"/>
 						<Attribute Name="Secrete Key"/>
 						<Attribute Name="Shared Key"/>
-						<Attribute Name="Public Key"/> <!--xxx ???-->
+						<Attribute Name="Public Key"/>
 					</AttributeType>
 				</Operand>
 				<Operand Name="Algorithm" Definition="Operation Rule.">
@@ -789,36 +774,32 @@ referred in source code via its declared name.">
 					<Cause Name="Erroneous (_CRY)"/>
 				</BugCauseType>
 				<BugCauseType Name="Improper Algorithm" Definition="The Bug">
-					<Cause Name="Modified Algorithm"/>
-					<!--removed/changes/added step-->
+					<Cause Name="Modified Algorithm - xxx removed/changes/added step"/>
 					<Cause Name="Inadequate Algorithm"/>
-					<Cause Name="Weak Algorithm"/> <!-- including "Insecure Mode of Operation" - we have it as "leading to weak algorithm" on the old graph, but is it?!-->
+					<Cause Name="Weak Algorithm - including 'Insecure Mode of Operation' - we have it as 'leading to weak algorithm' on the old graph, but is it?"/>
 					<Cause Name="Risky/Broken Algorithm"/>
 				</BugCauseType>
 				<WeaknessCauseType Name="Improper Key" Definition="A Weakness - Result From Previous Operation">
 					<Cause Name="Known Key"/>
-					<!--<Cause Name="Exposed Key"/>-->
-					<!-- these have to be conseqeunces from IEX failure form a previous Vulnerability-->
+					<Cause Name="xxx Exposed Key - have to be conseqeunce from IEX failure form a previous Vulnerability"/>
 				</WeaknessCauseType>
 			</Causes>
 			<Consequences>
 				<WeaknessConsequenceType Name="Improper Key" Definition="xxx">
-					<Consequence Name="Known Key"/>	<!-- for KMN-->
-					<Consequence Name="Known Random Number"/> <!-- for KMN-->
+					<Consequence Name="xxxKnown Key - for KMN"/>					
+					<Consequence Name="xxxKnown Random Number - for KMN"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="Scurity Error" Definition="Final Error">
-					<!--leads to IEX-->
-					<Consequence Name="Confidentiality Error"/> <!-- leads to IEX of Data-->
-					<Consequence Name="~Integrity Error"/> <!--in some modes of encryption-->
-					<Consequence Name="~Identity Authentication Error"/> <!--in some modes of encryption-->
+				<FinalErrorConsequenceType Name="xxxSecurity Error - xxx leads to IEX" Definition="Final Error">
+					<Consequence Name="xxxConfidentiality Error - leads to IEX of Data"/>
+					<Consequence Name="xxx~Integrity Error -in some modes of encryption"/>
+					<Consequence Name="xxx~Identity Authentication Error -in some modes of encryption"/>
 				</FinalErrorConsequenceType>
 			</Consequences>
 		</Class>
 		<Class Name="VRF" Title="Verification Bugs" Definition="Data is signed, source is checked and proved, or data is assured to be unaltered improperly.">
 			<Operations>
 				<Operation Name="Sign"/>
-				<Operation Name="Verify Signiture"/>
-				<!-- Verify is oeration of DVR; here the operation is specific for _CRY "Verify Signitire"-->
+				<Operation Name="xxx Verify Signiture - Verify is oeration of DVR; here the operation is specific for _CRY 'Verify Signitire' Verify Signiture"/>
 				<AttributeType Name="Mechanism" Definition="xxx">
 					<Attribute Name="xxx"/>
 					<Attribute Name="xxx"/>
@@ -846,7 +827,7 @@ referred in source code via its declared name.">
 					</AttributeType>
 					<AttributeType Name="State" Definition="Shows where the data come from.">
 						<Attribute Name="Stored"/>
-						<!--<Attribute Name="In Use"/> IB: Shoulf we add this?-->
+						<Attribute Name="xxx???In Use"/> 
 						<Attribute Name="Transferred"/>
 					</AttributeType>
 				</Operand>
@@ -854,7 +835,7 @@ referred in source code via its declared name.">
 					<AttributeType Name="Type" Definition="xxx">
 						<Attribute Name="Private Key"/>
 						<Attribute Name="Secrete Key"/>
-						<Attribute Name="Public Key"/><!--xxx ???-->
+						<Attribute Name="Public Key"/>
 					</AttributeType>
 				</Operand>
 				<Operand Name="Random Number">
@@ -894,8 +875,7 @@ referred in source code via its declared name.">
 				<WeaknessConsequenceType Name="Improper Key" Definition="xxx">
 					<Consequence Name="Unverified Key"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="Scurity Error" Definition="Final Error">
-					<!--leads to IEX-->
+				<FinalErrorConsequenceType Name="xxxSecurity Error - leads to IEX" Definition="Final Error">
 					<Consequence Name="Integrity Authentication Error" Definition="Unverified Data"/>
 					<Consequence Name="Identity Authentication Error" Definition="Unverified Identity"/>
 					<Consequence Name="Origin Non-Repudiation Error" Definition="Unverified Origin Origin (Signer)"/>
@@ -934,7 +914,7 @@ referred in source code via its declared name.">
 					</AttributeType>
 					<AttributeType Name="State" Definition="Shows where the data come from.">
 						<Attribute Name="Stored"/>
-						<!--<Attribute Name="In Use"/> IB: Shoulf we add this?-->
+						<Attribute Name="xxx???In Use"/>
 						<Attribute Name="Transferred"/>
 					</AttributeType>
 				</Operand>
@@ -943,7 +923,7 @@ referred in source code via its declared name.">
 						<Attribute Name="Private Key"/>
 						<Attribute Name="Secrete Key"/>
 						<Attribute Name="Shared Key"/>
-						<Attribute Name="Public Key"/> <!--xxx ???-->
+						<Attribute Name="Public Key"/> 
 					</AttributeType>
 				</Operand>
 				<Operand Name="Random Number" Definition="xxx">
@@ -980,14 +960,13 @@ referred in source code via its declared name.">
 			</Causes>
 			<Consequences>
 				<WeaknessConsequenceType Name="Improper Key" Definition="xxx">
-					<Consequence Name="Weak Public Key"/>
-					<!-- ENC algorithm - Known Private Key-->
+					<Consequence Name="Weak Public Key - xxx ENC algorithm - Known Private Key"/>
 					<Consequence Name="Weak Secret Key"/>
 				</WeaknessConsequenceType>
 			</Consequences>
 		</Class>
-	</Cluster>
-	<Cluster Name="_RND" Type="Bug/Weakness" Definition="Random Number Generation Bugs (incl. xxx Errors">
+	</Cluster>-->
+	<!--<Cluster Name="_RND" Type="Bug/Weakness" Definition="Random Number Generation Bugs (incl. xxx Errors">
 		<Class Name="TRN" Title="xxx" Definition="xxx">
 			<Operands>
 				<Operand Name="xxx"/>
@@ -1030,7 +1009,7 @@ referred in source code via its declared name.">
 				</FinalErrorConsequenceType>
 			</Consequences>
 		</Class>
-	</Cluster>
+	</Cluster>-->
 
 	<Cluster Name="_FLR" Type="Failure" Definition="">
 		<Class Name="IEX" Title="Information Exposure" Definition="Information Exposure">
@@ -1110,7 +1089,8 @@ Reg Exprs
 -->
 	<Definitions>
 		<!--used also as Tooltips in BF Tools-->
-		<!-- xxx DISCUSS: problem with Erroneous, Wrong Type - slightly different in each cluster - commented for now -->
+		<!--NOTE: Erroneous, Wrong Type, and others may be slightly different in each cluster - so, using (_INP), etc. -->
+		<!--xxx define also the Group Names such as "Improper Data Value"-->
 		
 		<!--_INP Cluster-->
 		<Definition Name="Validate">Check data syntax (proper form/grammar) in order to accept (and possibly sanitize) or reject it. Includes checking for missing symbols/elements.</Definition>
@@ -1118,7 +1098,7 @@ Reg Exprs
 		<Definition Name="Verify">Check data semantics (proper value/meaning) in order to accept (and possibly correct) or reject it.</Definition>
 		<Definition Name="Correct">Modify data (assign new value, remove), in order to make it accurate.</Definition>
 		<Definition Name="Missing">The operation is absent.</Definition>
-<Definition Name="Erroneous (_INP)">There's a bug in the operation implementation (incl. how it checks against a policy).</Definition>
+		<Definition Name="Erroneous (_INP)">There's a bug in the operation implementation (incl. how it checks against a policy).</Definition>
 		<Definition Name="Under-Restrictive Policy">Accepts bad data.</Definition>
 		<Definition Name="Over-Restrictive Policy">Rejects good data.</Definition>
 		<Definition Name="Data">A string of characters (symbols like letter, digit, punctuation) with clearly defined syntax and semantics.</Definition>
@@ -1128,10 +1108,9 @@ Reg Exprs
 		<Definition Name="Invalid Data">Data with harmed syntax due to sanitization errors.</Definition>
 		<Definition Name="Corrupted Policy">Unintentionally modified policy due to a previous weakness (e.g., with a decompress operation).</Definition>
 		<Definition Name="Tampered Policy">Maliciously modified policy due to a previous weakness (e.g., with an authorize operation).</Definition>
-		<!--<Definition Name="Invalid Data">Data with harmed syntax due to sanitization errors.</Definition>-->
 		<Definition Name="Wrong Value (_INP)">Data with harmed semantics; not accurate value (e.g., outside of a range).</Definition>
 		<Definition Name="Inconsistent Value">Data value is inconsistent with the value of a related data (e.g., inconstancy between the value of a size variable and the actual buffer size).</Definition>
-<Definition Name="Wrong Type (_INP)">Data with wrong data type.</Definition>
+		<Definition Name="Wrong Type (_INP)">Data with wrong data type.</Definition>
 		<Definition Name="Query Injection">Malicious insertion of condition parts (e.g., or 1==1) or entire commands (e.g., drop table) into an input used to construct a database query.</Definition>
 		<Definition Name="Command Injection">Malicious insertion of new commands into the input to a command that is sent to an operating system (OS) or to a server.</Definition>
 		<Definition Name="Source Code Injection">Malicious insertion of new code (incl. with &lt;&gt; elements) into input used as part of an executing application code.</Definition>
@@ -1157,7 +1136,7 @@ Reg Exprs
 		<Definition Name="Range">Check data are within a (min, max) interval.</Definition>
 		<Definition Name="Type">Check data type (e.g., int, float, XSD-XML Schema Definition, or specific structure/object).</Definition>
 		<Definition Name="Other Rules">Check data against other business logic.</Definition>
-
+		
 		<!--_DTC Cluster-->
 		<Definition Name="Declare">Specify name and type of an object; name, return type, and parameters of a function; or name and type parameters of a type.</Definition>
 		<Definition Name="Define">Specify data of an object; implementation of a function; or member objects and functions of a type.Refe.</Definition>
@@ -1169,7 +1148,7 @@ Reg Exprs
 		<Definition Name="Evaluate">Find the result of a boolean condition (incl. comparison).</Definition>
 		<!--<Definition Name="Missing">The operation is absent.</Definition>-->
 		<Definition Name="Wrong">An inappropriate data type is specified; or an inappropriate function/operator is used.</Definition>
-<Definition Name="Erroneous (_DTC)">The Type System or a compute function implementation has a bug.</Definition>
+		<Definition Name="Erroneous (_DTC)">The Type System or a compute function implementation has a bug.</Definition>
 		<Definition Name="Missing Modifier">A required behavioral restriction is absent.</Definition>
 		<Definition Name="Wrong Modifier">A wrong behavioral restriction is specified.</Definition>
 		<Definition Name="Anonymous Scope">The declaration is in an unnamed scope.</Definition>
@@ -1201,7 +1180,7 @@ Reg Exprs
 		<Definition Name="Wrong Argument Type">Argument to an overloaded function is of wrong data type.</Definition>
 		<Definition Name="Missing Overridden Function">Function implementation in a particular subclass is absent.</Definition>
 		<Definition Name="Missing Overloaded Function">Implementation for particular function parameters' data types is absent.</Definition>
-<Definition Name="Wrong Type (_DTC)">Data type range or structure is not correct.</Definition>
+		<Definition Name="Wrong Type (_DTC)">Data type range or structure is not correct.</Definition>
 		<Definition Name="Wrong Type Resolved">Data type is resolved from wrong scope.</Definition>
 		<Definition Name="Wrong Function Resolved">Function is resolved from wrong scope.</Definition>
 		<Definition Name="Wrong Generic Function Bound">Implementation for a wrong data type is bound due to wrong generic type arguments.</Definition>
@@ -1259,7 +1238,7 @@ Reg Exprs
 		<Definition Name="Reallocate–Reduce">Allocates a new smaller space in memory for an object at a new address, copies part of the object content there, reassigns the pointer, and deallocates the previous piece of memory..</Definition>
 		<!--<Definition Name="Missing">The operation is absent.</Definition>-->
 		<Definition Name="Mismatched">The deallocation function does not match the allocation function used for the same object.</Definition>
-<Definition Name="Erroneous (_MEM)">There is a bug is in the implementation of the operation.</Definition>
+		<Definition Name="Erroneous (_MEM)">There is a bug is in the implementation of the operation.</Definition>
 		<!--<Definition Name="Object">A memory region used to store data.</Definition>-->
 		<!--<Definition Name="Pointer">A holder of the memory address of an object.</Definition>-->
 		<Definition Name="NULL Pointer">Points to the zero address, a specific invalid address.</Definition>
@@ -1308,9 +1287,6 @@ Reg Exprs
 		<Definition Name="Moderate">Several bytes of memory are accessed, but less than 1 KB.</Definition>
 		<Definition Name="Huge">More than 1 KB of memory is accessed.</Definition>
 
-		<!--General Improper Operations-->
-		<!--<Definition Name="Missing">The operation is absent.</Definition>
-		<Definition Name="Erroneous">There’s a bug in the operation implementation.</Definition>-->
 
 <!--NOTES - DISCUSS-->
 		<!--Operands-->
