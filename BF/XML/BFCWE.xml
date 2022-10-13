@@ -1,6 +1,5 @@
 ﻿<!--@author Irena Bojanova(ivb)-->
-<!--@date - 8/15/2022-->
-
+<!--@date - 07/09/2021-->
 <BFCWE>
 	<Cluster Name="_ALL">
 		<!--fig 1-->
@@ -523,7 +522,7 @@
 				<CWE>1287</CWE>
 			</Consequence>-->
 
-			<OnlyCause name="No consequence (only cause listed)">
+			<OnlyCause name="No consequence"> <!--(only cause listed)"-->
 				<CWE>102</CWE>
 				<CWE>105</CWE>
 				<CWE>106</CWE>
@@ -626,7 +625,7 @@
 	<Consequence n="DVR Inconsistent Value" c="FF0000"/>
 	<Consequence n="DVR Wrong Type" c="FF0000"/>-->
 
-			<OnlyCause n="No consequence (only cause listed)" c="C8C8DA" fill="F3F3F3"/>
+			<OnlyCause n="No consequence" c="C8C8DA" fill="F3F3F3"/>
 		</consequenceStyles>
 
 		<!-- most dangerous
@@ -732,7 +731,7 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>195</CWE>
 				<CWE>196</CWE>
 				<CWE>681</CWE>
-				<!--<CWE>704</CWE>-->
+				<CWE>704</CWE>
 				<CWE>843</CWE>
 			</ClassOperation>
 			<ClassOperation name="TCM Calculate">
@@ -742,14 +741,14 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>188</CWE>
 				<CWE>190</CWE>
 				<CWE>191</CWE>
-				<CWE>193</CWE><!--double color-->
+				<CWE>193</CWE><!--repeat-->
 				<CWE>369</CWE>
 				<CWE>467</CWE>
 				<CWE>468</CWE>
 				<CWE>469</CWE>
 				<CWE>682</CWE>
-		<CWE>687</CWE><!--double color-->
-		<CWE>688</CWE><!--double color-->
+				<CWE>687</CWE><!--repeat-->
+				<CWE>688</CWE><!--repeat-->
 				<CWE>1335</CWE>
 				<CWE>1339</CWE>
 			</ClassOperation>
@@ -758,8 +757,8 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>486</CWE>
 				<CWE>595</CWE>
 				<CWE>597</CWE>
-		<CWE>687</CWE><!--double color-->
-		<CWE>688</CWE><!--double color-->
+				<CWE>687</CWE><!--repeat-->
+				<CWE>688</CWE><!--repeat-->
 				<CWE>697</CWE>
 				<CWE>1023</CWE>
 				<CWE>1024</CWE>
@@ -776,7 +775,7 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>386</CWE>
 				<CWE>471</CWE>
 				<CWE>491</CWE>
-				<CWE>492</CWE><!--double color-->
+				<CWE>492</CWE><!--repeat-->
 				<CWE>493</CWE>
 				<CWE>495</CWE>
 				<CWE>496</CWE>
@@ -788,28 +787,28 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>766</CWE>
 				<CWE>767</CWE>
 				<CWE>1057</CWE>
-				<CWE>1061</CWE><!--double color-->
+				<CWE>1061</CWE><!--repeat-->
 				<CWE>1083</CWE>
 				<CWE>1090</CWE>
-				<CWE>1105</CWE><!--double color-->
+				<CWE>1105</CWE><!--repeat-->
 			</Consequence>
 			<Consequence name="Wrong Access Function">
-				<CWE>492</CWE><!--double color-->
+				<CWE>492</CWE><!--repeat-->
 				<CWE>583</CWE>
 				<CWE>749</CWE>
-				<CWE>1061</CWE><!--double color-->
-				<CWE>1105</CWE><!--double color-->
+				<CWE>1061</CWE><!--repeat-->
+				<CWE>1105</CWE><!--repeat-->
 			</Consequence>
 			<Consequence name="Undefined">
 				<CWE>369</CWE>
 			</Consequence>
 
 			<!--Improper Function -->
-			<Consequence name="Wrong Overloaded Function">
+			<Consequence name="Wrong Overloaded Function Bound">
 				<CWE>628</CWE>
-				<CWE>683</CWE><!--double color-->
-				<CWE>685</CWE><!--double color-->
-				<CWE>686</CWE><!--double color-->
+				<CWE>683</CWE><!--repeat-->
+				<CWE>685</CWE><!--repeat-->
+				<CWE>686</CWE><!--repeat-->
 			</Consequence>
 			<Consequence name="Wrong Object/Function/Type Resolved">
 				<CWE>694</CWE>
@@ -851,11 +850,11 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>595</CWE>
 				<CWE>597</CWE>
 				<CWE>682</CWE>
-		<CWE>683</CWE><!--double color-->
-		<CWE>685</CWE><!--double color-->
-		<CWE>686</CWE><!--double color-->
-		<CWE>687</CWE>
-		<CWE>688</CWE>
+				<CWE>683</CWE><!--repeat-->
+				<CWE>685</CWE><!--repeat-->
+				<CWE>686</CWE><!--repeat-->
+				<CWE>687</CWE>
+				<CWE>688</CWE>
 				<CWE>697</CWE>
 				<CWE>1023</CWE>
 				<CWE>1024</CWE>
@@ -864,14 +863,13 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>1335</CWE>
 			</Consequence>
 			<Consequence name="Truncated Value">
-				<!--<CWE>681</CWE>-->
-				<!--mark manualy also as "Truncated Value"-->
+				<CWE>681</CWE><!--repeat-->
 				<CWE>1339</CWE>
 			</Consequence>
 			<!--<Consequence name="Distorted Value">
 	</Consequence>-->
 			<Consequence name="Rounded Value">
-				<CWE>681</CWE>
+				<CWE>681</CWE><!--repeat-->
 			</Consequence>
 			<Consequence name="Wrap Around">
 				<CWE>128</CWE>
@@ -879,10 +877,10 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>191</CWE>
 			</Consequence>
 			<Consequence name="Under Range">
-				<CWE>193</CWE><!--double color-->
+				<CWE>193</CWE><!--repeat-->
 			</Consequence>
 			<Consequence name="Over Range">
-				<CWE>193</CWE><!--double color-->
+				<CWE>193</CWE><!--repeat-->
 				<CWE>843</CWE>
 			</Consequence>
 			<Consequence name="Flipped Sign">
@@ -982,21 +980,21 @@ Pillar: 913???, 20, 77, 74 -->
 
 		<!--fig 2-->
 		<consequenceStyles>
-			<Caption n="CWEs by DCL Access Error:" u="sng" x="10765567" y="25852362"/>
+			<Caption n="CWEs by DCL Access Error:" u="sng" x="10765567" y="30852362"/>
 			<Consequence n="Wrong Access Object" c="008000"/>
 			<Consequence n="Wrong Access Function" c="00CC66"/>
 
-			<Caption n="CWEs by TCM Type Compute Error:" u="sng" x="10765567" y="26852362"/>
+			<Caption n="CWEs by TCM Type Compute Error:" u="sng" x="20765567" y="30852362"/>
 			<Consequence n="Undefined" c="C724B1"/>
 
-			<Caption n="CWEs by DCL and NRS Improper Data Type:" u="sng" x="10765567" y="275852362"/>
+			<Caption n="CWEs by DCL and NRS Improper Data Type:" u="sng" x="30765567" y="30852362"/>
 			<Consequence n="Wrong Type" c="e6194B"/>
 			<Consequence n="Incomplete Type" c="f58231"/>
 
-			<Caption n="CWEs by NRS Improper Function:" u="sng" x="10765567" y="285852362"/>
-			<Consequence n="Wrong Overloaded Function" c="800000"/>
+			<Caption n="CWEs by NRS Improper Function:" u="sng" x="40765567" y="30852362"/>
+			<Consequence n="Wrong Overloaded Function Bound" c="800000"/>
 
-			<Caption n="CWEs by TCV and TCM Improper Data Value:" u="sng" x="17278697" y="29852362"/>
+			<Caption n="CWEs by TCV and TCM Improper Data Value:" u="sng" x="50278697" y="30852362"/>
 			<Consequence n="Wrong Result" c="ffe119"/>
 			<Consequence n="Rounded Value" c="bfef45"/>
 			<Consequence n="Truncated Value" c="42d4f4"/>
@@ -1004,44 +1002,37 @@ Pillar: 913???, 20, 77, 74 -->
 			<Consequence n="Under Range" c="4363d8"/>
 			<Consequence n="Over Range" c="911eb4"/>
 			<Consequence n="Flipped Sign" c="f032e6"/>
-			<Consequence n="No Consequence (only cause listed)" c="a9a9a9"/>
+			<Consequence n="No Consequence" c="a9a9a9"/>
 		</consequenceStyles>
 	</Cluster>
 
 	<!--Created by Irena Bojanova, 07/09/2021-->
-	<!--IB, 12/29/2021 - Added: CWEs MAD 562 & 587; MDL CWE 1091; colors info-->
-	<!--IB, 08/08/2022 - Added: CWEs MAD 588, MDL, 586-->
 	<Cluster Name="_MEM">
 		<!--fig 1-->
 		<showClassCWEs>
 			<ClassOperation name="_MEM General">
-				<CWE>664</CWE>
 				<CWE>704</CWE>
 				<CWE>710</CWE>
 				<CWE>758</CWE>
 			</ClassOperation>
 			<Class name="MAD">
-				<CWE>562</CWE>
-				<!--Wild Pointer-->
-				<CWE>587</CWE>
-				<!--Hard Coded Address-->
+				<CWE>562</CWE><!--Wild Pointer-->
+				<CWE>587</CWE><!--Hard Coded Address-->
 			</Class>
 			<ClassOperation name="MAL">
 				<CWE>400</CWE>
 				<CWE>770</CWE>
 				<CWE>789</CWE>
-			</ClassOperation>
-			<ClassOperation name="MDL and MAL">
-				<CWE>401</CWE>
-				<CWE>404</CWE>
-				<CWE>415</CWE>
-				<CWE>590</CWE>
-				<CWE>761</CWE>
-				<CWE>762</CWE>
-				<CWE>763</CWE>
-				<CWE>771</CWE>
-				<CWE>772</CWE>
-				<CWE>1091</CWE>
+				<CWE>401</CWE><!--repeat-->
+				<CWE>404</CWE><!--repeat-->
+				<CWE>415</CWE><!--repeat-->
+				<CWE>590</CWE><!--repeat-->
+				<CWE>761</CWE><!--repeat-->
+				<CWE>762</CWE><!--repeat-->
+				<CWE>763</CWE><!--repeat-->
+				<CWE>771</CWE><!--repeat-->
+				<CWE>772</CWE><!--repeat-->
+				<CWE>1091</CWE><!--repeat-->
 			</ClassOperation>
 			<ClassOperation name="MUS">
 				<CWE>118</CWE>
@@ -1063,11 +1054,8 @@ Pillar: 913???, 20, 77, 74 -->
 				<CWE>459</CWE>
 				<CWE>466</CWE>
 				<CWE>476</CWE>
-				<CWE>588</CWE>
-				<!--TCV to MAD to MUS-->
-				<!--<CWE>664</CWE>-->
+				<CWE>588</CWE><!--TCV to MAD to MUS-->
 				<CWE>665</CWE>
-				<!--<CWE>704</CWE>-->
 				<CWE>786</CWE>
 				<CWE>787</CWE>
 				<CWE>788</CWE>
@@ -1082,6 +1070,16 @@ Pillar: 913???, 20, 77, 74 -->
 			</ClassOperation>
 			<ClassOperation name="MDL">
 				<CWE>586</CWE>
+				<CWE>401</CWE><!--repeat-->
+				<CWE>404</CWE><!--repeat-->
+				<CWE>415</CWE><!--repeat-->
+				<CWE>590</CWE><!--repeat-->
+				<CWE>761</CWE><!--repeat-->
+				<CWE>762</CWE><!--repeat-->
+				<CWE>763</CWE><!--repeat-->
+				<CWE>771</CWE><!--repeat-->
+				<CWE>772</CWE><!--repeat-->
+				<CWE>1091</CWE><!--repeat-->
 			</ClassOperation>
 		</showClassCWEs>
 
@@ -1178,7 +1176,6 @@ Pillar: 913???, 20, 77, 74 -->
 			<ClassOperation n="MAL" c="FF5EAE"/>
 			<ClassOperation n="MUS" c="4E9CD2"/>
 			<ClassOperation n="MDL" c="AA5EAA"/>
-			<ClassOperation n="MDL and MAL" c="FF0000"/>
 
 			<Caption n="General CWEs:" u="sng" x="21278697" y="25852362"/>
 			<ClassOperation n="_MEM General" c="C8C8DA"/>
@@ -1327,7 +1324,7 @@ Pillar: 913???, 20, 77, 74 -->
 			<Caption n="CWEs by VRF xxx Error:" u="sng" x="10765567" y="26852362"/>
 			<Consequence n="xxx" c="C724B1"/>
 
-			<Consequence n="No Consequence (only cause listed)" c="a9a9a9"/>
+			<Consequence n="No Consequence" c="a9a9a9"/>
 		</consequenceStyles>
 	</Cluster>
 </BFCWE>

@@ -17,7 +17,6 @@ has value and type - we use this level to connect the classes-->
 					<Attribute Name="Format"/>
 					<Attribute Name="Length"/>
 				</AttributeType>
-				<!--The operation attributes Source Code and Execution Space explain where a bug is – where the operation is in the program and where its code runs.-->
 				<AttributeType Name="Source Code" Definition="Shows where the operation is in the program.">
 					<Attribute Name="Codebase"/>
 					<Attribute Name="Third Party"/>
@@ -31,7 +30,7 @@ has value and type - we use this level to connect the classes-->
 				</AttributeType>
 			</Operations>
 			<Operands>
-				<Operand Name="Data" Definition="The data writtten in the object memory.">
+				<Operand Name="Data" Definition="The data written in the object memory.">
 					<AttributeType Name="State" Definition="Shows where the data come from.">
 						<Attribute Name="Entered"/>
 						<Attribute Name="Stored"/>
@@ -42,21 +41,19 @@ has value and type - we use this level to connect the classes-->
 				<Operand Name="Policy" Definition="Operand Rule: The data defining the policy (e.g. the values in a Safelist)."/>
 			</Operands>
 			<Causes>
-				<!--Improper Operation - "The Bug" - could be improper code or improper rules (Policy, Keying Material, Domain Parameter) code that has to be fixed to resolve to vulnerablity cause by this bug."-->
 				<BugCauseType Name="Improper Operation" Definition="The Bug is a Coding Error">
 					<Cause Name="Missing"/>
 					<Cause Name="Erroneous"/>
 				</BugCauseType>
-				<BugCauseType Name="Improper Policy" Definition="The Bug is an Algorithmic Error">
+				<BugCauseType Name="Improper Policy"  Definition="">
 					<Cause Name="Under-Restrictive Policy"/>
 					<Cause Name="Over-Restrictive Policy"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data" Definition="A Weakness - Result From Previous Operation">
-					<!--NOTE: Improper Data is like the parent of Improper Data Value and Improper Data Type - so each of these should be able to connect to an Improper Data cause for next weakness-->
+				<WeaknessCauseType Name="Improper Data"  Definition="">
 					<Cause Name="Corrupted Data"/>
 					<Cause Name="Tampered Data"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Policy Data" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Policy Data"  Definition="">
 					<Cause Name="Corrupted Policy"/>
 					<Cause Name="Tampered Policy"/>
 				</WeaknessCauseType>
@@ -65,7 +62,7 @@ has value and type - we use this level to connect the classes-->
 				<WeaknessConsequenceType Name="Improper Data Type" Definition="Input To Next Operation">
 					<Consequence Name="Invalid Data"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="Injection Error" Definition="Final Error">
+				<FinalErrorConsequenceType Name="Injection Error" Definition="">
 					<Consequence Name="Query Injection"/>
 					<Consequence Name="Command Injection"/>
 					<Consequence Name="Source Code Injection"/>
@@ -113,11 +110,11 @@ has value and type - we use this level to connect the classes-->
 					<Cause Name="Missing"/>
 					<Cause Name="Erroneous"/>
 				</BugCauseType>
-				<BugCauseType Name="Improper Policy" Definition="The Bug is an Algorithmic Error">
+				<BugCauseType Name="Improper Policy"  Definition="">
 					<Cause Name="Under-Restrictive Policy"/>
 					<Cause Name="Over-Restrictive Policy"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Type" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Type"  Definition="">
 					<Cause Name="Invalid Data"/>
 				</WeaknessCauseType>
 			</Causes>
@@ -133,7 +130,7 @@ has value and type - we use this level to connect the classes-->
 		</Class>
 	</Cluster>
 	<Cluster Name="_DTC" Type="Bug/Weakness" Definition="Data Type Bugs (incl. Convert and Compute Errors)">
-		<Class Name="DCL" Title="Declaration Bugs" Definition="– An object, a function, a type, or a namespace is declared or defined improperly.">
+		<Class Name="DCL" Title="Declaration Bugs" Definition="An object, a function, a type, or a namespace is declared or defined improperly.">
 			<Operations>
 				<Operation Name="Declare"/>
 				<Operation Name="Define"/>
@@ -303,13 +300,13 @@ referred in source code via its declared name.">
 					<Cause Name="Wrong"/>
 					<Cause Name="Missing"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="Under Range"/>
 					<Cause Name="Over Range"/>
 					<Cause Name="Flipped Sign"/>
 					<Cause Name="Wrong Object Resolved Value"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Data Type" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Type"  Definition="">
 					<Cause Name="Wrong Type (_DTC)"/>
 					<Cause Name="Wrong Object Resolved Type"/>
 					<Cause Name="Mismatched Argument"/>
@@ -334,7 +331,7 @@ referred in source code via its declared name.">
 			<Operations>
 				<Operation Name="Calculate"/>
 				<Operation Name="Evaluate"/>
-				<AttributeType Name="Mechanism" Definition="Shows which operator or method uses data type(s) improperly.-->">
+				<AttributeType Name="Mechanism" Definition="Shows which operator or method uses data type(s) improperly.">
 					<Attribute Name="Function"/>
 					<Attribute Name="Operator"/>
 					<Attribute Name="Method"/> <!-- (for classes)-->
@@ -370,16 +367,16 @@ referred in source code via its declared name.">
 					<Cause Name="Wrong"/>
 					<Cause Name="Erroneous (_DTC)"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Value" Definition="Domain Violation: A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value" Definition="Domain Violation">
 					<Cause Name="Wrong Value"/>
 					<Cause Name="Zero (0)"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="Wrong Argument Value"/>
 					<Cause Name="Wrong Object Resolved Value"/>
 					<Cause Name="Reference vs. Object"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Data Type" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Type"  Definition="">
 					<Cause Name="Wrong Type (_DTC)"/>
 					<Cause Name="Wrong Object Resolved Type"/>
 				</WeaknessCauseType>
@@ -398,7 +395,7 @@ referred in source code via its declared name.">
 					<Consequence Name="Wrong Result"/>
 					<Consequence Name="Wrap Around"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="Type Compute Error" Definition="Final Error">
+				<FinalErrorConsequenceType Name="Type Compute Error" Definition="">
 					<Consequence Name="Undefined"/>
 				</FinalErrorConsequenceType>
 			</Consequences>
@@ -457,16 +454,16 @@ referred in source code via its declared name.">
 					<Cause Name="Mismatched"/>
 					<Cause Name="Erroneous (_MEM)"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="Hardcoded Address"/>
 					<Cause Name="Wrong Index"/>	
 					<Cause Name="Wrong Size Used"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Data Type" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Type"  Definition="">
 					<Cause Name="Wrong Index Type"/> 
 					<Cause Name="Casted Pointer"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Object Address" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Object Address"  Definition="">
 					<Cause Name="NULL Pointer"/>
 					<Cause Name="Wild Pointer"/>
 					<Cause Name="Dangling Pointer"/>
@@ -475,7 +472,7 @@ referred in source code via its declared name.">
 					<Cause Name="Wrong Position Pointer" Definition="Wrong Position Inside Bounds"/>
 					<Cause Name="Over Bounds Pointer" Definition="Wrong Position After/Over Bounds"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Object Size" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Object Size"  Definition="">
 					<Cause Name="Not Enough Memory Allocated"/> <!--Size1-->
 				</WeaknessCauseType>
 			</Causes>
@@ -540,13 +537,13 @@ referred in source code via its declared name.">
 					<Cause Name="Erroneous (_MEM)"/>
 				</BugCauseType>
 
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="Hardcoded Address"/>
 					<Cause Name="Forbidden Address"/>
 					<Cause Name="Single Owned Object Address"/>
 					<Cause Name="Wrong Size Used"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Object Address" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Object Address"  Definition="">
 					<Cause Name="Wild Pointer"/>
 					<Cause Name="Dangling Pointer"/>
 					<Cause Name="Wrong Position Pointer"/>
@@ -561,7 +558,7 @@ referred in source code via its declared name.">
 					<Consequence Name="Not Enough Memory Allocated"/>
 					<!--xxx Wrong Size Memory Allocated - not enough; too much; or just add Too Much Memory Allocated ???-->
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="Memory Error" Definition="Final Error">
+				<FinalErrorConsequenceType Name="Memory Error" Definition="">
 					<Consequence Name="Memory Overflow"/>
 					<Consequence Name="Memory Leak"/>
 					<Consequence Name="Double Free"/>
@@ -614,14 +611,14 @@ referred in source code via its declared name.">
 					<Cause Name="Erroneous (_MEM)"/>
 				</BugCauseType>
 
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="Forbidden Address"/>
 					<Cause Name="Wrong Size Used"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Data Type" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Type"  Definition="">
 					<Cause Name="Casted Pointer"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Object Address" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Object Address"  Definition="">
 					<Cause Name="NULL Pointer"/>
 					<Cause Name="Wild Pointer"/>
 					<Cause Name="Dangling Pointer"/>
@@ -630,12 +627,12 @@ referred in source code via its declared name.">
 					<Cause Name="Over Bounds Pointer"/>
 					<Cause Name="Wrong Position Pointer"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Object Size" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Object Size"  Definition="">
 					<Cause Name="Not Enough Memory Allocated"/>
 				</WeaknessCauseType>
 			</Causes>
 			<Consequences>
-				<FinalErrorConsequenceType Name="Memory Error" Definition="Final Error">
+				<FinalErrorConsequenceType Name="Memory Error" Definition="">
 					<Consequence Name="Uninitialized Object"/>
 					<Consequence Name="Not Cleared Object"/>
 					<Consequence Name="NULL Pointer Dereference"/>
@@ -691,28 +688,28 @@ referred in source code via its declared name.">
 					<Cause Name="Mismatched"/>
 					<Cause Name="Erroneous (_MEM)"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="Hardcoded Address"/>
 					<Cause Name="Forbidden Address"/>
 					<Cause Name="Wrong Size Used"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Object Address" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Object Address"  Definition="">
 					<Cause Name="Wild Pointer"/>
 					<Cause Name="Dangling Pointer"/>
 					<Cause Name="Wrong Position Pointer"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Object Size" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Object Size"  Definition="">
 					<Cause Name="Not Enough Memory Allocated"/>
 				</WeaknessCauseType>
 			</Causes>
 			<Consequences>
-				<WeaknessConsequenceType Name="Improper Object Address" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessConsequenceType Name="Improper Object Address"  Definition="">
 					<Consequence Name="NULL Pointer"/>
 				</WeaknessConsequenceType>
-				<WeaknessConsequenceType Name="Improper Object Size" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessConsequenceType Name="Improper Object Size"  Definition="">
 					<Consequence Name="Not Enough Memory Allocated"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="Memory Error" Definition="Final Error">
+				<FinalErrorConsequenceType Name="Memory Error" Definition="">
 					<Consequence Name="Memory Leak"/>
 					<Consequence Name="Double Free"/>
 					<Consequence Name="Object Corruption"/>
@@ -720,7 +717,7 @@ referred in source code via its declared name.">
 			</Consequences>
 		</Class>
 	</Cluster>
-	<!--<Cluster Name="_CRY" Type="Bug/Weakness" Definition="Cryptographic Store or Transfer Bugs (incl. xxx Errors)">
+	<Cluster Name="_CRY" Type="Bug/Weakness" Definition="Cryptographic Store or Transfer Bugs (incl. xxx Errors)">
 		<Class Name="ENC" Title="Encryption Bugs" Definition="Sensitive data (plaintext) are improperly transformed into unintelligible form (ciphertext) using a cryptographic algorithm and key(s).">
 			<Operations>
 				<Operation Name="Encrypt"/>
@@ -779,7 +776,7 @@ referred in source code via its declared name.">
 					<Cause Name="Weak Algorithm - including 'Insecure Mode of Operation' - we have it as 'leading to weak algorithm' on the old graph, but is it?"/>
 					<Cause Name="Risky/Broken Algorithm"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Key" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Key"  Definition="">
 					<Cause Name="Known Key"/>
 					<Cause Name="xxx Exposed Key - have to be conseqeunce from IEX failure form a previous Vulnerability"/>
 				</WeaknessCauseType>
@@ -789,7 +786,7 @@ referred in source code via its declared name.">
 					<Consequence Name="xxxKnown Key - for KMN"/>					
 					<Consequence Name="xxxKnown Random Number - for KMN"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="xxxSecurity Error - xxx leads to IEX" Definition="Final Error">
+				<FinalErrorConsequenceType Name="xxxSecurity Error - xxx leads to IEX" Definition="">
 					<Consequence Name="xxxConfidentiality Error - leads to IEX of Data"/>
 					<Consequence Name="xxx~Integrity Error -in some modes of encryption"/>
 					<Consequence Name="xxx~Identity Authentication Error -in some modes of encryption"/>
@@ -861,11 +858,11 @@ referred in source code via its declared name.">
 					<Cause Name="Weak Algorithm"/>
 					<Cause Name="Risky/Broken Algorithm"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Key" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Key"  Definition="">
 					<Cause Name="Weak Key"/>
 					<Cause Name="Known Key"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Random Number" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Random Number"  Definition="">
 					<Cause Name="Inadequate Random Number"/>
 					<Cause Name="Predictable Random Number"/>
 					<Cause Name="Known Random Number"/>
@@ -875,7 +872,7 @@ referred in source code via its declared name.">
 				<WeaknessConsequenceType Name="Improper Key" Definition="xxx">
 					<Consequence Name="Unverified Key"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="xxxSecurity Error - leads to IEX" Definition="Final Error">
+				<FinalErrorConsequenceType Name="xxxSecurity Error - leads to IEX" Definition="">
 					<Consequence Name="Integrity Authentication Error" Definition="Unverified Data"/>
 					<Consequence Name="Identity Authentication Error" Definition="Unverified Identity"/>
 					<Consequence Name="Origin Non-Repudiation Error" Definition="Unverified Origin Origin (Signer)"/>
@@ -948,11 +945,11 @@ referred in source code via its declared name.">
 					<Cause Name="Weak Algorithm"/>
 					<Cause Name="Risky/Broken Algorithm"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Key" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Key"  Definition="">
 					<Cause Name="Weak Key"/>
 					<Cause Name="Known Key"/>
 				</WeaknessCauseType>
-				<WeaknessCauseType Name="Improper Random Number" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Random Number"  Definition="">
 					<Cause Name="Inadequate Random Number"/>
 					<Cause Name="Predictable Random Number"/>
 					<Cause Name="Known Random Number"/>
@@ -965,8 +962,8 @@ referred in source code via its declared name.">
 				</WeaknessConsequenceType>
 			</Consequences>
 		</Class>
-	</Cluster>-->
-	<!--<Cluster Name="_RND" Type="Bug/Weakness" Definition="Random Number Generation Bugs (incl. xxx Errors">
+	</Cluster>
+	<Cluster Name="_RND" Type="Bug/Weakness" Definition="Random Number Generation Bugs (incl. xxx Errors">
 		<Class Name="TRN" Title="xxx" Definition="xxx">
 			<Operands>
 				<Operand Name="xxx"/>
@@ -975,7 +972,7 @@ referred in source code via its declared name.">
 				<BugCauseType Name="Improper Operation" Definition="The Bug">
 					<Cause Name="xxx"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="xxx"/>
 				</WeaknessCauseType>
 			</Causes>
@@ -983,7 +980,7 @@ referred in source code via its declared name.">
 				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
 					<Consequence Name="xxx"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="xxx Error" Definition="Final Error">
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
 					<Consequence Name="xxx Error"/>
 				</FinalErrorConsequenceType>
 			</Consequences>
@@ -996,7 +993,7 @@ referred in source code via its declared name.">
 				<BugCauseType Name="Improper Operation" Definition="The Bug">
 					<Cause Name="xxx"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Value" Definition="A Weakness - Result From Previous Operation">
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
 					<Cause Name="xxx"/>
 				</WeaknessCauseType>
 			</Causes>
@@ -1004,29 +1001,166 @@ referred in source code via its declared name.">
 				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
 					<Consequence Name="xxx"/>
 				</WeaknessConsequenceType>
-				<FinalErrorConsequenceType Name="xxx Error" Definition="Final Error">
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
 					<Consequence Name="xxx Error"/>
 				</FinalErrorConsequenceType>
 			</Consequences>
 		</Class>
-	</Cluster>-->
+	</Cluster>
 
+	<Cluster Name="_ACC" Type="Bug/Weakness" Definition="Access Control Bugs (incl. xxx Errors)">
+		<Class Name="ATN" Title="xxx" Definition="xxx">
+			<Operands>
+				<Operand Name="xxx"/>
+			</Operands>
+			<Causes>
+				<BugCauseType Name="Improper Operation" Definition="The Bug">
+					<Cause Name="xxx"/>
+				</BugCauseType>
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
+					<Cause Name="xxx"/>
+				</WeaknessCauseType>
+			</Causes>
+			<Consequences>
+				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
+					<Consequence Name="xxx"/>
+				</WeaknessConsequenceType>
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
+					<Consequence Name="xxx Error"/>
+				</FinalErrorConsequenceType>
+			</Consequences>
+		</Class>
+		<Class Name="ATZ" Title="xxx" Definition="xxx">
+			<Operands>
+				<Operand Name="xxx"/>
+			</Operands>
+			<Causes>
+				<BugCauseType Name="Improper Operation" Definition="The Bug">
+					<Cause Name="xxx"/>
+				</BugCauseType>
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
+					<Cause Name="xxx"/>
+				</WeaknessCauseType>
+			</Causes>
+			<Consequences>
+				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
+					<Consequence Name="xxx"/>
+				</WeaknessConsequenceType>
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
+					<Consequence Name="xxx Error"/>
+				</FinalErrorConsequenceType>
+			</Consequences>
+		</Class>
+	</Cluster>
+	
+	<Cluster Name="_CON" Type="Bug/Weakness" Definition="Concurency Bugs (incl. xxx Errors)">
+		<Class Name="CON1" Title="xxx" Definition="xxx">
+			<Operands>
+				<Operand Name="xxx"/>
+			</Operands>
+			<Causes>
+				<BugCauseType Name="Improper Operation" Definition="The Bug">
+					<Cause Name="xxx"/>
+				</BugCauseType>
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
+					<Cause Name="xxx"/>
+				</WeaknessCauseType>
+			</Causes>
+			<Consequences>
+				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
+					<Consequence Name="xxx"/>
+				</WeaknessConsequenceType>
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
+					<Consequence Name="xxx Error"/>
+				</FinalErrorConsequenceType>
+			</Consequences>
+		</Class>
+		<Class Name="CON2" Title="xxx" Definition="xxx">
+			<Operands>
+				<Operand Name="xxx"/>
+			</Operands>
+			<Causes>
+				<BugCauseType Name="Improper Operation" Definition="The Bug">
+					<Cause Name="xxx"/>
+				</BugCauseType>
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
+					<Cause Name="xxx"/>
+				</WeaknessCauseType>
+			</Causes>
+			<Consequences>
+				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
+					<Consequence Name="xxx"/>
+				</WeaknessConsequenceType>
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
+					<Consequence Name="xxx Error"/>
+				</FinalErrorConsequenceType>
+			</Consequences>
+		</Class>
+	</Cluster>
+	
+	<Cluster Name="_CFL" Type="Bug/Weakness" Definition="Control Flow Bugs (incl. xxx Errors)">
+		<Class Name="CFL1" Title="xxx" Definition="xxx">
+			<Operands>
+				<Operand Name="xxx"/>
+			</Operands>
+			<Causes>
+				<BugCauseType Name="Improper Operation" Definition="The Bug">
+					<Cause Name="xxx"/>
+				</BugCauseType>
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
+					<Cause Name="xxx"/>
+				</WeaknessCauseType>
+			</Causes>
+			<Consequences>
+				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
+					<Consequence Name="xxx"/>
+				</WeaknessConsequenceType>
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
+					<Consequence Name="xxx Error"/>
+				</FinalErrorConsequenceType>
+			</Consequences>
+		</Class>
+		<Class Name="CFL2" Title="xxx" Definition="xxx">
+			<Operands>
+				<Operand Name="xxx"/>
+			</Operands>
+			<Causes>
+				<BugCauseType Name="Improper Operation" Definition="The Bug">
+					<Cause Name="xxx"/>
+				</BugCauseType>
+				<WeaknessCauseType Name="Improper Data Value"  Definition="">
+					<Cause Name="xxx"/>
+				</WeaknessCauseType>
+			</Causes>
+			<Consequences>
+				<WeaknessConsequenceType Name="Improper Data Type" Definition="xxx">
+					<Consequence Name="xxx"/>
+				</WeaknessConsequenceType>
+				<FinalErrorConsequenceType Name="xxx Error" Definition="">
+					<Consequence Name="xxx Error"/>
+				</FinalErrorConsequenceType>
+			</Consequences>
+		</Class>
+	</Cluster>
+
+<!--Failures should have only Causes and Atributes
+We were discussing that a Failure would be like a class - again with causes and consequences; and the causes are the final errors from previous weakness, the consequences are the risks.
+Or maybe Failures have only Cause and Attributes?
+So far I dont think failure have consequences. I think it is only cause (final errors)-->
 	<Cluster Name="_FLR" Type="Failure" Definition="">
 		<Class Name="IEX" Title="Information Exposure" Definition="Information Exposure">
 			<Operations>
 				<Operation Name="IEX Operation"/>
 			</Operations>
-			<!-- Failure causes are the Final Error conseqeunces from previous weaknesses. -->
 			<Causes>
-				<FianalErrorCauseType Name="Memory Error" Definition="xxx">
+				<FianalErrorCauseType Name="Memory Error" Definition="">
 					<Cause Name="Buffer Overflow"/>
 					<Cause Name="Buffer Underflow"/>
 					<Cause Name="Not Cleared Object"/>
 				</FianalErrorCauseType>
 			</Causes>
-			<!-- Conseqeunces are the risks. -->
 			<Consequences>
-				<RiskConsequenceType Name="xxx" Definition="ddd">
+				<RiskConsequenceType Name="Risk" Definition="">
 					<Consequence Name="IEX Conseqeunce"/>
 				</RiskConsequenceType>
 			</Consequences>
@@ -1036,12 +1170,13 @@ referred in source code via its declared name.">
 				<Operation Name="RCE Operation"/>
 			</Operations>
 			<Causes>
-				<FianalErrorCauseType Name="xxx" Definition="xxx">
-					<Cause Name="RCE Cause"/>
+				<FianalErrorCauseType Name="Memory Error" Definition="">
+					<Cause Name="Buffer Overflow"/>
+					<Cause Name="Buffer Underflow"/>
 				</FianalErrorCauseType>
 			</Causes>
 			<Consequences>
-				<RiskConsequenceType Name="xxx" Definition="ddd">
+				<RiskConsequenceType Name="Risk" Definition="">
 					<Consequence Name="RCE Conseqeunce"/>
 				</RiskConsequenceType>
 			</Consequences>
@@ -1051,12 +1186,13 @@ referred in source code via its declared name.">
 				<Operation Name="DOS Operation"/>
 			</Operations>
 			<Causes>
-				<FianalErrorCauseType Name="xxx" Definition="xxx">
-					<Cause Name="DOS Cause"/>
+				<FianalErrorCauseType Name="Memory Error" Definition="">
+					<Cause Name="Buffer Overflow"/>
+					<Cause Name="Buffer Underflow"/>
 				</FianalErrorCauseType>
 			</Causes>
 			<Consequences>
-				<RiskConsequenceType Name="xxx" Definition="ddd">
+				<RiskConsequenceType Name="Risk" Definition="">
 					<Consequence Name="DOS Conseqeunce"/>
 				</RiskConsequenceType>
 			</Consequences>
@@ -1088,10 +1224,6 @@ Reg Exprs
 	<Definition Name="$1">$2</Definition>\n 
 -->
 	<Definitions>
-		<!--used also as Tooltips in BF Tools-->
-		<!--NOTE: Erroneous, Wrong Type, and others may be slightly different in each cluster - so, using (_INP), etc. -->
-		<!--xxx define also the Group Names such as "Improper Data Value"-->
-		
 		<!--_INP Cluster-->
 		<Definition Name="Validate">Check data syntax (proper form/grammar) in order to accept (and possibly sanitize) or reject it. Includes checking for missing symbols/elements.</Definition>
 		<Definition Name="Sanitize">Modify data (neutralize/escape, filter/remove, repair/add symbols) in order to make it valid (well-formed).</Definition>
@@ -1337,14 +1469,40 @@ Reg Exprs
 <!--END NOTES - DISCUSS-->
 		
 		<!--Common Terms - xxx can use them as tooltips for labels-->
-		<Definition Name="Vulnerability">xxx</Definition>
-		<Definition Name="Bug">A coding error that needs to be fixed.</Definition>
-		<!--<Definition Name="Weakness">Improper operand that is result from the Operation of a Previous Bug/Weakness.</Definition>-->
-		<Definition Name="Final Error">Undefined or exploitable system behavior.</Definition>
-		<Definition Name="Failure">A violation of a system security requirement.</Definition>
+		<Definition Name="Bug">
+			A coding error that needs to be fixed.
+			BF: Caused by an improper operation or rule (e.g. policy, scope, modifier) - the underlying start error of a vulnerability.
+		</Definition>
+		<Definition Name="Weakness">
+			Caused by a bug or ill-formed data. A weakness type is also a meaningful notion, as different vulnerabilities may have the same type of underlying weaknesses.
+			BF: Caused by an improper operand that is result from the operation of a previous bug/weakness: improper object (address, size), data (type, value), function (signature, implementation), or rule as object (e.g. policy data) - underlying intermediate error of a vulnerability.
+		</Definition>
+		<Definition Name="Vulnerability">
+			An instance of a weakness type that leads to a security failure. It may have more than one underlying weaknesses linked by causality.
+			BF: A bug[-weakness(es)]-failure(s) chain formed by consequence-cause transitions.
+		</Definition>
+		<Definition Name="Final Error">
+			Undefined or exploitable system behavior.
+			BF: A conseqeunce of the last element of a bug[-weakness(es)] vulnerability chain.
+		</Definition>
+		<Definition Name="Failure">
+			A violation of a system security requirement.
+			BF: Caused by a final error consequence. Several vulnerability chains might converge at this final error conseqeunce to cause the failure.
+		</Definition>
+		
 		<Definition Name="BF Class">xxx</Definition>
 		<Definition Name="Cause">xxx</Definition>
 		<Definition Name="Consequence">xxx</Definition>
+
+		
+		<!--NOTE: Erroneous, Wrong Type, and others may be slightly different in each cluster - so, using (_INP), etc. -->
+		<!--xxx define also the Group Names such as "Improper Data Value"-->
+		<!--NOTE: Improper Data in DVL is like the parent of Improper Data Value and Improper Data Type - so each of these should be able to connect to an Improper Data cause for next weakness-->
+
+
+		<!--The operation attributes Source Code and Execution Space explain where a bug is – where the operation is in the program and where its code runs.-->
+		<!--Improper Operation - "The Bug" - could be improper code or improper rules (Policy, Keying Material, Domain Parameter) code that has to be fixed to resolve to vulnerablity cause by this bug."-->
+
 	</Definitions>
 
 </BF>

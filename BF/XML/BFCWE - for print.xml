@@ -1,0 +1,1054 @@
+﻿<!--@author Irena Bojanova(ivb)-->
+<!--@date - 07/09/2021-->
+<BFCWE>
+	<Cluster Name="_ALL">
+		<showClassCWEs>
+			<!--from BF site:-->
+			<ClassOperation name="pillar">
+				<CWE>284</CWE>
+				<CWE>435</CWE>
+				<CWE>664</CWE>
+				<!--<CWE>682</CWE>-->
+				<CWE>691</CWE>
+				<CWE>693</CWE>
+				<!--<CWE>697</CWE>-->
+				<CWE>703</CWE>
+				<CWE>707</CWE>
+				<CWE>710</CWE>
+			</ClassOperation>
+		</showClassCWEs>
+	</Cluster>
+	<Cluster Name="_INP">
+		<!--fig 1-->
+		<showClassCWEs>
+			<ClassOperation name="DVL Validate">
+				<CWE>41</CWE>
+				<CWE>42</CWE>
+				<CWE>43</CWE>
+				<CWE>44</CWE>
+				...
+			</ClassOperation>
+			<ClassOperation name="DVL Sanitize">
+				<CWE>22</CWE>
+				<CWE>23</CWE>
+				<CWE>24</CWE>
+				<CWE>25</CWE>
+				<CWE>26</CWE>
+				<CWE>27</CWE>
+				<CWE>28</CWE>
+				<CWE>29</CWE>
+				<CWE>30</CWE>
+				<CWE>31</CWE>
+				<CWE>32</CWE>
+				<CWE>33</CWE>
+				<CWE>34</CWE>
+				<CWE>35</CWE>
+				<CWE>36</CWE>
+				<CWE>37</CWE>
+				<CWE>38</CWE>
+				<CWE>39</CWE>
+				<CWE>40</CWE>
+				<CWE>74</CWE>
+				<CWE>75</CWE>
+				<CWE>76</CWE>
+				<CWE>77</CWE>
+				<CWE>78</CWE>
+				<CWE>79</CWE>
+				<CWE>80</CWE>
+				<CWE>81</CWE>
+				<CWE>82</CWE>
+				<CWE>83</CWE>
+				<CWE>84</CWE>
+				<CWE>85</CWE>
+				<CWE>86</CWE>
+				<CWE>87</CWE>
+				<CWE>88</CWE>
+				<CWE>89</CWE>
+				<CWE>90</CWE>
+				<CWE>91</CWE>
+				<CWE>93</CWE>
+				<CWE>94</CWE>
+				<CWE>95</CWE>
+				<CWE>96</CWE>
+				<CWE>97</CWE>
+				<CWE>98</CWE>
+				<CWE>113</CWE>
+				<CWE>116</CWE>
+				<CWE>117</CWE>
+				<CWE>138</CWE>
+				<CWE>140</CWE>
+				<CWE>141</CWE>
+				<CWE>142</CWE>
+				<CWE>143</CWE>
+				<CWE>144</CWE>
+				<CWE>145</CWE>
+				<CWE>146</CWE>
+				<CWE>147</CWE>
+				<CWE>148</CWE>
+				<CWE>149</CWE>
+				<CWE>150</CWE>
+				<CWE>151</CWE>
+				<CWE>152</CWE>
+				<CWE>153</CWE>
+				<CWE>154</CWE>
+				<CWE>155</CWE>
+				<CWE>156</CWE>
+				<CWE>157</CWE>
+				<CWE>158</CWE>
+				<CWE>159</CWE>
+				<CWE>160</CWE>
+				<CWE>162</CWE>
+				<CWE>164</CWE>
+				<CWE>166</CWE>
+				<CWE>167</CWE>
+				<CWE>168</CWE>
+				<CWE>229</CWE>
+				<CWE>428</CWE>
+				<CWE>564</CWE>
+				<CWE>626</CWE>
+				<CWE>643</CWE>
+				<CWE>644</CWE>
+				<CWE>652</CWE>
+				<CWE>692</CWE>
+				<CWE>790</CWE>
+				<CWE>791</CWE>
+				<CWE>795</CWE>
+				<CWE>796</CWE>
+				<CWE>797</CWE>
+				<CWE>917</CWE>
+				<CWE>943</CWE>
+				<CWE>1236</CWE>
+				<CWE>1336</CWE>
+			</ClassOperation>
+			<ClassOperation name="DVR Check">
+				<!--<CWE>253</CWE>-->
+			</ClassOperation>
+			<ClassOperation name="DVR Verify">
+				<CWE>129</CWE>
+				<CWE>130</CWE>
+				<CWE>170</CWE>
+				<CWE>230</CWE>
+				<CWE>232</CWE>
+				<CWE>472</CWE>
+				<CWE>606</CWE>
+				<CWE>781</CWE>
+				<CWE>914</CWE>
+				<CWE>1284</CWE>
+				<CWE>1285</CWE>
+				<CWE>1287</CWE>
+				<CWE>1288</CWE>
+				<CWE>1289</CWE>
+			</ClassOperation>
+			<ClassOperation name="DVL Validate and DVR Verify">
+				<CWE>15</CWE>
+				<CWE>20</CWE>
+				<CWE>73</CWE>
+				<CWE>99</CWE>
+				<CWE>102</CWE>
+				<CWE>105</CWE>
+				<CWE>106</CWE>
+				<CWE>108</CWE>
+				<CWE>109</CWE>
+				<CWE>114</CWE>
+				<CWE>183</CWE>
+				<CWE>184</CWE>
+				<CWE>185</CWE>
+				<CWE>186</CWE>
+				<CWE>565</CWE>
+				<CWE>622</CWE>
+				<CWE>625</CWE>
+				<CWE>1173</CWE>
+				<CWE>1174</CWE>
+			</ClassOperation>
+		</showClassCWEs>
+		<showConsequenceCWEs>
+			<Consequence name="Query Injection">
+				<CWE>89</CWE>
+				<CWE>90</CWE>
+				<CWE>91</CWE>
+				<CWE>564</CWE>
+				<CWE>643</CWE>
+				<CWE>652</CWE>
+				<CWE>943</CWE>
+			</Consequence>
+			<Consequence name="Command Injection">
+				<CWE>77</CWE>
+				<CWE>78</CWE>
+				<CWE>114</CWE>
+				<CWE>624</CWE>
+			</Consequence>
+			<Consequence name="Source Code Injection">
+				<CWE>79</CWE>
+				<CWE>80</CWE>
+				<CWE>81</CWE>
+				<CWE>82</CWE>
+				<CWE>83</CWE>
+				<CWE>84</CWE>
+				<CWE>85</CWE>
+				<CWE>86</CWE>
+				<CWE>87</CWE>
+				<CWE>94</CWE>
+				<CWE>95</CWE>
+				<CWE>96</CWE>
+				<CWE>97</CWE>
+				<CWE>98</CWE>
+				<CWE>149</CWE>
+				<CWE>692</CWE>
+				<CWE>917</CWE>
+				<CWE>1336</CWE>
+			</Consequence>
+			<Consequence name="Parameter Injection">
+				<CWE>88</CWE>
+				<CWE>93</CWE>
+				<CWE>113</CWE>
+				<CWE>134</CWE>
+				<CWE>140</CWE>
+				<CWE>141</CWE>
+				<CWE>142</CWE>
+				<CWE>143</CWE>
+				<CWE>144</CWE>
+				<CWE>145</CWE>
+				<CWE>146</CWE>
+				<CWE>147</CWE>
+				<CWE>148</CWE>
+				<CWE>150</CWE>
+				<CWE>151</CWE>
+				<CWE>152</CWE>
+				<CWE>154</CWE>
+				<CWE>157</CWE>
+			</Consequence>
+			<Consequence name="File Injection">
+				<CWE>22</CWE>
+				<CWE>23</CWE>
+				<CWE>24</CWE>
+				<CWE>25</CWE>
+				<CWE>26</CWE>
+				<CWE>27</CWE>
+				<CWE>28</CWE>
+				<CWE>29</CWE>
+				<CWE>30</CWE>
+				<CWE>31</CWE>
+				<CWE>32</CWE>
+				<CWE>33</CWE>
+				<CWE>34</CWE>
+				<CWE>35</CWE>
+				<CWE>36</CWE>
+				<CWE>37</CWE>
+				<CWE>38</CWE>
+				<CWE>39</CWE>
+				<CWE>40</CWE>
+				<CWE>41</CWE>
+				<CWE>42</CWE>
+				<CWE>43</CWE>
+				<CWE>44</CWE>
+				<CWE>45</CWE>
+				<CWE>46</CWE>
+				<CWE>47</CWE>
+				<CWE>48</CWE>
+				<CWE>49</CWE>
+				<CWE>50</CWE>
+				<CWE>51</CWE>
+				<CWE>52</CWE>
+				<CWE>53</CWE>
+				<CWE>54</CWE>
+				<CWE>55</CWE>
+				<CWE>56</CWE>
+				<CWE>57</CWE>
+				<CWE>58</CWE>
+				<CWE>73</CWE>
+				<CWE>99</CWE>
+				<CWE>117</CWE>
+				<CWE>641</CWE>
+				<CWE>1236</CWE>
+			</Consequence>
+
+			<Consequence name="DVL Invalid Data">
+				<CWE>138</CWE>
+				<CWE>155</CWE>
+				<CWE>153</CWE>
+				<CWE>158</CWE>
+				<CWE>159</CWE>
+				<CWE>160</CWE>
+				<CWE>162</CWE>
+				<CWE>164</CWE>
+			</Consequence>
+			<Consequence name="DVR Wrong Value, Inconsistent Value, and Wrong Type">
+				<CWE>129</CWE>
+				<CWE>170</CWE>
+				<CWE>606</CWE>
+				<CWE>781</CWE>
+				<CWE>839</CWE>
+				<!--Policy (Range)-->
+				<CWE>1285</CWE>
+				<CWE>1289</CWE>
+				<CWE>130</CWE>
+				<CWE>230</CWE>
+				<CWE>232</CWE>
+				<CWE>1288</CWE>
+				<CWE>1284</CWE>
+				<CWE>1287</CWE>
+			</Consequence>
+			<!--<Consequence name="DVR Wrong Value">
+				<CWE>129</CWE>
+				<CWE>170</CWE>
+				<CWE>606</CWE>
+				<CWE>781</CWE>
+				<CWE>1285</CWE>
+				<CWE>1289</CWE>
+			</Consequence>
+			<Consequence name="DVR Inconsistent Value">
+				<CWE>130</CWE>
+				<CWE>230</CWE>
+				<CWE>232</CWE>
+				<CWE>1288</CWE>
+			</Consequence>
+			<Consequence name="DVR Wrong Type">
+				<CWE>1284</CWE>
+				<CWE>1287</CWE>
+			</Consequence>-->
+
+			<OnlyCause name="No consequence"> <!--(only cause listed)"-->
+				<CWE>102</CWE>
+				<CWE>105</CWE>
+				<CWE>106</CWE>
+				<CWE>108</CWE>
+				<CWE>109</CWE>
+				<CWE>183</CWE>
+				<CWE>184</CWE>
+				<CWE>185</CWE>
+				<CWE>186</CWE>
+				<CWE>228</CWE>
+				<CWE>229</CWE>
+				<CWE>231</CWE>
+				<CWE>233</CWE>
+				<CWE>234</CWE>
+				<CWE>235</CWE>
+				<CWE>236</CWE>
+				<CWE>237</CWE>
+				<CWE>238</CWE>
+				<CWE>239</CWE>
+				<CWE>240</CWE>
+				<CWE>554</CWE>
+				<CWE>625</CWE>
+				<CWE>1173</CWE>
+				<CWE>1174</CWE>
+			</OnlyCause>
+		</showConsequenceCWEs>
+		<classStyles>
+			<Caption n="CWEs by DVL and/or DVR operation:" u="sng" x="10858514" y="25852362"/>
+			<ClassOperation n="DVL Validate" c="0099FF"/>
+			<ClassOperation n="DVL Sanitize" c="339966"/>
+			<ClassOperation n="DVR Verify" c="FF3399"/>
+			<ClassOperation n="DVL Validate and DVR Verify" c="9966FF"/>
+		</classStyles>
+		<consequenceStyles>
+			<Caption n="CWEs by DVL Injection Error:" u="sng" x="10765567" y="25852362"/>
+			<Consequence n="Query Injection" c="99FF66"/>
+			<Consequence n="Command Injection" c="6699FF"/>
+			<Consequence n="Source Code Injection" c="FF9966"/>
+			<Consequence n="Parameter Injection" c="66FFCC"/>
+			<Consequence n="File Injection" c="CC99FF"/>
+			<Caption n="CWEs by DVL or DVR Wrong Data:" u="sng" x="17278697" y="25852362"/>
+			<Consequence n="DVL Invalid Data" c="FF0000"/>
+			<Consequence n="DVR Wrong Value, Inconsistent Value, and Wrong Type" c="C00000"/>
+			<OnlyCause n="No consequence" c="C8C8DA" fill="F3F3F3"/>
+		</consequenceStyles>
+
+		<!-- most dangerous
+Base/Variant/Component: 89, 78, 611???, 502???, 94, 917, 22, 79
+Pillar: 913???, 20, 77, 74 -->
+	</Cluster>
+	<Cluster Name="_DTC">
+		<!--fig 1-->
+		<showClassCWEs>
+			<ClassOperation name="_DTC General">
+				<CWE>573</CWE>
+				<CWE>664</CWE>
+				<CWE>668</CWE>
+				<!--<CWE>682</CWE>-->
+				<!--<CWE>697</CWE>-->
+				<!--<CWE>693</CWE>-->
+				<CWE>710</CWE>
+				<CWE>758</CWE>
+				<CWE>1076</CWE>
+			</ClassOperation>
+
+			<ClassOperation name="DCL Declare">
+				<!--<CWE>104</CWE>
+				<CWE>111</CWE>
+				<CWE>245</CWE>
+				<CWE>246</CWE>
+				<CWE>383</CWE>-->
+				<CWE>471</CWE>
+				<CWE>491</CWE>
+				<CWE>492</CWE>
+				<CWE>493</CWE>
+				<CWE>495</CWE>
+				<CWE>496</CWE>
+				<CWE>499</CWE>
+				<CWE>500</CWE>
+				<!--<CWE>574</CWE>
+				<CWE>575</CWE>
+				<CWE>576</CWE>-->
+				<CWE>582</CWE>
+				<CWE>583</CWE>
+				<CWE>608</CWE>
+				<CWE>694</CWE>
+				<!--<CWE>695</CWE>-->
+				<CWE>766</CWE>
+			</ClassOperation>
+			<ClassOperation name="DCL Define">
+				<!--<CWE>103</CWE>-->
+				<CWE>374</CWE>
+				<CWE>375</CWE>
+				<CWE>498</CWE>
+				<!--<CWE>568</CWE>
+				<CWE>577</CWE>
+				<CWE>578</CWE>
+				<CWE>579</CWE>-->
+				<CWE>580</CWE>
+				<CWE>581</CWE>
+				<CWE>581</CWE>
+				<CWE>749</CWE>
+				<CWE>767</CWE>
+				<CWE>1043</CWE>
+				<CWE>1045</CWE>
+				<CWE>1054</CWE>
+				<CWE>1055</CWE>
+				<CWE>1057</CWE>
+				<CWE>1061</CWE>
+				<CWE>1062</CWE>
+				<CWE>1074</CWE>
+				<CWE>1079</CWE>
+				<CWE>1082</CWE>
+				<CWE>1083</CWE>
+				<CWE>1086</CWE>
+				<CWE>1087</CWE>
+				<CWE>1090</CWE>
+				<CWE>1093</CWE>
+				<CWE>1097</CWE>
+				<CWE>1098</CWE>
+				<CWE>1102</CWE>
+				<CWE>1105</CWE>
+			</ClassOperation>
+			<ClassOperation name="NRS Refer">
+				<!--<CWE>386</CWE>-->
+				<CWE>706</CWE>
+			</ClassOperation>
+			<ClassOperation name="NRS Call">
+				<CWE>386</CWE>
+				<!--<CWE>475</CWE>-->
+				<CWE>628</CWE>
+				<CWE>683</CWE>
+				<!--<CWE>684</CWE>-->
+				<CWE>685</CWE>
+				<CWE>686</CWE>
+			</ClassOperation>
+			<ClassOperation name="TCV Cast">
+				<CWE>588</CWE>
+				<!--<CWE>681</CWE>-->
+				<CWE>704</CWE>
+			</ClassOperation>
+			<ClassOperation name="TCV Coerce">
+				<CWE>192</CWE>
+				<CWE>194</CWE>
+				<CWE>195</CWE>
+				<CWE>196</CWE>
+				<CWE>681</CWE>
+				<CWE>704</CWE>
+				<CWE>843</CWE>
+			</ClassOperation>
+			<ClassOperation name="TCM Calculate">
+				<CWE>128</CWE>
+				<CWE>131</CWE>
+				<CWE>135</CWE>
+				<CWE>188</CWE>
+				<CWE>190</CWE>
+				<CWE>191</CWE>
+				<CWE>193</CWE><!--repeat-->
+				<CWE>369</CWE>
+				<CWE>467</CWE>
+				<CWE>468</CWE>
+				<CWE>469</CWE>
+				<CWE>682</CWE>
+				<CWE>687</CWE><!--repeat-->
+				<CWE>688</CWE><!--repeat-->
+				<CWE>1335</CWE>
+				<CWE>1339</CWE>
+			</ClassOperation>
+			<ClassOperation name="TCM Evaluate">
+				<CWE>351</CWE>
+				<CWE>486</CWE>
+				<CWE>595</CWE>
+				<CWE>597</CWE>
+				<CWE>687</CWE><!--repeat-->
+				<CWE>688</CWE><!--repeat-->
+				<CWE>697</CWE>
+				<CWE>1023</CWE>
+				<CWE>1024</CWE>
+				<CWE>1025</CWE>
+				<CWE>1077</CWE>
+			</ClassOperation>
+		</showClassCWEs>
+
+		<!--fig 2-->
+		<showConsequenceCWEs>
+			<Consequence name="Wrong Access Object">
+				<CWE>374</CWE>
+				<CWE>375</CWE>
+				<CWE>386</CWE>
+				<CWE>471</CWE>
+				<CWE>491</CWE>
+				<CWE>492</CWE><!--repeat-->
+				<CWE>493</CWE>
+				<CWE>495</CWE>
+				<CWE>496</CWE>
+				<CWE>498</CWE>
+				<CWE>499</CWE>
+				<CWE>500</CWE>
+				<CWE>582</CWE>
+				<CWE>608</CWE>
+				<CWE>766</CWE>
+				<CWE>767</CWE>
+				<CWE>1057</CWE>
+				<CWE>1061</CWE><!--repeat-->
+				<CWE>1083</CWE>
+				<CWE>1090</CWE>
+				<CWE>1105</CWE><!--repeat-->
+			</Consequence>
+			<Consequence name="Wrong Access Function">
+				<CWE>492</CWE><!--repeat-->
+				<CWE>583</CWE>
+				<CWE>749</CWE>
+				<CWE>1061</CWE><!--repeat-->
+				<CWE>1105</CWE><!--repeat-->
+			</Consequence>
+			<Consequence name="Undefined">
+				<CWE>369</CWE>
+			</Consequence>
+
+			<!--Improper Function -->
+			<Consequence name="Wrong Overloaded Function Bound">
+				<CWE>628</CWE>
+				<CWE>683</CWE><!--repeat-->
+				<CWE>685</CWE><!--repeat-->
+				<CWE>686</CWE><!--repeat-->
+			</Consequence>
+			<Consequence name="Wrong Object/Function/Type Resolved">
+				<CWE>694</CWE>
+			</Consequence>
+
+			<!--Improper Data Type -->
+			<Consequence name="Wrong Type">
+				<CWE>351</CWE>
+				<CWE>1043</CWE>
+				<CWE>1054</CWE>
+				<CWE>1055</CWE>
+				<CWE>1062</CWE>
+				<!--???-->
+				<CWE>1074</CWE>
+				<CWE>1082</CWE>
+				<CWE>1086</CWE>
+				<CWE>1093</CWE>
+			</Consequence>
+			<Consequence name="Incomplete Type">
+				<CWE>580</CWE>
+				<CWE>581</CWE>
+				<CWE>1045</CWE>
+				<CWE>1079</CWE>
+				<CWE>1087</CWE>
+				<CWE>1097</CWE>
+				<CWE>1098</CWE>
+			</Consequence>
+
+			<!--Improper Data Value -->
+			<Consequence name="Wrong Result">
+				<CWE>131></CWE>
+				<CWE>135</CWE>
+				<CWE>188</CWE>
+				<CWE>192</CWE>
+				<CWE>467</CWE>
+				<CWE>468</CWE>
+				<CWE>469</CWE>
+				<CWE>486</CWE>
+				<CWE>595</CWE>
+				<CWE>597</CWE>
+				<CWE>682</CWE>
+				<CWE>683</CWE><!--repeat-->
+				<CWE>685</CWE><!--repeat-->
+				<CWE>686</CWE><!--repeat-->
+				<CWE>687</CWE>
+				<CWE>688</CWE>
+				<CWE>697</CWE>
+				<CWE>1023</CWE>
+				<CWE>1024</CWE>
+				<CWE>1025</CWE>
+				<CWE>1077</CWE>
+				<CWE>1335</CWE>
+			</Consequence>
+			<Consequence name="Truncated Value">
+				<CWE>681</CWE><!--repeat-->
+				<CWE>1339</CWE>
+			</Consequence>
+			<!--<Consequence name="Distorted Value">
+	</Consequence>-->
+			<Consequence name="Rounded Value">
+				<CWE>681</CWE><!--repeat-->
+			</Consequence>
+			<Consequence name="Wrap Around">
+				<CWE>128</CWE>
+				<CWE>190</CWE>
+				<CWE>191</CWE>
+			</Consequence>
+			<Consequence name="Under Range">
+				<CWE>193</CWE><!--repeat-->
+			</Consequence>
+			<Consequence name="Over Range">
+				<CWE>193</CWE><!--repeat-->
+				<CWE>843</CWE>
+			</Consequence>
+			<Consequence name="Flipped Sign">
+				<CWE>194</CWE>
+				<CWE>195</CWE>
+				<CWE>196</CWE>
+			</Consequence>
+
+		</showConsequenceCWEs>
+
+		<!-- Hide CWEs-->
+		<!--<hideCWEs>
+			<CWE>182</CWE>
+			<CWE>183</CWE>
+			<CWE>184</CWE>
+			<CWE>185</CWE>
+			<CWE>186</CWE>
+			<CWE>187</CWE>
+			<CWE>474</CWE>
+			<CWE>478</CWE>
+			<CWE>562</CWE>
+			<CWE>587</CWE>
+			<CWE>625</CWE>
+			<CWE>839</CWE>
+			<CWE>915</CWE>
+			<CWE>1038</CWE>
+			<CWE>1039</CWE>
+			<CWE>1100</CWE>
+			<CWE>1103</CWE>
+			<CWE>1333</CWE>
+			<CWE>472</CWE>
+			<CWE>927</CWE>
+			<CWE>586</CWE>
+			<CWE>669</CWE>
+			<CWE>913</CWE>
+			<CWE>1282</CWE>
+			<CWE>710</CWE>
+			<CWE>573</CWE>
+			<CWE>1097</CWE>
+			<CWE>911</CWE>
+			<CWE>1250</CWE>
+			<CWE>1329</CWE>
+			<CWE>221</CWE>
+			<CWE>372</CWE>
+			<CWE>487</CWE>
+			<CWE>501</CWE>
+			<CWE>610</CWE>
+			<CWE>662</CWE>
+			<CWE>666</CWE>
+			<CWE>673</CWE>
+			<CWE>749</CWE>
+			<CWE>922</CWE>
+			<CWE>22</CWE>
+			<CWE>1327</CWE>
+			<CWE>134</CWE>
+			<CWE>200</CWE>
+			<CWE>377</CWE>
+			<CWE>402</CWE>
+			<CWE>427</CWE>
+			<CWE>428</CWE>
+			<CWE>488</CWE>
+			<CWE>522</CWE>
+			<CWE>524</CWE>
+			<CWE>552</CWE>
+			<CWE>642</CWE>
+			<CWE>732</CWE>
+			<CWE>8</CWE>
+			<CWE>1078</CWE>
+			<CWE>1108</CWE>
+			<CWE>1254</CWE>
+			<CWE>480</CWE>
+			<CWE>1229</CWE>
+			<CWE>1246</CWE>
+			<CWE>400</CWE>
+			<CWE>404</CWE>
+			<CWE>405</CWE>
+			<CWE>410</CWE>
+			<CWE>118</CWE>
+			<CWE>1189</CWE>
+		</hideCWEs>-->
+
+		<!--fig 1-->
+		<classStyles>
+			<Caption n="CWEs by DTC, NRS, TCV, and TCM operation:" u="sng" x="10858514" y="25852362"/>
+			<ClassOperation n="DCL Declare" c="00FF99"/>
+			<ClassOperation n="DCL Define" c="99FF33"/>
+			<ClassOperation n="NRS Refer" c="CC00FF"/>
+			<ClassOperation n="NRS Call" c="009900"/>
+			<ClassOperation n="TCV Cast" c="FF3399"/>
+			<ClassOperation n="TCV Coerce" c="FF9933"/>
+			<ClassOperation n="TCM Calculate" c="9966FF"/>
+			<ClassOperation n="TCM Evaluate" c="0099FF"/>
+
+			<Caption n="General CWEs:" u="sng" x="21464743" y="25852362"/>
+			<ClassOperation n="_DTC General" c="C8C8DA"/>
+		</classStyles>
+
+		<!--fig 2-->
+		<consequenceStyles>
+			<Caption n="CWEs by DCL Access Error:" u="sng" x="10765567" y="30852362"/>
+			<Consequence n="Wrong Access Object" c="008000"/>
+			<Consequence n="Wrong Access Function" c="00CC66"/>
+
+			<Caption n="CWEs by TCM Type Compute Error:" u="sng" x="20765567" y="30852362"/>
+			<Consequence n="Undefined" c="C724B1"/>
+
+			<Caption n="CWEs by DCL and NRS Improper Data Type:" u="sng" x="30765567" y="30852362"/>
+			<Consequence n="Wrong Type" c="e6194B"/>
+			<Consequence n="Incomplete Type" c="f58231"/>
+
+			<Caption n="CWEs by NRS Improper Function:" u="sng" x="40765567" y="30852362"/>
+			<Consequence n="Wrong Overloaded Function Bound" c="800000"/>
+
+			<Caption n="CWEs by TCV and TCM Improper Data Value:" u="sng" x="50278697" y="30852362"/>
+			<Consequence n="Wrong Result" c="ffe119"/>
+			<Consequence n="Rounded Value" c="bfef45"/>
+			<Consequence n="Truncated Value" c="42d4f4"/>
+			<Consequence n="Wrap Around" c="08748E"/>
+			<Consequence n="Under Range" c="4363d8"/>
+			<Consequence n="Over Range" c="911eb4"/>
+			<Consequence n="Flipped Sign" c="f032e6"/>
+			<Consequence n="No Consequence" c="a9a9a9"/>
+		</consequenceStyles>
+	</Cluster>
+
+	<!--Created by Irena Bojanova, 07/09/2021-->
+	<Cluster Name="_MEM">
+		<!--fig 1-->
+		<showClassCWEs>
+			<ClassOperation name="_MEM General">
+				<CWE>704</CWE>
+				<CWE>710</CWE>
+				<CWE>758</CWE>
+			</ClassOperation>
+			<Class name="MAD">
+				<CWE>562</CWE><!--Wild Pointer-->
+				<CWE>587</CWE><!--Hard Coded Address-->
+			</Class>
+			<ClassOperation name="MAL">
+				<CWE>400</CWE>
+				<CWE>770</CWE>
+				<CWE>789</CWE>
+				<CWE>401</CWE><!--repeat-->
+				<CWE>404</CWE><!--repeat-->
+				<CWE>415</CWE><!--repeat-->
+				<CWE>590</CWE><!--repeat-->
+				<CWE>761</CWE><!--repeat-->
+				<CWE>762</CWE><!--repeat-->
+				<CWE>763</CWE><!--repeat-->
+				<CWE>771</CWE><!--repeat-->
+				<CWE>772</CWE><!--repeat-->
+				<CWE>1091</CWE><!--repeat-->
+			</ClassOperation>
+			<ClassOperation name="MUS">
+				<CWE>118</CWE>
+				<CWE>119</CWE>
+				<CWE>120</CWE>
+				<CWE>121</CWE>
+				<CWE>122</CWE>
+				<CWE>123</CWE>
+				<CWE>124</CWE>
+				<CWE>125</CWE>
+				<CWE>126</CWE>
+				<CWE>127</CWE>
+				<CWE>226</CWE>
+				<CWE>244</CWE>
+				<CWE>416</CWE>
+				<CWE>454</CWE>
+				<CWE>456</CWE>
+				<CWE>457</CWE>
+				<CWE>459</CWE>
+				<CWE>466</CWE>
+				<CWE>476</CWE>
+				<CWE>588</CWE><!--TCV to MAD to MUS-->
+				<CWE>665</CWE>
+				<CWE>786</CWE>
+				<CWE>787</CWE>
+				<CWE>788</CWE>
+				<CWE>805</CWE>
+				<CWE>806</CWE>
+				<CWE>822</CWE>
+				<CWE>824</CWE>
+				<CWE>825</CWE>
+				<CWE>843</CWE>
+				<CWE>908</CWE>
+				<CWE>909</CWE>
+			</ClassOperation>
+			<ClassOperation name="MDL">
+				<CWE>586</CWE>
+				<CWE>401</CWE><!--repeat-->
+				<CWE>404</CWE><!--repeat-->
+				<CWE>415</CWE><!--repeat-->
+				<CWE>590</CWE><!--repeat-->
+				<CWE>761</CWE><!--repeat-->
+				<CWE>762</CWE><!--repeat-->
+				<CWE>763</CWE><!--repeat-->
+				<CWE>771</CWE><!--repeat-->
+				<CWE>772</CWE><!--repeat-->
+				<CWE>1091</CWE><!--repeat-->
+			</ClassOperation>
+		</showClassCWEs>
+
+		<!--fig 2-->
+		<showConsequenceCWEs>
+			<Consequence name="Memory Overflow">
+				<CWE>400</CWE>
+				<CWE>770</CWE>
+				<CWE>789</CWE>
+			</Consequence>
+			<Consequence name="Memory Leak">
+				<CWE>401</CWE>
+				<CWE>404</CWE>
+				<CWE>771</CWE>
+				<CWE>772</CWE>
+			</Consequence>
+			<Consequence name="Double Free">
+				<CWE>415</CWE>
+			</Consequence>
+			<Consequence name="Object Corruption">
+				<CWE>404</CWE>
+				<CWE>590</CWE>
+				<CWE>761</CWE>
+				<CWE>762</CWE>
+				<CWE>763</CWE>
+			</Consequence>
+			<Consequence name="Uninitialized Object">
+				<CWE>456</CWE>
+				<CWE>457</CWE>
+				<CWE>665</CWE>
+				<CWE>908</CWE>
+				<CWE>909</CWE>
+			</Consequence>
+			<Consequence name="Not Cleared Object">
+				<CWE>226</CWE>
+				<CWE>244</CWE>
+				<CWE>459</CWE>
+			</Consequence>
+			<Consequence name="NULL Pointer Dereference">
+				<CWE>476</CWE>
+			</Consequence>
+			<Consequence name="Untrusted Pointer Dereference">
+				<CWE>119</CWE>
+				<CWE>822</CWE>
+			</Consequence>
+			<Consequence name="Type Confusion">
+				<CWE>588</CWE>
+				<CWE>843</CWE>
+			</Consequence>
+			<Consequence name="Use After Free">
+				<CWE>119</CWE>
+				<CWE>416</CWE>
+				<CWE>825</CWE>
+			</Consequence>
+			<Consequence name="Buffer Overflow">
+				<CWE>118</CWE>
+				<CWE>119</CWE>
+				<CWE>120</CWE>
+				<CWE>121</CWE>
+				<CWE>122</CWE>
+				<CWE>123</CWE>
+				<CWE>125</CWE>
+				<CWE>126</CWE>
+				<CWE>466</CWE>
+				<CWE>805</CWE>
+				<CWE>806</CWE>
+				<CWE>787</CWE>
+				<CWE>788</CWE>
+			</Consequence>
+			<Consequence name="Buffer Underflow">
+				<CWE>118</CWE>
+				<CWE>119</CWE>
+				<CWE>122</CWE>
+				<CWE>123</CWE>
+				<CWE>124</CWE>
+				<CWE>125</CWE>
+				<CWE>127</CWE>
+				<CWE>466</CWE>
+				<CWE>786</CWE>
+				<CWE>787</CWE>
+				<CWE>805</CWE>
+				<CWE>806</CWE>
+			</Consequence>
+			<Consequence name="Unitialized Pointer Dereference">
+				<CWE>119</CWE>
+				<CWE>824</CWE>
+			</Consequence>
+		</showConsequenceCWEs>
+
+		<!--fig 1-->
+		<classStyles>
+			<Caption n="CWEs by Memory Bugs class:" u="sng" x="14765567" y="25852362"/>
+			<ClassOperation n="MAD" c="5DCC90"/>
+			<ClassOperation n="MAL" c="FF5EAE"/>
+			<ClassOperation n="MUS" c="4E9CD2"/>
+			<ClassOperation n="MDL" c="AA5EAA"/>
+
+			<Caption n="General CWEs:" u="sng" x="21278697" y="25852362"/>
+			<ClassOperation n="_MEM General" c="C8C8DA"/>
+		</classStyles>
+
+		<!--fig 2-->
+		<consequenceStyles>
+
+			<Caption n="CWEs by MAL Memory Error:" u="sng" x="14765567" y="25852362"/>
+			<Consequence n="Memory Overflow " c="4D4DFF"/>
+			<!--covered by " MAL or MDL Memory Error
+			<Consequence n="Memory Leak" c="ffe119"/>
+			<Consequence n="Double Free" c="bfef45"/>
+			<Consequence n="Object Corruption" c="42d4f4"/>-->
+
+			<Caption n="CWEs by MUS Memory Error:" u="sng" x="21278697" y="25852362"/>
+			<Consequence n="Uninitialized Object " c="C724B1"/>
+			<Consequence n="Not Cleared Object" c="08748E"/>
+			<Consequence n="NULL Pointer Dereference" c="4363d8"/>
+			<Consequence n="Untrusted Pointer Dereference" c="911eb4"/>
+			<Consequence n="Type Confusion" c="f032e6"/>
+			<Consequence n="Use After Free" c="FF0000"/>
+			<Consequence n="Buffer Overflow" c="0000FF"/>
+			<Consequence n="Buffer Underflow" c="009900"/>
+			<Consequence n="Unitialized Pointer Dereference" c="FF9900"/>
+
+			<Caption n="CWEs by MAL or MDL Memory Error:" u="sng" x="14765567" y="28352362"/>
+			<Consequence n="Memory Leak" c="ffe119"/>
+			<Consequence n="Double Free" c="bfef45"/>
+			<Consequence n="Object Corruption" c="42d4f4"/>
+		</consequenceStyles>
+	</Cluster>
+	<Cluster Name="_ACC">
+		<showClassCWEs>
+			<ClassOperation name="_ACC General"/>
+			<ClassOperation name="ATN">
+				<CWE>259</CWE>
+				<CWE>260</CWE>
+				<CWE>262</CWE>
+				<CWE>263</CWE>
+				<CWE>287</CWE>
+				<CWE>288</CWE>
+				<CWE>289</CWE>
+				<CWE>290</CWE>
+				<CWE>291</CWE>
+				<CWE>292</CWE>
+				<CWE>293</CWE>
+				<CWE>294</CWE>
+				<CWE>301</CWE>
+				<CWE>302</CWE>
+				<CWE>303</CWE>
+				<CWE>304</CWE>
+				<CWE>305</CWE>
+				<CWE>306</CWE>
+				<CWE>307</CWE>
+				<CWE>308</CWE>
+				<CWE>309</CWE>
+				<CWE>328</CWE>
+				<CWE>384</CWE>
+				<CWE>521</CWE>
+				<CWE>522</CWE>
+				<CWE>523</CWE>
+				<CWE>549</CWE>
+				<CWE>592</CWE>
+				<CWE>593</CWE>
+				<CWE>603</CWE>
+				<CWE>620</CWE>
+				<CWE>640</CWE>
+				<CWE>645</CWE>
+				<CWE>759</CWE>
+				<CWE>798</CWE>
+				<CWE>804</CWE>
+				<CWE>836</CWE>
+			</ClassOperation>
+		</showClassCWEs>
+
+		<showConsequenceCWEs/>
+
+		<classStyles>
+			<Caption n="CWEs by Data Type Bugs class:" u="sng" x="10858514" y="25852362"/>
+			<ClassOperation n="ATN" c="FF5EAE"/>
+			<ClassOperation n="ATZ" c="4E9CD2"/>
+
+			<Caption n="General CWEs:" u="sng" x="21464743" y="25852362"/>
+			<ClassOperation n="_ACC Genera" c="C8C8DA"/>
+		</classStyles>
+		<consequenceStyles/>
+	</Cluster>
+	<Cluster Name="_CRY">
+		<showClassCWEs>
+			<ClassOperation name="ENC">
+				<CWE>257</CWE>
+				<CWE>261</CWE>
+				<CWE>311</CWE>
+				<CWE>312</CWE>
+				<CWE>313</CWE>
+				<CWE>314</CWE>
+				<CWE>315</CWE>
+				<CWE>316</CWE>
+				<CWE>317</CWE>
+				<CWE>318</CWE>
+				<CWE>325</CWE>
+				<CWE>326</CWE>
+				<CWE>327</CWE>
+				<CWE>329</CWE>
+				<CWE>780</CWE>
+			</ClassOperation>
+			<ClassOperation name="VRF">
+				<CWE>293</CWE>
+				<CWE>295</CWE>
+				<CWE>296</CWE>
+				<CWE>297</CWE>
+				<CWE>347</CWE>
+				<CWE>352</CWE>
+			</ClassOperation>
+			<ClassOperation name="KMN">
+				<CWE>321</CWE>
+				<CWE>322</CWE>
+				<CWE>323</CWE>
+				<CWE>324</CWE>
+			</ClassOperation>
+			<ClassOperation name="ENC and VRF">
+				<CWE>256</CWE>
+			</ClassOperation>
+		</showClassCWEs>
+
+		<showConsequenceCWEs>
+			<Consequence name="Undefined"/>
+		</showConsequenceCWEs>
+
+		<classStyles>
+			<!-- http://phrogz.net/tmp/24colors.html-->
+			<Caption n="CWEs by Cryptography Bugs class:" u="sng" x="10858514" y="25852362"/>
+			<ClassOperation n="ENC" c="0040FF"/>
+			<ClassOperation n="VRF" c="FF00AA"/>
+			<ClassOperation n="KMN" c="FF0000"/>
+			<ClassOperation n="ENC and VRF" c="6AFF00"/>
+
+			<ClassOperation n="_CRY General" c="C8C8DA"/>
+		</classStyles>
+
+		<consequenceStyles>
+			<Caption n="CWEs by ENC xxx Error:" u="sng" x="10765567" y="25852362"/>
+			<Consequence n="xxx" c="4D4DFF"/>
+
+			<Caption n="CWEs by VRF xxx Error:" u="sng" x="10765567" y="26852362"/>
+			<Consequence n="xxx" c="C724B1"/>
+
+			<Consequence n="No Consequence" c="a9a9a9"/>
+		</consequenceStyles>
+	</Cluster>
+</BFCWE>

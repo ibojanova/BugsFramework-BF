@@ -8,9 +8,9 @@
 
 	<xsl:param name="Clusters"/>
 	<!-- change here to proper cluster -->
-	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>
+	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_MEM']"/>-->
 	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DTC' or @Name='_MEM']"/>-->
-	<!--<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>-->
+	<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>
 
 	<xsl:variable name="showClassCWEs" select="$Cluster/showClassCWEs"/>
 	<xsl:variable name="showOtherCWEs" select="$Cluster/showOtherCWEs"/>
@@ -47,19 +47,14 @@
 	save as .PDF, enter, Embed Fonts
 	
 	create pdf_tex file:
-	select figure in PPT
-	save as .svg
-	open in InkScape
+	copy figure from PPT in InkScape
+	paste in InkScape 
 	CTRL+Shift+D> Resize to Content
-	save as .PDF, enter, Omit text from PDF
+	and save as .svg (for Farhan to make html)
+	save as .PDF, enter, Omit text from PDF (.pdf_tex for Overleaf)
 
 	replace CWE # in pdf_tex 
-		\[t\]\{l\}(\d+)\\end
-		[t]{l}\cwelink{$1}\end
-
-	move IDs with 4 digits
-		cwelink\{\d{4}
-		first coordinate -0.005
+		run RegEx project to make IDs into \cwelink{ID} and move first coordinate of IDs with 4 digits -0.005
 
 	Clean colors
 	Clean IEEEtrans, name.tex usenix2019 c99-main usenix-->
@@ -73,10 +68,10 @@
 		<xsl:param name="updownDepth" select="5"/>-->
 	
 	<!-- 0 - if all nodes are already known)-->	
-	<xsl:param name="updownDepth" select="0"/>
+	<xsl:param name="updownDepth" select="5"/>
 	
 	<!-- 1 - from slide 'CurrentCWEBF.xml'; NOTE: Uses the coordinates from Slide #2 :)-->
-	<xsl:param name="fromCurrentCWEBF" select="1"/>
+	<xsl:param name="fromCurrentCWEBF" select="0"/>
 	
 	<xsl:param name="showViews">
 		<View>1000</View>
@@ -104,7 +99,7 @@
 
 	<!-- changes size for _DTC from 3600 to 3200-->
 	<xsl:param name="nodeStyles">
-		<Caption n="CWEs by Abstraction:" c="FFFFFF" u="sng" x="32117693" y="25852362"/>
+		<Caption n="CWEs by Abstraction:" c="FFFFFF" u="sng" x="32117693" y="30852362"/>
 		<CWEabstr n="Pillar" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="dbl" d="solid"/>
 		<CWEabstr n="Class" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="sng"  d="sysDot"/>
 		<CWEabstr n="Base" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="dbl" d="sysDot"/>
@@ -471,9 +466,9 @@
 			<a:tc> <a:txBody><a:bodyPr/> <a:p> <a:r> 
 				<a:rPr sz="{$legendTextSize}"> <xsl:if test="$highlight"> <a:highlight> <a:schemeClr val="accent1"/> </a:highlight> </xsl:if> </a:rPr>
 				<a:t> <xsl:value-of select="@N"/> </a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>
-			<a:tc> <a:txBody><a:bodyPr/> <a:p> <a:r> 
+			<!--<a:tc> <a:txBody><a:bodyPr/> <a:p> <a:r> 
 				<a:rPr sz="{$legendTextSize}"> <xsl:if test="$highlight"> <a:highlight> <a:schemeClr val="accent1"/> </a:highlight> </xsl:if> </a:rPr>
-				<a:t> <xsl:value-of select="@D"/> </a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>
+				<a:t> <xsl:value-of select="@D"/> </a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>-->
 			<a:tc> <a:txBody><a:bodyPr/> <a:p><a:r> 
 				<a:rPr sz="{$legendTextSize}"> <xsl:if test="$highlight"> <a:highlight> <a:schemeClr val="accent1"/> </a:highlight> </xsl:if> </a:rPr>
 				<a:t> <xsl:for-each select="$class"><xsl:value-of select="."/><xsl:if test="position()&lt;last()"><xsl:value-of select="'  xANDx  '"/></xsl:if></xsl:for-each> </a:t> </a:r> </a:p> </a:txBody> </a:tc>
@@ -505,10 +500,10 @@
 				<p:nvSpPr> <p:cNvPr id="{position()}" name="legendNode"></p:cNvPr> <p:cNvSpPr/> <p:nvPr/> </p:nvSpPr>
 					<p:spPr>
 						<a:xfrm> <a:off x="30772678" y="{44366120 - $captionOff}"/> <a:ext cx="1000000" cy="1000000"/> </a:xfrm>
-						<xsl:if test="not (self::Caption)">
+						<!--<xsl:if test="not (self::Caption)">-->
+						<!--IMPORTANT: Maybe: Need to draw a node for the Caption for proper alignment of the captions on the .pdf_tex-->
 								<a:prstGeom prst="ellipse"> </a:prstGeom>
 								<xsl:if test="@fill"><a:solidFill><a:srgbClr val="{@fill}"/></a:solidFill></xsl:if>
-					
 								<xsl:variable name="w">
 									<xsl:choose><xsl:when test="@w"><xsl:value-of select="@w"/></xsl:when>
 									<xsl:otherwise>70000</xsl:otherwise></xsl:choose>
@@ -521,7 +516,7 @@
 									<xsl:if test="@c"><a:solidFill><a:srgbClr val="{@c}"/></a:solidFill></xsl:if>
 									<xsl:if test="@d"><a:prstDash val="{@d}"/></xsl:if>
 								</a:ln>		
-						</xsl:if>
+						<!--</xsl:if>-->
 					</p:spPr>
 				<!--<p:txBody>
 					<a:bodyPr lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>

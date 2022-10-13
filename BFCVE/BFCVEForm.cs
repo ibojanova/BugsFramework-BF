@@ -11,8 +11,12 @@ namespace BFCVE
 {
     public partial class BFCVEForm : Form
     {
-        string Title = "Bugs Framework (BF)";
-        string FileName = "";
+        const string Title = "Bugs Framework (BF)          ";
+        string TitleFile {
+            get => Text.Substring(Title.Length);
+            set => Text = string.Concat(Title,value);
+        }
+
         readonly IEnumerable<(TreeView treeView, TextBox textBox)> CommentMap;
 
         public BFCVEForm()
@@ -46,6 +50,8 @@ namespace BFCVE
         {
             get => !CVENodes.Any() ? null : new CVE()
             {
+                //xxx change name to be selected from list
+                Name = Path.GetFileNameWithoutExtension(TitleFile),
                 Bug = CVENodes.Take(1)?.SingleOrDefault(w => w.TypeBWF == BWF.Bug)?.Weakness ?? throw new Exception("Missing Bug"),
                 Weaknesses = CVENodes.Where(w => w.TypeBWF == BWF.Weakness).Select(w => w.Weakness).ToArray(),
                 Failure = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.TypeBWF == BWF.Failure)?.Weakness ?? throw new Exception("Missing Failure"),
@@ -238,8 +244,8 @@ namespace BFCVE
         private void OnFileNew(object sender, EventArgs e)
         {
             if ((Editing || Edited) && (MessageBox.Show("Changes are not saved. Continue anyway?", "New", MessageBoxButtons.YesNo) != DialogResult.Yes)) return;
+            TitleFile = "";
 
-            Text = Title;
             Editing = Edited = false;
             CVE = null;
             NewCVENode(BWF.Bug);
@@ -250,11 +256,11 @@ namespace BFCVE
             if ((Editing || Edited) && (MessageBox.Show("Changes are not saved. Continue anyway?", "Open", MessageBoxButtons.YesNo) != DialogResult.Yes)) return;
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
-            if (TryLoadCVE(FileName  = openFileDialog.FileName) is not CVE cve) return;
+            if (TryLoadCVE(openFileDialog.FileName) is not CVE cve) return;
+            TitleFile = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+
             Editing = Edited = false;
             CVE = cve;
-
-            updateFrameTitle(FileName);
 
             static CVE? TryLoadCVE(string fileName)
             {
@@ -268,15 +274,14 @@ namespace BFCVE
             try
             {
                 if (Editing) Commit();
-                if (CVE is not CVE cve) return;
+                if (CVE is null) return;
 
-                saveFileDialog.FileName = FileName;
+                saveFileDialog.FileName = TitleFile;
                 if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+                TitleFile = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
 
-                BFCVESerializer.Save(cve, FileName = saveFileDialog.FileName);
+                BFCVESerializer.Save(CVE, saveFileDialog.FileName);
                 Editing = Edited = false;
-
-                updateFrameTitle(FileName);
             }
             catch (Exception error)
             {
@@ -292,8 +297,6 @@ namespace BFCVE
 
             Close();
         }
-
-        private void updateFrameTitle(string fileName) => Text = Title + "          " + Path.GetFileNameWithoutExtension(fileName);
 
         #endregion
 
