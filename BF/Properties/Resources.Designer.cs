@@ -64,13 +64,13 @@ namespace BF.Properties {
         ///   Looks up a localized string similar to &lt;!--@author Irena Bojanova(ivb)--&gt;
         ///&lt;!--@date - 2/9/2022--&gt;
         ///
-        ///&lt;!-- an object contains data and has address, and size; the address and size are data contained by other objects 
+        ///&lt;!-- an object contains data and has address, and size; the address and the size are data contained by other objects 
         ///(the address specifically is the data of a pointer) - the data contained by this object and the other objects 
         ///has value and type - we use this level to connect the classes--&gt;
         ///
         ///&lt;BF Name=&quot;Bugs Framework&quot;&gt;
         ///	&lt;Cluster Name=&quot;_INP&quot; Type=&quot;Bug/Weakness&quot; Definition=&quot;Input/Output Check Bugs (incl. Injection Error)&quot;&gt;
-        ///		&lt;Class Name=&quot;DVL&quot; T [rest of string was truncated]&quot;;.
+        ///		&lt;Class Name=&quot;DV [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BF {
             get {
@@ -80,8 +80,7 @@ namespace BF.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;!--@author Irena Bojanova(ivb)--&gt;
-        ///&lt;!--@date - 8/15/2022--&gt;
-        ///
+        ///&lt;!--@date - 07/09/2021--&gt;
         ///&lt;BFCWE&gt;
         ///	&lt;Cluster Name=&quot;_ALL&quot;&gt;
         ///		&lt;!--fig 1--&gt;
@@ -103,7 +102,7 @@ namespace BF.Properties {
         ///	&lt;/Cluster&gt;
         ///
         ///	&lt;!--Created by Irena Bojanova, 07/09/2021--&gt;
-        ///	&lt; [rest of string was truncated]&quot;;.
+        ///	&lt;C [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BFCWE {
             get {

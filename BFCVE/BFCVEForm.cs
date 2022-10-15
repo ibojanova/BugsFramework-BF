@@ -91,8 +91,8 @@ namespace BFCVE
                 BWFGroupBox.Text = value.ToString() + ":";
 
                 classes.SetNodes(Parser.GetClasses(value).Select(i =>
-                    new TreeNodeComment(i.Key.Name, i.Key.Definition, i.Value.Select(j =>
-                        new TreeNodeComment(j.Name, j.Definition)))));
+                    new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(j =>
+                        new TreeNodeComment(j, Parser.GetDefinition(j))))));
             }
         }
 
@@ -334,7 +334,7 @@ namespace BFCVE
             causes.SetNodes(Parser.GetCauses(selectedClass.Name).Select(i =>
             {
                 var mismatch = (i.Key.BWFType != typeBWF) || (peerConsequenceType?.Equals(i.Key.Name) == false);
-                return new TreeNodeComment(i.Key.Name, i.Key.Definition, disable: mismatch, children: i.Value.Select(j =>
+                return new TreeNodeComment(i.Key.Name, Parser.GetDefinition(i.Key.Name), disable: mismatch, children: i.Value.Select(j =>
                     new TreeNodeComment(j, Parser.GetDefinition(j), mismatch))) ;
             }));
             if (SelectedCVENode == null && PeerConsequence?.Value is string name) SelectByName(causes, name, hasComment:false);
@@ -345,17 +345,17 @@ namespace BFCVE
             consequences.SetNodes(Parser.GetConsequences(selectedClass.Name).Select(i =>
             {
                 var mismatch = peerCauseType?.Equals(i.Key.Name) == false;
-                return new TreeNodeComment(i.Key.Name, i.Key.Definition, disable: mismatch, children: i.Value.Select(j =>
+                return new TreeNodeComment(i.Key.Name, Parser.GetDefinition(i.Key.Name), disable: mismatch, children: i.Value.Select(j =>
                     new TreeNodeComment(j, Parser.GetDefinition(j), mismatch)));
             }));
 
             operationAttributes.SetNodes(Parser.GetOperationAttributes(selectedClass.Name).Select(i =>
-                new TreeNodeComment(i.Key.Name, i.Key.Definition, i.Value.Select(k =>
+                new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(k =>
                     new TreeNodeComment(k, Parser.GetDefinition(k))))));
 
             operandAttributes.SetNodes(Parser.GetOperandAttributes(selectedClass.Name).Select(i =>
-                new TreeNodeComment(i.Key, null, i.Value.Select(j =>
-                    new TreeNodeComment(j.Key.Name, j.Key.Definition, j.Value.Select(k =>
+                new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(j =>
+                    new TreeNodeComment(j.Key, Parser.GetDefinition(j.Key), j.Value.Select(k =>
                         new TreeNodeComment(k, Parser.GetDefinition(k))))))));
         }
 
