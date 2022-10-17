@@ -1228,7 +1228,6 @@ Reg Exprs
 -->
 
 	<Definitions>
-
 		<!-- Clusters-->
 		<Definition Name="_INP">Input/Output Check Bugs (incl. Injection Error)</Definition>
 		<Definition Name="_DTC">Data Type Bugs (incl. Convert and Compute Errors)"></Definition>
@@ -1242,7 +1241,7 @@ Reg Exprs
 		<!-- _INP-->
 		<Definition Name="DVL">Data are validated (syntax check) or sanitized (escape, filter, repair) improperly.</Definition>
 		<Definition Name="DVR">Data are verified (semantics check) or corrected (assign value, remove) improperly.</Definition>
-		<!-- _DTC-->
+		<!-- _DTC -- xxx change everywhere to _DAT-->
 		<Definition Name="DCL">An object, a function, a type, or a namespace is declared or defined improperly.</Definition>
 		<Definition Name="NRS">The name of an object, a function, or a data type is resolved improperly or bound to an improper data type or implementation.</Definition>
 		<Definition Name="TCV">A data value is converted or coerced into another data type improperly.</Definition>
@@ -1266,7 +1265,7 @@ Reg Exprs
 		<Definition Name="RCE">xxx</Definition>
 		<Definition Name="DOS">xxx</Definition>
 
-		<!-- Definitions of Atributes-->
+		<!-- Atributes-->
 		<Definition Name="Mechanism">Explains how the buggy operation is performed.</Definition>
 		<Definition Name="Source Code">Explains where the bug is in the operation and in the program.</Definition>
 		<Definition Name="Execution Space">Explains where the buggy operation code is running.</Definition>
@@ -1284,14 +1283,14 @@ Reg Exprs
 		<Definition Name="Mechanism (TCV)">xxx.</Definition>
 		<Definition Name="Mechanism (TCM)">Function, Operator, Method, Lambda Expression, Procedure. Shows which operator or method uses data type(s) improperly.</Definition>
 
-		<!-- Definitions of Bug Causes-->
+		<!-- Bug Causes-->
 		<Definition Name="Improper Operation">The Bug is a Coding Error OR xxx rules.</Definition>
 		<Definition Name="Improper Policy">xxx</Definition>
 		<Definition Name="Improper Policy Data">xxx</Definition>
 		<Definition Name="Improper Modifier">The declaration of an entity may be prefixed by a modifier that enforces required restrictions. For example, access modifiers restrict whether and how a data type, an object, or a function can be used outside its declaration scope.</Definition>
 		<Definition Name="Improper Scope">A scope is a block of code (e.g. { }) where a name is valid, i.e., associated with exactly one entity. Scopes provide the Type System with a context for names lookup, i.e., what namespaces and in which order should be referred to resolve the name.</Definition>
 
-		<!-- Definitions of Weakness Causes - these are also bug/wealness Conseqeunces-->
+		<!-- Weakness Causes - these are also bug/wealness Conseqeunces-->
 		<Definition Name="Improper Data" >xxx</Definition>
 		<Definition Name="Improper Data Type">Input To Next Operationxxx</Definition>
 		<Definition Name="Improper Function">Input To Next Operation. A function is defined by its block of code – the function implementation.</Definition>
@@ -1302,13 +1301,13 @@ Reg Exprs
 		<Definition Name="Improper Object Size">xxx</Definition>
 		<Definition Name="Improper Key">xxx</Definition>
 
-		<!-- Definitions of Final Errors-->
+		<!-- Final Errors-->
 		<Definition Name="Injection Error">xxx</Definition>
 		<Definition Name="Memory Error">xxx</Definition>
 		<Definition Name="Access Error">xxx</Definition>
 		<Definition Name="Type Compute Error">xxx</Definition>
 
-		<!-- Definitions of Values-->
+		<!-- Values-->
 		<!--_INP Cluster-->
 		<Definition Name="Validate">Check data syntax (proper form/grammar) in order to accept (and possibly sanitize) or reject it. Includes checking for missing symbols/elements.</Definition>
 		<Definition Name="Sanitize">Modify data (neutralize/escape, filter/remove, repair/add symbols) in order to make it valid (well-formed).</Definition>
