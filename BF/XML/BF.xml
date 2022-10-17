@@ -1177,6 +1177,13 @@ So far I dont think failure have consequences. I think it is only cause (final e
 					<Cause Name="Buffer Overflow"/>
 					<Cause Name="Buffer Underflow"/>
 				</FianalErrorCauseType>
+				<FianalErrorCauseType Name="Injection Error"  Definition="">
+					<Cause Name="Query Injection"/>
+					<Cause Name="Command Injection"/>
+					<Cause Name="Source Code Injection"/>
+					<Cause Name="Parameter Injection"/>
+					<Cause Name="File Injection"/>
+				</FianalErrorCauseType>
 			</Causes>
 			<Consequences>
 				<RiskConsequenceType Name="Risk" Definition="">
@@ -1241,7 +1248,7 @@ Reg Exprs
 		<!-- _INP-->
 		<Definition Name="DVL">Data are validated (syntax check) or sanitized (escape, filter, repair) improperly.</Definition>
 		<Definition Name="DVR">Data are verified (semantics check) or corrected (assign value, remove) improperly.</Definition>
-		<!-- _DTC -- xxx change everywhere to _DAT-->
+		<!-- _DTC - xxx change everywhere to _DAT-->
 		<Definition Name="DCL">An object, a function, a type, or a namespace is declared or defined improperly.</Definition>
 		<Definition Name="NRS">The name of an object, a function, or a data type is resolved improperly or bound to an improper data type or implementation.</Definition>
 		<Definition Name="TCV">A data value is converted or coerced into another data type improperly.</Definition>
