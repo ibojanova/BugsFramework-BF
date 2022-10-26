@@ -10,7 +10,7 @@ using System.Windows.Forms;
 1.Install package from NuGet
 - right click solution > "Manage NuGet Packages for Solution"
 - Browse for WindowsDesktop.App.Ref
-- Install to Utility project (althoug it may fail, it actually installs)
+- Install to Utilities project (althoug it may fail, it actually installs)
 
 2.If different path/version, correct it in all three occurances in Utilities.csproj:
 e.g. ...Microsoft.WindowsDesktop.App.Ref\6.0.8...

@@ -334,8 +334,7 @@ has value and type - we use this level to connect the classes-->
 				<AttributeType Name="Mechanism (TCM)">
 					<Attribute Name="Function"/>
 					<Attribute Name="Operator"/>
-					<Attribute Name="Method"/>
-					<!-- (for classes)-->
+					<Attribute Name="Method"/>	<!-- (for classes)-->
 					<Attribute Name="Lambda Expression"/>
 					<Attribute Name="Procedure"/>
 				</AttributeType>
@@ -368,10 +367,6 @@ has value and type - we use this level to connect the classes-->
 					<Cause Name="Wrong"/>
 					<Cause Name="Erroneous (_DTC)"/>
 				</BugCauseType>
-				<WeaknessCauseType Name="Improper Data Value">
-					<Cause Name="Wrong Value"/>
-					<Cause Name="Zero (0)"/>
-				</WeaknessCauseType>
 				<WeaknessCauseType Name="Improper Data Value">
 					<Cause Name="Wrong Argument Value"/>
 					<Cause Name="Wrong Object Resolved Value"/>
