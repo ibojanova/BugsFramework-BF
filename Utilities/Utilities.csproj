@@ -8,13 +8,13 @@
 
 	<ItemGroup>
 		<Reference Include="System.Drawing.Common">
-			<HintPath>c:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.7\ref\net6.0\System.Drawing.Common.dll</HintPath>
+			<HintPath>c:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.8\ref\net6.0\System.Drawing.Common.dll</HintPath>
 		</Reference>
 		<Reference Include="System.Windows.Forms">
-			<HintPath>c:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.7\ref\net6.0\System.Windows.Forms.dll</HintPath>
+			<HintPath>c:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.8\ref\net6.0\System.Windows.Forms.dll</HintPath>
 		</Reference>
 		<Reference Include="System.Windows.Forms.Primitives">
-			<HintPath>c:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.7\ref\net6.0\System.Windows.Forms.Primitives.dll</HintPath>
+			<HintPath>c:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.8\ref\net6.0\System.Windows.Forms.Primitives.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 
