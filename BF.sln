@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xslt", "Xslt\Xslt.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVEBF", "CVEBF\CVEBF.csproj", "{10E43A7E-FE07-44FC-8333-4925BC5F4E1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegEx", "RegEx\RegEx.csproj", "{9C8C897D-A198-4394-AE79-89DB6D135AA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{10E43A7E-FE07-44FC-8333-4925BC5F4E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10E43A7E-FE07-44FC-8333-4925BC5F4E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10E43A7E-FE07-44FC-8333-4925BC5F4E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C8C897D-A198-4394-AE79-89DB6D135AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8C897D-A198-4394-AE79-89DB6D135AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C8C897D-A198-4394-AE79-89DB6D135AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8C897D-A198-4394-AE79-89DB6D135AA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

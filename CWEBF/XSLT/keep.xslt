@@ -32,6 +32,13 @@
 			<xsl:value-of select="$id"/>
 		</xsl:attribute>
 	</xsl:template>
+	
+	<xsl:template match="p:cNvPr[@name='legendNodeTextBox']/@text" mode="keep" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
+		<xsl:param name="text"/>
+		<xsl:attribute name="{name()}">
+			<xsl:value-of select="$text"/>
+		</xsl:attribute>
+	</xsl:template>
 
 	<!--xxxlinks-->
 	<!--<xsl:template match="a:hlinkClick/@r:id" mode="keep" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">

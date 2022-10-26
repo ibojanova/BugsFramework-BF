@@ -29,26 +29,39 @@
                             <p:grpSpPr> <a:xfrm> <a:off x="0" y="0"/> <a:ext cx="0" cy="0"/> <a:chOff x="0" y="0"/> <a:chExt cx="0" cy="0"/> </a:xfrm> </p:grpSpPr>
 			  
  			                <!-- Generate nodes and arrows from cwec_vx.x.xml-->
+							
 			                <xsl:apply-templates mode="drawNodes" select="msxsl:node-set($myNodes)//W">
 			                    <xsl:with-param name="useClassStyle" select="$useClassStyle"/>
 			                </xsl:apply-templates>
 			                <xsl:apply-templates mode="drawArrows" select="msxsl:node-set($myNodes)//R"/>
 								
 			                <!-- Generate legend kinds of nodes, kinds of arrows-->
-							<xsl:apply-templates mode="drawLegendNodes" select="msxsl:node-set($styles)/* | msxsl:node-set($nodeStyles)/*" />
+							<!--<xsl:apply-templates mode="drawLegendNodes" select="msxsl:node-set($styles)/* | msxsl:node-set($nodeStyles)/*" />-->
+							<xsl:choose>
+								<xsl:when test="$fromCurrentCWEBF">
+									<!-- keep same node legends-->
+									<xsl:variable name="slide" select="concat('/ppt/slides/slide', $slideNumber,'.xml')"/>
+									<xsl:copy-of select="document('../../_DB/CWEBF/CurrentCWEBF.xml')//pkg:part[@pkg:name=$slide]//p:grpSp[p:nvGrpSpPr/p:cNvPr[@name='GroupLegendNode']]"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:apply-templates mode="drawLegendNodes" select="msxsl:node-set($styles)/* | msxsl:node-set($nodeStyles)/*" />
+								</xsl:otherwise>
+							</xsl:choose>
+							
 			                <!--<xsl:apply-templates mode="drawLegendArrows" select="msxsl:node-set($arrowStyles)"/>-->
 								
 			                <!-- Generate legend table of CWEs-->
+							<!-- XXX need to exclude CWEs that are DEPRECATED-->
 			                <p:graphicFrame>
 				                <p:nvGraphicFramePr> <p:cNvPr id="{position()}" name="tableCWEs"/> <p:cNvGraphicFramePr> <a:graphicFrameLocks noGrp="1"/> </p:cNvGraphicFramePr> <p:nvPr/> </p:nvGraphicFramePr>
 					                <p:xfrm> <a:off x="1025648" y="41602875"/> <a:ext cx="28491199" cy="7955280"/> </p:xfrm>
 					                <a:graphic>
 						                <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/table">
-							                <a:tbl> <a:tblGrid> <a:gridCol w="1948834"/> <a:gridCol w="9230333"/> <a:gridCol w="30312032"/> <a:gridCol w="9230333"/> </a:tblGrid>
+							                <a:tbl> <a:tblGrid> <a:gridCol w="1948834"/> <a:gridCol w="9230333"/> <a:gridCol w="30312032"/> <!--<a:gridCol w="9230333"/>--> </a:tblGrid>
 								                <a:tr h="370840">
 									                <a:tc> <a:txBody> <a:bodyPr/> <a:p> <a:r> <a:rPr sz="{$legendTextSize}" b="1"/> <a:t>CWEs (#<xsl:value-of select="count(msxsl:node-set($myNodes)//W)"/>)</a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>
 									                <a:tc> <a:txBody> <a:bodyPr/> <a:p> <a:r> <a:rPr sz="{$legendTextSize}" b="1"/> <a:t>Name</a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>
-									                <a:tc> <a:txBody> <a:bodyPr/> <a:p> <a:r> <a:rPr sz="{$legendTextSize}" b="1"/> <a:t>Description</a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>
+									                <!--<a:tc> <a:txBody> <a:bodyPr/> <a:p> <a:r> <a:rPr sz="{$legendTextSize}" b="1"/> <a:t>Description</a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>-->
 									                <a:tc> <a:txBody> <a:bodyPr/> <a:p> <a:r> <a:rPr sz="{$legendTextSize}" b="1"/> <a:t>BF Class Operation</a:t> </a:r> </a:p> </a:txBody> <a:tcPr/> </a:tc>
 								                </a:tr>
 												<xsl:apply-templates mode="drawLegendTable" select="msxsl:node-set($myNodes)//W"><xsl:sort select="@Id" data-type="number"/></xsl:apply-templates>

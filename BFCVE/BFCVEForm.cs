@@ -11,6 +11,12 @@ namespace BFCVE
 {
     public partial class BFCVEForm : Form
     {
+        const string Title = "Bugs Framework (BF)          ";
+        string TitleFile {
+            get => Text.Substring(Title.Length);
+            set => Text = string.Concat(Title,value);
+        }
+
         readonly IEnumerable<(TreeView treeView, TextBox textBox)> CommentMap;
 
         public BFCVEForm()
@@ -44,6 +50,8 @@ namespace BFCVE
         {
             get => !CVENodes.Any() ? null : new CVE()
             {
+                //xxx change name to be selected from list
+                Name = Path.GetFileNameWithoutExtension(TitleFile),
                 Bug = CVENodes.Take(1)?.SingleOrDefault(w => w.TypeBWF == BWF.Bug)?.Weakness ?? throw new Exception("Missing Bug"),
                 Weaknesses = CVENodes.Where(w => w.TypeBWF == BWF.Weakness).Select(w => w.Weakness).ToArray(),
                 Failure = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.TypeBWF == BWF.Failure)?.Weakness ?? throw new Exception("Missing Failure"),
@@ -83,8 +91,8 @@ namespace BFCVE
                 BWFGroupBox.Text = value.ToString() + ":";
 
                 classes.SetNodes(Parser.GetClasses(value).Select(i =>
-                    new TreeNodeComment(i.Key.Name, i.Key.Definition, i.Value.Select(j =>
-                        new TreeNodeComment(j.Name, j.Definition)))));
+                    new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(j =>
+                        new TreeNodeComment(j, Parser.GetDefinition(j))))));
             }
         }
 
@@ -216,7 +224,7 @@ namespace BFCVE
             catch(Exception error) 
             {
                 Editing = false;
-                if (MessageBox.Show($"{error.Message}{Environment.NewLine}Continue anyway?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"{error.Message}.{Environment.NewLine}Cancel the entries for this Bug/Weakness/Failure?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     CurrentWeakness = SelectedCVENode?.Weakness; // Rollback!
                     return true;
@@ -235,9 +243,8 @@ namespace BFCVE
 
         private void OnFileNew(object sender, EventArgs e)
         {
-            if (Editing || Edited)
-                if (MessageBox.Show("Changes are not saved. Continue anyway?", "New", MessageBoxButtons.YesNo) != DialogResult.Yes) 
-                    return;
+            if ((Editing || Edited) && (MessageBox.Show("Changes are not saved. Continue anyway?", "New", MessageBoxButtons.YesNo) != DialogResult.Yes)) return;
+            TitleFile = "";
 
             Editing = Edited = false;
             CVE = null;
@@ -250,6 +257,8 @@ namespace BFCVE
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
             if (TryLoadCVE(openFileDialog.FileName) is not CVE cve) return;
+            TitleFile = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+
             Editing = Edited = false;
             CVE = cve;
 
@@ -265,11 +274,13 @@ namespace BFCVE
             try
             {
                 if (Editing) Commit();
-                if (CVE is not CVE cve) return;
+                if (CVE is null) return;
 
+                saveFileDialog.FileName = TitleFile;
                 if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+                TitleFile = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
 
-                BFCVESerializer.Save(cve, saveFileDialog.FileName);
+                BFCVESerializer.Save(CVE, saveFileDialog.FileName);
                 Editing = Edited = false;
             }
             catch (Exception error)
@@ -288,7 +299,6 @@ namespace BFCVE
         }
 
         #endregion
-
 
         private void CVE_BeforeSelect(object sender, TreeViewCancelEventArgs e) => e.Cancel = !TryCommit();
 
@@ -324,10 +334,10 @@ namespace BFCVE
             causes.SetNodes(Parser.GetCauses(selectedClass.Name).Select(i =>
             {
                 var mismatch = (i.Key.BWFType != typeBWF) || (peerConsequenceType?.Equals(i.Key.Name) == false);
-                return new TreeNodeComment(i.Key.Name, i.Key.Definition, disable: mismatch, children: i.Value.Select(j =>
+                return new TreeNodeComment(i.Key.Name, Parser.GetDefinition(i.Key.Name), disable: mismatch, children: i.Value.Select(j =>
                     new TreeNodeComment(j, Parser.GetDefinition(j), mismatch))) ;
             }));
-            if (PeerConsequence?.Value is string name) SelectByName(causes, name);
+            if (SelectedCVENode == null && PeerConsequence?.Value is string name) SelectByName(causes, name, hasComment:false);
 
             operations.SetNodes(Parser.GetOperations(selectedClass.Name).Select(i =>
                 new TreeNodeComment(i, Parser.GetDefinition(i))));
@@ -335,17 +345,17 @@ namespace BFCVE
             consequences.SetNodes(Parser.GetConsequences(selectedClass.Name).Select(i =>
             {
                 var mismatch = peerCauseType?.Equals(i.Key.Name) == false;
-                return new TreeNodeComment(i.Key.Name, i.Key.Definition, disable: mismatch, children: i.Value.Select(j =>
+                return new TreeNodeComment(i.Key.Name, Parser.GetDefinition(i.Key.Name), disable: mismatch, children: i.Value.Select(j =>
                     new TreeNodeComment(j, Parser.GetDefinition(j), mismatch)));
             }));
 
             operationAttributes.SetNodes(Parser.GetOperationAttributes(selectedClass.Name).Select(i =>
-                new TreeNodeComment(i.Key.Name, i.Key.Definition, i.Value.Select(k =>
+                new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(k =>
                     new TreeNodeComment(k, Parser.GetDefinition(k))))));
 
             operandAttributes.SetNodes(Parser.GetOperandAttributes(selectedClass.Name).Select(i =>
-                new TreeNodeComment(i.Key, null, i.Value.Select(j =>
-                    new TreeNodeComment(j.Key.Name, j.Key.Definition, j.Value.Select(k =>
+                new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(j =>
+                    new TreeNodeComment(j.Key, Parser.GetDefinition(j.Key), j.Value.Select(k =>
                         new TreeNodeComment(k, Parser.GetDefinition(k))))))));
         }
 
@@ -364,7 +374,6 @@ namespace BFCVE
 
         private void Comment_TextChanged(object sender, EventArgs e) => Editing = true;
 
-        //xxxdoes not take the last change 
         private void Comment_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (sender is not TextBox textBox
@@ -387,6 +396,7 @@ namespace BFCVE
                 for (TreeNode peer = node; (peer = peer.NextNode) != null;) yield return peer;
             }
         }
+
         private void Attributes_AfterCheck(object sender, TreeViewEventArgs e) => Editing = true;
 
         private void ButtonRollback_Click(object sender, EventArgs e) => CurrentWeakness = SelectedCVENode?.Weakness;

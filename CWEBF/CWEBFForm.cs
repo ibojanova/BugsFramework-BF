@@ -15,6 +15,7 @@ namespace CWEBF
     {
         private const string subdir = "\\_DB\\CWEBF";
 
+        //xxx
         readonly IEnumerable<(TreeView treeView, TextBox textBox)> CommentMap;
         public CWEBFForm()
         {
