@@ -4,8 +4,8 @@
 
 	<xsl:param name="Clusters"/>
 	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>-->
-	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC' or @Name='_MEM']"/>
-	<!--<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>-->
+	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DTC' or @Name='_MEM']"/>-->
+	<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>
 
 	<xsl:variable name="cwe" select="/CVECWE-NVD/CWE"/>
 

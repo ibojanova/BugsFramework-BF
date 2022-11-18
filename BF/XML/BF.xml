@@ -334,7 +334,8 @@ has value and type - we use this level to connect the classes-->
 				<AttributeType Name="Mechanism (TCM)">
 					<Attribute Name="Function"/>
 					<Attribute Name="Operator"/>
-					<Attribute Name="Method"/>	<!-- (for classes)-->
+					<Attribute Name="Method"/>
+					<!-- (for classes)-->
 					<Attribute Name="Lambda Expression"/>
 					<Attribute Name="Procedure"/>
 				</AttributeType>
@@ -367,6 +368,10 @@ has value and type - we use this level to connect the classes-->
 					<Cause Name="Wrong"/>
 					<Cause Name="Erroneous (_DTC)"/>
 				</BugCauseType>
+				<WeaknessCauseType Name="Improper Data Value">
+					<Cause Name="Wrong Value"/>
+					<Cause Name="Zero (0)"/>
+				</WeaknessCauseType>
 				<WeaknessCauseType Name="Improper Data Value">
 					<Cause Name="Wrong Argument Value"/>
 					<Cause Name="Wrong Object Resolved Value"/>
@@ -1243,7 +1248,7 @@ Reg Exprs
 		<!-- _INP-->
 		<Definition Name="DVL">Data are validated (syntax check) or sanitized (escape, filter, repair) improperly.</Definition>
 		<Definition Name="DVR">Data are verified (semantics check) or corrected (assign value, remove) improperly.</Definition>
-		<!-- _DTC - xxx change everywhere to _DAT-->
+		<!-- _DTC - xxx change everywhere to _DAT???-->
 		<Definition Name="DCL">An object, a function, a type, or a namespace is declared or defined improperly.</Definition>
 		<Definition Name="NRS">The name of an object, a function, or a data type is resolved improperly or bound to an improper data type or implementation.</Definition>
 		<Definition Name="TCV">A data value is converted or coerced into another data type improperly.</Definition>
@@ -1257,29 +1262,40 @@ Reg Exprs
 		<!-- _CRY-->
 		<Definition Name="VRF">Data is signed, source is checked and proved, or data is assured to be unaltered improperly.</Definition>
 		<Definition Name="KMN">Cryptographic keys and other keying material are generated, stored, distributed, used, or destroyed improperly.</Definition>
-		<Definition Name="TRN">A generated output does not satisfy all use-specifictrue-randomness requirements. The output sequence is of random bits, where values are obtained from one or more sources of entropy.</Definition>
-		<Definition Name="PRN">A generated output does not satisfy all use-specificpseudo-randomness requirements. The output sequence is of random bits or numbers from a PRNG.</Definition>
+		<Definition Name="TRN">A generated output does not satisfy all use-specific true-randomness requirements. The output sequence is of random bits, where values are obtained from one or more sources of entropy.</Definition>
+		<Definition Name="PRN">A generated output does not satisfy all use-specific pseudo-randomness requirements. The output sequence is of random bits or numbers from a PRNG.</Definition>
 		<!-- _ACC-->
 		<Definition Name="ATN">xxx</Definition>
 		<Definition Name="ATZ">xxx</Definition>
-		<Definition Name="IEX">xxx</Definition>
-		<!-- _FLR-->
-		<Definition Name="RCE">xxx</Definition>
-		<Definition Name="DOS">xxx</Definition>
+        <!-- from fips 199-->
+		<Definition Name="IEX">Unauthorized disclosure of information</Definition>
+		<!-- xxx from IEX class-->
+		<Definition Name="IEX">Information is leaked through legitimate or side channels.
+		Note that leakage to an entity that should not have information is included, not just leakage that is a security concern.</Definition>
+		<!-- _FLR--> 
+		<!-- Changed RCE to ACE Arbitrary code execution, xxx Remote should be a value of an attribute of the class-->
+		<Definition Name="ACE">Unauthorized run of commands or code.</Definition>
+        <!-- from fips 199-->
+		<Definition Name="DOS">Disruption of access (or use) to information or information system (service).</Definition>
 
 		<!-- Atributes-->
 		<Definition Name="Mechanism">Explains how the buggy operation is performed.</Definition>
 		<Definition Name="Source Code">Explains where the bug is in the operation and in the program.</Definition>
 		<Definition Name="Execution Space">Explains where the buggy operation code is running.</Definition>
-		<Definition Name="State">xxx</Definition>
+        <!-- xxx check new text - CG: do we need to define state or just improper state-->
+		<Definition Name="Improper State">The (operation, operand1,..., operandn) state tuple has at least one improper element</Definition>
 		<Definition Name="Policy">Lists or rules for checking data syntax and semantics. For example, safelist, denylist, format (e.g., DTD-XML Document Type Definition), and length; or value (incl. NULL or list of values), quantity, range, and type (e.g., a PowerPoint XSD).</Definition>
 		<Definition Name="Entity">Each data type bug or weakness involves one data type related operation. Each of these operations is over an entity: object, function, data type, or namespace. An entity is referred in source code via its declared name.</Definition>
 		<Definition Name="Data Type Kind">Primitive, Structured. A data type can be a primitive data type (scalar) or a structured data type (composite).</Definition>
 		<Definition Name="Data Value Kind">Numeric, Text, Pointer, Boolean.</Definition>
-		<Definition Name="Location">xxx</Definition>
-		<Definition Name="Ownership">xxx</Definition>
+        <!-- CG: adapted from MEM paper-->
+		<Definition Name="Location">Memory region where objects are allocated.</Definition>
+        <!-- xxx check new text - CG: adapted from stack overflow https://stackoverflow.com/questions/49024982/what-is-ownership-of-resources-or-pointers -->
+		<!--<Definition Name="Ownership">Responsibility to deallocate memory.</Definition>-->
+		<Definition Name="Ownership">Responsabile for cleaning and deallocating object's memory.</Definition><Definition Name="Ownership">Responsabile for cleaning and deallocating object's memory.</Definition>
 
 		<!--xxx need Mechanism for each class in _DTC-->
+		<!--xxx What would be the general definition, then? -- CG: I don't think we need-->
 		<Definition Name="Mechanism (DCL)">xxx.</Definition>
 		<Definition Name="Mechanism (NRS)">xxx.</Definition>
 		<Definition Name="Mechanism (TCV)">xxx.</Definition>
@@ -1289,25 +1305,35 @@ Reg Exprs
 		<Definition Name="Improper Operation">The Bug is a Coding Error OR xxx rules.</Definition>
 		<Definition Name="Improper Policy">xxx</Definition>
 		<Definition Name="Improper Policy Data">xxx</Definition>
-		<Definition Name="Improper Modifier">The declaration of an entity may be prefixed by a modifier that enforces required restrictions. For example, access modifiers restrict whether and how a data type, an object, or a function can be used outside its declaration scope.</Definition>
-		<Definition Name="Improper Scope">A scope is a block of code (e.g. { }) where a name is valid, i.e., associated with exactly one entity. Scopes provide the Type System with a context for names lookup, i.e., what namespaces and in which order should be referred to resolve the name.</Definition>
+		<Definition Name="Improper Modifier">xxxThe declaration of an entity may be prefixed by a modifier that enforces required restrictions. For example, access modifiers restrict whether and how a data type, an object, or a function can be used outside its declaration scope.</Definition>
+		<Definition Name="Improper Scope">xxxA scope is a block of code (e.g. { }) where a name is valid, i.e., associated with exactly one entity. Scopes provide the Type System with a context for names lookup, i.e., what namespaces and in which order should be referred to resolve the name.</Definition>
 
-		<!-- Weakness Causes - these are also bug/wealness Conseqeunces-->
-		<Definition Name="Improper Data" >xxx</Definition>
-		<Definition Name="Improper Data Type">Input To Next Operationxxx</Definition>
-		<Definition Name="Improper Function">Input To Next Operation. A function is defined by its block of code – the function implementation.</Definition>
-		<Definition Name="Improper Object">Input To Next Operationxxx</Definition>
-		<Definition Name="Improper Data Value">Input To Next Operationxxx</Definition>
-		<Definition Name="Improper Data Type (_DTC)">Input To Next Operation. A data type defines a set or a range of values (e.g. char is [-128, 127]) and the operations allowed over them (e.g. +, *, mod).xxx</Definition>
-		<Definition Name="Improper Object Address">Input To Next Operationxxx</Definition>
-		<Definition Name="Improper Object Size">xxx</Definition>
+		<!-- xxx check new text - 
+		Weakness Causes - these are also bug/wealness Conseqeunces-->
+		<Definition Name="Improper Data" >Has harmed semantics or inconsistent or wrong value or type for its intended use.</Definition>
+		<!-- CG: adapted from DTC paper-->
+		<Definition Name="Improper Data Type">xxx need better text - A set of allowed values used with incompatible operations over them.</Definition>
+		<Definition Name="Improper Function">xxx need better text - An organized block of code that when called takes in data, processes it, and produces an unexpected result(s).</Definition>
+		<!-- CG: adapted from MEM paper-->
+		<Definition Name="Improper Object">xxx need better text - A piece of memory, with a ill-defined size.</Definition>
+		<!-- CG: adapted from INP paper, kind circular definition based on Wrong Value, Inconsistent value e Improper Data-->
+		<Definition Name="Improper Data Value">A value that is inconsistent with what it represents, it is out of range for an operation or it has harmed semantics.</Definition>
+		<!--see Improper Data Type <Definition Name="Improper Data Type (_DTC)">Input To Next Operation. A data type defines a set or a range of values (e.g. char is [-128, 127]) and the operations allowed over them (e.g. +, *, mod).xxx</Definition>-->
+		<!-- CG: from my head-->
+		<Definition Name="Improper Object Address">A misleading object's address.</Definition>
+		<!-- CG: from my head-->
+		<Definition Name="Improper Object Size">The information about an object size is Inaccurate.</Definition>
+		<!-- CG: do we need key? Is it not just improper data?-->
 		<Definition Name="Improper Key">xxx</Definition>
 
-		<!-- Final Errors-->
-		<Definition Name="Injection Error">xxx</Definition>
-		<Definition Name="Memory Error">xxx</Definition>
-		<Definition Name="Access Error">xxx</Definition>
-		<Definition Name="Type Compute Error">xxx</Definition>
+		<!-- Final Errors https://blog.klipse.tech/databook/2020/10/02/separate-code-data.html -->
+		<Definition Name="Injection Error">Undefined or exploitable system behavior caused by executing user controlled data. OR Undefined or exploitable system behavior caused by bugs in separating code and data</Definition>
+		<!-- CG: do we keep system or just software? Adapted from MEM paper-->
+		<Definition Name="Memory Error">Undefined or exploitable system behavior caused by memory bugs.</Definition>
+		<!-- CG: from my head-->
+		<Definition Name="Access Error">Undefined or exploitable system behavior caused by access control bugs.</Definition>
+		<!-- CG: adapted from DTC paper-->
+		<Definition Name="Type Compute Error">Undefined or exploitable system behavior caused by arithmetic operation bugs.</Definition>
 
 		<!-- Values-->
 		<!--_INP Cluster-->
@@ -1445,10 +1471,10 @@ Reg Exprs
 		<Definition Name="Allocate">Reserves space in memory for an object; defines its initial boundaries and size..</Definition>
 		<Definition Name="Extend">Allocates additional memory for an object in the same space; redefines its boundaries and size..</Definition>
 		<Definition Name="Reallocate–Extend">Allocates a new larger piece of memory for an object at a new address, copies the object content there, reassigns its pointer, and deallocates the previous piece of memory..</Definition>
-		<Definition Name="Initialize (object)"> The first write into an object, after it is allocated..</Definition>
+		<Definition Name="Initialize (object)"> The first write into an object, after it is allocated.</Definition>
 		<Definition Name="Read">Gets content from an object..</Definition>
 		<Definition Name="Write">Puts content into an object..</Definition>
-		<Definition Name="Clear">The very last write into an object, before it is deallocated..</Definition>
+		<Definition Name="Clear">The very last write into an object, before it is deallocated.</Definition>
 		<Definition Name="Dereference">Overreaches Initialize, Read, Write, and Clear, focus is on object access, no matter if it’s for reading or for writing.</Definition>
 		<Definition Name="Deallocate">Releases the allocated memory of an object..</Definition>
 		<Definition Name="Reduce">Deallocates part of the object memory; redefines its boundaries and size..</Definition>
@@ -1554,6 +1580,7 @@ Reg Exprs
 		<!--END NOTES - DISCUSS-->
 
 		<!--Common Terms - xxx can use them as tooltips for labels-->
+		<!-- CG: we need to think about bad specifications (e.g, broken crypto algorithms). Is specification an rule?-->
 		<Definition Name="Bug">
 			A coding error that needs to be fixed.
 			BF: Caused by an improper operation or rule (e.g. policy, scope, modifier) - the underlying start error of a vulnerability.
@@ -1568,16 +1595,18 @@ Reg Exprs
 		</Definition>
 		<Definition Name="Final Error">
 			Undefined or exploitable system behavior.
-			BF: A conseqeunce of the last element of a bug[-weakness(es)] vulnerability chain.
+			BF: A consequence of the last element of a bug[-weakness(es)] vulnerability chain.
 		</Definition>
 		<Definition Name="Failure">
 			A violation of a system security requirement.
 			BF: Caused by a final error consequence. Several vulnerability chains might converge at this final error conseqeunce to cause the failure.
 		</Definition>
 
-		<Definition Name="BF Class">xxx</Definition>
-		<Definition Name="Cause">xxx</Definition>
-		<Definition Name="Consequence">xxx</Definition>
+		<!-- CG: From WhatsApp conversation-->
+		<Definition Name="BF Class">It is a taxonomy category of weakness defined by a set of attributes one cause and one consequence.</Definition>
+		<!-- CG: This is plain english, doesnt need definition-->
+		<Definition Name="Cause">What make the weakness happen.</Definition>
+		<Definition Name="Consequence">The effect of the weakness on the software </Definition>
 
 
 		<!--NOTE: Erroneous, Wrong Type, and others may be slightly different in each cluster - so, using (_INP), etc. -->
