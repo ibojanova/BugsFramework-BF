@@ -6,16 +6,6 @@ using System.Windows.Forms;
 /*@author Irena Bojanova(ivb)
  *@date - 2/27/2022 */
 
-/*xxx Do THIS if package is missing
-1.Install package from NuGet
-- right click solution > "Manage NuGet Packages for Solution"
-- Browse for WindowsDesktop.App.Ref
-- Install to Utilities project (althoug it may fail, it actually installs)
-
-2.If different path/version, correct it in all three occurances in Utilities.csproj:
-e.g. ...Microsoft.WindowsDesktop.App.Ref\6.0.8...
-*/
-
 namespace Utilities
 {
     //adds new NodeData member to hold extra data 

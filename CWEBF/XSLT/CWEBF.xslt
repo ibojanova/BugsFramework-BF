@@ -8,9 +8,10 @@
 
 	<xsl:param name="Clusters"/>
 	<!-- change here to proper cluster -->
+	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>
 	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_MEM']"/>-->
 	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DTC' or @Name='_MEM']"/>-->
-	<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>
+	<!--<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>-->
 
 	<xsl:variable name="showClassCWEs" select="$Cluster/showClassCWEs"/>
 	<xsl:variable name="showOtherCWEs" select="$Cluster/showOtherCWEs"/>
@@ -68,10 +69,10 @@
 		<xsl:param name="updownDepth" select="5"/>-->
 	
 	<!-- 0 - if all nodes are already known)-->	
-	<xsl:param name="updownDepth" select="5"/>
+	<xsl:param name="updownDepth" select="0"/>
 	
 	<!-- 1 - from slide 'CurrentCWEBF.xml'; NOTE: Uses the coordinates from Slide #2 :)-->
-	<xsl:param name="fromCurrentCWEBF" select="0"/>
+	<xsl:param name="fromCurrentCWEBF" select="1"/>
 	
 	<xsl:param name="showViews">
 		<View>1000</View>

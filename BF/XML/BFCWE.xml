@@ -1002,7 +1002,6 @@ Pillar: 913???, 20, 77, 74 -->
 			<Consequence n="Under Range" c="4363d8"/>
 			<Consequence n="Over Range" c="911eb4"/>
 			<Consequence n="Flipped Sign" c="f032e6"/>
-			<Consequence n="No Consequence" c="a9a9a9"/>
 		</consequenceStyles>
 	</Cluster>
 
