@@ -29,16 +29,21 @@
          <Worksheet ss:Name="Sheet1">
           <Table>
            <Row>
-            <Cell><Data ss:Type="String">CVSS</Data></Cell>
-            <Cell><Data ss:Type="String">CWE</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-cveID</Data></Cell>
+            <Cell><Data ss:Type="String">NVD-CVSS</Data></Cell>
+            <Cell><Data ss:Type="String">NVD-CWE</Data></Cell>
             <Cell><Data ss:Type="String">BF Class</Data></Cell>
+            <Cell><Data ss:Type="String">Reference Files</Data></Cell>
+            <Cell><Data ss:Type="String">Resources</Data></Cell>
             <Cell><Data ss:Type="String">NVD Link</Data></Cell>
-            <Cell><Data ss:Type="String">cveID</Data></Cell>
-            <Cell><Data ss:Type="String">vendorProject</Data></Cell>
-            <Cell><Data ss:Type="String">product</Data></Cell>
-            <Cell><Data ss:Type="String">vulnerabilityName</Data></Cell>
-            <Cell><Data ss:Type="String">dateAdded</Data></Cell>
-            <Cell><Data ss:Type="String">shortDescription</Data></Cell>
+            <Cell><Data ss:Type="String">Enough Information?</Data></Cell>
+            <Cell><Data ss:Type="String">BF Ready to Describe It?</Data></Cell>
+            <Cell><Data ss:Type="String">Is Open Source?</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-vendorProject</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-product</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-vulnerabilityName</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-dateAdded</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-shortDescription</Data></Cell>
            </Row>
 			  
 		    <xsl:apply-templates select="KEV/root/vulnerabilities/item"/>	  
@@ -55,11 +60,13 @@
         <Row  xmlns="urn:schemas-microsoft-com:office:spreadsheet">
 		<xsl:variable name="link" select="concat('https://nvd.nist.gov/vuln/detail/',cveID)"/>	
 		<xsl:variable name="cve" select="key('cve',cveID)"/>
-			
 
-        <Cell><Data ss:Type="String"><xsl:value-of select="$cve//@baseScore"/></Data></Cell>
+		<!--from KEV-->
+        <Cell><Data ss:Type="String"><xsl:value-of select="cveID"/></Data></Cell>
+		
+		<!--from NVD-->
+		<Cell><Data ss:Type="String"><xsl:value-of select="$cve//@baseScore"/></Data></Cell>
         <Cell><Data ss:Type="String"><xsl:value-of select="$cve/@CWE"/></Data></Cell>
-			
         <Cell><Data ss:Type="String">
 			<xsl:call-template name="multiple">
 				<xsl:with-param name="values" select="key('cwe',substring-after($cve/@CWE,'-'))/parent::ClassOperation/@name"/>
@@ -67,12 +74,20 @@
 			</xsl:call-template>
 		</Data></Cell>
         <!--<Cell><Data ss:Type="String"><xsl:value-of select="key('cwe',substring-after($cve/@CWE,'-'))/../@name"/></Data></Cell>-->
+			
+        <!--<Cell><Data ss:Type="String"><xsl:value-of select="&eq; IFNA(VLOOKUP(A2,PREVIOUS!A:J,5, FALSE),'')"/></Data></Cell>-->		
+	    <Cell><Data ss:Type="String">To be done</Data></Cell>		
+	    <Cell><Data ss:Type="String">To be done</Data></Cell>
 
 		<Cell ss:StyleID="Hyperlink" ss:HRef="{$link}">
 			<Data ss:Type="String"><xsl:value-of select="$link"/></Data>
 		</Cell>
 			
-        <Cell><Data ss:Type="String"><xsl:value-of select="cveID"/></Data></Cell>
+		<Cell><Data ss:Type="String">To be done</Data></Cell>			
+	    <Cell><Data ss:Type="String">To be done</Data></Cell>	
+	    <Cell><Data ss:Type="String">To be done</Data></Cell>
+
+		<!--from KEV-->
         <Cell><Data ss:Type="String"><xsl:value-of select="vendorProject"/></Data></Cell>
         <Cell><Data ss:Type="String"><xsl:value-of select="product"/></Data></Cell>
         <Cell><Data ss:Type="String"><xsl:value-of select="vulnerabilityName"/></Data></Cell>

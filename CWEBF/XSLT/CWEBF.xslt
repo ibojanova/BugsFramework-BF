@@ -8,9 +8,9 @@
 
 	<xsl:param name="Clusters"/>
 	<!-- change here to proper cluster -->
-	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DTC']"/>
+	<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_DAT']"/>
 	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_MEM']"/>-->
-	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DTC' or @Name='_MEM']"/>-->
+	<!--<xsl:variable name="Cluster" select="$Clusters//Cluster[@Name='_INP' or @Name='_DAT' or @Name='_MEM']"/>-->
 	<!--<xsl:variable name="Cluster" select="msxsl:node-set($Clusters)/Cluster[not(@Name='_ALL')]"/>-->
 
 	<xsl:variable name="showClassCWEs" select="$Cluster/showClassCWEs"/>
@@ -98,7 +98,7 @@
 	s=size, f=font; fs=font size; c=color, w=width; cm=compound; d=dash
 	5 colors: pillar - red, Class - blue, Base - purple, Variant - green, Compound - yellow-->
 
-	<!-- changes size for _DTC from 3600 to 3200-->
+	<!-- changes size for _DAT from 3600 to 3200-->
 	<xsl:param name="nodeStyles">
 		<Caption n="CWEs by Abstraction:" c="FFFFFF" u="sng" x="32117693" y="30852362"/>
 		<CWEabstr n="Pillar" f="Calibri" fs="3200" c="7F7F7F" w="70000" cm="dbl" d="solid"/>

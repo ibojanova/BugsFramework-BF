@@ -27,13 +27,13 @@ namespace KEVNVDBF
             var solutionDir = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName;
             var dbDir = Path.Combine(solutionDir, @"_DB\KEVNVDBF");
             var xsltDir = Path.Combine(solutionDir, @"KEVNVDBF\XSLT");
-            var excel = Path.Combine(dbDir, "KEVNVDBF-excel.xml");
+            var excel = Path.Combine(dbDir, "KEV-NVD-BF-excel.xml");
             //xxx BF.BFCWE
             var bfcweFile = "BFCWE.xml";
             var bfcwe = Path.Combine(solutionDir, $@"BF\XML\{bfcweFile}");
 
-            var nvdXslt = Path.Combine(xsltDir, "CVECWECVSS.xslt");
-            var excelXslt = Path.Combine(xsltDir, "KEVNVDBFtoExcel.xslt");
+            var nvdXslt = Path.Combine(xsltDir, "CVE-CVSS-CWE.xslt");
+            var excelXslt = Path.Combine(xsltDir, "KEV-NVD-BF-excel.xslt");
 
             var xslt = new XslCompiledTransform();
             var all = new XElement("ALL");
@@ -76,9 +76,12 @@ namespace KEVNVDBF
                 xslt.Transform(xmlReader, null, excelFile);
 
             //====================================
-            //BFCWECVE
+            //BFCWECVE - redo
             string nvdcveJson = @"nvdcve-1.1-2002.json";
             string nvdcveXml = @"nvdcve-1.1-2022.xml";
+            var cwecve = Path.Combine(dbDir, @"CWE-CVE.xml");
+            var bfcwecve = Path.Combine(dbDir, @"BF-CWE-CVE.xml");
+
             JSONtoXML(dbDir, nvdcveJson, nvdcveXml);
             var xd = XDocument.Load(Path.Combine(dbDir, nvdcveXml));
             var r = new XElement("CWECVE",
@@ -89,13 +92,13 @@ namespace KEVNVDBF
                     d = n.XPathSelectElement("description/description_data/item/value")?.Value ?? string.Empty
                 }).GroupBy(x => x.w, (w, g) => new XElement("CWE", new XAttribute("Id", w), g.Select(v => new XElement("CVE", new XAttribute("Name", v.v), new XText(v.d))))));
 
-            r.Save(Path.Combine(dbDir, @"CWECVE.xml"));
+            r.Save(cwecve);
 
-            //run CVEBF.xslt
-            var cvebfXslt = Path.Combine(xsltDir, "CVEBF.xslt");
+            //run BF-CWE-CVE.xslt
+            var xsltFile = Path.Combine(xsltDir, "BF-CWE-CVE.xslt");
             var argsL = new XsltArgumentList();
             argsL.AddParam("Clusters", String.Empty, BF.BFCWE.Clusters());
-            Xslt.Xslt.Transform(cvebfXslt, Path.Combine(dbDir, @"CWECVE.xml"), Path.Combine(dbDir, @"BFCWECVE.xml"), args: argsL);
+            Xslt.Xslt.Transform(xsltFile, cwecve, bfcwecve, args: argsL);
 
         }
         public static void JSONtoXML(string dir, string inFile, string outFile)

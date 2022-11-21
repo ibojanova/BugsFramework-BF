@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CWECVE>
-  <Cluster Name="_DTC">
-    <ClassOperation name="_DTC General">
+  <Cluster Name="_DAT">
+    <ClassOperation name="_DAT General">
       <CWE Id="573" />
       <CWE Id="664" />
       <CWE Id="668">

@@ -634,10 +634,10 @@ Pillar: 913???, 20, 77, 74 -->
 	</Cluster>
 
 	<!--Created by Irena Bojanova, 07/03/2022-->
-	<Cluster Name="_DTC">
+	<Cluster Name="_DAT">
 		<!--fig 1-->
 		<showClassCWEs>
-			<ClassOperation name="_DTC General">
+			<ClassOperation name="_DAT General">
 				<CWE>573</CWE>
 				<CWE>664</CWE>
 				<CWE>668</CWE>
@@ -975,7 +975,7 @@ Pillar: 913???, 20, 77, 74 -->
 			<ClassOperation n="TCM Evaluate" c="0099FF"/>
 
 			<Caption n="General CWEs:" u="sng" x="21464743" y="25852362"/>
-			<ClassOperation n="_DTC General" c="C8C8DA"/>
+			<ClassOperation n="_DAT General" c="C8C8DA"/>
 		</classStyles>
 
 		<!--fig 2-->
