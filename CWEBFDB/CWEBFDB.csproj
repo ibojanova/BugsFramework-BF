@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="XSLT\CWEBF.xslt">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="XSLT\keep.xslt">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="XSLT\ppt.xslt">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+
 </Project>

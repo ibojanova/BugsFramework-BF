@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CWECVE>
+  <Cluster Name="_DTC">
+    <ClassOperation name="_DTC General">
+      <CWE Id="573" />
+      <CWE Id="664" />
+      <CWE Id="668">
+        <CVE Name="CVE-2001-0892">Acme Thttpd Secure Webserver before 2.22, with the chroot option enabled, allows remote attackers to view sensitive files under the document root (such as .htpasswd) via a GET request with a trailing /.</CVE>
+        <CVE Name="CVE-2001-0893">Acme mini_httpd before 1.16 allows remote attackers to view sensitive files under the document root (such as .htpasswd) via a GET request with a trailing /.</CVE>
+      </CWE>
+      <!--<CWE>682</CWE>-->
+      <!--<CWE>697</CWE>-->
+      <!--<CWE>693</CWE>-->
+      <CWE Id="710" />
+      <CWE Id="758" />
+      <CWE Id="1076" />
+    </ClassOperation>
+    <ClassOperation name="DCL Declare">
+      <!--<CWE>104</CWE>
+				<CWE>111</CWE>
+				<CWE>245</CWE>
+				<CWE>246</CWE>
+				<CWE>383</CWE>-->
+      <CWE Id="471" />
+      <CWE Id="491" />
+      <CWE Id="492" />
+      <CWE Id="493" />
+      <CWE Id="495" />
+      <CWE Id="496" />
+      <CWE Id="499" />
+      <CWE Id="500" />
+      <!--<CWE>574</CWE>
+				<CWE>575</CWE>
+				<CWE>576</CWE>-->
+      <CWE Id="582" />
+      <CWE Id="583" />
+      <CWE Id="608" />
+      <CWE Id="694" />
+      <!--<CWE>695</CWE>-->
+      <CWE Id="766" />
+    </ClassOperation>
+    <ClassOperation name="DCL Define">
+      <!--<CWE>103</CWE>-->
+      <CWE Id="374" />
+      <CWE Id="375" />
+      <CWE Id="498" />
+      <!--<CWE>568</CWE>
+				<CWE>577</CWE>
+				<CWE>578</CWE>
+				<CWE>579</CWE>-->
+      <CWE Id="580" />
+      <CWE Id="581" />
+      <CWE Id="581" />
+      <CWE Id="749" />
+      <CWE Id="767" />
+      <CWE Id="1043" />
+      <CWE Id="1045" />
+      <CWE Id="1054" />
+      <CWE Id="1055" />
+      <CWE Id="1057" />
+      <CWE Id="1061" />
+      <CWE Id="1062" />
+      <CWE Id="1074" />
+      <CWE Id="1079" />
+      <CWE Id="1082" />
+      <CWE Id="1083" />
+      <CWE Id="1086" />
+      <CWE Id="1087" />
+      <CWE Id="1090" />
+      <CWE Id="1093" />
+      <CWE Id="1097" />
+      <CWE Id="1098" />
+      <CWE Id="1102" />
+      <CWE Id="1105" />
+    </ClassOperation>
+    <ClassOperation name="NRS Refer">
+      <!--<CWE>386</CWE>-->
+      <CWE Id="706" />
+    </ClassOperation>
+    <ClassOperation name="NRS Call">
+      <CWE Id="386" />
+      <!--<CWE>475</CWE>-->
+      <CWE Id="628" />
+      <CWE Id="683" />
+      <!--<CWE>684</CWE>-->
+      <CWE Id="685" />
+      <CWE Id="686" />
+    </ClassOperation>
+    <ClassOperation name="TCV Cast">
+      <CWE Id="588" />
+      <!--<CWE>681</CWE>-->
+      <CWE Id="704" />
+    </ClassOperation>
+    <ClassOperation name="TCV Coerce">
+      <CWE Id="192" />
+      <CWE Id="194" />
+      <CWE Id="195" />
+      <CWE Id="196" />
+      <CWE Id="681" />
+      <CWE Id="704" />
+      <CWE Id="843" />
+    </ClassOperation>
+    <ClassOperation name="TCM Calculate">
+      <CWE Id="128" />
+      <CWE Id="131" />
+      <CWE Id="135" />
+      <CWE Id="188" />
+      <CWE Id="190">
+        <CVE Name="CVE-2002-2439">Integer overflow in the new[] operator in gcc before 4.8.0 allows attackers to have unspecified impacts.</CVE>
+      </CWE>
+      <CWE Id="191" />
+      <CWE Id="193" />
+      <!--repeat-->
+      <CWE Id="369" />
+      <CWE Id="467" />
+      <CWE Id="468" />
+      <CWE Id="469" />
+      <CWE Id="682" />
+      <CWE Id="687" />
+      <!--repeat-->
+      <CWE Id="688" />
+      <!--repeat-->
+      <CWE Id="1335" />
+      <CWE Id="1339" />
+    </ClassOperation>
+    <ClassOperation name="TCM Evaluate">
+      <CWE Id="351" />
+      <CWE Id="486" />
+      <CWE Id="595" />
+      <CWE Id="597" />
+      <CWE Id="687" />
+      <!--repeat-->
+      <CWE Id="688" />
+      <!--repeat-->
+      <CWE Id="697" />
+      <CWE Id="1023" />
+      <CWE Id="1024" />
+      <CWE Id="1025" />
+      <CWE Id="1077" />
+    </ClassOperation>
+    <Consequence name="Wrong Access Object">
+      <CWE Id="374" />
+      <CWE Id="375" />
+      <CWE Id="386" />
+      <CWE Id="471" />
+      <CWE Id="491" />
+      <CWE Id="492" />
+      <!--repeat-->
+      <CWE Id="493" />
+      <CWE Id="495" />
+      <CWE Id="496" />
+      <CWE Id="498" />
+      <CWE Id="499" />
+      <CWE Id="500" />
+      <CWE Id="582" />
+      <CWE Id="608" />
+      <CWE Id="766" />
+      <CWE Id="767" />
+      <CWE Id="1057" />
+      <CWE Id="1061" />
+      <!--repeat-->
+      <CWE Id="1083" />
+      <CWE Id="1090" />
+      <CWE Id="1105" />
+      <!--repeat-->
+    </Consequence>
+    <Consequence name="Wrong Access Function">
+      <CWE Id="492" />
+      <!--repeat-->
+      <CWE Id="583" />
+      <CWE Id="749" />
+      <CWE Id="1061" />
+      <!--repeat-->
+      <CWE Id="1105" />
+      <!--repeat-->
+    </Consequence>
+    <Consequence name="Undefined">
+      <CWE Id="369" />
+    </Consequence>
+    <Consequence name="Wrong Overloaded Function Bound">
+      <CWE Id="628" />
+      <CWE Id="683" />
+      <!--repeat-->
+      <CWE Id="685" />
+      <!--repeat-->
+      <CWE Id="686" />
+      <!--repeat-->
+    </Consequence>
+    <Consequence name="Wrong Object/Function/Type Resolved">
+      <CWE Id="694" />
+    </Consequence>
+    <Consequence name="Wrong Type">
+      <CWE Id="351" />
+      <CWE Id="1043" />
+      <CWE Id="1054" />
+      <CWE Id="1055" />
+      <CWE Id="1062" />
+      <!--???-->
+      <CWE Id="1074" />
+      <CWE Id="1082" />
+      <CWE Id="1086" />
+      <CWE Id="1093" />
+    </Consequence>
+    <Consequence name="Incomplete Type">
+      <CWE Id="580" />
+      <CWE Id="581" />
+      <CWE Id="1045" />
+      <CWE Id="1079" />
+      <CWE Id="1087" />
+      <CWE Id="1097" />
+      <CWE Id="1098" />
+    </Consequence>
+    <Consequence name="Wrong Result">
+      <CWE Id="131&gt;" />
+      <CWE Id="135" />
+      <CWE Id="188" />
+      <CWE Id="192" />
+      <CWE Id="467" />
+      <CWE Id="468" />
+      <CWE Id="469" />
+      <CWE Id="486" />
+      <CWE Id="595" />
+      <CWE Id="597" />
+      <CWE Id="682" />
+      <CWE Id="683" />
+      <!--repeat-->
+      <CWE Id="685" />
+      <!--repeat-->
+      <CWE Id="686" />
+      <!--repeat-->
+      <CWE Id="687" />
+      <CWE Id="688" />
+      <CWE Id="697" />
+      <CWE Id="1023" />
+      <CWE Id="1024" />
+      <CWE Id="1025" />
+      <CWE Id="1077" />
+      <CWE Id="1335" />
+    </Consequence>
+    <Consequence name="Truncated Value">
+      <CWE Id="681" />
+      <!--repeat-->
+      <CWE Id="1339" />
+    </Consequence>
+    <Consequence name="Rounded Value">
+      <CWE Id="681" />
+      <!--repeat-->
+    </Consequence>
+    <Consequence name="Wrap Around">
+      <CWE Id="128" />
+      <CWE Id="190">
+        <CVE Name="CVE-2002-2439">Integer overflow in the new[] operator in gcc before 4.8.0 allows attackers to have unspecified impacts.</CVE>
+      </CWE>
+      <CWE Id="191" />
+    </Consequence>
+    <Consequence name="Under Range">
+      <CWE Id="193" />
+      <!--repeat-->
+    </Consequence>
+    <Consequence name="Over Range">
+      <CWE Id="193" />
+      <!--repeat-->
+      <CWE Id="843" />
+    </Consequence>
+    <Consequence name="Flipped Sign">
+      <CWE Id="194" />
+      <CWE Id="195" />
+      <CWE Id="196" />
+    </Consequence>
+  </Cluster>
+  <Cluster Name="_MEM">
+    <ClassOperation name="_MEM General">
+      <CWE Id="704" />
+      <CWE Id="710" />
+      <CWE Id="758" />
+    </ClassOperation>
+    <Class name="MAD">
+      <CWE Id="562" />
+      <!--Wild Pointer-->
+      <CWE Id="587" />
+      <!--Hard Coded Address-->
+    </Class>
+    <ClassOperation name="MAL">
+      <CWE Id="400">
+        <CVE Name="CVE-2001-0666">Outlook Web Access (OWA) in Microsoft Exchange 2000 allows an authenticated user to cause a denial of service (CPU consumption) via a malformed OWA request for a deeply nested folder within the user's mailbox.</CVE>
+        <CVE Name="CVE-2002-0368">The Store Service in Microsoft Exchange 2000 allows remote attackers to cause a denial of service (CPU consumption) via a mail message with a malformed RFC message attribute, aka "Malformed Mail Attribute can Cause Exchange 2000 to Exhaust CPU Resources."</CVE>
+        <CVE Name="CVE-2002-1873">Microsoft Exchange 2000, when used with Microsoft Remote Procedure Call (MSRPC), allows remote attackers to cause a denial of service (crash or memory consumption) via malformed MSRPC calls.</CVE>
+        <CVE Name="CVE-2002-1876">Microsoft Exchange 2000 allows remote authenticated attackers to cause a denial of service via a large number of rapid requests, which consumes all of the licenses that are granted to Exchange by IIS.</CVE>
+        <CVE Name="CVE-2002-20001">The Diffie-Hellman Key Agreement Protocol allows remote attackers (from the client side) to send arbitrary numbers that are actually not public keys, and trigger expensive server-side DHE modular-exponentiation calculations, aka a D(HE)ater attack. The client needs very little CPU resources and network bandwidth. The attack may be more disruptive in cases where a client can require a server to select its largest supported key size. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE.</CVE>
+      </CWE>
+      <CWE Id="770">
+        <CVE Name="CVE-2001-1388">iptables before 1.2.4 does not accurately convert rate limits that are specified on the command line, which could allow attackers or users to generate more or less traffic than intended by the administrator.</CVE>
+      </CWE>
+      <CWE Id="789" />
+      <CWE Id="401">
+        <CVE Name="CVE-2001-0543">Memory leak in NNTP service in Windows NT 4.0 and Windows 2000 allows remote attackers to cause a denial of service (memory exhaustion) via a large number of malformed posts.</CVE>
+      </CWE>
+      <!--repeat-->
+      <CWE Id="404" />
+      <!--repeat-->
+      <CWE Id="415" />
+      <!--repeat-->
+      <CWE Id="590" />
+      <!--repeat-->
+      <CWE Id="761" />
+      <!--repeat-->
+      <CWE Id="762" />
+      <!--repeat-->
+      <CWE Id="763" />
+      <!--repeat-->
+      <CWE Id="771" />
+      <!--repeat-->
+      <CWE Id="772" />
+      <!--repeat-->
+      <CWE Id="1091" />
+      <!--repeat-->
+    </ClassOperation>
+    <ClassOperation name="MUS">
+      <CWE Id="118" />
+      <CWE Id="119">
+        <CVE Name="CVE-1999-0002">Buffer overflow in NFS mountd gives root access to remote attackers, mostly in Linux systems.</CVE>
+        <CVE Name="CVE-1999-0027">root privileges via buffer overflow in eject command on SGI IRIX systems.</CVE>
+        <CVE Name="CVE-1999-0332">Buffer overflow in NetMeeting allows denial of service and remote command execution.</CVE>
+        <CVE Name="CVE-1999-0349">A buffer overflow in the FTP list (ls) command in IIS allows remote attackers to conduct a denial of service and, in some cases, execute arbitrary commands.</CVE>
+        <CVE Name="CVE-1999-0700">Buffer overflow in Microsoft Phone Dialer (dialer.exe), via a malformed dialer entry in the dialer.ini file.</CVE>
+        <CVE Name="CVE-1999-0802">Buffer overflow in Internet Explorer 5 allows remote attackers to execute commands via a malformed Favorites icon.</CVE>
+        <CVE Name="CVE-1999-0874">Buffer overflow in IIS 4.0 allows remote attackers to cause a denial of service via a malformed request for files with .HTR, .IDC, or .STM extensions.</CVE>
+        <CVE Name="CVE-1999-0876">Buffer overflow in Internet Explorer 4.0 via EMBED tag.</CVE>
+        <CVE Name="CVE-1999-0898">Buffer overflows in Windows NT 4.0 print spooler allow remote attackers to gain privileges or cause a denial of service via a malformed spooler request.</CVE>
+        <CVE Name="CVE-2000-1246">NWFTPD.nlm before 5.01o in the FTP server in Novell NetWare 5.1 SP3 allows remote authenticated users to cause a denial of service (abend) by sending an RNTO command after a failed RNFR command.</CVE>
+        <CVE Name="CVE-2001-0153">Buffer overflow in VB-TSQL debugger object (vbsdicli.exe) in Visual Studio 6.0 Enterprise Edition allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0576">lpusers as included with SCO OpenServer 5.0 through 5.0.6 allows a  local attacker to gain additional privileges via a buffer overflow attack in the '-u' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0629">HP Event Correlation Service (ecsd) as included with OpenView Network Node  Manager 6.1 allows a remote attacker to gain addition privileges via a buffer overflow attack in the '-restore_config' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0775">Buffer overflow in xloadimage 4.1 (aka xli 1.16 and 1.17) in Linux allows remote attackers to execute arbitrary code via a FACES format image containing a long (1) Firstname or (2) Lastname field.</CVE>
+        <CVE Name="CVE-2001-0803">Buffer overflow in the client connection routine of libDtSvc.so.1 in CDE Subprocess Control Service (dtspcd) allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0819">A buffer overflow in Linux fetchmail before 5.8.6 allows remote attackers to execute arbitrary code via a large 'To:' field in an email header.</CVE>
+        <CVE Name="CVE-2001-1456">Buffer overflow in the (1) smap/smapd and (2) CSMAP daemons for Gauntlet Firewall 5.0 through 6.0 allows remote attackers to execute arbitrary code via a crafted mail message.</CVE>
+        <CVE Name="CVE-2001-1539">Stack consumption vulnerability in Internet Explorer The JavaScript settimeout function in Internet Explorer allows remote attackers to cause a denial of service (crash) via the JavaScript settimeout function.  NOTE: the vendor could not reproduce the problem.</CVE>
+        <CVE Name="CVE-2001-1582">Buffer overflow in the LDAP naming services library (libsldap) in Sun Solaris 8 allows local users to execute arbitrary code via a long LDAP_OPTIONS environment variable to a privileged program that uses libsldap.</CVE>
+        <CVE Name="CVE-2001-1587">NWFTPD.nlm before 5.01w in the FTP server in Novell NetWare allows remote attackers to cause a denial of service (abend) via an anonymous STOU command.</CVE>
+        <CVE Name="CVE-2002-0053">Buffer overflow in SNMP agent service in Windows 95/98/98SE, Windows NT 4.0, Windows 2000, and Windows XP allows remote attackers to cause a denial of service or execute arbitrary code via a malformed management request.  NOTE: this candidate may be split or merged with other candidates.  This and other PROTOS-related candidates, especially CVE-2002-0012 and CVE-2002-0013, will be updated when more accurate information is available.</CVE>
+        <CVE Name="CVE-2002-0070">Buffer overflow in Windows Shell (used as the Windows Desktop) allows local and possibly remote attackers to execute arbitrary code via a custom URL handler that has not been removed for an application that has been improperly uninstalled.</CVE>
+        <CVE Name="CVE-2002-0649">Multiple buffer overflows in the Resolution Service for Microsoft SQL Server 2000 and Microsoft Desktop Engine 2000 (MSDE) allow remote attackers to cause a denial of service or execute arbitrary code via UDP packets to port 1434 in which (1) a 0x04 byte that causes the SQL Monitor thread to generate a long registry key name, or (2) a 0x08 byte with a long string causes heap corruption, as exploited by the Slammer/Sapphire worm.</CVE>
+        <CVE Name="CVE-2002-0813">Heap-based buffer overflow in the TFTP server capability in Cisco IOS 11.1, 11.2, and 11.3 allows remote attackers to cause a denial of service (reset) or modify configuration via a long filename.</CVE>
+        <CVE Name="CVE-2002-1174">Buffer overflows in Fetchmail 6.0.0 and earlier allow remote attackers to cause a denial of service (crash) or execute arbitrary code via (1) long headers that are not properly processed by the readheaders function, or (2) via long Received: headers, which are not properly parsed by the parse_received function.</CVE>
+        <CVE Name="CVE-2002-1200">Balabit Syslog-NG 1.4.x before 1.4.15, and 1.5.x before 1.5.20, when using template filenames or output, does not properly track the size of a buffer when constant characters are encountered during macro expansion, which allows remote attackers to cause a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-1222">Buffer overflow in the embedded HTTP server for Cisco Catalyst switches running CatOS 5.4 through 7.3 allows remote attackers to cause a denial of service (reset) via a long HTTP request.</CVE>
+        <CVE Name="CVE-2002-1357">Multiple SSH2 servers and clients do not properly handle packets or data elements with incorrect length specifiers, which may allow remote attackers to cause a denial of service or possibly execute arbitrary code, as demonstrated by the SSHredder SSH protocol test suite.</CVE>
+        <CVE Name="CVE-2002-1365">Heap-based buffer overflow in Fetchmail 6.1.3 and earlier does not account for the "@" character when determining buffer lengths for local addresses, which allows remote attackers to execute arbitrary code via a header with a large number of local addresses.</CVE>
+        <CVE Name="CVE-2002-1401">Buffer overflows in (1) circle_poly, (2) path_encode and (3) path_add (also incorrectly identified as path_addr) for PostgreSQL 7.2.3 and earlier allow attackers to cause a denial of service and possibly execute arbitrary code, possibly as a result of an integer overflow.</CVE>
+        <CVE Name="CVE-2002-2196">Samba before 2.2.5 does not properly terminate the enum_csc_policy data structure, which may allow remote attackers to execute arbitrary code via a buffer overflow attack.</CVE>
+        <CVE Name="CVE-2002-2226">Buffer overflow in tftpd of TFTP32 2.21 and earlier allows remote attackers to execute arbitrary code via a long filename argument.</CVE>
+        <CVE Name="CVE-2002-2227">Buffer underflow in ssldump 0.9b2 and earlier allows remote attackers to cause a denial of service (memory corruption) via a crafted SSLv2 challenge value.</CVE>
+        <CVE Name="CVE-2002-2232">Buffer overflow in Enceladus Server Suite 3.9 allows remote attackers to execute arbitrary code via a long CD (CWD) command.</CVE>
+        <CVE Name="CVE-2002-2248">Buffer overflow in the sun.awt.windows.WDefaultFontCharset Java class implementation in Netscape 4.0 allows remote attackers to execute arbitrary code via an applet that calls the WDefaultFontCharset constructor with a long string and invokes the canConvert method.</CVE>
+        <CVE Name="CVE-2002-2250">Multiple buffer overflows in Sybase Adaptive Server 12.0 and 12.5 allow remote attackers to execute arbitrary code via (1) a long parameter to the xp_freedll extended stored procedure or (2) a long database name argument to the DBCC CHECKVERIFY function.</CVE>
+        <CVE Name="CVE-2002-2251">Buffer overflow in the changevalue function in libcgi.h for Marcos Luiz Onisto Lib CGI 0.1 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2253">Multiple buffer overflows in Cyrus Sieve / libSieve 2.1.2 and earlier allow remote attackers to execute arbitrary code via (1) a long header name, (2) a long IMAP flag, or (3) a script that generates a large number of errors that overflow the resulting error string.</CVE>
+        <CVE Name="CVE-2002-2257">Stack-based buffer overflow in the parse_field function in cgi_lib.c for LIBCGI 1.0.2 and 1.0.3 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2258">Moby NetSuite allows remote attackers to cause a denial of service (crash) via an HTTP POST request with a (1) large integer or (2) non-numeric value in the Content-Length header, which causes an access violation after a failed atoi function call.</CVE>
+        <CVE Name="CVE-2002-2259">Buffer overflow in the French documentation patch for Gnuplot 3.7 in SuSE Linux before 8.0 allows local users to execute arbitrary code as root via unknown attack vectors.</CVE>
+        <CVE Name="CVE-2002-2268">Buffer overflow in Webster HTTP Server allows remote attackers to execute arbitrary code via a long URL.</CVE>
+        <CVE Name="CVE-2002-2271">Buffer overflow in BigFun 1.51b IRC client, when the Direct Client Connection (DCC) option is used, allows remote attackers to cause a denial of service (crash) via a long string.</CVE>
+        <CVE Name="CVE-2002-2272">Tomcat 4.0 through 4.1.12, using mod_jk 1.2.1 module on Apache 1.3 through 1.3.27, allows remote attackers to cause a denial of service (desynchronized communications) via an HTTP GET request with a Transfer-Encoding chunked field with invalid values.</CVE>
+        <CVE Name="CVE-2002-2291">Calisto Internet Talker 0.04 and earlier allows remote attackers to cause a denial of service (hang) via a long request, possibly triggering a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2294">Multiple buffer overflows in Symantec Raptor Firewall 6.5 and 6.5.3, Enterprise Firewall 6.5.2 and 7.0, VelociRaptor 500/700/1000 and 1100/1200/1300, and Gateway Security 5110/5200/5300 allow remote attackers to cause a denial of service (service termination) via (1) malformed RealAudio (rad) packets that are not properly handled by the RealAudio Proxy, or (2) crafted packets to the statistics service (statsd).</CVE>
+        <CVE Name="CVE-2002-2295">Buffer overflow in Pico Server (pServ) 2.0 beta 1 through beta 5 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) a 1024-byte TCP stream message, which triggers an off-by-one buffer overflow, or (2) a long method name in an HTTP request, (3) a long version number in an HTTP request, (4) a long User-Agent header, or (5) a long file path.</CVE>
+        <CVE Name="CVE-2002-2300">Buffer overflow in ftpd 5.4 in 3Com NBX 4.0.17 or ftpd 5.4.2 in 3Com NBX 4.1.4 allows remote attackers to cause a denial of service (crash) via a long CEL command.</CVE>
+        <CVE Name="CVE-2002-2332">Buffer overflow in Opera 6.01 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2333">Buffer overflow in konqueror in KDE 2.1 through 3.0 and 3.0.2 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2357">MailEnable 1.5 015 through 1.5 018 allows remote attackers to cause a denial of service (crash) via a long USER string, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2366">Buffer overflow in the XML parser of Trillian 0.6351, 0.725 and 0.73 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a skin with a long colors file name in trillian.xml.</CVE>
+        <CVE Name="CVE-2002-2367">Off-by-one buffer overflow in NEC SOCKS5 1.0 r11 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via a long hostname.</CVE>
+        <CVE Name="CVE-2002-2368">Multiple buffer overflows in NEC SOCKS5 1.0 r11 and earlier allow remote attackers to cause a denial of service and possibly execute arbitrary code via a long username to (1) the GetString function in proxy.c for the SOCKS5 module or (2) the HandleS4Connection function in proxy.c for the SOCKS4 module.</CVE>
+        <CVE Name="CVE-2002-2372">The telnet server in Infoprint 21 running controller software before 1.056007 allows remote attackers to cause a denial of service (crash) via a long username, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2381">Multiple buffer overflows in (1) tetrinet_inmessage, (2) speclist_add and (3) config-getthemeinfo of GTetrinet 0.4.3 and earlier allow remote attackers to casue a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-2385">Buffer overflow in hotfoon4.exe in Hotfoon 4.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL containing a long voice phone number.</CVE>
+        <CVE Name="CVE-2002-2388">Buffer overflow in INweb POP3 mail server 2.01 allows remote attackers to cause a denial of service (crash) via a long HELO command.</CVE>
+        <CVE Name="CVE-2002-2390">Buffer overflow in the IDENT daemon (identd) in Trillian 0.6351, 0.725, 0.73, 0.74 and 1.0 pro allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long request.</CVE>
+        <CVE Name="CVE-2002-2396">Buffer overflow in Advanced TFTP (atftp) 0.5 and 0.6, if installed setuid or setgid, may allow local users to execute arbitrary code via a long argument to the -g option.</CVE>
+        <CVE Name="CVE-2002-2400">Buffer overflow in the httpdProcessRequest function in LibHTTPD 1.2 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long HTTP POST request.</CVE>
+        <CVE Name="CVE-2002-2404">Buffer overflow in IISPop email server 1.161 and 1.181 allows remote attackers to cause a denial of service (crash) via a long request to the POP3 port (TCP port 110).</CVE>
+        <CVE Name="CVE-2002-2411">Buffer overflow in badmin.c in BannerWheel 1.0 allows remote attackers to execute arbitrary code via a long rcmd command.</CVE>
+      </CWE>
+      <CWE Id="120">
+        <CVE Name="CVE-1999-0284">Denial of service to NT mail servers including Ipswitch, Mdaemon, and Exchange through a buffer overflow in the SMTP HELO command.</CVE>
+        <CVE Name="CVE-1999-0385">The LDAP bind function in Exchange 5.5 has a buffer overflow that allows a remote attacker to conduct a denial of service or execute commands.</CVE>
+        <CVE Name="CVE-1999-0945">Buffer overflow in Internet Mail Service (IMS) for Microsoft Exchange 5.5 and 5.0 allows remote attackers to conduct a denial of service via AUTH or AUTHINFO commands.</CVE>
+        <CVE Name="CVE-1999-1237">Multiple buffer overflows in smbvalid/smbval SMB authentication library, as used in Apache::AuthenSmb and possibly other modules, allows remote attackers to execute arbitrary commands via (1) a long username, (2) a long password, and (3) other unspecified methods.</CVE>
+        <CVE Name="CVE-2000-0546">Buffer overflow in Kerberos 4 KDC program allows remote attackers to cause a denial of service via the lastrealm variable in the set_tgtkey function.</CVE>
+        <CVE Name="CVE-2000-0547">Buffer overflow in Kerberos 4 KDC program allows remote attackers to cause a denial of service via the localrealm variable in the process_v4 function.</CVE>
+        <CVE Name="CVE-2000-0548">Buffer overflow in Kerberos 4 KDC program allows remote attackers to cause a denial of service via the e_msg variable in the kerb_err_reply function.</CVE>
+        <CVE Name="CVE-2000-1216">Buffer overflow in portmir for AIX 4.3.0 allows local users to corrupt lock files and gain root privileges via the echo_error routine.</CVE>
+        <CVE Name="CVE-2001-0554">Buffer overflow in BSD-based telnetd telnet daemon on various operating systems allows remote attackers to execute arbitrary commands via a set of options including AYT (Are You There), which is not properly handled by the telrcv function.</CVE>
+        <CVE Name="CVE-2001-1323">Buffer overflow in MIT Kerberos 5 (krb5) 1.2.2 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via base-64 encoded data, which is not properly handled when the radix_encode function processes file glob output from the ftpglob function.</CVE>
+        <CVE Name="CVE-2002-0698">Buffer overflow in Internet Mail Connector (IMC) for Microsoft Exchange Server 5.5 allows remote attackers to execute arbitrary code via an EHLO request from a system with a long name as obtained through a reverse DNS lookup, which triggers the overflow in IMC's hello response.</CVE>
+      </CWE>
+      <CWE Id="121" />
+      <CWE Id="122" />
+      <CWE Id="123" />
+      <CWE Id="124" />
+      <CWE Id="125" />
+      <CWE Id="126" />
+      <CWE Id="127" />
+      <CWE Id="226" />
+      <CWE Id="244" />
+      <CWE Id="416" />
+      <CWE Id="454" />
+      <CWE Id="456" />
+      <CWE Id="457" />
+      <CWE Id="459" />
+      <CWE Id="466" />
+      <CWE Id="476" />
+      <CWE Id="588" />
+      <!--TCV to MAD to MUS-->
+      <CWE Id="665">
+        <CVE Name="CVE-1999-0993">Modifications to ACLs (Access Control Lists) in Microsoft Exchange  5.5 do not take effect until the directory store cache is refreshed.</CVE>
+      </CWE>
+      <CWE Id="786" />
+      <CWE Id="787">
+        <CVE Name="CVE-2002-0184">Sudo before 1.6.6 contains an off-by-one error that can result in a heap-based buffer overflow that may allow local users to gain root privileges via special characters in the -p (prompt) argument, which are not properly expanded.</CVE>
+      </CWE>
+      <CWE Id="788" />
+      <CWE Id="805" />
+      <CWE Id="806" />
+      <CWE Id="822" />
+      <CWE Id="824" />
+      <CWE Id="825" />
+      <CWE Id="843" />
+      <CWE Id="908" />
+      <CWE Id="909" />
+    </ClassOperation>
+    <ClassOperation name="MDL">
+      <CWE Id="586" />
+      <CWE Id="401">
+        <CVE Name="CVE-2001-0543">Memory leak in NNTP service in Windows NT 4.0 and Windows 2000 allows remote attackers to cause a denial of service (memory exhaustion) via a large number of malformed posts.</CVE>
+      </CWE>
+      <!--repeat-->
+      <CWE Id="404" />
+      <!--repeat-->
+      <CWE Id="415" />
+      <!--repeat-->
+      <CWE Id="590" />
+      <!--repeat-->
+      <CWE Id="761" />
+      <!--repeat-->
+      <CWE Id="762" />
+      <!--repeat-->
+      <CWE Id="763" />
+      <!--repeat-->
+      <CWE Id="771" />
+      <!--repeat-->
+      <CWE Id="772" />
+      <!--repeat-->
+      <CWE Id="1091" />
+      <!--repeat-->
+    </ClassOperation>
+    <Consequence name="Memory Overflow">
+      <CWE Id="400">
+        <CVE Name="CVE-2001-0666">Outlook Web Access (OWA) in Microsoft Exchange 2000 allows an authenticated user to cause a denial of service (CPU consumption) via a malformed OWA request for a deeply nested folder within the user's mailbox.</CVE>
+        <CVE Name="CVE-2002-0368">The Store Service in Microsoft Exchange 2000 allows remote attackers to cause a denial of service (CPU consumption) via a mail message with a malformed RFC message attribute, aka "Malformed Mail Attribute can Cause Exchange 2000 to Exhaust CPU Resources."</CVE>
+        <CVE Name="CVE-2002-1873">Microsoft Exchange 2000, when used with Microsoft Remote Procedure Call (MSRPC), allows remote attackers to cause a denial of service (crash or memory consumption) via malformed MSRPC calls.</CVE>
+        <CVE Name="CVE-2002-1876">Microsoft Exchange 2000 allows remote authenticated attackers to cause a denial of service via a large number of rapid requests, which consumes all of the licenses that are granted to Exchange by IIS.</CVE>
+        <CVE Name="CVE-2002-20001">The Diffie-Hellman Key Agreement Protocol allows remote attackers (from the client side) to send arbitrary numbers that are actually not public keys, and trigger expensive server-side DHE modular-exponentiation calculations, aka a D(HE)ater attack. The client needs very little CPU resources and network bandwidth. The attack may be more disruptive in cases where a client can require a server to select its largest supported key size. The basic attack scenario is that the client must claim that it can only communicate with DHE, and the server must be configured to allow DHE.</CVE>
+      </CWE>
+      <CWE Id="770">
+        <CVE Name="CVE-2001-1388">iptables before 1.2.4 does not accurately convert rate limits that are specified on the command line, which could allow attackers or users to generate more or less traffic than intended by the administrator.</CVE>
+      </CWE>
+      <CWE Id="789" />
+    </Consequence>
+    <Consequence name="Memory Leak">
+      <CWE Id="401">
+        <CVE Name="CVE-2001-0543">Memory leak in NNTP service in Windows NT 4.0 and Windows 2000 allows remote attackers to cause a denial of service (memory exhaustion) via a large number of malformed posts.</CVE>
+      </CWE>
+      <CWE Id="404" />
+      <CWE Id="771" />
+      <CWE Id="772" />
+    </Consequence>
+    <Consequence name="Double Free">
+      <CWE Id="415" />
+    </Consequence>
+    <Consequence name="Object Corruption">
+      <CWE Id="404" />
+      <CWE Id="590" />
+      <CWE Id="761" />
+      <CWE Id="762" />
+      <CWE Id="763" />
+    </Consequence>
+    <Consequence name="Uninitialized Object">
+      <CWE Id="456" />
+      <CWE Id="457" />
+      <CWE Id="665">
+        <CVE Name="CVE-1999-0993">Modifications to ACLs (Access Control Lists) in Microsoft Exchange  5.5 do not take effect until the directory store cache is refreshed.</CVE>
+      </CWE>
+      <CWE Id="908" />
+      <CWE Id="909" />
+    </Consequence>
+    <Consequence name="Not Cleared Object">
+      <CWE Id="226" />
+      <CWE Id="244" />
+      <CWE Id="459" />
+    </Consequence>
+    <Consequence name="NULL Pointer Dereference">
+      <CWE Id="476" />
+    </Consequence>
+    <Consequence name="Untrusted Pointer Dereference">
+      <CWE Id="119">
+        <CVE Name="CVE-1999-0002">Buffer overflow in NFS mountd gives root access to remote attackers, mostly in Linux systems.</CVE>
+        <CVE Name="CVE-1999-0027">root privileges via buffer overflow in eject command on SGI IRIX systems.</CVE>
+        <CVE Name="CVE-1999-0332">Buffer overflow in NetMeeting allows denial of service and remote command execution.</CVE>
+        <CVE Name="CVE-1999-0349">A buffer overflow in the FTP list (ls) command in IIS allows remote attackers to conduct a denial of service and, in some cases, execute arbitrary commands.</CVE>
+        <CVE Name="CVE-1999-0700">Buffer overflow in Microsoft Phone Dialer (dialer.exe), via a malformed dialer entry in the dialer.ini file.</CVE>
+        <CVE Name="CVE-1999-0802">Buffer overflow in Internet Explorer 5 allows remote attackers to execute commands via a malformed Favorites icon.</CVE>
+        <CVE Name="CVE-1999-0874">Buffer overflow in IIS 4.0 allows remote attackers to cause a denial of service via a malformed request for files with .HTR, .IDC, or .STM extensions.</CVE>
+        <CVE Name="CVE-1999-0876">Buffer overflow in Internet Explorer 4.0 via EMBED tag.</CVE>
+        <CVE Name="CVE-1999-0898">Buffer overflows in Windows NT 4.0 print spooler allow remote attackers to gain privileges or cause a denial of service via a malformed spooler request.</CVE>
+        <CVE Name="CVE-2000-1246">NWFTPD.nlm before 5.01o in the FTP server in Novell NetWare 5.1 SP3 allows remote authenticated users to cause a denial of service (abend) by sending an RNTO command after a failed RNFR command.</CVE>
+        <CVE Name="CVE-2001-0153">Buffer overflow in VB-TSQL debugger object (vbsdicli.exe) in Visual Studio 6.0 Enterprise Edition allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0576">lpusers as included with SCO OpenServer 5.0 through 5.0.6 allows a  local attacker to gain additional privileges via a buffer overflow attack in the '-u' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0629">HP Event Correlation Service (ecsd) as included with OpenView Network Node  Manager 6.1 allows a remote attacker to gain addition privileges via a buffer overflow attack in the '-restore_config' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0775">Buffer overflow in xloadimage 4.1 (aka xli 1.16 and 1.17) in Linux allows remote attackers to execute arbitrary code via a FACES format image containing a long (1) Firstname or (2) Lastname field.</CVE>
+        <CVE Name="CVE-2001-0803">Buffer overflow in the client connection routine of libDtSvc.so.1 in CDE Subprocess Control Service (dtspcd) allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0819">A buffer overflow in Linux fetchmail before 5.8.6 allows remote attackers to execute arbitrary code via a large 'To:' field in an email header.</CVE>
+        <CVE Name="CVE-2001-1456">Buffer overflow in the (1) smap/smapd and (2) CSMAP daemons for Gauntlet Firewall 5.0 through 6.0 allows remote attackers to execute arbitrary code via a crafted mail message.</CVE>
+        <CVE Name="CVE-2001-1539">Stack consumption vulnerability in Internet Explorer The JavaScript settimeout function in Internet Explorer allows remote attackers to cause a denial of service (crash) via the JavaScript settimeout function.  NOTE: the vendor could not reproduce the problem.</CVE>
+        <CVE Name="CVE-2001-1582">Buffer overflow in the LDAP naming services library (libsldap) in Sun Solaris 8 allows local users to execute arbitrary code via a long LDAP_OPTIONS environment variable to a privileged program that uses libsldap.</CVE>
+        <CVE Name="CVE-2001-1587">NWFTPD.nlm before 5.01w in the FTP server in Novell NetWare allows remote attackers to cause a denial of service (abend) via an anonymous STOU command.</CVE>
+        <CVE Name="CVE-2002-0053">Buffer overflow in SNMP agent service in Windows 95/98/98SE, Windows NT 4.0, Windows 2000, and Windows XP allows remote attackers to cause a denial of service or execute arbitrary code via a malformed management request.  NOTE: this candidate may be split or merged with other candidates.  This and other PROTOS-related candidates, especially CVE-2002-0012 and CVE-2002-0013, will be updated when more accurate information is available.</CVE>
+        <CVE Name="CVE-2002-0070">Buffer overflow in Windows Shell (used as the Windows Desktop) allows local and possibly remote attackers to execute arbitrary code via a custom URL handler that has not been removed for an application that has been improperly uninstalled.</CVE>
+        <CVE Name="CVE-2002-0649">Multiple buffer overflows in the Resolution Service for Microsoft SQL Server 2000 and Microsoft Desktop Engine 2000 (MSDE) allow remote attackers to cause a denial of service or execute arbitrary code via UDP packets to port 1434 in which (1) a 0x04 byte that causes the SQL Monitor thread to generate a long registry key name, or (2) a 0x08 byte with a long string causes heap corruption, as exploited by the Slammer/Sapphire worm.</CVE>
+        <CVE Name="CVE-2002-0813">Heap-based buffer overflow in the TFTP server capability in Cisco IOS 11.1, 11.2, and 11.3 allows remote attackers to cause a denial of service (reset) or modify configuration via a long filename.</CVE>
+        <CVE Name="CVE-2002-1174">Buffer overflows in Fetchmail 6.0.0 and earlier allow remote attackers to cause a denial of service (crash) or execute arbitrary code via (1) long headers that are not properly processed by the readheaders function, or (2) via long Received: headers, which are not properly parsed by the parse_received function.</CVE>
+        <CVE Name="CVE-2002-1200">Balabit Syslog-NG 1.4.x before 1.4.15, and 1.5.x before 1.5.20, when using template filenames or output, does not properly track the size of a buffer when constant characters are encountered during macro expansion, which allows remote attackers to cause a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-1222">Buffer overflow in the embedded HTTP server for Cisco Catalyst switches running CatOS 5.4 through 7.3 allows remote attackers to cause a denial of service (reset) via a long HTTP request.</CVE>
+        <CVE Name="CVE-2002-1357">Multiple SSH2 servers and clients do not properly handle packets or data elements with incorrect length specifiers, which may allow remote attackers to cause a denial of service or possibly execute arbitrary code, as demonstrated by the SSHredder SSH protocol test suite.</CVE>
+        <CVE Name="CVE-2002-1365">Heap-based buffer overflow in Fetchmail 6.1.3 and earlier does not account for the "@" character when determining buffer lengths for local addresses, which allows remote attackers to execute arbitrary code via a header with a large number of local addresses.</CVE>
+        <CVE Name="CVE-2002-1401">Buffer overflows in (1) circle_poly, (2) path_encode and (3) path_add (also incorrectly identified as path_addr) for PostgreSQL 7.2.3 and earlier allow attackers to cause a denial of service and possibly execute arbitrary code, possibly as a result of an integer overflow.</CVE>
+        <CVE Name="CVE-2002-2196">Samba before 2.2.5 does not properly terminate the enum_csc_policy data structure, which may allow remote attackers to execute arbitrary code via a buffer overflow attack.</CVE>
+        <CVE Name="CVE-2002-2226">Buffer overflow in tftpd of TFTP32 2.21 and earlier allows remote attackers to execute arbitrary code via a long filename argument.</CVE>
+        <CVE Name="CVE-2002-2227">Buffer underflow in ssldump 0.9b2 and earlier allows remote attackers to cause a denial of service (memory corruption) via a crafted SSLv2 challenge value.</CVE>
+        <CVE Name="CVE-2002-2232">Buffer overflow in Enceladus Server Suite 3.9 allows remote attackers to execute arbitrary code via a long CD (CWD) command.</CVE>
+        <CVE Name="CVE-2002-2248">Buffer overflow in the sun.awt.windows.WDefaultFontCharset Java class implementation in Netscape 4.0 allows remote attackers to execute arbitrary code via an applet that calls the WDefaultFontCharset constructor with a long string and invokes the canConvert method.</CVE>
+        <CVE Name="CVE-2002-2250">Multiple buffer overflows in Sybase Adaptive Server 12.0 and 12.5 allow remote attackers to execute arbitrary code via (1) a long parameter to the xp_freedll extended stored procedure or (2) a long database name argument to the DBCC CHECKVERIFY function.</CVE>
+        <CVE Name="CVE-2002-2251">Buffer overflow in the changevalue function in libcgi.h for Marcos Luiz Onisto Lib CGI 0.1 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2253">Multiple buffer overflows in Cyrus Sieve / libSieve 2.1.2 and earlier allow remote attackers to execute arbitrary code via (1) a long header name, (2) a long IMAP flag, or (3) a script that generates a large number of errors that overflow the resulting error string.</CVE>
+        <CVE Name="CVE-2002-2257">Stack-based buffer overflow in the parse_field function in cgi_lib.c for LIBCGI 1.0.2 and 1.0.3 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2258">Moby NetSuite allows remote attackers to cause a denial of service (crash) via an HTTP POST request with a (1) large integer or (2) non-numeric value in the Content-Length header, which causes an access violation after a failed atoi function call.</CVE>
+        <CVE Name="CVE-2002-2259">Buffer overflow in the French documentation patch for Gnuplot 3.7 in SuSE Linux before 8.0 allows local users to execute arbitrary code as root via unknown attack vectors.</CVE>
+        <CVE Name="CVE-2002-2268">Buffer overflow in Webster HTTP Server allows remote attackers to execute arbitrary code via a long URL.</CVE>
+        <CVE Name="CVE-2002-2271">Buffer overflow in BigFun 1.51b IRC client, when the Direct Client Connection (DCC) option is used, allows remote attackers to cause a denial of service (crash) via a long string.</CVE>
+        <CVE Name="CVE-2002-2272">Tomcat 4.0 through 4.1.12, using mod_jk 1.2.1 module on Apache 1.3 through 1.3.27, allows remote attackers to cause a denial of service (desynchronized communications) via an HTTP GET request with a Transfer-Encoding chunked field with invalid values.</CVE>
+        <CVE Name="CVE-2002-2291">Calisto Internet Talker 0.04 and earlier allows remote attackers to cause a denial of service (hang) via a long request, possibly triggering a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2294">Multiple buffer overflows in Symantec Raptor Firewall 6.5 and 6.5.3, Enterprise Firewall 6.5.2 and 7.0, VelociRaptor 500/700/1000 and 1100/1200/1300, and Gateway Security 5110/5200/5300 allow remote attackers to cause a denial of service (service termination) via (1) malformed RealAudio (rad) packets that are not properly handled by the RealAudio Proxy, or (2) crafted packets to the statistics service (statsd).</CVE>
+        <CVE Name="CVE-2002-2295">Buffer overflow in Pico Server (pServ) 2.0 beta 1 through beta 5 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) a 1024-byte TCP stream message, which triggers an off-by-one buffer overflow, or (2) a long method name in an HTTP request, (3) a long version number in an HTTP request, (4) a long User-Agent header, or (5) a long file path.</CVE>
+        <CVE Name="CVE-2002-2300">Buffer overflow in ftpd 5.4 in 3Com NBX 4.0.17 or ftpd 5.4.2 in 3Com NBX 4.1.4 allows remote attackers to cause a denial of service (crash) via a long CEL command.</CVE>
+        <CVE Name="CVE-2002-2332">Buffer overflow in Opera 6.01 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2333">Buffer overflow in konqueror in KDE 2.1 through 3.0 and 3.0.2 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2357">MailEnable 1.5 015 through 1.5 018 allows remote attackers to cause a denial of service (crash) via a long USER string, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2366">Buffer overflow in the XML parser of Trillian 0.6351, 0.725 and 0.73 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a skin with a long colors file name in trillian.xml.</CVE>
+        <CVE Name="CVE-2002-2367">Off-by-one buffer overflow in NEC SOCKS5 1.0 r11 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via a long hostname.</CVE>
+        <CVE Name="CVE-2002-2368">Multiple buffer overflows in NEC SOCKS5 1.0 r11 and earlier allow remote attackers to cause a denial of service and possibly execute arbitrary code via a long username to (1) the GetString function in proxy.c for the SOCKS5 module or (2) the HandleS4Connection function in proxy.c for the SOCKS4 module.</CVE>
+        <CVE Name="CVE-2002-2372">The telnet server in Infoprint 21 running controller software before 1.056007 allows remote attackers to cause a denial of service (crash) via a long username, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2381">Multiple buffer overflows in (1) tetrinet_inmessage, (2) speclist_add and (3) config-getthemeinfo of GTetrinet 0.4.3 and earlier allow remote attackers to casue a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-2385">Buffer overflow in hotfoon4.exe in Hotfoon 4.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL containing a long voice phone number.</CVE>
+        <CVE Name="CVE-2002-2388">Buffer overflow in INweb POP3 mail server 2.01 allows remote attackers to cause a denial of service (crash) via a long HELO command.</CVE>
+        <CVE Name="CVE-2002-2390">Buffer overflow in the IDENT daemon (identd) in Trillian 0.6351, 0.725, 0.73, 0.74 and 1.0 pro allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long request.</CVE>
+        <CVE Name="CVE-2002-2396">Buffer overflow in Advanced TFTP (atftp) 0.5 and 0.6, if installed setuid or setgid, may allow local users to execute arbitrary code via a long argument to the -g option.</CVE>
+        <CVE Name="CVE-2002-2400">Buffer overflow in the httpdProcessRequest function in LibHTTPD 1.2 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long HTTP POST request.</CVE>
+        <CVE Name="CVE-2002-2404">Buffer overflow in IISPop email server 1.161 and 1.181 allows remote attackers to cause a denial of service (crash) via a long request to the POP3 port (TCP port 110).</CVE>
+        <CVE Name="CVE-2002-2411">Buffer overflow in badmin.c in BannerWheel 1.0 allows remote attackers to execute arbitrary code via a long rcmd command.</CVE>
+      </CWE>
+      <CWE Id="822" />
+    </Consequence>
+    <Consequence name="Type Confusion">
+      <CWE Id="588" />
+      <CWE Id="843" />
+    </Consequence>
+    <Consequence name="Use After Free">
+      <CWE Id="119">
+        <CVE Name="CVE-1999-0002">Buffer overflow in NFS mountd gives root access to remote attackers, mostly in Linux systems.</CVE>
+        <CVE Name="CVE-1999-0027">root privileges via buffer overflow in eject command on SGI IRIX systems.</CVE>
+        <CVE Name="CVE-1999-0332">Buffer overflow in NetMeeting allows denial of service and remote command execution.</CVE>
+        <CVE Name="CVE-1999-0349">A buffer overflow in the FTP list (ls) command in IIS allows remote attackers to conduct a denial of service and, in some cases, execute arbitrary commands.</CVE>
+        <CVE Name="CVE-1999-0700">Buffer overflow in Microsoft Phone Dialer (dialer.exe), via a malformed dialer entry in the dialer.ini file.</CVE>
+        <CVE Name="CVE-1999-0802">Buffer overflow in Internet Explorer 5 allows remote attackers to execute commands via a malformed Favorites icon.</CVE>
+        <CVE Name="CVE-1999-0874">Buffer overflow in IIS 4.0 allows remote attackers to cause a denial of service via a malformed request for files with .HTR, .IDC, or .STM extensions.</CVE>
+        <CVE Name="CVE-1999-0876">Buffer overflow in Internet Explorer 4.0 via EMBED tag.</CVE>
+        <CVE Name="CVE-1999-0898">Buffer overflows in Windows NT 4.0 print spooler allow remote attackers to gain privileges or cause a denial of service via a malformed spooler request.</CVE>
+        <CVE Name="CVE-2000-1246">NWFTPD.nlm before 5.01o in the FTP server in Novell NetWare 5.1 SP3 allows remote authenticated users to cause a denial of service (abend) by sending an RNTO command after a failed RNFR command.</CVE>
+        <CVE Name="CVE-2001-0153">Buffer overflow in VB-TSQL debugger object (vbsdicli.exe) in Visual Studio 6.0 Enterprise Edition allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0576">lpusers as included with SCO OpenServer 5.0 through 5.0.6 allows a  local attacker to gain additional privileges via a buffer overflow attack in the '-u' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0629">HP Event Correlation Service (ecsd) as included with OpenView Network Node  Manager 6.1 allows a remote attacker to gain addition privileges via a buffer overflow attack in the '-restore_config' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0775">Buffer overflow in xloadimage 4.1 (aka xli 1.16 and 1.17) in Linux allows remote attackers to execute arbitrary code via a FACES format image containing a long (1) Firstname or (2) Lastname field.</CVE>
+        <CVE Name="CVE-2001-0803">Buffer overflow in the client connection routine of libDtSvc.so.1 in CDE Subprocess Control Service (dtspcd) allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0819">A buffer overflow in Linux fetchmail before 5.8.6 allows remote attackers to execute arbitrary code via a large 'To:' field in an email header.</CVE>
+        <CVE Name="CVE-2001-1456">Buffer overflow in the (1) smap/smapd and (2) CSMAP daemons for Gauntlet Firewall 5.0 through 6.0 allows remote attackers to execute arbitrary code via a crafted mail message.</CVE>
+        <CVE Name="CVE-2001-1539">Stack consumption vulnerability in Internet Explorer The JavaScript settimeout function in Internet Explorer allows remote attackers to cause a denial of service (crash) via the JavaScript settimeout function.  NOTE: the vendor could not reproduce the problem.</CVE>
+        <CVE Name="CVE-2001-1582">Buffer overflow in the LDAP naming services library (libsldap) in Sun Solaris 8 allows local users to execute arbitrary code via a long LDAP_OPTIONS environment variable to a privileged program that uses libsldap.</CVE>
+        <CVE Name="CVE-2001-1587">NWFTPD.nlm before 5.01w in the FTP server in Novell NetWare allows remote attackers to cause a denial of service (abend) via an anonymous STOU command.</CVE>
+        <CVE Name="CVE-2002-0053">Buffer overflow in SNMP agent service in Windows 95/98/98SE, Windows NT 4.0, Windows 2000, and Windows XP allows remote attackers to cause a denial of service or execute arbitrary code via a malformed management request.  NOTE: this candidate may be split or merged with other candidates.  This and other PROTOS-related candidates, especially CVE-2002-0012 and CVE-2002-0013, will be updated when more accurate information is available.</CVE>
+        <CVE Name="CVE-2002-0070">Buffer overflow in Windows Shell (used as the Windows Desktop) allows local and possibly remote attackers to execute arbitrary code via a custom URL handler that has not been removed for an application that has been improperly uninstalled.</CVE>
+        <CVE Name="CVE-2002-0649">Multiple buffer overflows in the Resolution Service for Microsoft SQL Server 2000 and Microsoft Desktop Engine 2000 (MSDE) allow remote attackers to cause a denial of service or execute arbitrary code via UDP packets to port 1434 in which (1) a 0x04 byte that causes the SQL Monitor thread to generate a long registry key name, or (2) a 0x08 byte with a long string causes heap corruption, as exploited by the Slammer/Sapphire worm.</CVE>
+        <CVE Name="CVE-2002-0813">Heap-based buffer overflow in the TFTP server capability in Cisco IOS 11.1, 11.2, and 11.3 allows remote attackers to cause a denial of service (reset) or modify configuration via a long filename.</CVE>
+        <CVE Name="CVE-2002-1174">Buffer overflows in Fetchmail 6.0.0 and earlier allow remote attackers to cause a denial of service (crash) or execute arbitrary code via (1) long headers that are not properly processed by the readheaders function, or (2) via long Received: headers, which are not properly parsed by the parse_received function.</CVE>
+        <CVE Name="CVE-2002-1200">Balabit Syslog-NG 1.4.x before 1.4.15, and 1.5.x before 1.5.20, when using template filenames or output, does not properly track the size of a buffer when constant characters are encountered during macro expansion, which allows remote attackers to cause a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-1222">Buffer overflow in the embedded HTTP server for Cisco Catalyst switches running CatOS 5.4 through 7.3 allows remote attackers to cause a denial of service (reset) via a long HTTP request.</CVE>
+        <CVE Name="CVE-2002-1357">Multiple SSH2 servers and clients do not properly handle packets or data elements with incorrect length specifiers, which may allow remote attackers to cause a denial of service or possibly execute arbitrary code, as demonstrated by the SSHredder SSH protocol test suite.</CVE>
+        <CVE Name="CVE-2002-1365">Heap-based buffer overflow in Fetchmail 6.1.3 and earlier does not account for the "@" character when determining buffer lengths for local addresses, which allows remote attackers to execute arbitrary code via a header with a large number of local addresses.</CVE>
+        <CVE Name="CVE-2002-1401">Buffer overflows in (1) circle_poly, (2) path_encode and (3) path_add (also incorrectly identified as path_addr) for PostgreSQL 7.2.3 and earlier allow attackers to cause a denial of service and possibly execute arbitrary code, possibly as a result of an integer overflow.</CVE>
+        <CVE Name="CVE-2002-2196">Samba before 2.2.5 does not properly terminate the enum_csc_policy data structure, which may allow remote attackers to execute arbitrary code via a buffer overflow attack.</CVE>
+        <CVE Name="CVE-2002-2226">Buffer overflow in tftpd of TFTP32 2.21 and earlier allows remote attackers to execute arbitrary code via a long filename argument.</CVE>
+        <CVE Name="CVE-2002-2227">Buffer underflow in ssldump 0.9b2 and earlier allows remote attackers to cause a denial of service (memory corruption) via a crafted SSLv2 challenge value.</CVE>
+        <CVE Name="CVE-2002-2232">Buffer overflow in Enceladus Server Suite 3.9 allows remote attackers to execute arbitrary code via a long CD (CWD) command.</CVE>
+        <CVE Name="CVE-2002-2248">Buffer overflow in the sun.awt.windows.WDefaultFontCharset Java class implementation in Netscape 4.0 allows remote attackers to execute arbitrary code via an applet that calls the WDefaultFontCharset constructor with a long string and invokes the canConvert method.</CVE>
+        <CVE Name="CVE-2002-2250">Multiple buffer overflows in Sybase Adaptive Server 12.0 and 12.5 allow remote attackers to execute arbitrary code via (1) a long parameter to the xp_freedll extended stored procedure or (2) a long database name argument to the DBCC CHECKVERIFY function.</CVE>
+        <CVE Name="CVE-2002-2251">Buffer overflow in the changevalue function in libcgi.h for Marcos Luiz Onisto Lib CGI 0.1 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2253">Multiple buffer overflows in Cyrus Sieve / libSieve 2.1.2 and earlier allow remote attackers to execute arbitrary code via (1) a long header name, (2) a long IMAP flag, or (3) a script that generates a large number of errors that overflow the resulting error string.</CVE>
+        <CVE Name="CVE-2002-2257">Stack-based buffer overflow in the parse_field function in cgi_lib.c for LIBCGI 1.0.2 and 1.0.3 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2258">Moby NetSuite allows remote attackers to cause a denial of service (crash) via an HTTP POST request with a (1) large integer or (2) non-numeric value in the Content-Length header, which causes an access violation after a failed atoi function call.</CVE>
+        <CVE Name="CVE-2002-2259">Buffer overflow in the French documentation patch for Gnuplot 3.7 in SuSE Linux before 8.0 allows local users to execute arbitrary code as root via unknown attack vectors.</CVE>
+        <CVE Name="CVE-2002-2268">Buffer overflow in Webster HTTP Server allows remote attackers to execute arbitrary code via a long URL.</CVE>
+        <CVE Name="CVE-2002-2271">Buffer overflow in BigFun 1.51b IRC client, when the Direct Client Connection (DCC) option is used, allows remote attackers to cause a denial of service (crash) via a long string.</CVE>
+        <CVE Name="CVE-2002-2272">Tomcat 4.0 through 4.1.12, using mod_jk 1.2.1 module on Apache 1.3 through 1.3.27, allows remote attackers to cause a denial of service (desynchronized communications) via an HTTP GET request with a Transfer-Encoding chunked field with invalid values.</CVE>
+        <CVE Name="CVE-2002-2291">Calisto Internet Talker 0.04 and earlier allows remote attackers to cause a denial of service (hang) via a long request, possibly triggering a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2294">Multiple buffer overflows in Symantec Raptor Firewall 6.5 and 6.5.3, Enterprise Firewall 6.5.2 and 7.0, VelociRaptor 500/700/1000 and 1100/1200/1300, and Gateway Security 5110/5200/5300 allow remote attackers to cause a denial of service (service termination) via (1) malformed RealAudio (rad) packets that are not properly handled by the RealAudio Proxy, or (2) crafted packets to the statistics service (statsd).</CVE>
+        <CVE Name="CVE-2002-2295">Buffer overflow in Pico Server (pServ) 2.0 beta 1 through beta 5 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) a 1024-byte TCP stream message, which triggers an off-by-one buffer overflow, or (2) a long method name in an HTTP request, (3) a long version number in an HTTP request, (4) a long User-Agent header, or (5) a long file path.</CVE>
+        <CVE Name="CVE-2002-2300">Buffer overflow in ftpd 5.4 in 3Com NBX 4.0.17 or ftpd 5.4.2 in 3Com NBX 4.1.4 allows remote attackers to cause a denial of service (crash) via a long CEL command.</CVE>
+        <CVE Name="CVE-2002-2332">Buffer overflow in Opera 6.01 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2333">Buffer overflow in konqueror in KDE 2.1 through 3.0 and 3.0.2 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2357">MailEnable 1.5 015 through 1.5 018 allows remote attackers to cause a denial of service (crash) via a long USER string, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2366">Buffer overflow in the XML parser of Trillian 0.6351, 0.725 and 0.73 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a skin with a long colors file name in trillian.xml.</CVE>
+        <CVE Name="CVE-2002-2367">Off-by-one buffer overflow in NEC SOCKS5 1.0 r11 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via a long hostname.</CVE>
+        <CVE Name="CVE-2002-2368">Multiple buffer overflows in NEC SOCKS5 1.0 r11 and earlier allow remote attackers to cause a denial of service and possibly execute arbitrary code via a long username to (1) the GetString function in proxy.c for the SOCKS5 module or (2) the HandleS4Connection function in proxy.c for the SOCKS4 module.</CVE>
+        <CVE Name="CVE-2002-2372">The telnet server in Infoprint 21 running controller software before 1.056007 allows remote attackers to cause a denial of service (crash) via a long username, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2381">Multiple buffer overflows in (1) tetrinet_inmessage, (2) speclist_add and (3) config-getthemeinfo of GTetrinet 0.4.3 and earlier allow remote attackers to casue a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-2385">Buffer overflow in hotfoon4.exe in Hotfoon 4.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL containing a long voice phone number.</CVE>
+        <CVE Name="CVE-2002-2388">Buffer overflow in INweb POP3 mail server 2.01 allows remote attackers to cause a denial of service (crash) via a long HELO command.</CVE>
+        <CVE Name="CVE-2002-2390">Buffer overflow in the IDENT daemon (identd) in Trillian 0.6351, 0.725, 0.73, 0.74 and 1.0 pro allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long request.</CVE>
+        <CVE Name="CVE-2002-2396">Buffer overflow in Advanced TFTP (atftp) 0.5 and 0.6, if installed setuid or setgid, may allow local users to execute arbitrary code via a long argument to the -g option.</CVE>
+        <CVE Name="CVE-2002-2400">Buffer overflow in the httpdProcessRequest function in LibHTTPD 1.2 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long HTTP POST request.</CVE>
+        <CVE Name="CVE-2002-2404">Buffer overflow in IISPop email server 1.161 and 1.181 allows remote attackers to cause a denial of service (crash) via a long request to the POP3 port (TCP port 110).</CVE>
+        <CVE Name="CVE-2002-2411">Buffer overflow in badmin.c in BannerWheel 1.0 allows remote attackers to execute arbitrary code via a long rcmd command.</CVE>
+      </CWE>
+      <CWE Id="416" />
+      <CWE Id="825" />
+    </Consequence>
+    <Consequence name="Buffer Overflow">
+      <CWE Id="118" />
+      <CWE Id="119">
+        <CVE Name="CVE-1999-0002">Buffer overflow in NFS mountd gives root access to remote attackers, mostly in Linux systems.</CVE>
+        <CVE Name="CVE-1999-0027">root privileges via buffer overflow in eject command on SGI IRIX systems.</CVE>
+        <CVE Name="CVE-1999-0332">Buffer overflow in NetMeeting allows denial of service and remote command execution.</CVE>
+        <CVE Name="CVE-1999-0349">A buffer overflow in the FTP list (ls) command in IIS allows remote attackers to conduct a denial of service and, in some cases, execute arbitrary commands.</CVE>
+        <CVE Name="CVE-1999-0700">Buffer overflow in Microsoft Phone Dialer (dialer.exe), via a malformed dialer entry in the dialer.ini file.</CVE>
+        <CVE Name="CVE-1999-0802">Buffer overflow in Internet Explorer 5 allows remote attackers to execute commands via a malformed Favorites icon.</CVE>
+        <CVE Name="CVE-1999-0874">Buffer overflow in IIS 4.0 allows remote attackers to cause a denial of service via a malformed request for files with .HTR, .IDC, or .STM extensions.</CVE>
+        <CVE Name="CVE-1999-0876">Buffer overflow in Internet Explorer 4.0 via EMBED tag.</CVE>
+        <CVE Name="CVE-1999-0898">Buffer overflows in Windows NT 4.0 print spooler allow remote attackers to gain privileges or cause a denial of service via a malformed spooler request.</CVE>
+        <CVE Name="CVE-2000-1246">NWFTPD.nlm before 5.01o in the FTP server in Novell NetWare 5.1 SP3 allows remote authenticated users to cause a denial of service (abend) by sending an RNTO command after a failed RNFR command.</CVE>
+        <CVE Name="CVE-2001-0153">Buffer overflow in VB-TSQL debugger object (vbsdicli.exe) in Visual Studio 6.0 Enterprise Edition allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0576">lpusers as included with SCO OpenServer 5.0 through 5.0.6 allows a  local attacker to gain additional privileges via a buffer overflow attack in the '-u' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0629">HP Event Correlation Service (ecsd) as included with OpenView Network Node  Manager 6.1 allows a remote attacker to gain addition privileges via a buffer overflow attack in the '-restore_config' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0775">Buffer overflow in xloadimage 4.1 (aka xli 1.16 and 1.17) in Linux allows remote attackers to execute arbitrary code via a FACES format image containing a long (1) Firstname or (2) Lastname field.</CVE>
+        <CVE Name="CVE-2001-0803">Buffer overflow in the client connection routine of libDtSvc.so.1 in CDE Subprocess Control Service (dtspcd) allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0819">A buffer overflow in Linux fetchmail before 5.8.6 allows remote attackers to execute arbitrary code via a large 'To:' field in an email header.</CVE>
+        <CVE Name="CVE-2001-1456">Buffer overflow in the (1) smap/smapd and (2) CSMAP daemons for Gauntlet Firewall 5.0 through 6.0 allows remote attackers to execute arbitrary code via a crafted mail message.</CVE>
+        <CVE Name="CVE-2001-1539">Stack consumption vulnerability in Internet Explorer The JavaScript settimeout function in Internet Explorer allows remote attackers to cause a denial of service (crash) via the JavaScript settimeout function.  NOTE: the vendor could not reproduce the problem.</CVE>
+        <CVE Name="CVE-2001-1582">Buffer overflow in the LDAP naming services library (libsldap) in Sun Solaris 8 allows local users to execute arbitrary code via a long LDAP_OPTIONS environment variable to a privileged program that uses libsldap.</CVE>
+        <CVE Name="CVE-2001-1587">NWFTPD.nlm before 5.01w in the FTP server in Novell NetWare allows remote attackers to cause a denial of service (abend) via an anonymous STOU command.</CVE>
+        <CVE Name="CVE-2002-0053">Buffer overflow in SNMP agent service in Windows 95/98/98SE, Windows NT 4.0, Windows 2000, and Windows XP allows remote attackers to cause a denial of service or execute arbitrary code via a malformed management request.  NOTE: this candidate may be split or merged with other candidates.  This and other PROTOS-related candidates, especially CVE-2002-0012 and CVE-2002-0013, will be updated when more accurate information is available.</CVE>
+        <CVE Name="CVE-2002-0070">Buffer overflow in Windows Shell (used as the Windows Desktop) allows local and possibly remote attackers to execute arbitrary code via a custom URL handler that has not been removed for an application that has been improperly uninstalled.</CVE>
+        <CVE Name="CVE-2002-0649">Multiple buffer overflows in the Resolution Service for Microsoft SQL Server 2000 and Microsoft Desktop Engine 2000 (MSDE) allow remote attackers to cause a denial of service or execute arbitrary code via UDP packets to port 1434 in which (1) a 0x04 byte that causes the SQL Monitor thread to generate a long registry key name, or (2) a 0x08 byte with a long string causes heap corruption, as exploited by the Slammer/Sapphire worm.</CVE>
+        <CVE Name="CVE-2002-0813">Heap-based buffer overflow in the TFTP server capability in Cisco IOS 11.1, 11.2, and 11.3 allows remote attackers to cause a denial of service (reset) or modify configuration via a long filename.</CVE>
+        <CVE Name="CVE-2002-1174">Buffer overflows in Fetchmail 6.0.0 and earlier allow remote attackers to cause a denial of service (crash) or execute arbitrary code via (1) long headers that are not properly processed by the readheaders function, or (2) via long Received: headers, which are not properly parsed by the parse_received function.</CVE>
+        <CVE Name="CVE-2002-1200">Balabit Syslog-NG 1.4.x before 1.4.15, and 1.5.x before 1.5.20, when using template filenames or output, does not properly track the size of a buffer when constant characters are encountered during macro expansion, which allows remote attackers to cause a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-1222">Buffer overflow in the embedded HTTP server for Cisco Catalyst switches running CatOS 5.4 through 7.3 allows remote attackers to cause a denial of service (reset) via a long HTTP request.</CVE>
+        <CVE Name="CVE-2002-1357">Multiple SSH2 servers and clients do not properly handle packets or data elements with incorrect length specifiers, which may allow remote attackers to cause a denial of service or possibly execute arbitrary code, as demonstrated by the SSHredder SSH protocol test suite.</CVE>
+        <CVE Name="CVE-2002-1365">Heap-based buffer overflow in Fetchmail 6.1.3 and earlier does not account for the "@" character when determining buffer lengths for local addresses, which allows remote attackers to execute arbitrary code via a header with a large number of local addresses.</CVE>
+        <CVE Name="CVE-2002-1401">Buffer overflows in (1) circle_poly, (2) path_encode and (3) path_add (also incorrectly identified as path_addr) for PostgreSQL 7.2.3 and earlier allow attackers to cause a denial of service and possibly execute arbitrary code, possibly as a result of an integer overflow.</CVE>
+        <CVE Name="CVE-2002-2196">Samba before 2.2.5 does not properly terminate the enum_csc_policy data structure, which may allow remote attackers to execute arbitrary code via a buffer overflow attack.</CVE>
+        <CVE Name="CVE-2002-2226">Buffer overflow in tftpd of TFTP32 2.21 and earlier allows remote attackers to execute arbitrary code via a long filename argument.</CVE>
+        <CVE Name="CVE-2002-2227">Buffer underflow in ssldump 0.9b2 and earlier allows remote attackers to cause a denial of service (memory corruption) via a crafted SSLv2 challenge value.</CVE>
+        <CVE Name="CVE-2002-2232">Buffer overflow in Enceladus Server Suite 3.9 allows remote attackers to execute arbitrary code via a long CD (CWD) command.</CVE>
+        <CVE Name="CVE-2002-2248">Buffer overflow in the sun.awt.windows.WDefaultFontCharset Java class implementation in Netscape 4.0 allows remote attackers to execute arbitrary code via an applet that calls the WDefaultFontCharset constructor with a long string and invokes the canConvert method.</CVE>
+        <CVE Name="CVE-2002-2250">Multiple buffer overflows in Sybase Adaptive Server 12.0 and 12.5 allow remote attackers to execute arbitrary code via (1) a long parameter to the xp_freedll extended stored procedure or (2) a long database name argument to the DBCC CHECKVERIFY function.</CVE>
+        <CVE Name="CVE-2002-2251">Buffer overflow in the changevalue function in libcgi.h for Marcos Luiz Onisto Lib CGI 0.1 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2253">Multiple buffer overflows in Cyrus Sieve / libSieve 2.1.2 and earlier allow remote attackers to execute arbitrary code via (1) a long header name, (2) a long IMAP flag, or (3) a script that generates a large number of errors that overflow the resulting error string.</CVE>
+        <CVE Name="CVE-2002-2257">Stack-based buffer overflow in the parse_field function in cgi_lib.c for LIBCGI 1.0.2 and 1.0.3 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2258">Moby NetSuite allows remote attackers to cause a denial of service (crash) via an HTTP POST request with a (1) large integer or (2) non-numeric value in the Content-Length header, which causes an access violation after a failed atoi function call.</CVE>
+        <CVE Name="CVE-2002-2259">Buffer overflow in the French documentation patch for Gnuplot 3.7 in SuSE Linux before 8.0 allows local users to execute arbitrary code as root via unknown attack vectors.</CVE>
+        <CVE Name="CVE-2002-2268">Buffer overflow in Webster HTTP Server allows remote attackers to execute arbitrary code via a long URL.</CVE>
+        <CVE Name="CVE-2002-2271">Buffer overflow in BigFun 1.51b IRC client, when the Direct Client Connection (DCC) option is used, allows remote attackers to cause a denial of service (crash) via a long string.</CVE>
+        <CVE Name="CVE-2002-2272">Tomcat 4.0 through 4.1.12, using mod_jk 1.2.1 module on Apache 1.3 through 1.3.27, allows remote attackers to cause a denial of service (desynchronized communications) via an HTTP GET request with a Transfer-Encoding chunked field with invalid values.</CVE>
+        <CVE Name="CVE-2002-2291">Calisto Internet Talker 0.04 and earlier allows remote attackers to cause a denial of service (hang) via a long request, possibly triggering a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2294">Multiple buffer overflows in Symantec Raptor Firewall 6.5 and 6.5.3, Enterprise Firewall 6.5.2 and 7.0, VelociRaptor 500/700/1000 and 1100/1200/1300, and Gateway Security 5110/5200/5300 allow remote attackers to cause a denial of service (service termination) via (1) malformed RealAudio (rad) packets that are not properly handled by the RealAudio Proxy, or (2) crafted packets to the statistics service (statsd).</CVE>
+        <CVE Name="CVE-2002-2295">Buffer overflow in Pico Server (pServ) 2.0 beta 1 through beta 5 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) a 1024-byte TCP stream message, which triggers an off-by-one buffer overflow, or (2) a long method name in an HTTP request, (3) a long version number in an HTTP request, (4) a long User-Agent header, or (5) a long file path.</CVE>
+        <CVE Name="CVE-2002-2300">Buffer overflow in ftpd 5.4 in 3Com NBX 4.0.17 or ftpd 5.4.2 in 3Com NBX 4.1.4 allows remote attackers to cause a denial of service (crash) via a long CEL command.</CVE>
+        <CVE Name="CVE-2002-2332">Buffer overflow in Opera 6.01 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2333">Buffer overflow in konqueror in KDE 2.1 through 3.0 and 3.0.2 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2357">MailEnable 1.5 015 through 1.5 018 allows remote attackers to cause a denial of service (crash) via a long USER string, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2366">Buffer overflow in the XML parser of Trillian 0.6351, 0.725 and 0.73 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a skin with a long colors file name in trillian.xml.</CVE>
+        <CVE Name="CVE-2002-2367">Off-by-one buffer overflow in NEC SOCKS5 1.0 r11 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via a long hostname.</CVE>
+        <CVE Name="CVE-2002-2368">Multiple buffer overflows in NEC SOCKS5 1.0 r11 and earlier allow remote attackers to cause a denial of service and possibly execute arbitrary code via a long username to (1) the GetString function in proxy.c for the SOCKS5 module or (2) the HandleS4Connection function in proxy.c for the SOCKS4 module.</CVE>
+        <CVE Name="CVE-2002-2372">The telnet server in Infoprint 21 running controller software before 1.056007 allows remote attackers to cause a denial of service (crash) via a long username, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2381">Multiple buffer overflows in (1) tetrinet_inmessage, (2) speclist_add and (3) config-getthemeinfo of GTetrinet 0.4.3 and earlier allow remote attackers to casue a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-2385">Buffer overflow in hotfoon4.exe in Hotfoon 4.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL containing a long voice phone number.</CVE>
+        <CVE Name="CVE-2002-2388">Buffer overflow in INweb POP3 mail server 2.01 allows remote attackers to cause a denial of service (crash) via a long HELO command.</CVE>
+        <CVE Name="CVE-2002-2390">Buffer overflow in the IDENT daemon (identd) in Trillian 0.6351, 0.725, 0.73, 0.74 and 1.0 pro allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long request.</CVE>
+        <CVE Name="CVE-2002-2396">Buffer overflow in Advanced TFTP (atftp) 0.5 and 0.6, if installed setuid or setgid, may allow local users to execute arbitrary code via a long argument to the -g option.</CVE>
+        <CVE Name="CVE-2002-2400">Buffer overflow in the httpdProcessRequest function in LibHTTPD 1.2 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long HTTP POST request.</CVE>
+        <CVE Name="CVE-2002-2404">Buffer overflow in IISPop email server 1.161 and 1.181 allows remote attackers to cause a denial of service (crash) via a long request to the POP3 port (TCP port 110).</CVE>
+        <CVE Name="CVE-2002-2411">Buffer overflow in badmin.c in BannerWheel 1.0 allows remote attackers to execute arbitrary code via a long rcmd command.</CVE>
+      </CWE>
+      <CWE Id="120">
+        <CVE Name="CVE-1999-0284">Denial of service to NT mail servers including Ipswitch, Mdaemon, and Exchange through a buffer overflow in the SMTP HELO command.</CVE>
+        <CVE Name="CVE-1999-0385">The LDAP bind function in Exchange 5.5 has a buffer overflow that allows a remote attacker to conduct a denial of service or execute commands.</CVE>
+        <CVE Name="CVE-1999-0945">Buffer overflow in Internet Mail Service (IMS) for Microsoft Exchange 5.5 and 5.0 allows remote attackers to conduct a denial of service via AUTH or AUTHINFO commands.</CVE>
+        <CVE Name="CVE-1999-1237">Multiple buffer overflows in smbvalid/smbval SMB authentication library, as used in Apache::AuthenSmb and possibly other modules, allows remote attackers to execute arbitrary commands via (1) a long username, (2) a long password, and (3) other unspecified methods.</CVE>
+        <CVE Name="CVE-2000-0546">Buffer overflow in Kerberos 4 KDC program allows remote attackers to cause a denial of service via the lastrealm variable in the set_tgtkey function.</CVE>
+        <CVE Name="CVE-2000-0547">Buffer overflow in Kerberos 4 KDC program allows remote attackers to cause a denial of service via the localrealm variable in the process_v4 function.</CVE>
+        <CVE Name="CVE-2000-0548">Buffer overflow in Kerberos 4 KDC program allows remote attackers to cause a denial of service via the e_msg variable in the kerb_err_reply function.</CVE>
+        <CVE Name="CVE-2000-1216">Buffer overflow in portmir for AIX 4.3.0 allows local users to corrupt lock files and gain root privileges via the echo_error routine.</CVE>
+        <CVE Name="CVE-2001-0554">Buffer overflow in BSD-based telnetd telnet daemon on various operating systems allows remote attackers to execute arbitrary commands via a set of options including AYT (Are You There), which is not properly handled by the telrcv function.</CVE>
+        <CVE Name="CVE-2001-1323">Buffer overflow in MIT Kerberos 5 (krb5) 1.2.2 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via base-64 encoded data, which is not properly handled when the radix_encode function processes file glob output from the ftpglob function.</CVE>
+        <CVE Name="CVE-2002-0698">Buffer overflow in Internet Mail Connector (IMC) for Microsoft Exchange Server 5.5 allows remote attackers to execute arbitrary code via an EHLO request from a system with a long name as obtained through a reverse DNS lookup, which triggers the overflow in IMC's hello response.</CVE>
+      </CWE>
+      <CWE Id="121" />
+      <CWE Id="122" />
+      <CWE Id="123" />
+      <CWE Id="125" />
+      <CWE Id="126" />
+      <CWE Id="466" />
+      <CWE Id="805" />
+      <CWE Id="806" />
+      <CWE Id="787">
+        <CVE Name="CVE-2002-0184">Sudo before 1.6.6 contains an off-by-one error that can result in a heap-based buffer overflow that may allow local users to gain root privileges via special characters in the -p (prompt) argument, which are not properly expanded.</CVE>
+      </CWE>
+      <CWE Id="788" />
+    </Consequence>
+    <Consequence name="Buffer Underflow">
+      <CWE Id="118" />
+      <CWE Id="119">
+        <CVE Name="CVE-1999-0002">Buffer overflow in NFS mountd gives root access to remote attackers, mostly in Linux systems.</CVE>
+        <CVE Name="CVE-1999-0027">root privileges via buffer overflow in eject command on SGI IRIX systems.</CVE>
+        <CVE Name="CVE-1999-0332">Buffer overflow in NetMeeting allows denial of service and remote command execution.</CVE>
+        <CVE Name="CVE-1999-0349">A buffer overflow in the FTP list (ls) command in IIS allows remote attackers to conduct a denial of service and, in some cases, execute arbitrary commands.</CVE>
+        <CVE Name="CVE-1999-0700">Buffer overflow in Microsoft Phone Dialer (dialer.exe), via a malformed dialer entry in the dialer.ini file.</CVE>
+        <CVE Name="CVE-1999-0802">Buffer overflow in Internet Explorer 5 allows remote attackers to execute commands via a malformed Favorites icon.</CVE>
+        <CVE Name="CVE-1999-0874">Buffer overflow in IIS 4.0 allows remote attackers to cause a denial of service via a malformed request for files with .HTR, .IDC, or .STM extensions.</CVE>
+        <CVE Name="CVE-1999-0876">Buffer overflow in Internet Explorer 4.0 via EMBED tag.</CVE>
+        <CVE Name="CVE-1999-0898">Buffer overflows in Windows NT 4.0 print spooler allow remote attackers to gain privileges or cause a denial of service via a malformed spooler request.</CVE>
+        <CVE Name="CVE-2000-1246">NWFTPD.nlm before 5.01o in the FTP server in Novell NetWare 5.1 SP3 allows remote authenticated users to cause a denial of service (abend) by sending an RNTO command after a failed RNFR command.</CVE>
+        <CVE Name="CVE-2001-0153">Buffer overflow in VB-TSQL debugger object (vbsdicli.exe) in Visual Studio 6.0 Enterprise Edition allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0576">lpusers as included with SCO OpenServer 5.0 through 5.0.6 allows a  local attacker to gain additional privileges via a buffer overflow attack in the '-u' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0629">HP Event Correlation Service (ecsd) as included with OpenView Network Node  Manager 6.1 allows a remote attacker to gain addition privileges via a buffer overflow attack in the '-restore_config' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0775">Buffer overflow in xloadimage 4.1 (aka xli 1.16 and 1.17) in Linux allows remote attackers to execute arbitrary code via a FACES format image containing a long (1) Firstname or (2) Lastname field.</CVE>
+        <CVE Name="CVE-2001-0803">Buffer overflow in the client connection routine of libDtSvc.so.1 in CDE Subprocess Control Service (dtspcd) allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0819">A buffer overflow in Linux fetchmail before 5.8.6 allows remote attackers to execute arbitrary code via a large 'To:' field in an email header.</CVE>
+        <CVE Name="CVE-2001-1456">Buffer overflow in the (1) smap/smapd and (2) CSMAP daemons for Gauntlet Firewall 5.0 through 6.0 allows remote attackers to execute arbitrary code via a crafted mail message.</CVE>
+        <CVE Name="CVE-2001-1539">Stack consumption vulnerability in Internet Explorer The JavaScript settimeout function in Internet Explorer allows remote attackers to cause a denial of service (crash) via the JavaScript settimeout function.  NOTE: the vendor could not reproduce the problem.</CVE>
+        <CVE Name="CVE-2001-1582">Buffer overflow in the LDAP naming services library (libsldap) in Sun Solaris 8 allows local users to execute arbitrary code via a long LDAP_OPTIONS environment variable to a privileged program that uses libsldap.</CVE>
+        <CVE Name="CVE-2001-1587">NWFTPD.nlm before 5.01w in the FTP server in Novell NetWare allows remote attackers to cause a denial of service (abend) via an anonymous STOU command.</CVE>
+        <CVE Name="CVE-2002-0053">Buffer overflow in SNMP agent service in Windows 95/98/98SE, Windows NT 4.0, Windows 2000, and Windows XP allows remote attackers to cause a denial of service or execute arbitrary code via a malformed management request.  NOTE: this candidate may be split or merged with other candidates.  This and other PROTOS-related candidates, especially CVE-2002-0012 and CVE-2002-0013, will be updated when more accurate information is available.</CVE>
+        <CVE Name="CVE-2002-0070">Buffer overflow in Windows Shell (used as the Windows Desktop) allows local and possibly remote attackers to execute arbitrary code via a custom URL handler that has not been removed for an application that has been improperly uninstalled.</CVE>
+        <CVE Name="CVE-2002-0649">Multiple buffer overflows in the Resolution Service for Microsoft SQL Server 2000 and Microsoft Desktop Engine 2000 (MSDE) allow remote attackers to cause a denial of service or execute arbitrary code via UDP packets to port 1434 in which (1) a 0x04 byte that causes the SQL Monitor thread to generate a long registry key name, or (2) a 0x08 byte with a long string causes heap corruption, as exploited by the Slammer/Sapphire worm.</CVE>
+        <CVE Name="CVE-2002-0813">Heap-based buffer overflow in the TFTP server capability in Cisco IOS 11.1, 11.2, and 11.3 allows remote attackers to cause a denial of service (reset) or modify configuration via a long filename.</CVE>
+        <CVE Name="CVE-2002-1174">Buffer overflows in Fetchmail 6.0.0 and earlier allow remote attackers to cause a denial of service (crash) or execute arbitrary code via (1) long headers that are not properly processed by the readheaders function, or (2) via long Received: headers, which are not properly parsed by the parse_received function.</CVE>
+        <CVE Name="CVE-2002-1200">Balabit Syslog-NG 1.4.x before 1.4.15, and 1.5.x before 1.5.20, when using template filenames or output, does not properly track the size of a buffer when constant characters are encountered during macro expansion, which allows remote attackers to cause a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-1222">Buffer overflow in the embedded HTTP server for Cisco Catalyst switches running CatOS 5.4 through 7.3 allows remote attackers to cause a denial of service (reset) via a long HTTP request.</CVE>
+        <CVE Name="CVE-2002-1357">Multiple SSH2 servers and clients do not properly handle packets or data elements with incorrect length specifiers, which may allow remote attackers to cause a denial of service or possibly execute arbitrary code, as demonstrated by the SSHredder SSH protocol test suite.</CVE>
+        <CVE Name="CVE-2002-1365">Heap-based buffer overflow in Fetchmail 6.1.3 and earlier does not account for the "@" character when determining buffer lengths for local addresses, which allows remote attackers to execute arbitrary code via a header with a large number of local addresses.</CVE>
+        <CVE Name="CVE-2002-1401">Buffer overflows in (1) circle_poly, (2) path_encode and (3) path_add (also incorrectly identified as path_addr) for PostgreSQL 7.2.3 and earlier allow attackers to cause a denial of service and possibly execute arbitrary code, possibly as a result of an integer overflow.</CVE>
+        <CVE Name="CVE-2002-2196">Samba before 2.2.5 does not properly terminate the enum_csc_policy data structure, which may allow remote attackers to execute arbitrary code via a buffer overflow attack.</CVE>
+        <CVE Name="CVE-2002-2226">Buffer overflow in tftpd of TFTP32 2.21 and earlier allows remote attackers to execute arbitrary code via a long filename argument.</CVE>
+        <CVE Name="CVE-2002-2227">Buffer underflow in ssldump 0.9b2 and earlier allows remote attackers to cause a denial of service (memory corruption) via a crafted SSLv2 challenge value.</CVE>
+        <CVE Name="CVE-2002-2232">Buffer overflow in Enceladus Server Suite 3.9 allows remote attackers to execute arbitrary code via a long CD (CWD) command.</CVE>
+        <CVE Name="CVE-2002-2248">Buffer overflow in the sun.awt.windows.WDefaultFontCharset Java class implementation in Netscape 4.0 allows remote attackers to execute arbitrary code via an applet that calls the WDefaultFontCharset constructor with a long string and invokes the canConvert method.</CVE>
+        <CVE Name="CVE-2002-2250">Multiple buffer overflows in Sybase Adaptive Server 12.0 and 12.5 allow remote attackers to execute arbitrary code via (1) a long parameter to the xp_freedll extended stored procedure or (2) a long database name argument to the DBCC CHECKVERIFY function.</CVE>
+        <CVE Name="CVE-2002-2251">Buffer overflow in the changevalue function in libcgi.h for Marcos Luiz Onisto Lib CGI 0.1 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2253">Multiple buffer overflows in Cyrus Sieve / libSieve 2.1.2 and earlier allow remote attackers to execute arbitrary code via (1) a long header name, (2) a long IMAP flag, or (3) a script that generates a large number of errors that overflow the resulting error string.</CVE>
+        <CVE Name="CVE-2002-2257">Stack-based buffer overflow in the parse_field function in cgi_lib.c for LIBCGI 1.0.2 and 1.0.3 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2258">Moby NetSuite allows remote attackers to cause a denial of service (crash) via an HTTP POST request with a (1) large integer or (2) non-numeric value in the Content-Length header, which causes an access violation after a failed atoi function call.</CVE>
+        <CVE Name="CVE-2002-2259">Buffer overflow in the French documentation patch for Gnuplot 3.7 in SuSE Linux before 8.0 allows local users to execute arbitrary code as root via unknown attack vectors.</CVE>
+        <CVE Name="CVE-2002-2268">Buffer overflow in Webster HTTP Server allows remote attackers to execute arbitrary code via a long URL.</CVE>
+        <CVE Name="CVE-2002-2271">Buffer overflow in BigFun 1.51b IRC client, when the Direct Client Connection (DCC) option is used, allows remote attackers to cause a denial of service (crash) via a long string.</CVE>
+        <CVE Name="CVE-2002-2272">Tomcat 4.0 through 4.1.12, using mod_jk 1.2.1 module on Apache 1.3 through 1.3.27, allows remote attackers to cause a denial of service (desynchronized communications) via an HTTP GET request with a Transfer-Encoding chunked field with invalid values.</CVE>
+        <CVE Name="CVE-2002-2291">Calisto Internet Talker 0.04 and earlier allows remote attackers to cause a denial of service (hang) via a long request, possibly triggering a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2294">Multiple buffer overflows in Symantec Raptor Firewall 6.5 and 6.5.3, Enterprise Firewall 6.5.2 and 7.0, VelociRaptor 500/700/1000 and 1100/1200/1300, and Gateway Security 5110/5200/5300 allow remote attackers to cause a denial of service (service termination) via (1) malformed RealAudio (rad) packets that are not properly handled by the RealAudio Proxy, or (2) crafted packets to the statistics service (statsd).</CVE>
+        <CVE Name="CVE-2002-2295">Buffer overflow in Pico Server (pServ) 2.0 beta 1 through beta 5 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) a 1024-byte TCP stream message, which triggers an off-by-one buffer overflow, or (2) a long method name in an HTTP request, (3) a long version number in an HTTP request, (4) a long User-Agent header, or (5) a long file path.</CVE>
+        <CVE Name="CVE-2002-2300">Buffer overflow in ftpd 5.4 in 3Com NBX 4.0.17 or ftpd 5.4.2 in 3Com NBX 4.1.4 allows remote attackers to cause a denial of service (crash) via a long CEL command.</CVE>
+        <CVE Name="CVE-2002-2332">Buffer overflow in Opera 6.01 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2333">Buffer overflow in konqueror in KDE 2.1 through 3.0 and 3.0.2 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2357">MailEnable 1.5 015 through 1.5 018 allows remote attackers to cause a denial of service (crash) via a long USER string, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2366">Buffer overflow in the XML parser of Trillian 0.6351, 0.725 and 0.73 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a skin with a long colors file name in trillian.xml.</CVE>
+        <CVE Name="CVE-2002-2367">Off-by-one buffer overflow in NEC SOCKS5 1.0 r11 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via a long hostname.</CVE>
+        <CVE Name="CVE-2002-2368">Multiple buffer overflows in NEC SOCKS5 1.0 r11 and earlier allow remote attackers to cause a denial of service and possibly execute arbitrary code via a long username to (1) the GetString function in proxy.c for the SOCKS5 module or (2) the HandleS4Connection function in proxy.c for the SOCKS4 module.</CVE>
+        <CVE Name="CVE-2002-2372">The telnet server in Infoprint 21 running controller software before 1.056007 allows remote attackers to cause a denial of service (crash) via a long username, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2381">Multiple buffer overflows in (1) tetrinet_inmessage, (2) speclist_add and (3) config-getthemeinfo of GTetrinet 0.4.3 and earlier allow remote attackers to casue a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-2385">Buffer overflow in hotfoon4.exe in Hotfoon 4.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL containing a long voice phone number.</CVE>
+        <CVE Name="CVE-2002-2388">Buffer overflow in INweb POP3 mail server 2.01 allows remote attackers to cause a denial of service (crash) via a long HELO command.</CVE>
+        <CVE Name="CVE-2002-2390">Buffer overflow in the IDENT daemon (identd) in Trillian 0.6351, 0.725, 0.73, 0.74 and 1.0 pro allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long request.</CVE>
+        <CVE Name="CVE-2002-2396">Buffer overflow in Advanced TFTP (atftp) 0.5 and 0.6, if installed setuid or setgid, may allow local users to execute arbitrary code via a long argument to the -g option.</CVE>
+        <CVE Name="CVE-2002-2400">Buffer overflow in the httpdProcessRequest function in LibHTTPD 1.2 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long HTTP POST request.</CVE>
+        <CVE Name="CVE-2002-2404">Buffer overflow in IISPop email server 1.161 and 1.181 allows remote attackers to cause a denial of service (crash) via a long request to the POP3 port (TCP port 110).</CVE>
+        <CVE Name="CVE-2002-2411">Buffer overflow in badmin.c in BannerWheel 1.0 allows remote attackers to execute arbitrary code via a long rcmd command.</CVE>
+      </CWE>
+      <CWE Id="122" />
+      <CWE Id="123" />
+      <CWE Id="124" />
+      <CWE Id="125" />
+      <CWE Id="127" />
+      <CWE Id="466" />
+      <CWE Id="786" />
+      <CWE Id="787">
+        <CVE Name="CVE-2002-0184">Sudo before 1.6.6 contains an off-by-one error that can result in a heap-based buffer overflow that may allow local users to gain root privileges via special characters in the -p (prompt) argument, which are not properly expanded.</CVE>
+      </CWE>
+      <CWE Id="805" />
+      <CWE Id="806" />
+    </Consequence>
+    <Consequence name="Unitialized Pointer Dereference">
+      <CWE Id="119">
+        <CVE Name="CVE-1999-0002">Buffer overflow in NFS mountd gives root access to remote attackers, mostly in Linux systems.</CVE>
+        <CVE Name="CVE-1999-0027">root privileges via buffer overflow in eject command on SGI IRIX systems.</CVE>
+        <CVE Name="CVE-1999-0332">Buffer overflow in NetMeeting allows denial of service and remote command execution.</CVE>
+        <CVE Name="CVE-1999-0349">A buffer overflow in the FTP list (ls) command in IIS allows remote attackers to conduct a denial of service and, in some cases, execute arbitrary commands.</CVE>
+        <CVE Name="CVE-1999-0700">Buffer overflow in Microsoft Phone Dialer (dialer.exe), via a malformed dialer entry in the dialer.ini file.</CVE>
+        <CVE Name="CVE-1999-0802">Buffer overflow in Internet Explorer 5 allows remote attackers to execute commands via a malformed Favorites icon.</CVE>
+        <CVE Name="CVE-1999-0874">Buffer overflow in IIS 4.0 allows remote attackers to cause a denial of service via a malformed request for files with .HTR, .IDC, or .STM extensions.</CVE>
+        <CVE Name="CVE-1999-0876">Buffer overflow in Internet Explorer 4.0 via EMBED tag.</CVE>
+        <CVE Name="CVE-1999-0898">Buffer overflows in Windows NT 4.0 print spooler allow remote attackers to gain privileges or cause a denial of service via a malformed spooler request.</CVE>
+        <CVE Name="CVE-2000-1246">NWFTPD.nlm before 5.01o in the FTP server in Novell NetWare 5.1 SP3 allows remote authenticated users to cause a denial of service (abend) by sending an RNTO command after a failed RNFR command.</CVE>
+        <CVE Name="CVE-2001-0153">Buffer overflow in VB-TSQL debugger object (vbsdicli.exe) in Visual Studio 6.0 Enterprise Edition allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0576">lpusers as included with SCO OpenServer 5.0 through 5.0.6 allows a  local attacker to gain additional privileges via a buffer overflow attack in the '-u' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0629">HP Event Correlation Service (ecsd) as included with OpenView Network Node  Manager 6.1 allows a remote attacker to gain addition privileges via a buffer overflow attack in the '-restore_config' command line parameter.</CVE>
+        <CVE Name="CVE-2001-0775">Buffer overflow in xloadimage 4.1 (aka xli 1.16 and 1.17) in Linux allows remote attackers to execute arbitrary code via a FACES format image containing a long (1) Firstname or (2) Lastname field.</CVE>
+        <CVE Name="CVE-2001-0803">Buffer overflow in the client connection routine of libDtSvc.so.1 in CDE Subprocess Control Service (dtspcd) allows remote attackers to execute arbitrary commands.</CVE>
+        <CVE Name="CVE-2001-0819">A buffer overflow in Linux fetchmail before 5.8.6 allows remote attackers to execute arbitrary code via a large 'To:' field in an email header.</CVE>
+        <CVE Name="CVE-2001-1456">Buffer overflow in the (1) smap/smapd and (2) CSMAP daemons for Gauntlet Firewall 5.0 through 6.0 allows remote attackers to execute arbitrary code via a crafted mail message.</CVE>
+        <CVE Name="CVE-2001-1539">Stack consumption vulnerability in Internet Explorer The JavaScript settimeout function in Internet Explorer allows remote attackers to cause a denial of service (crash) via the JavaScript settimeout function.  NOTE: the vendor could not reproduce the problem.</CVE>
+        <CVE Name="CVE-2001-1582">Buffer overflow in the LDAP naming services library (libsldap) in Sun Solaris 8 allows local users to execute arbitrary code via a long LDAP_OPTIONS environment variable to a privileged program that uses libsldap.</CVE>
+        <CVE Name="CVE-2001-1587">NWFTPD.nlm before 5.01w in the FTP server in Novell NetWare allows remote attackers to cause a denial of service (abend) via an anonymous STOU command.</CVE>
+        <CVE Name="CVE-2002-0053">Buffer overflow in SNMP agent service in Windows 95/98/98SE, Windows NT 4.0, Windows 2000, and Windows XP allows remote attackers to cause a denial of service or execute arbitrary code via a malformed management request.  NOTE: this candidate may be split or merged with other candidates.  This and other PROTOS-related candidates, especially CVE-2002-0012 and CVE-2002-0013, will be updated when more accurate information is available.</CVE>
+        <CVE Name="CVE-2002-0070">Buffer overflow in Windows Shell (used as the Windows Desktop) allows local and possibly remote attackers to execute arbitrary code via a custom URL handler that has not been removed for an application that has been improperly uninstalled.</CVE>
+        <CVE Name="CVE-2002-0649">Multiple buffer overflows in the Resolution Service for Microsoft SQL Server 2000 and Microsoft Desktop Engine 2000 (MSDE) allow remote attackers to cause a denial of service or execute arbitrary code via UDP packets to port 1434 in which (1) a 0x04 byte that causes the SQL Monitor thread to generate a long registry key name, or (2) a 0x08 byte with a long string causes heap corruption, as exploited by the Slammer/Sapphire worm.</CVE>
+        <CVE Name="CVE-2002-0813">Heap-based buffer overflow in the TFTP server capability in Cisco IOS 11.1, 11.2, and 11.3 allows remote attackers to cause a denial of service (reset) or modify configuration via a long filename.</CVE>
+        <CVE Name="CVE-2002-1174">Buffer overflows in Fetchmail 6.0.0 and earlier allow remote attackers to cause a denial of service (crash) or execute arbitrary code via (1) long headers that are not properly processed by the readheaders function, or (2) via long Received: headers, which are not properly parsed by the parse_received function.</CVE>
+        <CVE Name="CVE-2002-1200">Balabit Syslog-NG 1.4.x before 1.4.15, and 1.5.x before 1.5.20, when using template filenames or output, does not properly track the size of a buffer when constant characters are encountered during macro expansion, which allows remote attackers to cause a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-1222">Buffer overflow in the embedded HTTP server for Cisco Catalyst switches running CatOS 5.4 through 7.3 allows remote attackers to cause a denial of service (reset) via a long HTTP request.</CVE>
+        <CVE Name="CVE-2002-1357">Multiple SSH2 servers and clients do not properly handle packets or data elements with incorrect length specifiers, which may allow remote attackers to cause a denial of service or possibly execute arbitrary code, as demonstrated by the SSHredder SSH protocol test suite.</CVE>
+        <CVE Name="CVE-2002-1365">Heap-based buffer overflow in Fetchmail 6.1.3 and earlier does not account for the "@" character when determining buffer lengths for local addresses, which allows remote attackers to execute arbitrary code via a header with a large number of local addresses.</CVE>
+        <CVE Name="CVE-2002-1401">Buffer overflows in (1) circle_poly, (2) path_encode and (3) path_add (also incorrectly identified as path_addr) for PostgreSQL 7.2.3 and earlier allow attackers to cause a denial of service and possibly execute arbitrary code, possibly as a result of an integer overflow.</CVE>
+        <CVE Name="CVE-2002-2196">Samba before 2.2.5 does not properly terminate the enum_csc_policy data structure, which may allow remote attackers to execute arbitrary code via a buffer overflow attack.</CVE>
+        <CVE Name="CVE-2002-2226">Buffer overflow in tftpd of TFTP32 2.21 and earlier allows remote attackers to execute arbitrary code via a long filename argument.</CVE>
+        <CVE Name="CVE-2002-2227">Buffer underflow in ssldump 0.9b2 and earlier allows remote attackers to cause a denial of service (memory corruption) via a crafted SSLv2 challenge value.</CVE>
+        <CVE Name="CVE-2002-2232">Buffer overflow in Enceladus Server Suite 3.9 allows remote attackers to execute arbitrary code via a long CD (CWD) command.</CVE>
+        <CVE Name="CVE-2002-2248">Buffer overflow in the sun.awt.windows.WDefaultFontCharset Java class implementation in Netscape 4.0 allows remote attackers to execute arbitrary code via an applet that calls the WDefaultFontCharset constructor with a long string and invokes the canConvert method.</CVE>
+        <CVE Name="CVE-2002-2250">Multiple buffer overflows in Sybase Adaptive Server 12.0 and 12.5 allow remote attackers to execute arbitrary code via (1) a long parameter to the xp_freedll extended stored procedure or (2) a long database name argument to the DBCC CHECKVERIFY function.</CVE>
+        <CVE Name="CVE-2002-2251">Buffer overflow in the changevalue function in libcgi.h for Marcos Luiz Onisto Lib CGI 0.1 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2253">Multiple buffer overflows in Cyrus Sieve / libSieve 2.1.2 and earlier allow remote attackers to execute arbitrary code via (1) a long header name, (2) a long IMAP flag, or (3) a script that generates a large number of errors that overflow the resulting error string.</CVE>
+        <CVE Name="CVE-2002-2257">Stack-based buffer overflow in the parse_field function in cgi_lib.c for LIBCGI 1.0.2 and 1.0.3 allows remote attackers to execute arbitrary code via a long argument.</CVE>
+        <CVE Name="CVE-2002-2258">Moby NetSuite allows remote attackers to cause a denial of service (crash) via an HTTP POST request with a (1) large integer or (2) non-numeric value in the Content-Length header, which causes an access violation after a failed atoi function call.</CVE>
+        <CVE Name="CVE-2002-2259">Buffer overflow in the French documentation patch for Gnuplot 3.7 in SuSE Linux before 8.0 allows local users to execute arbitrary code as root via unknown attack vectors.</CVE>
+        <CVE Name="CVE-2002-2268">Buffer overflow in Webster HTTP Server allows remote attackers to execute arbitrary code via a long URL.</CVE>
+        <CVE Name="CVE-2002-2271">Buffer overflow in BigFun 1.51b IRC client, when the Direct Client Connection (DCC) option is used, allows remote attackers to cause a denial of service (crash) via a long string.</CVE>
+        <CVE Name="CVE-2002-2272">Tomcat 4.0 through 4.1.12, using mod_jk 1.2.1 module on Apache 1.3 through 1.3.27, allows remote attackers to cause a denial of service (desynchronized communications) via an HTTP GET request with a Transfer-Encoding chunked field with invalid values.</CVE>
+        <CVE Name="CVE-2002-2291">Calisto Internet Talker 0.04 and earlier allows remote attackers to cause a denial of service (hang) via a long request, possibly triggering a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2294">Multiple buffer overflows in Symantec Raptor Firewall 6.5 and 6.5.3, Enterprise Firewall 6.5.2 and 7.0, VelociRaptor 500/700/1000 and 1100/1200/1300, and Gateway Security 5110/5200/5300 allow remote attackers to cause a denial of service (service termination) via (1) malformed RealAudio (rad) packets that are not properly handled by the RealAudio Proxy, or (2) crafted packets to the statistics service (statsd).</CVE>
+        <CVE Name="CVE-2002-2295">Buffer overflow in Pico Server (pServ) 2.0 beta 1 through beta 5 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via (1) a 1024-byte TCP stream message, which triggers an off-by-one buffer overflow, or (2) a long method name in an HTTP request, (3) a long version number in an HTTP request, (4) a long User-Agent header, or (5) a long file path.</CVE>
+        <CVE Name="CVE-2002-2300">Buffer overflow in ftpd 5.4 in 3Com NBX 4.0.17 or ftpd 5.4.2 in 3Com NBX 4.1.4 allows remote attackers to cause a denial of service (crash) via a long CEL command.</CVE>
+        <CVE Name="CVE-2002-2332">Buffer overflow in Opera 6.01 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2333">Buffer overflow in konqueror in KDE 2.1 through 3.0 and 3.0.2 allows remote attackers to cause a denial of service (crash) via an IMG tag with large width and height attributes.</CVE>
+        <CVE Name="CVE-2002-2357">MailEnable 1.5 015 through 1.5 018 allows remote attackers to cause a denial of service (crash) via a long USER string, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2366">Buffer overflow in the XML parser of Trillian 0.6351, 0.725 and 0.73 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a skin with a long colors file name in trillian.xml.</CVE>
+        <CVE Name="CVE-2002-2367">Off-by-one buffer overflow in NEC SOCKS5 1.0 r11 and earlier allows remote attackers to cause a denial of service and possibly execute arbitrary code via a long hostname.</CVE>
+        <CVE Name="CVE-2002-2368">Multiple buffer overflows in NEC SOCKS5 1.0 r11 and earlier allow remote attackers to cause a denial of service and possibly execute arbitrary code via a long username to (1) the GetString function in proxy.c for the SOCKS5 module or (2) the HandleS4Connection function in proxy.c for the SOCKS4 module.</CVE>
+        <CVE Name="CVE-2002-2372">The telnet server in Infoprint 21 running controller software before 1.056007 allows remote attackers to cause a denial of service (crash) via a long username, possibly due to a buffer overflow.</CVE>
+        <CVE Name="CVE-2002-2381">Multiple buffer overflows in (1) tetrinet_inmessage, (2) speclist_add and (3) config-getthemeinfo of GTetrinet 0.4.3 and earlier allow remote attackers to casue a denial of service and possibly execute arbitrary code.</CVE>
+        <CVE Name="CVE-2002-2385">Buffer overflow in hotfoon4.exe in Hotfoon 4.0 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a URL containing a long voice phone number.</CVE>
+        <CVE Name="CVE-2002-2388">Buffer overflow in INweb POP3 mail server 2.01 allows remote attackers to cause a denial of service (crash) via a long HELO command.</CVE>
+        <CVE Name="CVE-2002-2390">Buffer overflow in the IDENT daemon (identd) in Trillian 0.6351, 0.725, 0.73, 0.74 and 1.0 pro allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long request.</CVE>
+        <CVE Name="CVE-2002-2396">Buffer overflow in Advanced TFTP (atftp) 0.5 and 0.6, if installed setuid or setgid, may allow local users to execute arbitrary code via a long argument to the -g option.</CVE>
+        <CVE Name="CVE-2002-2400">Buffer overflow in the httpdProcessRequest function in LibHTTPD 1.2 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long HTTP POST request.</CVE>
+        <CVE Name="CVE-2002-2404">Buffer overflow in IISPop email server 1.161 and 1.181 allows remote attackers to cause a denial of service (crash) via a long request to the POP3 port (TCP port 110).</CVE>
+        <CVE Name="CVE-2002-2411">Buffer overflow in badmin.c in BannerWheel 1.0 allows remote attackers to execute arbitrary code via a long rcmd command.</CVE>
+      </CWE>
+      <CWE Id="824" />
+    </Consequence>
+  </Cluster>
+</CWECVE>
