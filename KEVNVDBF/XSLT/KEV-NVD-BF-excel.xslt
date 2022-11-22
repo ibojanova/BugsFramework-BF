@@ -26,7 +26,7 @@
             ss:Underline="Single"/>
           </Style>
          </Styles>
-         <Worksheet ss:Name="Sheet1">
+         <Worksheet ss:Name="KEV-NVD-BF">
           <Table>
            <Row>
             <Cell><Data ss:Type="String">KEV-cveID</Data></Cell>
@@ -45,10 +45,32 @@
             <Cell><Data ss:Type="String">KEV-dateAdded</Data></Cell>
             <Cell><Data ss:Type="String">KEV-shortDescription</Data></Cell>
            </Row>
-			  
 		    <xsl:apply-templates select="KEV/root/vulnerabilities/item"/>	  
           </Table>
          </Worksheet>
+		
+		  <Worksheet ss:Name="PREVIOUS">
+          <Table>
+           <Row>
+            <Cell><Data ss:Type="String">KEV-cveID</Data></Cell>
+            <Cell><Data ss:Type="String">NVD-CVSS</Data></Cell>
+            <Cell><Data ss:Type="String">NVD-CWE</Data></Cell>
+            <Cell><Data ss:Type="String">BF Class</Data></Cell>
+            <Cell><Data ss:Type="String">Reference Files</Data></Cell>
+            <Cell><Data ss:Type="String">Resources</Data></Cell>
+            <Cell><Data ss:Type="String">NVD Link</Data></Cell>
+            <Cell><Data ss:Type="String">Enough Information?</Data></Cell>
+            <Cell><Data ss:Type="String">BF Ready to Describe It?</Data></Cell>
+            <Cell><Data ss:Type="String">Is Open Source?</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-vendorProject</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-product</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-vulnerabilityName</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-dateAdded</Data></Cell>
+            <Cell><Data ss:Type="String">KEV-shortDescription</Data></Cell>
+           </Row>
+          </Table>
+         </Worksheet>
+
         </Workbook>
 	
 	</xsl:template>
@@ -73,19 +95,18 @@
 				<xsl:with-param name="separator" select="' xANDx '"/>
 			</xsl:call-template>
 		</Data></Cell>
-        <!--<Cell><Data ss:Type="String"><xsl:value-of select="key('cwe',substring-after($cve/@CWE,'-'))/../@name"/></Data></Cell>-->
 			
-        <!--<Cell><Data ss:Type="String"><xsl:value-of select="&eq; IFNA(VLOOKUP(A2,PREVIOUS!A:J,5, FALSE),'')"/></Data></Cell>-->		
-	    <Cell><Data ss:Type="String">To be done</Data></Cell>		
-	    <Cell><Data ss:Type="String">To be done</Data></Cell>
+        <Cell ss:Formula="=IFNA(VLOOKUP(RC[-4],PREVIOUS!C[-4]:C[5],5, FALSE),&quot;&quot;)"><Data ss:Type="String"/></Cell>
+		<Cell ss:Formula="=IFNA(VLOOKUP(RC[-5],PREVIOUS!C[-5]:C[5],6, FALSE),&quot;&quot;)"><Data ss:Type="String"/></Cell>	
 
 		<Cell ss:StyleID="Hyperlink" ss:HRef="{$link}">
 			<Data ss:Type="String"><xsl:value-of select="$link"/></Data>
 		</Cell>
 			
-		<Cell><Data ss:Type="String">To be done</Data></Cell>			
-	    <Cell><Data ss:Type="String">To be done</Data></Cell>	
-	    <Cell><Data ss:Type="String">To be done</Data></Cell>
+
+		<Cell ss:Formula="=IFNA(VLOOKUP(RC[-7],PREVIOUS!C[-7]:C[5],8, FALSE),&quot;&quot;)"><Data ss:Type="String"/></Cell>	
+		<Cell ss:Formula="=IFNA(VLOOKUP(RC[-8],PREVIOUS!C[-8]:C[5],9, FALSE),&quot;&quot;)"><Data ss:Type="String"/></Cell>	
+		<Cell ss:Formula="=IFNA(VLOOKUP(RC[-9],PREVIOUS!C[-9]:C[5],10, FALSE),&quot;&quot;)"><Data ss:Type="String"/></Cell>	
 
 		<!--from KEV-->
         <Cell><Data ss:Type="String"><xsl:value-of select="vendorProject"/></Data></Cell>

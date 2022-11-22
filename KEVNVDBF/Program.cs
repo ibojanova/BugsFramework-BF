@@ -31,6 +31,7 @@ namespace KEVNVDBF
             //xxx BF.BFCWE
             var bfcweFile = "BFCWE.xml";
             var bfcwe = Path.Combine(solutionDir, $@"BF\XML\{bfcweFile}");
+            var allFile = Path.Combine(solutionDir, $@"BF\XML\all.xml");
 
             var nvdXslt = Path.Combine(xsltDir, "CVE-CVSS-CWE.xslt");
             var excelXslt = Path.Combine(xsltDir, "KEV-NVD-BF-excel.xslt");
@@ -38,36 +39,42 @@ namespace KEVNVDBF
             var xslt = new XslCompiledTransform();
             var all = new XElement("ALL");
 
-            xslt.Load(nvdXslt);
-            using (var allWriter = all.CreateWriter())
-            {
-                var kevFile = "known_exploited_vulnerabilities.json";
-                Console.WriteLine(kevFile);
-                var kevUrl = $@"{kevUri}/{kevFile}";
-                using (var stream = await client.GetStreamAsync(kevUrl))
-                using (var reader = JsonStreamToXml(stream))
+            //xxx use true to update from all URIs 
+            var download = false;
+            if (!download)
+                all = XElement.Load(allFile);
+            else { 
+                xslt.Load(nvdXslt);
+                using (var allWriter = all.CreateWriter())
                 {
-                    allWriter.WriteStartElement("KEV");
-                    allWriter.WriteNode(reader, false);
-                    allWriter.WriteEndElement();
+                    var kevFile = "known_exploited_vulnerabilities.json";
+                    Console.WriteLine(kevFile);
+                    var kevUrl = $@"{kevUri}/{kevFile}";
+                    using (var stream = await client.GetStreamAsync(kevUrl))
+                    using (var reader = JsonStreamToXml(stream))
+                    {
+                        allWriter.WriteStartElement("KEV");
+                        allWriter.WriteNode(reader, false);
+                        allWriter.WriteEndElement();
+                    }
+
+                    for (int i = DateTime.Today.Year; i >= 2002; i--)
+                    {
+                        var nvdFile = $"nvdcve-1.1-{i}.json";
+                        Console.WriteLine(nvdFile);
+                        var nvdUrl = $@"{nvdUri}/{nvdFile}.zip";
+                        using (var stream = await client.GetStreamAsync(nvdUrl))
+                        using (var zip = new ZipArchive(stream))
+                        using (var json = zip.GetEntry(nvdFile)!.Open())
+                        using (var reader = JsonStreamToXml(json))
+                            xslt.Transform(reader, allWriter);
+                    }
+
+                    Console.WriteLine(bfcweFile);
+                    using (var reader = XmlReader.Create(bfcwe))
+                        allWriter.WriteNode(reader, false);
                 }
-
-                for (int i = DateTime.Today.Year; i >= 2002; i--)
-                {
-                    var nvdFile = $"nvdcve-1.1-{i}.json";
-                    Console.WriteLine(nvdFile);
-                    var nvdUrl = $@"{nvdUri}/{nvdFile}.zip";
-                    using (var stream = await client.GetStreamAsync(nvdUrl))
-                    using (var zip = new ZipArchive(stream))
-                    using (var json = zip.GetEntry(nvdFile)!.Open())
-                    using (var reader = JsonStreamToXml(json))
-                        xslt.Transform(reader, allWriter);
-                }
-
-                Console.WriteLine(bfcweFile);
-                using (var reader = XmlReader.Create(bfcwe))
-                    allWriter.WriteNode(reader, false);
-
+                all.Save(allFile);
             }
 
             xslt.Load(excelXslt, XsltSettings.TrustedXslt, new XmlUrlResolver());
