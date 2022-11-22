@@ -69,8 +69,10 @@ namespace BF.Properties {
         ///has value and type - we use this level to connect the classes--&gt;
         ///
         ///&lt;BF Name=&quot;Bugs Framework&quot;&gt;
-        ///	&lt;Cluster Name=&quot;_INP&quot; Type=&quot;Bug/Weakness&quot; Definition=&quot;Input/Output Check Bugs (incl. Injection Error)&quot;&gt;
-        ///		&lt;Class Name=&quot;DV [rest of string was truncated]&quot;;.
+        ///	&lt;Cluster Name=&quot;_INP&quot; Type=&quot;Bug/Weakness&quot;&gt;
+        ///		&lt;Class Name=&quot;DVL&quot; Title=&quot;Data Validation Bugs&quot;&gt;
+        ///			&lt;Operations&gt;
+        ///				&lt;Opera [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BF {
             get {
