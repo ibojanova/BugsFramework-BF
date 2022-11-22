@@ -22,7 +22,7 @@ namespace BF.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace BF.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BF.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace BF.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -74,7 +74,7 @@ namespace BF.Properties {
         ///			&lt;Operations&gt;
         ///				&lt;Opera [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BF {
+        public static string BF {
             get {
                 return ResourceManager.GetString("BF", resourceCulture);
             }
@@ -106,7 +106,7 @@ namespace BF.Properties {
         ///	&lt;!--Created by Irena Bojanova, 07/09/2021--&gt;
         ///	&lt;C [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BFCWE {
+        public static string BFCWE {
             get {
                 return ResourceManager.GetString("BFCWE", resourceCulture);
             }
@@ -127,7 +127,7 @@ namespace BF.Properties {
         ///						&lt;/xs:sequence&gt;
         ///						&lt;xs:attribute  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BFSchema {
+        public static string BFSchema {
             get {
                 return ResourceManager.GetString("BFSchema", resourceCulture);
             }
