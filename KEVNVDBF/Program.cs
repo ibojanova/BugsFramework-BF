@@ -31,7 +31,7 @@ namespace KEVNVDBF
             //xxx BF.BFCWE
             var bfcweFile = "BFCWE.xml";
             var bfcwe = Path.Combine(solutionDir, $@"BF\XML\{bfcweFile}");
-            var allFile = Path.Combine(solutionDir, $@"BF\XML\all.xml");
+            var allFile = Path.Combine(dbDir, $@"all.xml");
 
             var nvdXslt = Path.Combine(xsltDir, "CVE-CVSS-CWE.xslt");
             var excelXslt = Path.Combine(xsltDir, "KEV-NVD-BF-excel.xslt");
@@ -40,7 +40,7 @@ namespace KEVNVDBF
             var all = new XElement("ALL");
 
             //xxx use true to update from all URIs 
-            var download = false;
+            var download = true;
             if (!download)
                 all = XElement.Load(allFile);
             else { 
@@ -74,6 +74,7 @@ namespace KEVNVDBF
                     using (var reader = XmlReader.Create(bfcwe))
                         allWriter.WriteNode(reader, false);
                 }
+                Console.WriteLine(allFile);
                 all.Save(allFile);
             }
 
