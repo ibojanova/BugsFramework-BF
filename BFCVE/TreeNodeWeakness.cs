@@ -11,11 +11,11 @@ namespace BFCVE
     public class TreeNodeWeakness : TreeNode
     {
         public Weakness Weakness = new();
-        public readonly BWF TypeBWF;
+        public readonly BF.Cause CauseType;
 
-        public TreeNodeWeakness(Weakness weakness, BWF typeBWF) : base(weakness.Class)
+        public TreeNodeWeakness(Weakness weakness, BF.Cause causeType) : base(weakness.Class)
         {
-            TypeBWF = typeBWF;
+            CauseType = causeType;
             SetWeakness(weakness);
         }
 

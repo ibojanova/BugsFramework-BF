@@ -1,0 +1,2876 @@
+{
+  "#comment": [],
+  "BF": {
+    "@Name": "Bugs Framework",
+    "Cluster": [
+      {
+        "@Name": "_INP",
+        "@Type": "Bug/Weakness",
+        "Class": [
+          {
+            "@Name": "DVL",
+            "@Title": "Data Validation Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Validate" },
+                { "@Name": "Sanitize" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Safelist" },
+                    { "@Name": "Denylist" },
+                    { "@Name": "Format" },
+                    { "@Name": "Length" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Local" },
+                    { "@Name": "Admin" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data",
+                  "AttributeType": {
+                    "@Name": "State",
+                    "Attribute": [
+                      { "@Name": "Entered" },
+                      { "@Name": "Stored" },
+                      { "@Name": "In Use" },
+                      { "@Name": "Transferred" }
+                    ]
+                  }
+                },
+                { "@Name": "Policy" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": [
+                {
+                  "@Name": "Improper Operation",
+                  "Cause": [
+                    { "@Name": "Missing" },
+                    { "@Name": "Erroneous" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Policy",
+                  "Cause": [
+                    { "@Name": "Under-Restrictive Policy" },
+                    { "@Name": "Over-Restrictive Policy" }
+                  ]
+                }
+              ],
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data",
+                  "Cause": [
+                    { "@Name": "Corrupted Data" },
+                    { "@Name": "Tampered Data" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Policy Data",
+                  "Cause": [
+                    { "@Name": "Corrupted Policy" },
+                    { "@Name": "Tampered Policy" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "Consequence": { "@Name": "Invalid Data" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "Injection Error",
+                "Consequence": [
+                  { "@Name": "Query Injection" },
+                  { "@Name": "Command Injection" },
+                  { "@Name": "Source Code Injection" },
+                  { "@Name": "Parameter Injection" },
+                  { "@Name": "File Injection" }
+                ]
+              }
+            }
+          },
+          {
+            "@Name": "DVR",
+            "@Title": "Data Verification Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Verify" },
+                { "@Name": "Correct" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Value" },
+                    { "@Name": "Quantity" },
+                    { "@Name": "Range" },
+                    { "@Name": "Type" },
+                    { "@Name": "Other Rules" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Local" },
+                    { "@Name": "Admin" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data",
+                  "AttributeType": {
+                    "@Name": "State",
+                    "Attribute": [
+                      { "@Name": "Entered" },
+                      { "@Name": "Stored" },
+                      { "@Name": "In Use" },
+                      { "@Name": "Transferred" }
+                    ]
+                  }
+                },
+                { "@Name": "Policy" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": [
+                {
+                  "@Name": "Improper Operation",
+                  "Cause": [
+                    { "@Name": "Missing" },
+                    { "@Name": "Erroneous" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Policy",
+                  "Cause": [
+                    { "@Name": "Under-Restrictive Policy" },
+                    { "@Name": "Over-Restrictive Policy" }
+                  ]
+                }
+              ],
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Type",
+                "Cause": { "@Name": "Invalid Data" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Consequence": [
+                    { "@Name": "Wrong Value (_INP)" },
+                    { "@Name": "Inconsistent Value" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Data Type",
+                  "Consequence": { "@Name": "Wrong Type" }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_DAT",
+        "@Type": "Bug/Weakness",
+        "Class": [
+          {
+            "@Name": "DCL",
+            "@Title": "Declaration Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Declare" },
+                { "@Name": "Define" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Simple" },
+                    { "@Name": "Generics" },
+                    { "@Name": "Overriding" },
+                    { "@Name": "Overloading" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Entity",
+                  "Attribute": [
+                    { "@Name": "Object" },
+                    { "@Name": "Function" },
+                    { "@Name": "Data Type" },
+                    { "@Name": "Namespace" }
+                  ] /*XXXsame as operand
+					*/
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": {
+                "@Name": "Data Type" /*XXX*/,
+                "AttributeType": {
+                  "@Name": "Data Type Kind",
+                  "Attribute": [
+                    { "@Name": "Primitive" },
+                    { "@Name": "Structure" }
+                  ]
+                }
+              }
+            },
+            "Causes": {
+              "BugCauseType": [
+                {
+                  "@Name": "Improper Operation",
+                  "Cause": [
+                    { "@Name": "Missing" },
+                    { "@Name": "Wrong" },
+                    { "@Name": "Erroneous" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Modifier",
+                  "Cause": [
+                    { "@Name": "Missing Modifier" },
+                    { "@Name": "Wrong Modifier" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Scope",
+                  "Cause": [
+                    { "@Name": "Anonymous Scope" },
+                    { "@Name": "Wrong Scope" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": [
+                {
+                  "@Name": "Improper Data Type (_DAT)",
+                  "Consequence": [
+                    { "@Name": "Wrong Type" },
+                    { "@Name": "Incomplete Type" },
+                    { "@Name": "Wrong Generic Type" },
+                    { "@Name": "Confused Subtype" },
+                    { "@Name": "Wrong Argument Type" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Function",
+                  "Cause": [
+                    { "@Name": "Missing Overridden Function" },
+                    { "@Name": "Missing Overloaded Function" }
+                  ]
+                }
+              ],
+              "FinalErrorConsequenceType": {
+                "@Name": "Access Error",
+                "Consequence": [
+                  { "@Name": "Wrong Access Object" },
+                  { "@Name": "Wrong Access Type" },
+                  { "@Name": "Wrong Access Function" }
+                ]
+              }
+            }
+          },
+          {
+            "@Name": "NRS",
+            "@Title": "Name Resolution Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Refer" },
+                { "@Name": "Call" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Resolve" },
+                    { "@Name": "Bind" },
+                    { "@Name": "Early Bind" },
+                    { "@Name": "Late Bind" },
+                    { "@Name": "Ad-hoc Bind" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Entity",
+                  "Attribute": [
+                    { "@Name": "Object" },
+                    { "@Name": "Function" },
+                    { "@Name": "Data Type" },
+                    { "@Name": "Namespace" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data Type",
+                  "AttributeType": {
+                    "@Name": "Data Type Kind",
+                    "Attribute": [
+                      { "@Name": "Primitive" },
+                      { "@Name": "Structure" }
+                    ]
+                  }
+                },
+                { "@Name": "Function" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": [
+                {
+                  "@Name": "Improper Operation",
+                  "Cause": { "@Name": "Erroneous" }
+                },
+                {
+                  "@Name": "Improper Scope",
+                  "Cause": [
+                    { "@Name": "Missing Qualifier" },
+                    { "@Name": "Wrong Qualifier" }
+                  ]
+                }
+              ],
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data Type",
+                  "Cause": [
+                    { "@Name": "Incomplete Type" },
+                    { "@Name": "Wrong Generic Type" },
+                    { "@Name": "Confused Subtype" },
+                    { "@Name": "Wrong Argument Type" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Function",
+                  "Cause": [
+                    { "@Name": "Missing Overridden Function" },
+                    { "@Name": "Missing Overloaded Function" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": [
+                {
+                  "@Name": "Improper Object",
+                  "Consequence": { "@Name": "Wrong Object Resolved" }
+                },
+                {
+                  "@Name": "Improper Data Type (_DAT)",
+                  "Consequence": { "@Name": "Wrong Type Resolved" }
+                },
+                {
+                  "@Name": "Improper Function",
+                  "Consequence": [
+                    { "@Name": "Wrong Function Resolved" },
+                    { "@Name": "Wrong Generic Function Bound" },
+                    { "@Name": "Wrong Overridden Function Bound" },
+                    { "@Name": "Wrong Overloaded Function Bound" }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "TCV",
+            "@Title": "Type Conversion Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Cast" },
+                { "@Name": "Coerce" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Pass In" },
+                    { "@Name": "Pass Out" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data Value",
+                  "AttributeType": {
+                    "@Name": "Data Value Kind",
+                    "Attribute": [
+                      { "@Name": "Numeric" },
+                      { "@Name": "Text" },
+                      { "@Name": "Pointer" },
+                      { "@Name": "Boolean" }
+                    ]
+                  }
+                },
+                {
+                  "@Name": "Data Type",
+                  "AttributeType": {
+                    "@Name": "Data Type Kind",
+                    "Attribute": [
+                      { "@Name": "Primitive" },
+                      { "@Name": "Structure" }
+                    ]
+                  }
+                },
+                { "@Name": "Function" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": [
+                  { "@Name": "Wrong" },
+                  { "@Name": "Missing" }
+                ]
+              },
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Cause": [
+                    { "@Name": "Under Range" },
+                    { "@Name": "Over Range" },
+                    { "@Name": "Flipped Sign" },
+                    { "@Name": "Wrong Object Resolved Value" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Data Type",
+                  "Cause": [
+                    { "@Name": "Wrong Type" },
+                    { "@Name": "Wrong Object Resolved Type" },
+                    { "@Name": "Mismatched Argument" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Function",
+                  "Cause": { "@Name": "Missing Overloaded Function" }
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Consequence": [
+                    { "@Name": "Wrong Value" },
+                    { "@Name": "Truncated Value" },
+                    { "@Name": "Distorted Value" },
+                    { "@Name": "Rounded Value" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Data Type",
+                  "Consequence": { "@Name": "Wrong Type" }
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "TCM",
+            "@Title": "Type Computation Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Calculate" },
+                { "@Name": "Evaluate" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism (TCM)",
+                  "Attribute": [
+                    { "@Name": "Function" },
+                    { "@Name": "Operator" },
+                    { "@Name": "Method" },
+                    { "@Name": "Lambda Expression" },
+                    { "@Name": "Procedure" }
+                  ] /* (for classes)*/
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data Value",
+                  "AttributeType": {
+                    "@Name": "Data Value Kind",
+                    "Attribute": [
+                      { "@Name": "Numeric" },
+                      { "@Name": "Text" },
+                      { "@Name": "Pointer" },
+                      { "@Name": "Boolean" }
+                    ]
+                  }
+                },
+                {
+                  "@Name": "Data Type",
+                  "AttributeType": {
+                    "@Name": "Data Type Kind",
+                    "Attribute": [
+                      { "@Name": "Primitive" },
+                      { "@Name": "Structure" }
+                    ]
+                  }
+                },
+                { "@Name": "Function" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": [
+                  { "@Name": "Wrong" },
+                  { "@Name": "Erroneous" }
+                ]
+              },
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Cause": [
+                    { "@Name": "Wrong Value" },
+                    { "@Name": "Zero (0)" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Data Value",
+                  "Cause": [
+                    { "@Name": "Wrong Argument Value" },
+                    { "@Name": "Wrong Object Resolved Value" },
+                    { "@Name": "Reference vs. Object" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Data Type",
+                  "Cause": [
+                    { "@Name": "Wrong Type" },
+                    { "@Name": "Wrong Object Resolved Type" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Function",
+                  "Cause": [
+                    { "@Name": "Wrong Function Resolved" },
+                    { "@Name": "Wrong Generic Function Bound" },
+                    { "@Name": "Wrong Overridden Function Bound" },
+                    { "@Name": "Wrong Overloaded Function Bound" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Value",
+                "Consequence": [
+                  { "@Name": "Under Range" },
+                  { "@Name": "Over Range" },
+                  { "@Name": "Flipped Sign" },
+                  { "@Name": "Wrong Result" },
+                  { "@Name": "Wrap Around" }
+                ]
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "Type Compute Error",
+                "Consequence": { "@Name": "Undefined" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_MEM",
+        "@Type": "Bug/Weakness",
+        "Class": [
+          {
+            "@Name": "MAD",
+            "@Title": "Memory Addressing Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Initialize" },
+                { "@Name": "Reposition" },
+                { "@Name": "Reassign" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Direct" },
+                    { "@Name": "Sequential" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Userland" },
+                    { "@Name": "Kernel" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Object Address" /*in MEM paper, this is operand Object*/,
+                  "AttributeType": {
+                    "@Name": "Location",
+                    "Attribute": [
+                      { "@Name": "Stack" },
+                      { "@Name": "Heap" },
+                      { "@Name": "/other/" }
+                    ]
+                  }
+                },
+                { "@Name": "Object Size" }
+              ],
+              "#comment": []
+            },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": [
+                  { "@Name": "Missing" },
+                  { "@Name": "Mismatched" },
+                  { "@Name": "Erroneous" }
+                ]
+              },
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Cause": [
+                    { "@Name": "Hardcoded Address" },
+                    { "@Name": "Wrong Index" },
+                    { "@Name": "Wrong Size Used" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Data Type",
+                  "Cause": [
+                    { "@Name": "Wrong Index Type" },
+                    { "@Name": "Casted Pointer" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Object Address",
+                  "Cause": [
+                    { "@Name": "NULL Pointer" },
+                    { "@Name": "Wild Pointer" },
+                    { "@Name": "Dangling Pointer" },
+                    { "@Name": "Untrusted Pointer" },
+                    { "@Name": "Under Bounds Pointer" },
+                    { "@Name": "Wrong Position Pointer" },
+                    { "@Name": "Over Bounds Pointer" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Object Size",
+                  "Cause": { "@Name": "Not Enough Memory Allocated" } /*Size1*/
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Consequence": { "@Name": "Forbidden Address" }
+                },
+                {
+                  "@Name": "Improper Data Type",
+                  "Consequence": { "@Name": "Casted Pointer" }
+                },
+                {
+                  "@Name": "Improper Object Address",
+                  "Consequence": [
+                    { "@Name": "NULL Pointer" },
+                    { "@Name": "Wild Pointer" },
+                    { "@Name": "Dangling Pointer" },
+                    { "@Name": "Untrusted Pointer" },
+                    { "@Name": "Under Bounds Pointer" },
+                    { "@Name": "Over Bounds Pointer" },
+                    { "@Name": "Wrong Position Pointer" }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "MAL",
+            "@Title": "Memory Allocation Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Allocate" },
+                { "@Name": "Extend" },
+                { "@Name": "Reallocate-Extend" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Implicit" },
+                    { "@Name": "Explicit" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Userland" },
+                    { "@Name": "Kernel" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Object Address",
+                  "AttributeType": [
+                    {
+                      "@Name": "Ownership",
+                      "Attribute": [
+                        { "@Name": "None" },
+                        { "@Name": "Single" },
+                        { "@Name": "Shared" }
+                      ]
+                    },
+                    {
+                      "@Name": "Location",
+                      "Attribute": [
+                        { "@Name": "Stack" },
+                        { "@Name": "Heap" },
+                        { "@Name": "/other/" }
+                      ]
+                    }
+                  ]
+                },
+                { "@Name": "Object Size" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": [
+                  { "@Name": "Missing" },
+                  { "@Name": "Mismatched" },
+                  { "@Name": "Erroneous" }
+                ]
+              },
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Cause": [
+                    { "@Name": "Hardcoded Address" },
+                    { "@Name": "Forbidden Address" },
+                    { "@Name": "Single Owned Object Address" },
+                    { "@Name": "Wrong Size Used" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Object Address",
+                  "Cause": [
+                    { "@Name": "Wild Pointer" },
+                    { "@Name": "Dangling Pointer" },
+                    { "@Name": "Wrong Position Pointer" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": [
+                {
+                  "@Name": "Improper Object Address",
+                  "Consequence": [
+                    { "@Name": "NULL Pointer" },
+                    { "@Name": "Wild Pointer" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Object Size",
+                  "Consequence": { "@Name": "Not Enough Memory Allocated" } /*xxx Wrong Size Memory Allocated - not enough; too much; or just add Too Much Memory Allocated ???*/
+                }
+              ],
+              "FinalErrorConsequenceType": {
+                "@Name": "Memory Error",
+                "Consequence": [
+                  { "@Name": "Memory Overflow" },
+                  { "@Name": "Memory Leak" },
+                  { "@Name": "Double Free" },
+                  { "@Name": "Object Corruption" }
+                ]
+              }
+            }
+          },
+          {
+            "@Name": "MUS",
+            "@Title": "Memory Use Bugs",
+            "@Definition": "An object is initialized, read, written, or cleared improperly.",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Initialize" },
+                { "@Name": "Dereference" },
+                { "@Name": "Read" },
+                { "@Name": "Write" },
+                { "@Name": "Clear" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Direct" },
+                    { "@Name": "Sequential" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Userland" },
+                    { "@Name": "Kernel" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Object Address",
+                  "AttributeType": [
+                    {
+                      "@Name": "Span",
+                      "@Definition": "xxx",
+                      "Attribute": [
+                        { "@Name": "Litle" },
+                        { "@Name": "Moderate" },
+                        { "@Name": "Huge" }
+                      ]
+                    },
+                    {
+                      "@Name": "Location",
+                      "Attribute": [
+                        { "@Name": "Stack" },
+                        { "@Name": "Heap" },
+                        { "@Name": "/other/" }
+                      ]
+                    }
+                  ]
+                },
+                { "@Name": "Object Size" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": [
+                  { "@Name": "Missing" },
+                  { "@Name": "Mismatched" },
+                  { "@Name": "Erroneous" }
+                ]
+              },
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Cause": [
+                    { "@Name": "Forbidden Address" },
+                    { "@Name": "Wrong Size Used" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Data Type",
+                  "Cause": { "@Name": "Casted Pointer" }
+                },
+                {
+                  "@Name": "Improper Object Address",
+                  "Cause": [
+                    { "@Name": "NULL Pointer" },
+                    { "@Name": "Wild Pointer" },
+                    { "@Name": "Dangling Pointer" },
+                    { "@Name": "Untrusted Pointer" },
+                    { "@Name": "Under Bounds Pointer" },
+                    { "@Name": "Over Bounds Pointer" },
+                    { "@Name": "Wrong Position Pointer" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Object Size",
+                  "Cause": { "@Name": "Not Enough Memory Allocated" }
+                }
+              ]
+            },
+            "Consequences": {
+              "FinalErrorConsequenceType": {
+                "@Name": "Memory Error",
+                "Consequence": [
+                  { "@Name": "Uninitialized Object" },
+                  { "@Name": "Not Cleared Object" },
+                  { "@Name": "NULL Pointer Dereference" },
+                  { "@Name": "Untrusted Pointer Dereference" },
+                  { "@Name": "Object Corruption" },
+                  { "@Name": "Type Confusion" },
+                  { "@Name": "Use After Free" },
+                  { "@Name": "Buffer Overflow" },
+                  { "@Name": "Buffer Underflow" },
+                  { "@Name": "Uninitialized Pointer Dereference" }
+                ]
+              }
+            }
+          },
+          {
+            "@Name": "MDL",
+            "@Title": "Memory Deallocation Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Deallocate" },
+                { "@Name": "Reduce" },
+                { "@Name": "Reallocate-Reduce" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "Implicit" },
+                    { "@Name": "Explicit" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Userland" },
+                    { "@Name": "Kernel" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Object Address",
+                  "AttributeType": [
+                    {
+                      "@Name": "Ownership",
+                      "Attribute": [
+                        { "@Name": "None" },
+                        { "@Name": "Single" },
+                        { "@Name": "Shared" }
+                      ]
+                    },
+                    {
+                      "@Name": "Location",
+                      "Attribute": [
+                        { "@Name": "Stack" },
+                        { "@Name": "Heap" },
+                        { "@Name": "/other/" }
+                      ]
+                    }
+                  ]
+                },
+                { "@Name": "Object Size" }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": [
+                  { "@Name": "Missing" },
+                  { "@Name": "Mismatched" },
+                  { "@Name": "Erroneous" }
+                ]
+              },
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Data Value",
+                  "Cause": [
+                    { "@Name": "Hardcoded Address" },
+                    { "@Name": "Forbidden Address" },
+                    { "@Name": "Wrong Size Used" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Object Address",
+                  "Cause": [
+                    { "@Name": "Wild Pointer" },
+                    { "@Name": "Dangling Pointer" },
+                    { "@Name": "Wrong Position Pointer" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Object Size",
+                  "Cause": { "@Name": "Not Enough Memory Allocated" }
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": [
+                {
+                  "@Name": "Improper Object Address",
+                  "Consequence": { "@Name": "NULL Pointer" }
+                },
+                {
+                  "@Name": "Improper Object Size",
+                  "Consequence": { "@Name": "Not Enough Memory Allocated" }
+                }
+              ],
+              "FinalErrorConsequenceType": {
+                "@Name": "Memory Error",
+                "Consequence": [
+                  { "@Name": "Memory Leak" },
+                  { "@Name": "Double Free" },
+                  { "@Name": "Object Corruption" }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_CRY",
+        "@Type": "Bug/Weakness",
+        "Class": [
+          {
+            "@Name": "ENC",
+            "@Title": "Encryption Bugs",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Encrypt" },
+                { "@Name": "Decrypt" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "xxx" },
+                    { "@Name": "xxx" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Userland" },
+                    { "@Name": "Kernel" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data",
+                  "AttributeType": [
+                    {
+                      "@Name": "Sensitive Data",
+                      "@Definition": "xxx",
+                      "Attribute": [
+                        { "@Name": "Secret" },
+                        { "@Name": "Public" }
+                      ]
+                    },
+                    {
+                      "@Name": "State",
+                      "Attribute": [
+                        { "@Name": "Stored" },
+                        { "@Name": "xxx??? In Use" },
+                        { "@Name": "Transferred" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "@Name": "Key(s)",
+                  "AttributeType": {
+                    "@Name": "Type",
+                    "@Definition": "xxx",
+                    "Attribute": [
+                      { "@Name": "Private Key" },
+                      { "@Name": "Secrete Key" },
+                      { "@Name": "Shared Key" },
+                      { "@Name": "Public Key" }
+                    ]
+                  }
+                },
+                {
+                  "@Name": "Algorithm",
+                  "@Definition": "Operation Rule.",
+                  "AttributeType": {
+                    "@Name": "Type",
+                    "@Definition": "xxx",
+                    "Attribute": [
+                      { "@Name": "Symmetric" },
+                      { "@Name": "Asymmetric" }
+                    ]
+                  }
+                }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": [
+                {
+                  "@Name": "Improper Operation",
+                  "Cause": [
+                    { "@Name": "Missing" },
+                    { "@Name": "Erroneous" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Algorithm",
+                  "@Definition": "The Bug",
+                  "Cause": [
+                    { "@Name": "Modified Algorithm - xxx removed/changes/added step" },
+                    { "@Name": "Inadequate Algorithm" },
+                    { "@Name": "Weak Algorithm - including 'Insecure Mode of Operation' - we have it as 'leading to weak algorithm' on the old graph, but is it?" },
+                    { "@Name": "Risky/Broken Algorithm" }
+                  ]
+                }
+              ],
+              "WeaknessCauseType": {
+                "@Name": "Improper Key",
+                "@Definition": "",
+                "Cause": [
+                  { "@Name": "Known Key" },
+                  { "@Name": "xxx Exposed Key - have to be conseqeunce from IEX failure form a previous Vulnerability" }
+                ]
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Key",
+                "@Definition": "xxx",
+                "Consequence": [
+                  { "@Name": "xxxKnown Key - for KMN" },
+                  { "@Name": "xxxKnown Random Number - for KMN" }
+                ]
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxxSecurity Error - xxx leads to IEX",
+                "@Definition": "",
+                "Consequence": [
+                  { "@Name": "xxxConfidentiality Error - leads to IEX of Data" },
+                  { "@Name": "xxx~Integrity Error -in some modes of encryption" },
+                  { "@Name": "xxx~Identity Authentication Error -in some modes of encryption" }
+                ]
+              }
+            }
+          },
+          {
+            "@Name": "VRF",
+            "@Title": "Verification Bugs",
+            "@Definition": "Data is signed, source is checked and proved, or data is assured to be unaltered improperly.",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Sign" },
+                { "@Name": "xxx Verify Signiture - Verify is oeration of DVR; here the operation is specific for _CRY 'Verify Signitire' Verify Signiture" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "xxx" },
+                    { "@Name": "xxx" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Userland" },
+                    { "@Name": "Kernel" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data",
+                  "AttributeType": [
+                    {
+                      "@Name": "Sensitive Data",
+                      "@Definition": "xxx",
+                      "Attribute": [
+                        { "@Name": "Credentials" },
+                        { "@Name": "System Data" },
+                        { "@Name": "State Data" },
+                        { "@Name": "Cryptographic Data" },
+                        { "@Name": "Digital Documents" }
+                      ]
+                    },
+                    {
+                      "@Name": "State",
+                      "Attribute": [
+                        { "@Name": "Stored" },
+                        { "@Name": "xxx???In Use" },
+                        { "@Name": "Transferred" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "@Name": "Key(s)",
+                  "AttributeType": {
+                    "@Name": "Type",
+                    "@Definition": "xxx",
+                    "Attribute": [
+                      { "@Name": "Private Key" },
+                      { "@Name": "Secrete Key" },
+                      { "@Name": "Public Key" }
+                    ]
+                  }
+                },
+                {
+                  "@Name": "Random Number",
+                  "Attribute": [
+                    { "@Name": "True Random Number" },
+                    { "@Name": "Pseudo Random Number" }
+                  ]
+                },
+                {
+                  "@Name": "Algorithm",
+                  "@Definition": "Operation Rule.",
+                  "AttributeType": {
+                    "@Name": "Type",
+                    "@Definition": "xxx",
+                    "Attribute": [
+                      { "@Name": "Hash Function + PRN" },
+                      {
+                        "@Name": "MAC",
+                        "@Definition": "Message Authentication Code"
+                      },
+                      { "@Name": "Digital Signature" }
+                    ]
+                  }
+                }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": [
+                {
+                  "@Name": "Improper Operation",
+                  "Cause": [
+                    { "@Name": "Missing" },
+                    { "@Name": "Erroneous" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Algorithm",
+                  "@Definition": "The Bug",
+                  "Cause": [
+                    { "@Name": "Modified Algorithm" },
+                    { "@Name": "Inadequate Algorithm" },
+                    { "@Name": "Weak Algorithm" },
+                    { "@Name": "Risky/Broken Algorithm" }
+                  ]
+                }
+              ],
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Key",
+                  "@Definition": "",
+                  "Cause": [
+                    { "@Name": "Weak Key" },
+                    { "@Name": "Known Key" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Random Number",
+                  "@Definition": "",
+                  "Cause": [
+                    { "@Name": "Inadequate Random Number" },
+                    { "@Name": "Predictable Random Number" },
+                    { "@Name": "Known Random Number" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Key",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "Unverified Key" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxxSecurity Error - leads to IEX",
+                "@Definition": "",
+                "Consequence": [
+                  {
+                    "@Name": "Integrity Authentication Error",
+                    "@Definition": "Unverified Data"
+                  },
+                  {
+                    "@Name": "Identity Authentication Error",
+                    "@Definition": "Unverified Identity"
+                  },
+                  {
+                    "@Name": "Origin Non-Repudiation Error",
+                    "@Definition": "Unverified Origin Origin (Signer)"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "@Name": "KMN",
+            "@Title": "Key Management Bugs",
+            "@Definition": "Cryptographic keys and other keying material are generated, stored, distributed, used, or destroyed improperly.",
+            "Operations": {
+              "Operation": [
+                { "@Name": "Generate/Select" },
+                { "@Name": "Store" },
+                { "@Name": "Distribute" },
+                { "@Name": "Use" },
+                { "@Name": "Destroy" }
+              ],
+              "AttributeType": [
+                {
+                  "@Name": "Mechanism",
+                  "Attribute": [
+                    { "@Name": "xxx" },
+                    { "@Name": "xxx" }
+                  ]
+                },
+                {
+                  "@Name": "Source Code",
+                  "Attribute": [
+                    { "@Name": "Codebase" },
+                    { "@Name": "Third Party" },
+                    { "@Name": "Standard Library" },
+                    { "@Name": "Compiler/Interpreter" }
+                  ]
+                },
+                {
+                  "@Name": "Execution Space",
+                  "Attribute": [
+                    { "@Name": "Userland" },
+                    { "@Name": "Kernel" },
+                    { "@Name": "Bare-Metal" }
+                  ]
+                }
+              ]
+            },
+            "Operands": {
+              "Operand": [
+                {
+                  "@Name": "Data",
+                  "AttributeType": [
+                    {
+                      "@Name": "Cryptographic Data",
+                      "@Definition": "xxx",
+                      "Attribute": [
+                        { "@Name": "Hashes" },
+                        { "@Name": "Keying Material" },
+                        { "@Name": "Digital Certificate" }
+                      ]
+                    },
+                    {
+                      "@Name": "State",
+                      "Attribute": [
+                        { "@Name": "Stored" },
+                        { "@Name": "xxx???In Use" },
+                        { "@Name": "Transferred" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "@Name": "Key(s)",
+                  "AttributeType": {
+                    "@Name": "Type",
+                    "@Definition": "xxx",
+                    "Attribute": [
+                      { "@Name": "Private Key" },
+                      { "@Name": "Secrete Key" },
+                      { "@Name": "Shared Key" },
+                      { "@Name": "Public Key" }
+                    ]
+                  }
+                },
+                {
+                  "@Name": "Random Number",
+                  "@Definition": "xxx",
+                  "Attribute": [
+                    { "@Name": "True Random Number" },
+                    { "@Name": "Pseudo Random Number" }
+                  ]
+                },
+                {
+                  "@Name": "Algorithm",
+                  "@Definition": "Operation Rule: xxx",
+                  "Attribute": [
+                    { "@Name": "Hash Function + PRN" },
+                    {
+                      "@Name": "MAC",
+                      "@Definition": "Message Authentication Code"
+                    },
+                    {
+                      "@Name": "RSA",
+                      "@Definition": "Rivest–Shamir–Adleman"
+                    },
+                    { "@Name": "Digital Signature" }
+                  ]
+                }
+              ]
+            },
+            "Causes": {
+              "BugCauseType": [
+                {
+                  "@Name": "Improper Operation",
+                  "Cause": [
+                    { "@Name": "Missing" },
+                    { "@Name": "Erroneous" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Algorithm",
+                  "@Definition": "The Bug",
+                  "Cause": [
+                    { "@Name": "Modified Algorithm" },
+                    { "@Name": "Inadequate Algorithm" },
+                    { "@Name": "Weak Algorithm" },
+                    { "@Name": "Risky/Broken Algorithm" }
+                  ]
+                }
+              ],
+              "WeaknessCauseType": [
+                {
+                  "@Name": "Improper Key",
+                  "@Definition": "",
+                  "Cause": [
+                    { "@Name": "Weak Key" },
+                    { "@Name": "Known Key" }
+                  ]
+                },
+                {
+                  "@Name": "Improper Random Number",
+                  "@Definition": "",
+                  "Cause": [
+                    { "@Name": "Inadequate Random Number" },
+                    { "@Name": "Predictable Random Number" },
+                    { "@Name": "Known Random Number" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Key",
+                "@Definition": "xxx",
+                "Consequence": [
+                  { "@Name": "Weak Public Key - xxx ENC algorithm - Known Private Key" },
+                  { "@Name": "Weak Secret Key" }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_RND",
+        "@Type": "Bug/Weakness",
+        "Class": [
+          {
+            "@Name": "TRN",
+            "@Title": "True-Random Number Bugs",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          },
+          {
+            "@Name": "PRN",
+            "@Title": "Pseudo-Random Number Bugs",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_ACC",
+        "@Type": "Bug/Weakness",
+        "@Definition": "Access Control Bugs (incl. xxx Errors)",
+        "Class": [
+          {
+            "@Name": "ATN",
+            "@Title": "Authentication Bugs",
+            "@Definition": "xxx",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          },
+          {
+            "@Name": "ATZ",
+            "@Title": "Authorization Bugs",
+            "@Definition": "xxx",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_CON",
+        "@Type": "Bug/Weakness",
+        "@Definition": "Concurency Bugs (incl. xxx Errors)",
+        "Class": [
+          {
+            "@Name": "CON1",
+            "@Title": "xxx",
+            "@Definition": "xxx",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          },
+          {
+            "@Name": "CON2",
+            "@Title": "xxx",
+            "@Definition": "xxx",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_CFL",
+        "@Type": "Bug/Weakness",
+        "@Definition": "Control Flow Bugs (incl. xxx Errors)",
+        "Class": [
+          {
+            "@Name": "CFL1",
+            "@Title": "xxx",
+            "@Definition": "xxx",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          },
+          {
+            "@Name": "CFL2",
+            "@Title": "xxx",
+            "@Definition": "xxx",
+            "Operands": { "Operand": { "@Name": "xxx" } },
+            "Causes": {
+              "BugCauseType": {
+                "@Name": "Improper Operation",
+                "Cause": { "@Name": "xxx" }
+              },
+              "WeaknessCauseType": {
+                "@Name": "Improper Data Value",
+                "Cause": { "@Name": "xxx" }
+              }
+            },
+            "Consequences": {
+              "WeaknessConsequenceType": {
+                "@Name": "Improper Data Type",
+                "@Definition": "xxx",
+                "Consequence": { "@Name": "xxx" }
+              },
+              "FinalErrorConsequenceType": {
+                "@Name": "xxx Error",
+                "@Definition": "",
+                "Consequence": { "@Name": "xxx Error" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@Name": "_FLR",
+        "@Type": "Failure",
+        "@Definition": "",
+        "Class": [
+          {
+            "@Name": "IEX",
+            "@Title": "Information Exposure",
+            "Operations": { "Operation": { "@Name": "IEX Operation" } },
+            "Causes": {
+              "FianalErrorCauseType": {
+                "@Name": "Memory Error",
+                "@Definition": "",
+                "Cause": [
+                  { "@Name": "Buffer Overflow" },
+                  { "@Name": "Buffer Underflow" },
+                  { "@Name": "Not Cleared Object" }
+                ]
+              }
+            },
+            "Consequences": {
+              "RiskConsequenceType": {
+                "@Name": "Risk",
+                "@Definition": "",
+                "Consequence": { "@Name": "IEX Conseqeunce" }
+              }
+            }
+          },
+          {
+            "@Name": "RCE",
+            "@Title": "Remote Code Execution",
+            "Operations": { "Operation": { "@Name": "RCE Operation" } },
+            "Causes": {
+              "FianalErrorCauseType": [
+                {
+                  "@Name": "Memory Error",
+                  "@Definition": "",
+                  "Cause": [
+                    { "@Name": "Buffer Overflow" },
+                    { "@Name": "Buffer Underflow" }
+                  ]
+                },
+                {
+                  "@Name": "Injection Error",
+                  "@Definition": "",
+                  "Cause": [
+                    { "@Name": "Query Injection" },
+                    { "@Name": "Command Injection" },
+                    { "@Name": "Source Code Injection" },
+                    { "@Name": "Parameter Injection" },
+                    { "@Name": "File Injection" }
+                  ]
+                }
+              ]
+            },
+            "Consequences": {
+              "RiskConsequenceType": {
+                "@Name": "Risk",
+                "@Definition": "",
+                "Consequence": { "@Name": "RCE Conseqeunce" }
+              }
+            }
+          },
+          {
+            "@Name": "DOS",
+            "@Title": "Denial of Service",
+            "Operations": { "Operation": { "@Name": "DOS Operation" } },
+            "Causes": {
+              "FianalErrorCauseType": {
+                "@Name": "Memory Error",
+                "@Definition": "",
+                "Cause": [
+                  { "@Name": "Buffer Overflow" },
+                  { "@Name": "Buffer Underflow" }
+                ]
+              }
+            },
+            "Consequences": {
+              "RiskConsequenceType": {
+                "@Name": "Risk",
+                "@Definition": "",
+                "Consequence": { "@Name": "DOS Conseqeunce" }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "#comment": [],
+    "Definitions": {
+      "#comment": [],
+      "Definition": [
+        {
+          "@Name": "_INP",
+          "#text": "Input/Output Check Bugs (incl. Injection Error)"
+        },
+        {
+          "@Name": "_DAT",
+          "#text": "Data Type Bugs (incl. Convert and Compute Errors)\">"
+        },
+        {
+          "@Name": "_MEM",
+          "@Type": "Bug/Weakness",
+          "#text": "Memory Bugs (incl. Corruption Errors)"
+        },
+        {
+          "@Name": "_CRY",
+          "@Type": "Bug/Weakness",
+          "#text": "Cryptographic Store or Transfer Bugs"
+        },
+        {
+          "@Name": "_RND",
+          "@Type": "Bug/Weakness",
+          "#text": "Random Number Generation Bugs"
+        },
+        {
+          "@Name": "_ACC",
+          "@Type": "Bug/Weakness",
+          "#text": "Access Control Bugs"
+        },
+        {
+          "@Name": "_FLR",
+          "#text": "xxx"
+        },
+        {
+          "@Name": "DVL",
+          "#text": "Data are validated (syntax check) or sanitized (escape, filter, repair) improperly."
+        },
+        {
+          "@Name": "DVR",
+          "#text": "Data are verified (semantics check) or corrected (assign value, remove) improperly."
+        },
+        {
+          "@Name": "DCL",
+          "#text": "An object, a function, a type, or a namespace is declared or defined improperly."
+        },
+        {
+          "@Name": "NRS",
+          "#text": "The name of an object, a function, or a data type is resolved improperly or bound to an improper data type or implementation."
+        },
+        {
+          "@Name": "TCV",
+          "#text": "A data value is converted or coerced into another data type improperly."
+        },
+        {
+          "@Name": "TCM",
+          "#text": "A numeric, pointer, or string value is calculated improperly of a condition is evaluated improperly."
+        },
+        {
+          "@Name": "MAD",
+          "@Title": "Memory Addressing Bugs",
+          "#text": "The pointer to an object is initialized, repositioned, or reassigned to animproper memory address."
+        },
+        {
+          "@Name": "MAL",
+          "#text": "An object is allocated, extended, or reallocated (while extending) improperly."
+        },
+        {
+          "@Name": "MUS",
+          "#text": "An object is initialized, read, written, or cleared improperly."
+        },
+        {
+          "@Name": "MDL",
+          "#text": "An object is deallocated, reduced, or reallocated (while reducing) improperly."
+        },
+        {
+          "@Name": "ENC",
+          "#text": "Sensitive data (plaintext) are improperly transformed into unintelligible form (ciphertext) using a cryptographic algorithm and key(s)."
+        },
+        {
+          "@Name": "VRF",
+          "#text": "Data is signed, source is checked and proved, or data is assured to be unaltered improperly."
+        },
+        {
+          "@Name": "KMN",
+          "#text": "Cryptographic keys and other keying material are generated, stored, distributed, used, or destroyed improperly."
+        },
+        {
+          "@Name": "TRN",
+          "#text": "A generated output does not satisfy all use-specifictrue-randomness requirements. The output sequence is of random bits, where values are obtained from one or more sources of entropy."
+        },
+        {
+          "@Name": "PRN",
+          "#text": "A generated output does not satisfy all use-specificpseudo-randomness requirements. The output sequence is of random bits or numbers from a PRNG."
+        },
+        {
+          "@Name": "ATN",
+          "#text": "xxx"
+        },
+        {
+          "@Name": "ATZ",
+          "#text": "xxx"
+        },
+        {
+          "@Name": "IEX",
+          "#text": "Unauthorized disclosure of information"
+        },
+        {
+          "@Name": "ACE",
+          "#text": "Unauthorized run of commands or code."
+        },
+        {
+          "@Name": "DOS",
+          "#text": "Disruption of access (or use) to information or information system (service)."
+        },
+        {
+          "@Name": "Mechanism",
+          "#text": "Explains how the buggy operation is performed."
+        },
+        {
+          "@Name": "Source Code",
+          "#text": "Explains where the bug is in the operation and in the program."
+        },
+        {
+          "@Name": "Execution Space",
+          "#text": "Explains where the buggy operation code is running."
+        },
+        {
+          "@Name": "Improper State",
+          "#text": "The (operation, operand1,..., operandn) state tuple has at least one improper element"
+        },
+        {
+          "@Name": "Policy",
+          "#text": "Lists or rules for checking data syntax and semantics. For example, safelist, denylist, format (e.g., DTD-XML Document Type Definition), and length; or value (incl. NULL or list of values), quantity, range, and type (e.g., a PowerPoint XSD)."
+        },
+        {
+          "@Name": "Entity",
+          "#text": "Each data type bug or weakness involves one data type related operation. Each of these operations is over an entity: object, function, data type, or namespace. An entity is referred in source code via its declared name."
+        },
+        {
+          "@Name": "Data Type Kind",
+          "#text": "Primitive, Structured. A data type can be a primitive data type (scalar) or a structured data type (composite)."
+        },
+        {
+          "@Name": "Data Value Kind",
+          "#text": "Numeric, Text, Pointer, Boolean."
+        },
+        {
+          "@Name": "Location",
+          "#text": "Memory region where objects are allocated."
+        },
+        {
+          "@Name": "Ownership",
+          "#text": "Responsabile for cleaning and deallocating object's memory."
+        },
+        {
+          "@Name": "Mechanism (DCL)",
+          "#text": "xxx."
+        },
+        {
+          "@Name": "Mechanism (NRS)",
+          "#text": "xxx."
+        },
+        {
+          "@Name": "Mechanism (TCV)",
+          "#text": "xxx."
+        },
+        {
+          "@Name": "Mechanism (TCM)",
+          "#text": "Function, Operator, Method, Lambda Expression, Procedure. Shows which operator or method uses data type(s) improperly."
+        },
+        {
+          "@Name": "Improper Operation",
+          "#text": "The Bug is a Coding Error OR xxx rules."
+        },
+        {
+          "@Name": "Improper Policy",
+          "#text": "xxx"
+        },
+        {
+          "@Name": "Improper Policy Data",
+          "#text": "xxx"
+        },
+        {
+          "@Name": "Improper Modifier",
+          "#text": "xxxThe declaration of an entity may be prefixed by a modifier that enforces required restrictions. For example, access modifiers restrict whether and how a data type, an object, or a function can be used outside its declaration scope."
+        },
+        {
+          "@Name": "Improper Scope",
+          "#text": "xxxA scope is a block of code (e.g. { }) where a name is valid, i.e., associated with exactly one entity. Scopes provide the Type System with a context for names lookup, i.e., what namespaces and in which order should be referred to resolve the name."
+        },
+        {
+          "@Name": "Improper Data",
+          "#text": "Has harmed semantics or inconsistent or wrong value or type for its intended use."
+        },
+        {
+          "@Name": "Improper Data Type",
+          "#text": "xxx need better text - A set of allowed values used with incompatible operations over them."
+        },
+        {
+          "@Name": "Improper Function",
+          "#text": "xxx need better text - An organized block of code that when called takes in data, processes it, and produces an unexpected result(s)."
+        },
+        {
+          "@Name": "Improper Object",
+          "#text": "xxx need better text - A piece of memory, with a ill-defined size."
+        },
+        {
+          "@Name": "Improper Data Value",
+          "#text": "A value that is inconsistent with what it represents, it is out of range for an operation or it has harmed semantics."
+        },
+        {
+          "@Name": "Improper Object Address",
+          "#text": "A misleading object's address."
+        },
+        {
+          "@Name": "Improper Object Size",
+          "#text": "The information about an object size is Inaccurate."
+        },
+        {
+          "@Name": "Improper Key",
+          "#text": "xxx"
+        },
+        {
+          "@Name": "Injection Error",
+          "#text": "Undefined or exploitable system behavior caused by executing user controlled data. OR Undefined or exploitable system behavior caused by bugs in separating code and data"
+        },
+        {
+          "@Name": "Memory Error",
+          "#text": "Undefined or exploitable system behavior caused by memory bugs."
+        },
+        {
+          "@Name": "Access Error",
+          "#text": "Undefined or exploitable system behavior caused by access control bugs."
+        },
+        {
+          "@Name": "Type Compute Error",
+          "#text": "Undefined or exploitable system behavior caused by arithmetic operation bugs."
+        },
+        {
+          "@Name": "Validate",
+          "#text": "Check data syntax (proper form/grammar) in order to accept (and possibly sanitize) or reject it. Includes checking for missing symbols/elements."
+        },
+        {
+          "@Name": "Sanitize",
+          "#text": "Modify data (neutralize/escape, filter/remove, repair/add symbols) in order to make it valid (well-formed)."
+        },
+        {
+          "@Name": "Verify",
+          "#text": "Check data semantics (proper value/meaning) in order to accept (and possibly correct) or reject it."
+        },
+        {
+          "@Name": "Correct",
+          "#text": "Modify data (assign new value, remove), in order to make it accurate."
+        },
+        {
+          "@Name": "Missing",
+          "#text": "The operation is absent."
+        },
+        {
+          "@Name": "Erroneous",
+          "#text": "The operation implementation has a bug."
+        },
+        {
+          "@Name": "Under-Restrictive Policy",
+          "#text": "Accepts bad data."
+        },
+        {
+          "@Name": "Over-Restrictive Policy",
+          "#text": "Rejects good data."
+        },
+        {
+          "@Name": "Data",
+          "#text": "A string of characters (symbols like letter, digit, punctuation) with clearly defined syntax and semantics."
+        },
+        {
+          "@Name": "Corrupted Data",
+          "#text": "Unintentionally modified data due to a previous weakness (e.g., with a decompress or a decrypt operation) that if not sanitized would end-up as invalid data for next weakness."
+        },
+        {
+          "@Name": "Tampered Data",
+          "#text": "Maliciously modified data due to a previous weakness (e.g., with a deserialize, authorize, or crypto verify operation) that would lead to injection error."
+        },
+        {
+          "@Name": "Invalid Data",
+          "#text": "Data with harmed syntax due to sanitization errors."
+        },
+        {
+          "@Name": "Corrupted Policy",
+          "#text": "Unintentionally modified policy due to a previous weakness (e.g., with a decompress operation)."
+        },
+        {
+          "@Name": "Tampered Policy",
+          "#text": "Maliciously modified policy due to a previous weakness (e.g., with an authorize operation)."
+        },
+        {
+          "@Name": "Wrong Value (_INP)",
+          "#text": "Data with harmed semantics; not accurate value (e.g., outside of a range)."
+        },
+        {
+          "@Name": "Inconsistent Value",
+          "#text": "Data value is inconsistent with the value of a related data (e.g., inconstancy between the value of a size variable and the actual buffer size)."
+        },
+        {
+          "@Name": "Query Injection",
+          "#text": "Malicious insertion of condition parts (e.g., or 1==1) or entire commands (e.g., drop table) into an input used to construct a database query."
+        },
+        {
+          "@Name": "Command Injection",
+          "#text": "Malicious insertion of new commands into the input to a command that is sent to an operating system (OS) or to a server."
+        },
+        {
+          "@Name": "Source Code Injection",
+          "#text": "Malicious insertion of new code (incl. with <> elements) into input used as part of an executing application code."
+        },
+        {
+          "@Name": "Parameter Injection",
+          "#text": "Malicious insertion of data (e.g., with & parameter separator) into input used as parameter/argument in other parts of code."
+        },
+        {
+          "@Name": "File Injection",
+          "#text": "Malicious insertion of data (e.g., with .. and / or with file entries) into input used to access/modify files or as file content."
+        },
+        {
+          "@Name": "Codebase",
+          "#text": "The operation is in the programmer's code - in the application itself."
+        },
+        {
+          "@Name": "Third Party",
+          "#text": "The operation is in a third-party library."
+        },
+        {
+          "@Name": "Standard Library",
+          "#text": "The operation is in the standard library for a particular programming language."
+        },
+        {
+          "@Name": "Compiler/Interpreter",
+          "#text": "The operation is in the language processor that allows execution or creates executables (compiler, assembler, interpreter)."
+        },
+        {
+          "@Name": "Local",
+          "#text": "The bugged code runs in an environment with access control policy with limited (local user) permission."
+        },
+        {
+          "@Name": "Admin",
+          "#text": "The bugged code runs in an environment with access control policy with unlimited (admin user) permission."
+        },
+        {
+          "@Name": "Bare-Metal",
+          "#text": "The bugged code runs in an environment without privilege control. Usually, the program is the only software running and has total access to the hardware."
+        },
+        {
+          "@Name": "Entered",
+          "#text": "Data comes from user interface (e.g., text field)."
+        },
+        {
+          "@Name": "Stored",
+          "#text": "Data comes from permanent storage (e.g., file, database on a storage device)."
+        },
+        {
+          "@Name": "In Use",
+          "#text": "Data comes from volatile storage (e.g., RAM, cache memory)."
+        },
+        {
+          "@Name": "Transferred",
+          "#text": "Data comes via network (e.g., connecting analog device or another computer)."
+        },
+        {
+          "@Name": "Safelist",
+          "#text": "Policy based on a set of known good content."
+        },
+        {
+          "@Name": "Denylist",
+          "#text": "Policy based on a set of known bad content; helps reject outright maliciously malformed data."
+        },
+        {
+          "@Name": "Format",
+          "#text": "Policy based on syntax format (e.g., defined via regular expression)."
+        },
+        {
+          "@Name": "Length",
+          "#text": "Policy based on allowed number of characters in data. Note that this is not about the data value as size of an object."
+        },
+        {
+          "@Name": "Value",
+          "#text": "Check data for a specific value (incl. NULL or list of values)."
+        },
+        {
+          "@Name": "Quantity",
+          "#text": "Check data for a specific measurable value (e.g., size, time, rate, frequency)."
+        },
+        {
+          "@Name": "Range",
+          "#text": "Check data are within a (min, max) interval."
+        },
+        {
+          "@Name": "Type",
+          "#text": "Check data type (e.g., int, float, XSD-XML Schema Definition, or specific structure/object)."
+        },
+        {
+          "@Name": "Other Rules",
+          "#text": "Check data against other business logic."
+        },
+        {
+          "@Name": "Declare",
+          "#text": "Specify name and type of an object; name, return type, and parameters of a function; or name and type parameters of a type."
+        },
+        {
+          "@Name": "Define",
+          "#text": "Specify data of an object; implementation of a function; or member objects and functions of a type.Refe."
+        },
+        {
+          "@Name": "Refer",
+          "#text": "Use a name in local or remote scopes of source code. The Type System resolves the name and binds a data type to it."
+        },
+        {
+          "@Name": "Call",
+          "#text": "Invoke a function implementation. The Type System binds the implementation to the resolved function name. A polymorphic implementation is first resolved and then bound."
+        },
+        {
+          "@Name": "Cast",
+          "#text": "Explicitly convert the value of an object to another data type."
+        },
+        {
+          "@Name": "Coerce",
+          "#text": "Implicitly (forced by the Type System) convert the value of a passed in/out argument or the return into the corresponding parameter or return data type. (Type Coercion is known also as Type Juggling."
+        },
+        {
+          "@Name": "Calculate",
+          "#text": "Find the result of a numeric, pointer, or string operation."
+        },
+        {
+          "@Name": "Evaluate",
+          "#text": "Find the result of a boolean condition (incl. comparison)."
+        },
+        {
+          "@Name": "Wrong",
+          "#text": "An inappropriate data type is specified; or an inappropriate function/operator is used."
+        },
+        {
+          "@Name": "Missing Modifier",
+          "#text": "A required behavioral restriction is absent."
+        },
+        {
+          "@Name": "Wrong Modifier",
+          "#text": "A wrong behavioral restriction is specified."
+        },
+        {
+          "@Name": "Anonymous Scope",
+          "#text": "The declaration is in an unnamed scope."
+        },
+        {
+          "@Name": "Wrong Scope",
+          "#text": "The declaration should be in another scope."
+        },
+        {
+          "@Name": "Missing Qualifier",
+          "#text": "A namespace include is absent; or a scope is not specified in a fully qualified name."
+        },
+        {
+          "@Name": "Wrong Qualifier",
+          "#text": "A wrong namespace is included, or a wrong scope is specified in a fully qualified name."
+        },
+        {
+          "@Name": "Object",
+          "#text": "A memory region used to store data."
+        },
+        {
+          "@Name": "Data Value",
+          "#text": "A numeric, text, pointer/address, or boolean value stored in an object's memory."
+        },
+        {
+          "@Name": "Data Type",
+          "#text": "A set of allowed values and the operations allowed over them."
+        },
+        {
+          "@Name": "Function",
+          "#text": "An organized block of code that when called takes in data, processes it, and produces a result(s)."
+        },
+        {
+          "@Name": "Wrong Object Resolved Value",
+          "#text": "Object is resolved from wrong scope, so it's value might be wrong."
+        },
+        {
+          "@Name": "Wrong Object Resolved Type",
+          "#text": "Object is resolved from wrong scope,so it's data type might be wrong."
+        },
+        {
+          "@Name": "Reference vs. Object",
+          "#text": "Object's address instead of object's data value."
+        },
+        {
+          "@Name": "Wrong Argument Value",
+          "#text": "Inaccurate input data value; i.e., non-verified for harmed semantics."
+        },
+        {
+          "@Name": "Under Range",
+          "#text": "Data value is smaller than type's lower range."
+        },
+        {
+          "@Name": "Over Range",
+          "#text": "Data value is larger than type's upper range."
+        },
+        {
+          "@Name": "Flipped Sign",
+          "#text": "Sign bit is overwritten from type related calculation."
+        },
+        {
+          "@Name": "Wrong Result",
+          "#text": "Incorrect value from type conversion or computation."
+        },
+        {
+          "@Name": "Wrap Around",
+          "#text": "A moved around-the-clock value over its data type upper or lower range, as it exceeds that range. (Integer Over-/Under-flow is a wrapped-around the upper/lower range integer value; may become very small/large and change to the opposite sign."
+        },
+        {
+          "@Name": "Truncated Value",
+          "#text": "Rightmost bits of value that won’t fit type size are cut off."
+        },
+        {
+          "@Name": "Distorted Value",
+          "#text": "Incorrect value (although fits type size) due to sign flip or signed/unsigned and vice versa conversions."
+        },
+        {
+          "@Name": "Rounded Value",
+          "#text": "Real number value precision loss."
+        },
+        {
+          "@Name": "Wrong Sign Type",
+          "#text": "Unsigned instead of signed data type is specified or vise versa."
+        },
+        {
+          "@Name": "Wrong Precision Type",
+          "#text": "Higher precision data type is needed (e.g. double instead of float)."
+        },
+        {
+          "@Name": "Incomplete Type",
+          "#text": "Specific constructor, method, or overloaded function is missing."
+        },
+        {
+          "@Name": "Mismatched Argument Type",
+          "#text": "Argument's data type is different from function's parameter data type."
+        },
+        {
+          "@Name": "Wrong Generic Type",
+          "#text": "Generic object instantiated via wrong type argument."
+        },
+        {
+          "@Name": "Confused Subtype",
+          "#text": "Object invoking an overriden function is of wrong subtype data type."
+        },
+        {
+          "@Name": "Wrong Argument Type",
+          "#text": "Argument to an overloaded function is of wrong data type."
+        },
+        {
+          "@Name": "Missing Overridden Function",
+          "#text": "Function implementation in a particular subclass is absent."
+        },
+        {
+          "@Name": "Missing Overloaded Function",
+          "#text": "Implementation for particular function parameters' data types is absent."
+        },
+        {
+          "@Name": "Wrong Type",
+          "#text": "Data type range or structure is not correct."
+        },
+        {
+          "@Name": "Wrong Type Resolved",
+          "#text": "Data type is resolved from wrong scope."
+        },
+        {
+          "@Name": "Wrong Function Resolved",
+          "#text": "Function is resolved from wrong scope."
+        },
+        {
+          "@Name": "Wrong Generic Function Bound",
+          "#text": "Implementation for a wrong data type is bound due to wrong generic type arguments."
+        },
+        {
+          "@Name": "Wrong Overridden Function Bound",
+          "#text": "Implementation from wrong subtype is bound due to a wrong invoking subtype object."
+        },
+        {
+          "@Name": "Wrong Overloaded Function Bound",
+          "#text": "Wrong overloaded implementation is bound due to wrong function arguments."
+        },
+        {
+          "@Name": "Wrong Access Object",
+          "#text": "Unauthorized access to an object exposes sensitive data or allows access to member functions."
+        },
+        {
+          "@Name": "Wrong Access Type",
+          "#text": "Unauthorized access to a data type allows access to member objects and functions."
+        },
+        {
+          "@Name": "Wrong Access Function",
+          "#text": "Unauthorized access to a function."
+        },
+        {
+          "@Name": "Undefined",
+          "#text": "The Type System cannon represent the computation result (e.g. division by 0)."
+        },
+        {
+          "@Name": "Primitive",
+          "#text": "Mimics the hardware units and is not built from other data types - e.g. int (long, short, signed), float, double, string, boolean."
+        },
+        {
+          "@Name": "Structured",
+          "#text": "Builds of other data types; have members of primitive and/or structured data types - e.g. array, record, struct, union, class, interface."
+        },
+        {
+          "@Name": "Simple",
+          "#text": "A non-polymorphic entity."
+        },
+        {
+          "@Name": "Generics",
+          "#text": "An entity parameterized by type."
+        },
+        {
+          "@Name": "Overloading",
+          "#text": "Functions with the same name in the same declaration scope, but implemented with different signature."
+        },
+        {
+          "@Name": "Overriding",
+          "#text": "Functions with the same name as one in the base type, but implemented in different subtypes."
+        },
+        {
+          "@Name": "Resolve",
+          "#text": "Look up entity name and if needed determine data type (infer from value, through hierarchy, via generic type attribute)."
+        },
+        {
+          "@Name": "Bind",
+          "#text": "Connect object data type, function return type, parameter data type, or simple function implementation."
+        },
+        {
+          "@Name": "Early Bind",
+          "#text": "Resolve subtype and set generic function implementation."
+        },
+        {
+          "@Name": "Late Bind",
+          "#text": "Resolve overriden function via subtype object and set implementation."
+        },
+        {
+          "@Name": "Ad-hoc Bind",
+          "#text": "Resolve overloaded function via signature and set implementation."
+        },
+        {
+          "@Name": "Pass In",
+          "#text": "Supply \"in\" arguments' data values to a function/ operator."
+        },
+        {
+          "@Name": "Pass Out",
+          "#text": "Supply \"out\" or \"in/out\" arguments' data values or a return value to a function/ operator."
+        },
+        {
+          "@Name": "Operator",
+          "#text": "A function with a symbolic name that implements a mathematical, relational or logical operation."
+        },
+        {
+          "@Name": "Method",
+          "#text": "A member function of an OOP class."
+        },
+        {
+          "@Name": "Lambda Expression",
+          "#text": "An anonymous function, implemented within another function."
+        },
+        {
+          "@Name": "Procedure",
+          "#text": "A function with a void return type."
+        },
+        {
+          "@Name": "Namespace",
+          "#text": "An organization of entities' names, utilized to avoid names collision."
+        },
+        {
+          "@Name": "Numeric",
+          "#text": "A number stored in an object's memory."
+        },
+        {
+          "@Name": "Text",
+          "#text": "A string stored in an object's memory."
+        },
+        {
+          "@Name": "Pointer",
+          "#text": "A holder of the memory address of an object."
+        },
+        {
+          "@Name": "Boolean",
+          "#text": "A truth value (true or false; 1 or 0), stored in an object's memory."
+        },
+        {
+          "@Name": "Initialize (pointer)",
+          "#text": "The first  assign  of  an  object  address  to  a  pointer; positions  the  pointer  at  the  start  of  the  object."
+        },
+        {
+          "@Name": "Reposition",
+          "#text": "Changes the pointer to another position inside  its  object."
+        },
+        {
+          "@Name": "Reassign",
+          "#text": "Changes the  pointer  to  a  different  object."
+        },
+        {
+          "@Name": "Allocate",
+          "#text": "Reserves space in memory for an object; defines its initial boundaries and size."
+        },
+        {
+          "@Name": "Extend",
+          "#text": "Allocates additional memory for an object in the same space; redefines its boundaries and size."
+        },
+        {
+          "@Name": "Reallocate–Extend",
+          "#text": "Allocates a new larger piece of memory for an object at a new address, copies the object content there, reassigns its pointer, and deallocates the previous piece of memory."
+        },
+        {
+          "@Name": "Initialize (object)",
+          "#text": " The first write into an object, after it is allocated."
+        },
+        {
+          "@Name": "Read",
+          "#text": "Gets content from an object."
+        },
+        {
+          "@Name": "Write",
+          "#text": "Puts content into an object."
+        },
+        {
+          "@Name": "Clear",
+          "#text": "The very last write into an object, before it is deallocated."
+        },
+        {
+          "@Name": "Dereference",
+          "#text": "Overreaches Initialize, Read, Write, and Clear, focus is on object access, no matter if it’s for reading or for writing."
+        },
+        {
+          "@Name": "Deallocate",
+          "#text": "Releases the allocated memory of an object."
+        },
+        {
+          "@Name": "Reduce",
+          "#text": "Deallocates part of the object memory; redefines its boundaries and size."
+        },
+        {
+          "@Name": "Reallocate–Reduce",
+          "#text": "Allocates a new smaller space in memory for an object at a new address, copies part of the object content there, reassigns the pointer, and deallocates the previous piece of memory."
+        },
+        {
+          "@Name": "Mismatched",
+          "#text": "The deallocation function does not match the allocation function used for the same object."
+        },
+        {
+          "@Name": "NULL Pointer",
+          "#text": "Points to the zero address, a specific invalid address."
+        },
+        {
+          "@Name": "Wild Pointer",
+          "#text": "Points to an arbitrary address, because it has not been initialized or an erroneous allocation routine is used."
+        },
+        {
+          "@Name": "Dangling Pointer",
+          "#text": "Still points to the address of its successfully deallocated object."
+        },
+        {
+          "@Name": "Over Bounds Pointer",
+          "#text": "Points after/over the upper bound for its object."
+        },
+        {
+          "@Name": "Wrong Position Pointer",
+          "#text": "Points to a miscalculated position inside its object bounds."
+        },
+        {
+          "@Name": "Under Bounds Pointer",
+          "#text": "Points before/under the lower bound of its object."
+        },
+        {
+          "@Name": "Untrusted Pointer",
+          "#text": "The pointer is modified to an improperly checked address."
+        },
+        {
+          "@Name": "Hardcoded Address",
+          "#text": "The pointer points a wrong specific address."
+        },
+        {
+          "@Name": "Casted Pointer",
+          "#text": "The pointer does not match the type of the object, due to wrong type casting."
+        },
+        {
+          "@Name": "Forbidden Address",
+          "#text": "The pointer points to an OS protected or non-existing address."
+        },
+        {
+          "@Name": "Address of Single Owned Object",
+          "#text": "The only pointer of an already allocated object is used to allocate a new object."
+        },
+        {
+          "@Name": "Not Enough Memory Allocated",
+          "#text": "The allocated memory is too little for the data it should store."
+        },
+        {
+          "@Name": "Wrong Size Used",
+          "#text": "The value used as size does not match the real size of the object."
+        },
+        {
+          "@Name": "Memory Overflow",
+          "#text": "More memory requested than available."
+        },
+        {
+          "@Name": "Memory Leak",
+          "#text": "An object has no pointer pointing to it."
+        },
+        {
+          "@Name": "Double Free",
+          "#text": "Attempt to deallocate a deallocated object or via an uninitialized pointer."
+        },
+        {
+          "@Name": "Object Corruption",
+          "#text": "Object data is unintentionally altered."
+        },
+        {
+          "@Name": "Uninitialized Object",
+          "#text": "Object data is not filled in before use."
+        },
+        {
+          "@Name": "Not Cleared Object",
+          "#text": "Object data not overwritten before deallocation."
+        },
+        {
+          "@Name": "NULL Pointer Dereference",
+          "#text": "Attempt to access an object for read or write through a NULL pointer."
+        },
+        {
+          "@Name": "Untrusted Pointer Dereference",
+          "#text": "Attempt to access an object via an altered pointer (not legitimate dereference of tainted pointers)."
+        },
+        {
+          "@Name": "Type Confusion",
+          "#text": "Pointer and object have different types."
+        },
+        {
+          "@Name": "Use After Free",
+          "#text": "Attempt to use a deallocated object."
+        },
+        {
+          "@Name": "Buffer Overflow",
+          "#text": "Read or write above the object upper bound."
+        },
+        {
+          "@Name": "Buffer Underflow",
+          "#text": "Read or write below the object lower bounds."
+        },
+        {
+          "@Name": "Uninitialized Pointer Dereference",
+          "#text": "An attempt to access an object for read or write via an uninitialized pointer."
+        },
+        {
+          "@Name": "Userland",
+          "#text": "The bugged code runs in an environment with privilege levels, but in unprivileged mode (e.g., ring 3 in x86 architecture)."
+        },
+        {
+          "@Name": "Kernel",
+          "#text": "The bugged code runs in an environment with privilege levels with access privileged instructions (e.g., ring 0 in x86 architecture)."
+        },
+        {
+          "@Name": "Stack",
+          "#text": "The object is a non-static local variable (defined in a function, a passed parameters, or a function return address)."
+        },
+        {
+          "@Name": "Heap",
+          "#text": "The object is a dynamically allocated data structure (e.g., via malloc() and new)."
+        },
+        {
+          "@Name": "Direct",
+          "#text": "The operation is performed over a particular object element."
+        },
+        {
+          "@Name": "Sequential",
+          "#text": "The operation is performed after iterating over the object elements."
+        },
+        {
+          "@Name": "Implicit",
+          "#text": "The operation is performed without a function call."
+        },
+        {
+          "@Name": "Explicit",
+          "#text": "The operation is performed by a function/ method) call."
+        },
+        {
+          "@Name": "None",
+          "#text": "The object has no owner."
+        },
+        {
+          "@Name": "Single",
+          "#text": "The object has one owner."
+        },
+        {
+          "@Name": "Shared",
+          "#text": "The object has more than one owner."
+        },
+        {
+          "@Name": "Little",
+          "#text": "A few bytes of memory are accessed."
+        },
+        {
+          "@Name": "Moderate",
+          "#text": "Several bytes of memory are accessed, but less than 1 KB."
+        },
+        {
+          "@Name": "Huge",
+          "#text": "More than 1 KB of memory is accessed."
+        },
+        {
+          "@Name": "Bug",
+          "#text": "\n\t\t\tA coding error that needs to be fixed.\n\t\t\tBF: Caused by an improper operation or rule (e.g. policy, scope, modifier) - the underlying start error of a vulnerability.\n\t\t"
+        },
+        {
+          "@Name": "Weakness",
+          "#text": "\n\t\t\tCaused by a bug or ill-formed data. A weakness type is also a meaningful notion, as different vulnerabilities may have the same type of underlying weaknesses.\n\t\t\tBF: Caused by an improper operand that is result from the operation of a previous bug/weakness: improper object (address, size), data (type, value), function (signature, implementation), or rule as object (e.g. policy data) - underlying intermediate error of a vulnerability.\n\t\t"
+        },
+        {
+          "@Name": "Vulnerability",
+          "#text": "\n\t\t\tAn instance of a weakness type that leads to a security failure. It may have more than one underlying weaknesses linked by causality.\n\t\t\tBF: A bug[-weakness(es)]-failure(s) chain formed by consequence-cause transitions.\n\t\t"
+        },
+        {
+          "@Name": "Final Error",
+          "#text": "\n\t\t\tUndefined or exploitable system behavior.\n\t\t\tBF: A consequence of the last element of a bug[-weakness(es)] vulnerability chain.\n\t\t"
+        },
+        {
+          "@Name": "Failure",
+          "#text": "\n\t\t\tA violation of a system security requirement.\n\t\t\tBF: Caused by a final error consequence. Several vulnerability chains might converge at this final error conseqeunce to cause the failure.\n\t\t"
+        },
+        {
+          "@Name": "BF Class",
+          "#text": "It is a taxonomy category of weakness defined by a set of attributes one cause and one consequence."
+        },
+        {
+          "@Name": "Cause",
+          "#text": "What make the weakness happen."
+        },
+        {
+          "@Name": "Consequence",
+          "#text": "The effect of the weakness on the software "
+        }
+      ]
+    }
+  }
+}

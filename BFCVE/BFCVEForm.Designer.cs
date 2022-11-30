@@ -60,7 +60,7 @@ namespace BFCVE
             this.operationAttributes = new Utilities.TreeViewFix();
             this.operationGroupBox = new System.Windows.Forms.GroupBox();
             this.conseqeunceGroupBox = new System.Windows.Forms.GroupBox();
-            this.BWFGroupBox = new System.Windows.Forms.GroupBox();
+            this.WeaknessFailureGroupBox = new System.Windows.Forms.GroupBox();
             this.operandAttributsGgroupBox = new System.Windows.Forms.GroupBox();
             this.operandAttributes = new Utilities.TreeViewFix();
             this.operandAttributeComment = new System.Windows.Forms.TextBox();
@@ -84,7 +84,7 @@ namespace BFCVE
             this.causeGroupBox.SuspendLayout();
             this.operationGroupBox.SuspendLayout();
             this.conseqeunceGroupBox.SuspendLayout();
-            this.BWFGroupBox.SuspendLayout();
+            this.WeaknessFailureGroupBox.SuspendLayout();
             this.operandAttributsGgroupBox.SuspendLayout();
             this.operationAttributesGroupBox.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -413,30 +413,30 @@ namespace BFCVE
             this.conseqeunceGroupBox.TabStop = false;
             this.conseqeunceGroupBox.Text = "Consequence:";
             // 
-            // BWFGroupBox
+            // WeaknessFailureGroupBox
             // 
-            this.BWFGroupBox.Controls.Add(this.operandAttributsGgroupBox);
-            this.BWFGroupBox.Controls.Add(this.buttonRollback);
-            this.BWFGroupBox.Controls.Add(this.operationAttributeComment);
-            this.BWFGroupBox.Controls.Add(this.conseqeunceGroupBox);
-            this.BWFGroupBox.Controls.Add(this.peerConseqeunce);
-            this.BWFGroupBox.Controls.Add(this.peerConseqeunceLabel);
-            this.BWFGroupBox.Controls.Add(this.peerCause);
-            this.BWFGroupBox.Controls.Add(this.operationAttributes);
-            this.BWFGroupBox.Controls.Add(this.peerCauseLabel);
-            this.BWFGroupBox.Controls.Add(this.causeGroupBox);
-            this.BWFGroupBox.Controls.Add(this.operationGroupBox);
-            this.BWFGroupBox.Controls.Add(this.classes);
-            this.BWFGroupBox.Controls.Add(this.classLabel);
-            this.BWFGroupBox.Controls.Add(this.operationAttributesGroupBox);
-            this.BWFGroupBox.Location = new System.Drawing.Point(142, 56);
-            this.BWFGroupBox.Margin = new System.Windows.Forms.Padding(2);
-            this.BWFGroupBox.Name = "BWFGroupBox";
-            this.BWFGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.BWFGroupBox.Size = new System.Drawing.Size(900, 677);
-            this.BWFGroupBox.TabIndex = 100;
-            this.BWFGroupBox.TabStop = false;
-            this.BWFGroupBox.Text = "Bug/Weakness/Failure";
+            this.WeaknessFailureGroupBox.Controls.Add(this.operandAttributsGgroupBox);
+            this.WeaknessFailureGroupBox.Controls.Add(this.buttonRollback);
+            this.WeaknessFailureGroupBox.Controls.Add(this.operationAttributeComment);
+            this.WeaknessFailureGroupBox.Controls.Add(this.conseqeunceGroupBox);
+            this.WeaknessFailureGroupBox.Controls.Add(this.peerConseqeunce);
+            this.WeaknessFailureGroupBox.Controls.Add(this.peerConseqeunceLabel);
+            this.WeaknessFailureGroupBox.Controls.Add(this.peerCause);
+            this.WeaknessFailureGroupBox.Controls.Add(this.operationAttributes);
+            this.WeaknessFailureGroupBox.Controls.Add(this.peerCauseLabel);
+            this.WeaknessFailureGroupBox.Controls.Add(this.causeGroupBox);
+            this.WeaknessFailureGroupBox.Controls.Add(this.operationGroupBox);
+            this.WeaknessFailureGroupBox.Controls.Add(this.classes);
+            this.WeaknessFailureGroupBox.Controls.Add(this.classLabel);
+            this.WeaknessFailureGroupBox.Controls.Add(this.operationAttributesGroupBox);
+            this.WeaknessFailureGroupBox.Location = new System.Drawing.Point(142, 56);
+            this.WeaknessFailureGroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.WeaknessFailureGroupBox.Name = "WeaknessFailureGroupBox";
+            this.WeaknessFailureGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.WeaknessFailureGroupBox.Size = new System.Drawing.Size(900, 677);
+            this.WeaknessFailureGroupBox.TabIndex = 100;
+            this.WeaknessFailureGroupBox.TabStop = false;
+            this.WeaknessFailureGroupBox.Text = "Weakness/Failure";
             // 
             // operandAttributsGgroupBox
             // 
@@ -629,7 +629,7 @@ namespace BFCVE
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.prevButton);
-            this.Controls.Add(this.BWFGroupBox);
+            this.Controls.Add(this.WeaknessFailureGroupBox);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BFCVEForm";
@@ -643,8 +643,8 @@ namespace BFCVE
             this.operationGroupBox.PerformLayout();
             this.conseqeunceGroupBox.ResumeLayout(false);
             this.conseqeunceGroupBox.PerformLayout();
-            this.BWFGroupBox.ResumeLayout(false);
-            this.BWFGroupBox.PerformLayout();
+            this.WeaknessFailureGroupBox.ResumeLayout(false);
+            this.WeaknessFailureGroupBox.PerformLayout();
             this.operandAttributsGgroupBox.ResumeLayout(false);
             this.operandAttributsGgroupBox.PerformLayout();
             this.operationAttributesGroupBox.ResumeLayout(false);
@@ -661,7 +661,7 @@ namespace BFCVE
             private Label cveLabel;
             private TreeView cve;
 
-            private GroupBox BWFGroupBox;
+            private GroupBox WeaknessFailureGroupBox;
 
             private Label classLabel;
             private TreeView classes;

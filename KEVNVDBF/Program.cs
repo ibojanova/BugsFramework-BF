@@ -1,4 +1,5 @@
-﻿using System.IO.Compression;
+﻿using Newtonsoft.Json;
+using System.IO.Compression;
 using System.Runtime.Serialization.Json;
 using System.Xml;
 using System.Xml.Linq;
@@ -19,14 +20,25 @@ namespace KEVNVDBF
         static XmlReader JsonStreamToXml(Stream stream) =>
             JsonReaderWriterFactory.CreateJsonReader(stream, new XmlDictionaryReaderQuotas());
 
+        static XmlWriter XmlToJsonStream(Stream stream) =>
+            JsonReaderWriterFactory.CreateJsonWriter(stream);
+
         static async Task Main(string[] _)
         {
+
+
             var solutionDir = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName;
             var dir = Path.Combine(solutionDir, @"_DB\KEVNVDBF");
             var excel = Path.Combine(dir, "KEV-NVD-BF-excel.xml");
             var allFile = Path.Combine(dir, $@"all.xml");
             var all = new XElement("ALL");
             var xslt = new XslCompiledTransform();
+
+            var bfJsonFile = Path.Combine(dir, $@"BF.json");
+            var xml = XDocument.Parse(BF.Properties.Resources.BF);
+            File.WriteAllText(bfJsonFile, JsonConvert.SerializeXNode(xml, Newtonsoft.Json.Formatting.Indented));
+            return;
+
 
             var download = true; //true -- to update from URIs
             if (!download)

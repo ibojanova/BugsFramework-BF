@@ -5,8 +5,8 @@
 
 namespace BF
 {
-    public record NameBWF(string Name, BWF BWFType); 
+    public record ErrorName(string Name, Cause CauseType); 
 
-    public enum BWF { Bug, Weakness, Failure };
+    public enum Cause { Bug, ImproperOperand, FinalError };
 
 }

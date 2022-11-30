@@ -25,10 +25,10 @@ namespace BF
                 t => t.XPathSelectElements("Class").Select(
                     n => n.Attribute("Name")!.Value));
 
-        public Dictionary<string, IEnumerable<string>> GetClasses(BWF causeType) =>
+        public Dictionary<string, IEnumerable<string>> GetClasses(Cause causeType) =>
             GetClasses(causeType switch {
-                BWF.Failure => "Failure",
-                _ => "Bug/Weakness"
+                Cause.FinalError => "Failure",
+                _ => "Weakness"
             });
 
         XElement? GetClass(string bfClass) => bfClasses.XPathSelectElement($"//Class[@Name='{bfClass}']");
@@ -36,16 +36,16 @@ namespace BF
         public IEnumerable<string> GetOperations(string bfClass) => 
             GetClass(bfClass)!.XPathSelectElements("Operations/Operation").Select(n => n.Attribute("Name")!.Value);
         
-        public Dictionary<NameBWF, IEnumerable<string>> GetCauses(string bfClass) =>
+        public Dictionary<ErrorName, IEnumerable<string>> GetCauses(string bfClass) =>
             GetClass(bfClass)!.XPathSelectElements("Causes/*").ToDictionary(
-                n => new NameBWF(n.Attribute("Name")!.Value, n.Name.LocalName switch {
-                "BugCauseType" => BWF.Bug, "WeaknessCauseType" => BWF.Weakness, _ => BWF.Failure}),
+                n => new ErrorName(n.Attribute("Name")!.Value, n.Name.LocalName switch {
+                    "Bug" => Cause.Bug, "ImproperOperand" => Cause.ImproperOperand, _ => Cause.FinalError}),
                 n => n.XPathSelectElements("Cause").Select(v => v.Attribute("Name")!.Value));
 
-        public Dictionary<NameBWF, IEnumerable<string>> GetConsequences(string bfClass) =>
+        public Dictionary<ErrorName, IEnumerable<string>> GetConsequences(string bfClass) =>
             GetClass(bfClass)!.XPathSelectElements("Consequences/*").ToDictionary(
-                n => new NameBWF(n.Attribute("Name")!.Value, n.Name.LocalName switch {
-                    "WeaknessConsequenceType" => BWF.Weakness, "FinalErrorConsequenceType" => BWF.Failure, _ => BWF.Failure}),
+                n => new ErrorName(n.Attribute("Name")!.Value, n.Name.LocalName switch {
+                    "ImproperOperand" => Cause.ImproperOperand, "FinalError" => Cause.FinalError, _ => Cause.FinalError}),
                 n => n.XPathSelectElements("Consequence").Select(v => v.Attribute("Name")!.Value));
 
         public Dictionary<string, IEnumerable<string>> GetOperationAttributes(string bfClass) =>

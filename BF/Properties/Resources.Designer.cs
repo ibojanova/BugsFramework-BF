@@ -68,11 +68,17 @@ namespace BF.Properties {
         ///(the address specifically is the data of a pointer) - the data contained by this object and the other objects 
         ///has value and type - we use this level to connect the classes--&gt;
         ///
-        ///&lt;BF Name=&quot;Bugs Framework&quot;&gt;
-        ///	&lt;Cluster Name=&quot;_INP&quot; Type=&quot;Bug/Weakness&quot;&gt;
-        ///		&lt;Class Name=&quot;DVL&quot; Title=&quot;Data Validation Bugs&quot;&gt;
-        ///			&lt;Operations&gt;
-        ///				&lt;Opera [rest of string was truncated]&quot;;.
+        ///&lt;!--CHANGE
+        ///
+        ///Type???
+        ///
+        ///Object related:
+        ///- Improper Size
+        ///- Improper Address
+        ///- Improper Type 
+        ///	- Improper Range
+        ///	- Improper Operation
+        ///- Improper  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string BF {
             get {

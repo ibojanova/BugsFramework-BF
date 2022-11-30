@@ -13,7 +13,7 @@ namespace BFCVE
     {
         const string Title = "Bugs Framework (BF)          ";
         string TitleFile {
-            get => Text.Substring(Title.Length);
+            get => Text[Title.Length..];
             set => Text = string.Concat(Title,value);
         }
 
@@ -41,7 +41,7 @@ namespace BFCVE
             consequences.KeepSelectionColor();
 
             Editing = Edited = false;
-            NewCVENode(BWF.Bug);
+            NewCVENode(BF.Cause.Bug);
         }
 
         #region Properties
@@ -52,19 +52,20 @@ namespace BFCVE
             {
                 //xxx change name to be selected from list
                 Name = Path.GetFileNameWithoutExtension(TitleFile),
-                Bug = CVENodes.Take(1)?.SingleOrDefault(w => w.TypeBWF == BWF.Bug)?.Weakness ?? throw new Exception("Missing Bug"),
-                Weaknesses = CVENodes.Where(w => w.TypeBWF == BWF.Weakness).Select(w => w.Weakness).ToArray(),
-                Failure = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.TypeBWF == BWF.Failure)?.Weakness ?? throw new Exception("Missing Failure"),
+                BugWeakness = CVENodes.Take(1)?.SingleOrDefault(w => w.CauseType == BF.Cause.Bug)?.Weakness ?? throw new Exception("Missing First Weakness (the Bug Weakness"),
+                Weaknesses = CVENodes.Where(w => w.CauseType == BF.Cause.ImproperOperand).Select(w => w.Weakness).ToArray(),
+                //xxx should I add the End Weakness (the one which consequence is a Final Error)?
+                Failure = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.CauseType == BF.Cause.FinalError)?.Weakness ?? throw new Exception("Missing Failure"),
             };
             set
             {
                 cve.Nodes.Clear();
                 if (value != null)
                 {
-                    cve.Nodes.Add(new TreeNodeWeakness(value.Bug, BWF.Bug));
+                    cve.Nodes.Add(new TreeNodeWeakness(value.BugWeakness, BF.Cause.Bug));
                     if (value.Weaknesses != null)
-                        cve.Nodes.AddRange(value.Weaknesses.Select(w => new TreeNodeWeakness(w, BWF.Weakness)).ToArray());
-                    cve.Nodes.Add(new TreeNodeWeakness(value.Failure, BWF.Failure));
+                        cve.Nodes.AddRange(value.Weaknesses.Select(w => new TreeNodeWeakness(w, BF.Cause.ImproperOperand)).ToArray());
+                    cve.Nodes.Add(new TreeNodeWeakness(value.Failure, BF.Cause.FinalError));
                 }
                 SelectedCVENode = CVENodes.FirstOrDefault();
             }
@@ -81,14 +82,17 @@ namespace BFCVE
             }
         }
 
-        public BWF _CurrentType = BWF.Failure;
-        public BWF CurrentType
+        public BF.Cause _CurrentCause = BF.Cause.FinalError;
+        public BF.Cause CurrentCause
         {
-            get => _CurrentType;
+            get => _CurrentCause;
             set
             {
-                _CurrentType = value;
-                BWFGroupBox.Text = value.ToString() + ":";
+                _CurrentCause = value;
+                WeaknessFailureGroupBox.Text = value switch {
+                    BF.Cause.FinalError => "Failure",
+                    _ => "Weakness"
+                } + " (caused by " + value.ToString() + "):";
 
                 classes.SetNodes(Parser.GetClasses(value).Select(i =>
                     new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(j =>
@@ -96,11 +100,11 @@ namespace BFCVE
             }
         }
 
-        private void NewCVENode(BWF typeBWF)
+        private void NewCVENode(BF.Cause causeType)
         {
             if (!TryCommit()) return;
 
-            CurrentType = typeBWF;
+            CurrentCause = causeType;
             SelectedCVENode = null;
         }
 
@@ -111,7 +115,7 @@ namespace BFCVE
                 Type = classNode.Parent.Name,
                 Class = classNode.Name,
                 Cause = causes.SelectedNode is TreeNodeComment causeNode && !causeNode.HasChildren() ?
-                    new Cause() { Type = causeNode.Parent.Name, Value = causeNode.Name, Comment = causeNode.Comment }
+                    new BFCVEDB.Cause() { Type = causeNode.Parent.Name, Value = causeNode.Name, Comment = causeNode.Comment }
                     : throw new Exception("Invalid Cause"),
                 Operation = operations.SelectedNode is TreeNodeComment operationNode && !operationNode.HasChildren() ?
                     new Operation() { Value = operationNode.Name, Comment = operationNode.Comment }
@@ -175,7 +179,7 @@ namespace BFCVE
             }
         }
 
-        Cause? PeerCause => (SelectedCVENode?.NextNode as TreeNodeWeakness)?.Weakness.Cause;
+        BFCVEDB.Cause? PeerCause => (SelectedCVENode?.NextNode as TreeNodeWeakness)?.Weakness.Cause;
         Consequence? PeerConsequence => ((SelectedCVENode is TreeNodeWeakness current ? current.PrevNode : CVENodes.LastOrDefault()) as TreeNodeWeakness)?.Weakness.Consequence;
 
         #endregion Properties
@@ -208,7 +212,7 @@ namespace BFCVE
             if (SelectedCVENode is TreeNodeWeakness selection)
                 selection.SetWeakness(weakness);
             else 
-                cve.Nodes.Add(new TreeNodeWeakness(weakness, CurrentType));
+                cve.Nodes.Add(new TreeNodeWeakness(weakness, CurrentCause));
 
             Editing = false;
             Edited = true;
@@ -224,7 +228,7 @@ namespace BFCVE
             catch(Exception error) 
             {
                 Editing = false;
-                if (MessageBox.Show($"{error.Message}.{Environment.NewLine}Cancel the entries for this Bug/Weakness/Failure?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"{error.Message}.{Environment.NewLine}Cancel the entries for this Weakness/Failure?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     CurrentWeakness = SelectedCVENode?.Weakness; // Rollback!
                     return true;
@@ -248,7 +252,7 @@ namespace BFCVE
 
             Editing = Edited = false;
             CVE = null;
-            NewCVENode(BWF.Bug);
+            NewCVENode(BF.Cause.Bug);
         }
 
         private void OnFileOpen(object sender, EventArgs e)
@@ -305,14 +309,14 @@ namespace BFCVE
         private void CVE_AfterSelect(object sender, TreeViewEventArgs e)
         {
             var node = SelectedCVENode;
-            if (node is not null) CurrentType = node!.TypeBWF;
+            if (node is not null) CurrentCause = node!.CauseType;
             CurrentWeakness = node?.Weakness;
 
             peerConseqeunce.Text = PeerConsequence?.Value;
             peerCause.Text = PeerCause?.Value;
 
-            prevButton.Enabled = CurrentType != BWF.Bug;
-            nextButton.Enabled = CurrentType != BWF.Failure;
+            prevButton.Enabled = CurrentCause != BF.Cause.Bug;
+            nextButton.Enabled = CurrentCause != BF.Cause.FinalError;
             endButton.Enabled = cve.Nodes.Count > 0 || Editing;  
         }
 
@@ -329,11 +333,11 @@ namespace BFCVE
 
             var peerCauseType = PeerCause?.Type;
             var peerConsequenceType = PeerConsequence?.Type;
-            var typeBWF = CurrentType;
+            var causeType = CurrentCause;
 
             causes.SetNodes(Parser.GetCauses(selectedClass.Name).Select(i =>
             {
-                var mismatch = (i.Key.BWFType != typeBWF) || (peerConsequenceType?.Equals(i.Key.Name) == false);
+                var mismatch = (i.Key.CauseType != causeType) || (peerConsequenceType?.Equals(i.Key.Name) == false);
                 return new TreeNodeComment(i.Key.Name, Parser.GetDefinition(i.Key.Name), disable: mismatch, children: i.Value.Select(j =>
                     new TreeNodeComment(j, Parser.GetDefinition(j), mismatch))) ;
             }));
@@ -420,17 +424,17 @@ namespace BFCVE
             if (SelectedCVENode?.NextNode is TreeNode nextNode)
                 cve.SelectedNode = nextNode;
             else
-                NewCVENode(CVENodes.Any() ? BWF.Weakness : BWF.Bug);
+                NewCVENode(CVENodes.Any() ? BF.Cause.ImproperOperand : BF.Cause.Bug);
         }
 
         private void EndButton_Click(object sender, EventArgs e)
         {
             if (!TryCommit() || (cve.Nodes.Count == 0)) return;
 
-            if (CVENodes.LastOrDefault() is TreeNodeWeakness node && node.TypeBWF == BWF.Failure)
+            if (CVENodes.LastOrDefault() is TreeNodeWeakness node && node.CauseType == BF.Cause.FinalError)
                 cve.SelectedNode = node;
             else
-                NewCVENode(BWF.Failure);
+                NewCVENode(BF.Cause.FinalError);
         }
 
     }
