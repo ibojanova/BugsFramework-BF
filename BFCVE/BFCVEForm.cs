@@ -54,7 +54,6 @@ namespace BFCVE
                 Name = Path.GetFileNameWithoutExtension(TitleFile),
                 BugWeakness = CVENodes.Take(1)?.SingleOrDefault(w => w.CauseType == BF.Cause.Bug)?.Weakness ?? throw new Exception("Missing First Weakness (the Bug Weakness"),
                 Weaknesses = CVENodes.Where(w => w.CauseType == BF.Cause.ImproperOperand).Select(w => w.Weakness).ToArray(),
-                //xxx should I add the End Weakness (the one which consequence is a Final Error)?
                 Failure = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.CauseType == BF.Cause.FinalError)?.Weakness ?? throw new Exception("Missing Failure"),
             };
             set
@@ -90,9 +89,10 @@ namespace BFCVE
             {
                 _CurrentCause = value;
                 WeaknessFailureGroupBox.Text = value switch {
+                    BF.Cause.Bug => "Bug-Weakness",
+                    //BF.Cause.ImproperOperand => "Weakness",
                     BF.Cause.FinalError => "Failure",
-                    _ => "Weakness"
-                } + " (caused by " + value.ToString() + "):";
+                    _ => "Weakness"};
 
                 classes.SetNodes(Parser.GetClasses(value).Select(i =>
                     new TreeNodeComment(i.Key, Parser.GetDefinition(i.Key), i.Value.Select(j =>
