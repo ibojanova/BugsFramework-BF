@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO.Compression;
 using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -18,15 +19,14 @@ namespace KEVNVDBF
             nvdUri = $@"https://nvd.nist.gov/feeds/json/cve/1.1";
 
         static XmlReader JsonStreamToXml(Stream stream) =>
-            JsonReaderWriterFactory.CreateJsonReader(stream, new XmlDictionaryReaderQuotas());
+            //JsonReaderWriterFactory.CreateJsonReader(stream, new XmlDictionaryReaderQuotas());
+            JsonReaderWriterFactory.CreateJsonReader(stream, Encoding.UTF8, new XmlDictionaryReaderQuotas(), null);
 
         static XmlWriter XmlToJsonStream(Stream stream) =>
             JsonReaderWriterFactory.CreateJsonWriter(stream);
 
         static async Task Main(string[] _)
         {
-
-
             var solutionDir = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName;
             var dir = Path.Combine(solutionDir, @"_DB\KEVNVDBF");
             var excel = Path.Combine(dir, "KEV-NVD-BF-excel.xml");
@@ -34,10 +34,10 @@ namespace KEVNVDBF
             var all = new XElement("ALL");
             var xslt = new XslCompiledTransform();
 
-            var bfJsonFile = Path.Combine(dir, $@"BF.json");
-            var xml = XDocument.Parse(BF.Properties.Resources.BF);
-            File.WriteAllText(bfJsonFile, JsonConvert.SerializeXNode(xml, Newtonsoft.Json.Formatting.Indented));
-            return;
+            //var bfJsonFile = Path.Combine(dir, $@"BF.json");
+            //var xml = XDocument.Parse(BF.Properties.Resources.BF);
+            //File.WriteAllText(bfJsonFile, JsonConvert.SerializeXNode(xml, Newtonsoft.Json.Formatting.Indented));
+            //return;
 
 
             var download = true; //true -- to update from URIs
@@ -59,17 +59,27 @@ namespace KEVNVDBF
                         allWriter.WriteEndElement();
                     }
 
-                    for (int i = DateTime.Today.Year; i >= 2002; i--)
-                    {
-                        var nvdFile = $"nvdcve-1.1-{i}.json";
-                        Console.WriteLine(nvdFile);
-                        var nvdUrl = $@"{nvdUri}/{nvdFile}.zip";
-                        using var stream = await client.GetStreamAsync(nvdUrl);
-                        using var zip = new ZipArchive(stream);
-                        using var json = zip.GetEntry(nvdFile)!.Open();
-                        using var reader = JsonStreamToXml(json);
+                    //for (int i = DateTime.Today.Year; i >= 2002; i--)
+                    //{
+                    //    var nvdFile = $"nvdcve-1.1-{i}.json";
+                    //    Console.WriteLine(nvdFile);
+                    //    var nvdUrl = $@"{nvdUri}/{nvdFile}.zip";
+                    //    using var stream = await client.GetStreamAsync(nvdUrl);
+                    //    using var zip = new ZipArchive(stream);
+                    //    using var json = zip.GetEntry(nvdFile)!.Open();
+                    //    using var reader = JsonStreamToXml(json);
+                    //    xslt.Transform(reader, allWriter);
+                    //}
+
+                    var ddd = new XDocument();
+                    using (var stream = await client.GetStreamAsync(@"https://services.nvd.nist.gov/rest/json/cves/2.0"))
+                    using (var reader = JsonStreamToXml(stream))
+                        ddd = XDocument.Load(reader);
+                    //allWriter.WriteNode(reader, false);
+                    using (var reader = ddd.CreateReader())
                         xslt.Transform(reader, allWriter);
-                    }
+
+                    //return;
 
                     Console.WriteLine(nameof(BF.Properties.Resources.BFCWE));
                     using (var reader = FromString(BF.Properties.Resources.BFCWE))
@@ -78,6 +88,8 @@ namespace KEVNVDBF
                 Console.WriteLine(allFile);
                 all.Save(allFile);
             }
+            //return;
+
 
             using (var reader = FromString(Properties.Resources.KEV_NVD_BF_excel))
                 xslt.Load(reader, XsltSettings.TrustedXslt, new XmlUrlResolver());
@@ -85,6 +97,8 @@ namespace KEVNVDBF
             using (var xmlReader = all.CreateReader())
             using (var excelFile = File.Create(excel))
                 xslt.Transform(xmlReader, null, excelFile);
+
+            return;
 
             //====================================
             //BFCWECVE - redo
