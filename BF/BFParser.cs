@@ -25,41 +25,37 @@ namespace BF
                 t => t.XPathSelectElements("Class").Select(
                     n => n.Attribute("Name")!.Value));
 
-        public Dictionary<string, IEnumerable<string>> GetClasses(Cause causeType) =>
-            GetClasses(causeType switch {
-                Cause.FinalError => "Failure",
-                _ => "Weakness"
-            });
+        public Dictionary<string, IEnumerable<string>> GetClasses(Error errorType) =>
+            GetClasses(errorType switch {Error.FinalError => "Failure", _ => "Weakness"});
 
         XElement? GetClass(string bfClass) => bfClasses.XPathSelectElement($"//Class[@Name='{bfClass}']");
 
         public IEnumerable<string> GetOperations(string bfClass) => 
             GetClass(bfClass)!.XPathSelectElements("Operations/Operation").Select(n => n.Attribute("Name")!.Value);
-        
+
+        public Dictionary<string, IEnumerable<string>> GetOperationAttributes(string bfClass) =>
+            GetClass(bfClass)!.XPathSelectElements("Operations/Attribute").ToDictionary(
+                t => t.Attribute("Name")!.Value,
+                t => t.XPathSelectElements("Value").Select(v => v.Attribute("Name")!.Value));
+
+        public Dictionary<string, Dictionary<string, IEnumerable<string>>> GetOperandAttributes(string bfClass) =>
+            GetClass(bfClass)!.XPathSelectElements("Operands/Operand[Attribute]").ToDictionary(
+                t => t.Attribute("Name")!.Value,
+                t => t.XPathSelectElements("Attribute").ToDictionary(
+                    n => n.Attribute("Name")!.Value,
+                    n => n.XPathSelectElements("Value").Select(v => v.Attribute("Name")!.Value)));
+
         public Dictionary<ErrorName, IEnumerable<string>> GetCauses(string bfClass) =>
             GetClass(bfClass)!.XPathSelectElements("Causes/*").ToDictionary(
                 n => new ErrorName(n.Attribute("Name")!.Value, n.Name.LocalName switch {
-                    "Bug" => Cause.Bug, "ImproperOperand" => Cause.ImproperOperand, _ => Cause.FinalError}),
-                n => n.XPathSelectElements("Cause").Select(v => v.Attribute("Name")!.Value));
+                    "Bug" => Error.Bug, "ImproperOperand" => Error.ImproperOperand, _ => Error.FinalError}),
+                n => n.XPathSelectElements("Value").Select(v => v.Attribute("Name")!.Value));
 
         public Dictionary<ErrorName, IEnumerable<string>> GetConsequences(string bfClass) =>
             GetClass(bfClass)!.XPathSelectElements("Consequences/*").ToDictionary(
                 n => new ErrorName(n.Attribute("Name")!.Value, n.Name.LocalName switch {
-                    "ImproperOperand" => Cause.ImproperOperand, "FinalError" => Cause.FinalError, _ => Cause.FinalError}),
-                n => n.XPathSelectElements("Consequence").Select(v => v.Attribute("Name")!.Value));
-
-        public Dictionary<string, IEnumerable<string>> GetOperationAttributes(string bfClass) =>
-            GetClass(bfClass)!.XPathSelectElements("Operations/AttributeType").ToDictionary(
-                t => t.Attribute("Name")!.Value,
-                t => t.XPathSelectElements("Attribute").Select(v => v.Attribute("Name")!.Value));
-
-        public Dictionary<string, Dictionary<string, IEnumerable<string>>> GetOperandAttributes(string bfClass) =>
-            GetClass(bfClass)!.XPathSelectElements("Operands/Operand[AttributeType/Attribute]").ToDictionary(
-                t => t.Attribute("Name")!.Value,
-                t => t.XPathSelectElements("AttributeType").ToDictionary(
-                    n => n.Attribute("Name")!.Value,
-                    n => n.XPathSelectElements("Attribute").Select(v => v.Attribute("Name")!.Value)));
-
+                    "ImproperOperand" => Error.ImproperOperand, _ => Error.FinalError}),
+                n => n.XPathSelectElements("Value").Select(v => v.Attribute("Name")!.Value));
         public string? GetDefinition(string name) => definitions.TryGetValue(name, out var val) ? val : null;
     }
 }

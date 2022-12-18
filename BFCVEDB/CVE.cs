@@ -13,9 +13,9 @@ namespace BFCVEDB
         [XmlAttribute] public string Name { get; set; } = string.Empty;
         [XmlElement] public Weakness BugWeakness { get; set; } = new();
         [XmlElement ("Weakness")] public Weakness[]? Weaknesses { get; set; }
-        [XmlElement] public Weakness Failure { get; set; } = new();
+        [XmlElement] public Weakness WeaknessFailure { get; set; } = new();
 
         public override string ToString() => 
-            @$"{GenTool}{Environment.NewLine}{Name}:{BugWeakness}{Environment.NewLine}{string.Concat(Weaknesses?.Select(w => Environment.NewLine + w.ToString()) ?? Enumerable.Empty<string>())}{Environment.NewLine}{Failure}";
+            @$"{GenTool}{Environment.NewLine}{Name}:{BugWeakness}{Environment.NewLine}{string.Concat(Weaknesses?.Select(w => Environment.NewLine + w.ToString()) ?? Enumerable.Empty<string>())}{Environment.NewLine}{WeaknessFailure}";
     }
 }

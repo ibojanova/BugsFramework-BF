@@ -15,8 +15,18 @@ namespace KEVNVDBF
         static readonly HttpClient client = new();
 
         const string
-            kevUri = $@"https://www.cisa.gov/sites/default/files/feeds",
-            nvdUri = $@"https://nvd.nist.gov/feeds/json/cve/1.1";
+            kevUrl = $@"https://www.cisa.gov/sites/default/files/feeds",
+            kevJson = @"known_exploited_vulnerabilities.json",
+            nvdApiKey = @"d6f447c5-8c29-4ae9-ad44-6157317efa6a",
+            nvdUserName = @"irena.bojanova@nist.gov",
+            nvdUri = @"https://services.nvd.nist.gov/rest/json";
+
+        static string 
+            nvdCvesUrl = Path.Combine(nvdUri, $@"cves/2.0"),
+            nvdHistoryUrl = Path.Combine(nvdUri, $@"cvehistory/2.0"),
+            nvdCpesUrl = Path.Combine(nvdUri, $@"cpes/2.0"),
+            nvdMatchUrl = Path.Combine(nvdUri, $@"cpematch/2.0"),
+            nvdSourceUrl = Path.Combine(nvdUri, $@"source/2.0");
 
         static XmlReader JsonStreamToXml(Stream stream) =>
             //JsonReaderWriterFactory.CreateJsonReader(stream, new XmlDictionaryReaderQuotas());
@@ -29,9 +39,9 @@ namespace KEVNVDBF
         {
             var solutionDir = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName;
             var dir = Path.Combine(solutionDir, @"_DB\KEVNVDBF");
-            var excel = Path.Combine(dir, "KEV-NVD-BF-excel.xml");
-            var allFile = Path.Combine(dir, $@"all.xml");
-            var all = new XElement("ALL");
+            var xmlFile = Path.Combine(dir, $@"KEV-NVD-BF.xml");
+            var excelFile = Path.Combine(dir, "KEV-NVD-BF-excel.xml");
+            var allXml = new XElement("KEV-NVD-BF");
             var xslt = new XslCompiledTransform();
 
             //var bfJsonFile = Path.Combine(dir, $@"BF.json");
@@ -39,24 +49,22 @@ namespace KEVNVDBF
             //File.WriteAllText(bfJsonFile, JsonConvert.SerializeXNode(xml, Newtonsoft.Json.Formatting.Indented));
             //return;
 
-
-            var download = true; //true -- to update from URIs
+            var download = true; //true -- to update from URLs
             if (!download)
-                all = XElement.Load(allFile);
+                allXml = XElement.Load(xmlFile);
             else {
-                using (var reader = FromString(Properties.Resources.CVE_CVSS_CWE))
-                    xslt.Load(reader);
-                using (var allWriter = all.CreateWriter())
+                using (var xsltReader = FromString(Properties.Resources.CVE_CVSS_CWE))
+                    xslt.Load(xsltReader);
+                using (var xmlWriter = allXml.CreateWriter())
                 {
-                    var kevFile = "known_exploited_vulnerabilities.json";
-                    Console.WriteLine(kevFile);
-                    var kevUrl = $@"{kevUri}/{kevFile}";
-                    using (var stream = await client.GetStreamAsync(kevUrl))
-                    using (var reader = JsonStreamToXml(stream))
+                    Console.WriteLine(kevJson);
+                    var kevUrl = $@"{Program.kevUrl}/{kevJson}";
+                    using (var kevStream = await client.GetStreamAsync(kevUrl))
+                    using (var kevReader = JsonStreamToXml(kevStream))
                     {
-                        allWriter.WriteStartElement("KEV");
-                        allWriter.WriteNode(reader, false);
-                        allWriter.WriteEndElement();
+                        xmlWriter.WriteStartElement("KEV");
+                        xmlWriter.WriteNode(kevReader, false);
+                        xmlWriter.WriteEndElement();
                     }
 
                     //for (int i = DateTime.Today.Year; i >= 2002; i--)
@@ -68,35 +76,34 @@ namespace KEVNVDBF
                     //    using var zip = new ZipArchive(stream);
                     //    using var json = zip.GetEntry(nvdFile)!.Open();
                     //    using var reader = JsonStreamToXml(json);
-                    //    xslt.Transform(reader, allWriter);
+                    //    xslt.Transform(reader, xmlWriter);
                     //}
 
-                    var ddd = new XDocument();
-                    using (var stream = await client.GetStreamAsync(@"https://services.nvd.nist.gov/rest/json/cves/2.0"))
-                    using (var reader = JsonStreamToXml(stream))
-                        ddd = XDocument.Load(reader);
-                    //allWriter.WriteNode(reader, false);
-                    using (var reader = ddd.CreateReader())
-                        xslt.Transform(reader, allWriter);
+                    var xd = new XDocument();
+                    using (var nvdStream = await client.GetStreamAsync(nvdCvesUrl))
+                    using (var xmlReader = JsonStreamToXml(nvdStream))
+                        xd = XDocument.Load(xmlReader);
+                    //xmlWriter.WriteNode(reader, false);
+                    using (var nvdReader = xd.CreateReader())
+                        xslt.Transform(nvdReader, xmlWriter);
 
                     //return;
 
                     Console.WriteLine(nameof(BF.Properties.Resources.BFCWE));
                     using (var reader = FromString(BF.Properties.Resources.BFCWE))
-                        allWriter.WriteNode(reader, false);
+                        xmlWriter.WriteNode(reader, false);
                 }
-                Console.WriteLine(allFile);
-                all.Save(allFile);
+                Console.WriteLine(xmlFile);
+                allXml.Save(xmlFile);
             }
             //return;
 
+            using (var xsltReader = FromString(Properties.Resources.KEV_NVD_BF_excel))
+                xslt.Load(xsltReader, XsltSettings.TrustedXslt, new XmlUrlResolver());
 
-            using (var reader = FromString(Properties.Resources.KEV_NVD_BF_excel))
-                xslt.Load(reader, XsltSettings.TrustedXslt, new XmlUrlResolver());
-
-            using (var xmlReader = all.CreateReader())
-            using (var excelFile = File.Create(excel))
-                xslt.Transform(xmlReader, null, excelFile);
+            using (var xmlReader = allXml.CreateReader())
+            using (var excel = File.Create(excelFile))
+                xslt.Transform(xmlReader, null, excel);
 
             return;
 
@@ -109,9 +116,9 @@ namespace KEVNVDBF
             var bfcwecve = Path.Combine(dir, @"BF-CWE-CVE.xml");
 
             JSONtoXML(dir, nvdcveJson, nvdcveXml);
-            var xd = XDocument.Load(Path.Combine(dir, nvdcveXml));
+            var xdd = XDocument.Load(Path.Combine(dir, nvdcveXml));
             var r = new XElement("CWECVE",
-                xd.XPathSelectElements("/root/CVE_Items/item/cve").Select(n => new
+                xdd.XPathSelectElements("/root/CVE_Items/item/cve").Select(n => new
                 {
                     v = n.XPathSelectElement("CVE_data_meta/ID")?.Value ?? string.Empty,
                     w = n.XPathSelectElement("problemtype/problemtype_data/item/description/item/value")?.Value ?? string.Empty,

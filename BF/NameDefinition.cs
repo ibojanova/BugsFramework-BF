@@ -5,8 +5,8 @@
 
 namespace BF
 {
-    public record ErrorName(string Name, Cause CauseType); 
+    public record ErrorName(string Name, Error CauseType); 
 
-    public enum Cause { Bug, ImproperOperand, FinalError };
+    public enum Error { Bug, ImproperOperand, FinalError };
 
 }

@@ -361,7 +361,7 @@ namespace BFCVE
             // operationAttributeComment
             // 
             this.operationAttributeComment.Enabled = false;
-            this.operationAttributeComment.Location = new System.Drawing.Point(157, 625);
+            this.operationAttributeComment.Location = new System.Drawing.Point(400, 625);
             this.operationAttributeComment.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.operationAttributeComment.Multiline = true;
             this.operationAttributeComment.Name = "operationAttributeComment";
@@ -374,7 +374,7 @@ namespace BFCVE
             // 
             this.operationAttributes.CheckBoxes = true;
             this.operationAttributes.HideSelection = false;
-            this.operationAttributes.Location = new System.Drawing.Point(157, 398);
+            this.operationAttributes.Location = new System.Drawing.Point(400, 398);
             this.operationAttributes.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.operationAttributes.Name = "operationAttributes";
             this.operationAttributes.ShowNodeToolTips = true;
@@ -443,7 +443,7 @@ namespace BFCVE
             this.operandAttributsGgroupBox.Controls.Add(this.operandAttributes);
             this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeComment);
             this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeCommentLabel);
-            this.operandAttributsGgroupBox.Location = new System.Drawing.Point(393, 382);
+            this.operandAttributsGgroupBox.Location = new System.Drawing.Point(156, 382);
             this.operandAttributsGgroupBox.Name = "operandAttributsGgroupBox";
             this.operandAttributsGgroupBox.Size = new System.Drawing.Size(229, 278);
             this.operandAttributsGgroupBox.TabIndex = 205;
@@ -454,7 +454,7 @@ namespace BFCVE
             // 
             this.operandAttributes.CheckBoxes = true;
             this.operandAttributes.HideSelection = false;
-            this.operandAttributes.Location = new System.Drawing.Point(6, 16);
+            this.operandAttributes.Location = new System.Drawing.Point(-5, 16);
             this.operandAttributes.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.operandAttributes.Name = "operandAttributes";
             this.operandAttributes.ShowNodeToolTips = true;
@@ -519,7 +519,7 @@ namespace BFCVE
             // operationAttributesGroupBox
             // 
             this.operationAttributesGroupBox.Controls.Add(this.operationAttributesCommentLabel);
-            this.operationAttributesGroupBox.Location = new System.Drawing.Point(151, 382);
+            this.operationAttributesGroupBox.Location = new System.Drawing.Point(394, 382);
             this.operationAttributesGroupBox.Name = "operationAttributesGroupBox";
             this.operationAttributesGroupBox.Size = new System.Drawing.Size(229, 278);
             this.operationAttributesGroupBox.TabIndex = 203;

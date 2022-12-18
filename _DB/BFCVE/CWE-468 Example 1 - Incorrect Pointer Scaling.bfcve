@@ -1,36 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CVE Name="">
-	<BugWeakness Type="_DTC" Class="TCV">
+<CVE Name="CWE-468 Example 1 - Incorrect Pointer Scaling">
+	<BugWeakness Type="_DAT" Class="TCV">
 		<Cause Type="The Bug">Wrong Code</Cause>
 		<Operation Comment="( (char *)(p + 1) instead of (char *)p + 1 )">Cast</Operation>
 		<Consequence Comment="( int instead of char )" Type="Improper Type">Wrong Type</Consequence>
 		<Attributes>
-			<Operation />
+			<Operation>
+				<Attribute Type="Mechanism">Pass In</Attribute>
+				<Attribute Type="Source Code">Codebase</Attribute>
+			</Operation>
+			<Operand Name="Data">
+				<Attribute Type="Data Kind">Pointer</Attribute>
+			</Operand>
+			<Operand Name="Type">
+				<Attribute Type="Type Kind">Primitive</Attribute>
+			</Operand>
 		</Attributes>
 	</BugWeakness>
-	<Weakness Type="_DTC" Class="NRS">
+	<Weakness Type="_DAT" Class="NRS">
 		<Cause Type="Improper Type">Wrong Argument Type</Cause>
 		<Operation Comment="( + operator )">Call</Operation>
 		<Consequence Comment="( +(int*,int) instead of  +(char*,int) ) " Type="Improper Function">Wrong Overloaded Function Bound</Consequence>
 		<Attributes>
-			<Operation />
+			<Operation>
+				<Attribute Type="Mechanism">Ad-hoc Bind</Attribute>
+				<Attribute Type="Source Code">Codebase</Attribute>
+				<Attribute Type="Entity">Function</Attribute>
+			</Operation>
+			<Operand Name="Type">
+				<Attribute Type="Type Kind">Primitive</Attribute>
+			</Operand>
 		</Attributes>
 	</Weakness>
-	<Weakness Type="_DTC" Class="TCM">
+	<Weakness Type="_DAT" Class="TCM">
 		<Cause Type="Improper Function">Wrong Overloaded Function Bound</Cause>
 		<Operation>Calculate</Operation>
 		<Consequence Comment="( Pointer position )" Type="Improper Data">Wrong Result</Consequence>
 		<Attributes>
+			<Operand Name="Data">
+				<Attribute Type="Data Kind">Pointer</Attribute>
+			</Operand>
+			<Operand Name="Type">
+				<Attribute Type="Type Kind">Primitive</Attribute>
+			</Operand>
 			<Operation>
 				<Attribute Type="Mechanism">Operator</Attribute>
 				<Attribute Type="Source Code">Codebase</Attribute>
 			</Operation>
-			<Operand Name="Data Value">
-				<Attribute Type="Data Kind">Pointer</Attribute>
-			</Operand>
-			<Operand Name="Data Type">
-				<Attribute Type="Type Kind">Primitive</Attribute>
-			</Operand>
 		</Attributes>
 	</Weakness>
 	<Weakness Type="_MEM" Class="MAD">
@@ -38,14 +54,14 @@
 		<Operation>Reposition</Operation>
 		<Consequence Type="Improper Address">Over Bounds Pointer</Consequence>
 		<Attributes>
+			<Operand Name="Address">
+				<Attribute Type="Location">Stack</Attribute>
+			</Operand>
 			<Operation>
 				<Attribute Type="Mechanism">Direct</Attribute>
 				<Attribute Type="Source Code">Codebase</Attribute>
 				<Attribute Type="Execution Space">Userland</Attribute>
 			</Operation>
-			<Operand Name="Object Address">
-				<Attribute Type="Location">Stack</Attribute>
-			</Operand>
 		</Attributes>
 	</Weakness>
 	<Weakness Type="_MEM" Class="MUS">
@@ -53,23 +69,23 @@
 		<Operation>Read</Operation>
 		<Consequence Type="Memory Error">Buffer Overflow</Consequence>
 		<Attributes>
+			<Operand Name="Address">
+				<Attribute Type="Span">Litle</Attribute>
+				<Attribute Type="Location">Stack</Attribute>
+			</Operand>
 			<Operation>
 				<Attribute Type="Mechanism">Direct</Attribute>
 				<Attribute Type="Source Code">Codebase</Attribute>
 				<Attribute Type="Execution Space">Userland</Attribute>
 			</Operation>
-			<Operand Name="Object Address">
-				<Attribute Type="Span">Litle</Attribute>
-				<Attribute Type="Location">Stack</Attribute>
-			</Operand>
 		</Attributes>
 	</Weakness>
-	<Failure Type="_FLR" Class="IEX">
+	<WeaknessFailure Type="_FLR" Class="IEX">
 		<Cause Type="Memory Error">Buffer Overflow</Cause>
 		<Operation>IEX Operation</Operation>
 		<Consequence Type="xxx">IEX Conseqeunce</Consequence>
 		<Attributes>
 			<Operation />
 		</Attributes>
-	</Failure>
+	</WeaknessFailure>
 </CVE>

@@ -18,7 +18,7 @@ namespace BFCVEDB
             return Serializer.Deserialize(file) as CVE;
         }
 
-        public static void Save (CVE cve, string fileName)
+        public static void Save(CVE cve, string fileName)
         {
             using var file = File.Create(fileName);
             Serializer.Serialize(file, cve, NoNamespace);
