@@ -53,8 +53,8 @@ namespace BFCVE
                 //xxx change name to be selected from list
                 Name = Path.GetFileNameWithoutExtension(TitleFile),
                 BugWeakness = CVENodes.Take(1)?.SingleOrDefault(w => w.CauseType == BF.Error.Bug)?.Weakness ?? throw new Exception("Missing First Weakness (the Bug Weakness"),
-                Weaknesses = CVENodes.Where(w => w.CauseType == BF.Error.ImproperOperand).Select(w => w.Weakness).ToArray(),
-                WeaknessFailure = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.CauseType == BF.Error.FinalError)?.Weakness ?? throw new Exception("Missing Failure"),
+                Weaknesses = CVENodes.Where(w => w.CauseType == BF.Error.OperandError).Select(w => w.Weakness).ToArray(),
+                WeaknessFinalError = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.CauseType == BF.Error.FinalError)?.Weakness ?? throw new Exception("Missing Failure"),
             };
             set
             {
@@ -63,8 +63,8 @@ namespace BFCVE
                 {
                     cve.Nodes.Add(new TreeNodeWeakness(value.BugWeakness, BF.Error.Bug));
                     if (value.Weaknesses != null)
-                        cve.Nodes.AddRange(value.Weaknesses.Select(w => new TreeNodeWeakness(w, BF.Error.ImproperOperand)).ToArray());
-                    cve.Nodes.Add(new TreeNodeWeakness(value.WeaknessFailure, BF.Error.FinalError));
+                        cve.Nodes.AddRange(value.Weaknesses.Select(w => new TreeNodeWeakness(w, BF.Error.OperandError)).ToArray());
+                    cve.Nodes.Add(new TreeNodeWeakness(value.WeaknessFinalError, BF.Error.FinalError));
                 }
                 SelectedCVENode = CVENodes.FirstOrDefault();
             }
@@ -89,9 +89,7 @@ namespace BFCVE
             {
                 _CurrentCause = value;
                 WeaknessFailureGroupBox.Text = value switch {
-                    BF.Error.Bug => "Bug-Weakness",
-                    //BF.Cause.ImproperOperand => "Weakness",
-                    BF.Error.FinalError => "Failure",
+                    BF.Error.FinalError => "Weakness-->Final Error",
                     _ => "Weakness"};
 
                 classes.SetNodes(Parser.GetClasses(value).Select(i =>
@@ -424,7 +422,7 @@ namespace BFCVE
             if (SelectedCVENode?.NextNode is TreeNode nextNode)
                 cve.SelectedNode = nextNode;
             else
-                NewCVENode(CVENodes.Any() ? BF.Error.ImproperOperand : BF.Error.Bug);
+                NewCVENode(CVENodes.Any() ? BF.Error.OperandError : BF.Error.Bug);
         }
 
         private void EndButton_Click(object sender, EventArgs e)

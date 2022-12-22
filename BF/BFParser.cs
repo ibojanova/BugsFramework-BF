@@ -48,13 +48,13 @@ namespace BF
         public Dictionary<ErrorName, IEnumerable<string>> GetCauses(string bfClass) =>
             GetClass(bfClass)!.XPathSelectElements("Causes/*").ToDictionary(
                 n => new ErrorName(n.Attribute("Name")!.Value, n.Name.LocalName switch {
-                    "Bug" => Error.Bug, "ImproperOperand" => Error.ImproperOperand, _ => Error.FinalError}),
+                    "Bug" => Error.Bug, "OperandError" => Error.OperandError, _ => Error.FinalError}),
                 n => n.XPathSelectElements("Value").Select(v => v.Attribute("Name")!.Value));
 
         public Dictionary<ErrorName, IEnumerable<string>> GetConsequences(string bfClass) =>
             GetClass(bfClass)!.XPathSelectElements("Consequences/*").ToDictionary(
                 n => new ErrorName(n.Attribute("Name")!.Value, n.Name.LocalName switch {
-                    "ImproperOperand" => Error.ImproperOperand, _ => Error.FinalError}),
+                    "OperandError" => Error.OperandError, _ => Error.FinalError}),
                 n => n.XPathSelectElements("Value").Select(v => v.Attribute("Name")!.Value));
         public string? GetDefinition(string name) => definitions.TryGetValue(name, out var val) ? val : null;
     }
