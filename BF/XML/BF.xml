@@ -287,7 +287,7 @@ xxxImproper Data -to- Improper Object (higher level of abstraction
 				</OperandError>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Improper Object">
+				<OperandError Name="Data Error">
 					<Value Name="Wrong Object Resolved"/>
 				</OperandError>
 				<OperandError Name="Type Error">
@@ -887,7 +887,7 @@ xxxImproper Data -to- Improper Object (higher level of abstraction
 					<Value Name="Weak Key"/>
 					<Value Name="Known Key"/>
 				</OperandError>
-				<OperandError Name="Improper Random Number">
+				<OperandError Name="Data Error">
 					<Value Name="Inadequate Random Number"/>
 					<Value Name="Predictable Random Number"/>
 					<Value Name="Known Random Number"/>
@@ -974,7 +974,7 @@ xxxImproper Data -to- Improper Object (higher level of abstraction
 					<Value Name="Weak Key"/>
 					<Value Name="Known Key"/>
 				</OperandError>
-				<OperandError Name="Improper Random Number">
+				<OperandError Name="Data Error">
 					<Value Name="Inadequate Random Number"/>
 					<Value Name="Predictable Random Number"/>
 					<Value Name="Known Random Number"/>
@@ -1305,9 +1305,36 @@ So far I dont think failure have consequences. I think it is only cause (final e
 				<Operation Name="DOS Operation"/>
 			</Operations>
 			<Causes>
+				<FianalError Name="Access Final Error">
+					<Value Name="Wrong Access Function"/>
+					<Value Name="Wrong Access Object"/>
+					<Value Name="Wrong Access Type"/>
+				</FianalError>
+				<FianalError Name="Injection Final Error">
+					<Value Name="Command Injection"/>
+					<Value Name="File Injection"/>
+					<Value Name="Parameter Injection"/>
+					<Value Name="Query Injection"/>
+					<Value Name="Source Code Injection"/>
+				</FianalError>
 				<FianalError Name="Memory Final Error">
+					<Value Name="Memory Overflow"/>
+					<Value Name="Memory Leak"/>
+					<Value Name="Double Free"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Uninitialized Object"/>
+					<Value Name="Not Cleared Object"/>
+					<Value Name="NULL Pointer Dereference"/>
+					<Value Name="Untrusted Pointer Dereference"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Type Confusion"/>
+					<Value Name="Use After Free"/>
 					<Value Name="Buffer Overflow"/>
 					<Value Name="Buffer Underflow"/>
+					<Value Name="Uninitialized Pointer Dereference"/>
+				</FianalError>
+				<FianalError Name="Type Compute Final Error">
+					<Value Name="Undefined"/>
 				</FianalError>
 			</Causes>
 			<Consequences>
@@ -1429,7 +1456,7 @@ Reg Exprs
 		<Definition Name="Reduce">Deallocates part of the object memory; redefines its boundaries and size.</Definition>
 		<Definition Name="Reallocate–Reduce">Allocates a new smaller space in memory for an object at a new address, copies part of the object content there, reassigns the pointer, and deallocates the previous piece of memory.</Definition>
 
-		<!--Bugs = Improper Operations-->
+		<!--Bug = Operation Error-->
 			<!--code_error -->
 			<Definition Name="Missing Code">The entire operation or part of it is absent.</Definition>
 			<Definition Name="Erroneous Code">The operation implementation has a bug.</Definition>
@@ -1453,10 +1480,10 @@ Reg Exprs
 			<Definition Name="Missing Qualifier">A namespace include is absent; or a scope is not specified in a fully qualified name.</Definition>
 			<Definition Name="Wrong Qualifier">A wrong namespace is included, or a wrong scope is specified in a fully qualified name.</Definition>
 
-		<!--Improper Operands-->
+		<!--Operand Error-->
 		<!--xxx remove all examples - they are saved in comments section at the end - CG: Should we put examples in the definition?-->
 
-		<!--improper_address-->
+		<!--address_error-->
 		<!--_MEM-->
 		<Definition Name="NULL Pointer">Points to the zero address, a specific invalid address.</Definition>
 		<Definition Name="Wild Pointer">Points to an arbitrary address, because it has not been initialized or an erroneous allocation routine is used.</Definition>
@@ -1466,10 +1493,10 @@ Reg Exprs
 		<Definition Name="Wrong Position Pointer">Points to a miscalculated position inside its object bounds.</Definition>
 		<Definition Name="Over Bounds Pointer">Points after/over the upper bound for its object.</Definition>
 
-		<!--improper_size-->
+		<!--size_error-->
 		<Definition Name="Not Enough Memory Allocated">The allocated memory is too little for the data it should store.</Definition>
 
-		<!--improper_type-->
+		<!--type_error-->
 		<!--_MEM-->
 		<Definition Name="Wrong Index Type">xxx.</Definition>
 		<Definition Name="Casted Pointer">The pointer does not match the type of the object, due to wrong type casting.</Definition>
@@ -1483,7 +1510,7 @@ Reg Exprs
 		<Definition Name="Wrong Type Resolved">Data type is resolved from wrong scope.</Definition>
 		<Definition Name="Mismatched Argument Type">Argument's data type is different from function's parameter data type.</Definition>
 
-		<!--improper_data-->
+		<!--data_error-->
 		<!--_INP-->
 		<Definition Name="Corrupted Data">Unintentionally modified data due to a previous weakness (e.g., with a decompress or a decrypt operation) that if not sanitized would end-up as invalid data for next weakness.</Definition>
 		<Definition Name="Tampered Data">Maliciously modified data due to a previous weakness (e.g., with a deserialize, authorize, or crypto verify operation) that would lead to injection error.</Definition>
@@ -1510,7 +1537,7 @@ Reg Exprs
 		<Definition Name="Address of Single Owned Object">The only pointer of an already allocated object is used to allocate a new object.</Definition>
 		<Definition Name="Wrong Size Used">The value used as size does not match the real size of the object.</Definition>
 
-		<!--improper_function-->
+		<!--function_error-->
 		<Definition Name="Missing Overridden Function">Function implementation in a particular subclass is absent.</Definition>
 		<Definition Name="Missing Overloaded Function">Implementation for particular function parameters' data types is absent.</Definition>
 		<Definition Name="Wrong Function Resolved">Function is resolved from wrong scope.</Definition>
@@ -1569,9 +1596,9 @@ Reg Exprs
 		<Definition Name="Location">Memory region where objects are allocated.</Definition>
 		<Definition Name="Ownership">Responsabile for cleaning and deallocating object's memory.</Definition>
 
-		<!--Bug - Operation Error-->
-		<Definition Name="The Bug">xxxThe first cause of a software security vulnerability.</Definition>
-		<!--could be improper code or improper specification/rule (Policy, Keying Material, Domain Parameter) that has to be fixed to resolve the vulnerability.-->
+		<!--Bug - OperationError-->
+		<Definition Name="Code Error">The bug in the operation. The first cause for the chain of weaknesses commprising a software security vulnerability. It has to be fixed to resolve the vulnerability.</Definition>
+		<Definition Name="Specification Error">An error in the rules (policy, algorithm, keying material, gomain parameter) used by the operation, that when implemented becomes the bug causing the chain of weaknesses commprising a software security vulnerability. It has to be fixed to resolve the vulnerability.</Definition>
 
 		<!--OperandError-->
 		<Definition Name="Size Error">The used object size is wrong.</Definition>
@@ -1588,7 +1615,7 @@ Reg Exprs
 		<!-- CG: adapted from MEM paper-->
 		<Definition Name="Improper Object">xxx need better text - This is the higher level of Data, Type, Address, Size, Function -- A piece of memory, with a ill-defined size.</Definition>
 		
-		<!-- xxxFinal Errors https://blog.klipse.tech/databook/2020/10/02/separate-code-data.html -->
+		<!--xxx???FinalErrors https://blog.klipse.tech/databook/2020/10/02/separate-code-data.html -->
 		<Definition Name="Injection Final Error">Undefined or exploitable system behavior caused by executing user controlled data. OR Undefined or exploitable system behavior caused by bugs in separating code and data</Definition>
 		<!-- xxxCG: do we keep system or just software? Adapted from MEM paper-->
 		<Definition Name="Memory Final Error">Undefined or exploitable system behavior caused by memory bugs.</Definition>
@@ -1624,7 +1651,6 @@ Reg Exprs
 		<Definition Name="Data Value">A numeric, text, pointer/address, or boolean value stored in an object's memory.</Definition>
 		<Definition Name="Data Type">A set of allowed values and the operations allowed over them.</Definition>
 		<Definition Name="Function">An organized block of code that when called takes in data, processes it, and produces a result(s).</Definition>
-
 <!--<Definition Name="Codebase">The operation is in the programmer's code - in the application itself.</Definition>
 <Definition Name="Third Party">The operation is in a third-party library.</Definition>
 <Definition Name="Standard Library">The operation is in the standard library for a particular programming language.</Definition>

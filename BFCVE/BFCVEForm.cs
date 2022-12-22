@@ -54,7 +54,7 @@ namespace BFCVE
                 Name = Path.GetFileNameWithoutExtension(TitleFile),
                 BugWeakness = CVENodes.Take(1)?.SingleOrDefault(w => w.CauseType == BF.Error.Bug)?.Weakness ?? throw new Exception("Missing First Weakness (the Bug Weakness"),
                 Weaknesses = CVENodes.Where(w => w.CauseType == BF.Error.OperandError).Select(w => w.Weakness).ToArray(),
-                WeaknessFinalError = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.CauseType == BF.Error.FinalError)?.Weakness ?? throw new Exception("Missing Failure"),
+                Failure = CVENodes.TakeLast(1)?.SingleOrDefault(w => w.CauseType == BF.Error.FinalError)?.Weakness ?? throw new Exception("Missing Failure"),
             };
             set
             {
@@ -64,7 +64,7 @@ namespace BFCVE
                     cve.Nodes.Add(new TreeNodeWeakness(value.BugWeakness, BF.Error.Bug));
                     if (value.Weaknesses != null)
                         cve.Nodes.AddRange(value.Weaknesses.Select(w => new TreeNodeWeakness(w, BF.Error.OperandError)).ToArray());
-                    cve.Nodes.Add(new TreeNodeWeakness(value.WeaknessFinalError, BF.Error.FinalError));
+                    cve.Nodes.Add(new TreeNodeWeakness(value.Failure, BF.Error.FinalError));
                 }
                 SelectedCVENode = CVENodes.FirstOrDefault();
             }
@@ -89,7 +89,7 @@ namespace BFCVE
             {
                 _CurrentCause = value;
                 WeaknessFailureGroupBox.Text = value switch {
-                    BF.Error.FinalError => "Weakness-->Final Error",
+                    BF.Error.FinalError => "Failure",
                     _ => "Weakness"};
 
                 classes.SetNodes(Parser.GetClasses(value).Select(i =>
