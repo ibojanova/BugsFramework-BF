@@ -2,6 +2,9 @@
 using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
 
+/*@author Irena Bojanova(ivb)
+ *@date - 12/20/2022 */
+
 namespace LoadKEV
 {
     internal class LoaderKEV
@@ -20,7 +23,5 @@ namespace LoadKEV
 
         internal record Info(VulnerabilityData[]? vulnerabilities);
             internal record VulnerabilityData(string cveID, string? vendorProject, string? product, string? vulnerabilityName, DateTime? dateAdded, string? shortDescription);
-
     }
-
 }

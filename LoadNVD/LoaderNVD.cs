@@ -2,20 +2,21 @@
 using System.Collections.Specialized;
 using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
-using System.Threading.Channels;
 using static System.Web.HttpUtility;
 
 namespace LoadNVD
 {
     internal class LoaderNVD
     {
+        static readonly string nvdApiKey = @"d6f447c5-8c29-4ae9-ad44-6157317efa6a";
+        static readonly string nvdUserName = @"irena.bojanova@nist.gov";
         static readonly Uri UriNVD = new(@"https://services.nvd.nist.gov/rest/json/cves/2.0");
         static readonly HttpClient loader = new();
 
         static LoaderNVD()
         {
-            loader.DefaultRequestHeaders.Add("From", @"irena.bojanova@nist.gov");
-            loader.DefaultRequestHeaders.Add("apiKey", @"d6f447c5-8c29-4ae9-ad44-6157317efa6a");
+            loader.DefaultRequestHeaders.Add("From", nvdUserName);
+            loader.DefaultRequestHeaders.Add("apiKey", nvdApiKey);
         }
 
         public IAsyncEnumerable<NVDCVE> GetVulnerabilities(CancellationToken cancel = default) => QueryNVD(UriNVD, cancel);
@@ -47,7 +48,6 @@ namespace LoadNVD
             Info info = new(1, 0, default, default);
             for (int i = 0; i < info.totalResults; i += info.resultsPerPage)
             {
-                //Console.Write("*");
                 query["startIndex"] = i.ToString();
                 if (await loader.GetFromJsonAsync<Info>(uri.WithQuery(query), cancel) is Info data && data.vulnerabilities is not null)
                     info = data;
@@ -76,5 +76,4 @@ namespace LoadNVD
     {
         public static Uri WithQuery(this Uri uri, NameValueCollection query) => new UriBuilder(uri) { Query = query.ToString() }.Uri;
     }
-
 }

@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.IO.Compression;
-using System.Runtime.Serialization.Json;
+﻿using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
@@ -8,32 +6,26 @@ using System.Xml.XPath;
 using System.Xml.Xsl;
 using File = System.IO.File;
 
+/*@author Irena Bojanova(ivb)
+ *@date - 12/06/2022 */
+
 namespace KEVNVDBF
 {
     internal class Program
     {
+        //xxx redo
         static readonly HttpClient client = new();
 
         const string
             kevUrl = $@"https://www.cisa.gov/sites/default/files/feeds",
             kevJson = @"known_exploited_vulnerabilities.json",
-            nvdApiKey = @"d6f447c5-8c29-4ae9-ad44-6157317efa6a",
-            nvdUserName = @"irena.bojanova@nist.gov",
             nvdUri = @"https://services.nvd.nist.gov/rest/json";
 
-        static string 
-            nvdCvesUrl = Path.Combine(nvdUri, $@"cves/2.0"),
-            nvdHistoryUrl = Path.Combine(nvdUri, $@"cvehistory/2.0"),
-            nvdCpesUrl = Path.Combine(nvdUri, $@"cpes/2.0"),
-            nvdMatchUrl = Path.Combine(nvdUri, $@"cpematch/2.0"),
-            nvdSourceUrl = Path.Combine(nvdUri, $@"source/2.0");
+        static readonly string
+            nvdCvesUrl = Path.Combine(nvdUri, $@"cves/2.0");
 
         static XmlReader JsonStreamToXml(Stream stream) =>
-            //JsonReaderWriterFactory.CreateJsonReader(stream, new XmlDictionaryReaderQuotas());
             JsonReaderWriterFactory.CreateJsonReader(stream, Encoding.UTF8, new XmlDictionaryReaderQuotas(), null);
-
-        static XmlWriter XmlToJsonStream(Stream stream) =>
-            JsonReaderWriterFactory.CreateJsonWriter(stream);
 
         static async Task Main(string[] _)
         {
@@ -43,11 +35,6 @@ namespace KEVNVDBF
             var excelFile = Path.Combine(dir, "KEV-NVD-BF-excel.xml");
             var allXml = new XElement("KEV-NVD-BF");
             var xslt = new XslCompiledTransform();
-
-            //var bfJsonFile = Path.Combine(dir, $@"BF.json");
-            //var xml = XDocument.Parse(BF.Properties.Resources.BF);
-            //File.WriteAllText(bfJsonFile, JsonConvert.SerializeXNode(xml, Newtonsoft.Json.Formatting.Indented));
-            //return;
 
             var download = true; //true -- to update from URLs
             if (!download)
@@ -67,31 +54,18 @@ namespace KEVNVDBF
                         xmlWriter.WriteEndElement();
                     }
 
-                    //for (int i = DateTime.Today.Year; i >= 2002; i--)
-                    //{
-                    //    var nvdFile = $"nvdcve-1.1-{i}.json";
-                    //    Console.WriteLine(nvdFile);
-                    //    var nvdUrl = $@"{nvdUri}/{nvdFile}.zip";
-                    //    using var stream = await client.GetStreamAsync(nvdUrl);
-                    //    using var zip = new ZipArchive(stream);
-                    //    using var json = zip.GetEntry(nvdFile)!.Open();
-                    //    using var reader = JsonStreamToXml(json);
-                    //    xslt.Transform(reader, xmlWriter);
-                    //}
-
                     var xd = new XDocument();
                     using (var nvdStream = await client.GetStreamAsync(nvdCvesUrl))
                     using (var xmlReader = JsonStreamToXml(nvdStream))
                         xd = XDocument.Load(xmlReader);
-                    //xmlWriter.WriteNode(reader, false);
                     using (var nvdReader = xd.CreateReader())
                         xslt.Transform(nvdReader, xmlWriter);
 
                     //return;
 
                     Console.WriteLine(nameof(BF.Properties.Resources.BFCWE));
-                    using (var reader = FromString(BF.Properties.Resources.BFCWE))
-                        xmlWriter.WriteNode(reader, false);
+                    using var reader = FromString(BF.Properties.Resources.BFCWE);
+                    xmlWriter.WriteNode(reader, false);
                 }
                 Console.WriteLine(xmlFile);
                 allXml.Save(xmlFile);

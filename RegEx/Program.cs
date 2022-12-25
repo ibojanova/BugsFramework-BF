@@ -1,4 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
+/*@author Irena Bojanova(ivb)
+ *@date - 10/20/2022 */
+
 using System.Text.RegularExpressions;
 
 Console.WriteLine("Hello, World!");
