@@ -693,6 +693,183 @@
 				</FinalError>
 			</Consequences>
 		</Class>
+	</Cluster>
+
+	<Cluster Name="_FLR" Title="Security Failures Classes" Type="Failure">
+		<Class Name="IEX" Title="Information Exposure">
+			<Operations>
+				<Operation Name="IEX Operation"/>
+			</Operations>
+			<Causes>
+				<FianalError Name="Access Final Error">
+					<Value Name="Wrong Access Function"/>
+					<Value Name="Wrong Access Object"/>
+					<Value Name="Wrong Access Type"/>
+				</FianalError>
+				<FianalError Name="Injection Final Error">
+					<Value Name="Command Injection"/>
+					<Value Name="File Injection"/>
+					<Value Name="Parameter Injection"/>
+					<Value Name="Query Injection"/>
+					<Value Name="Source Code Injection"/>
+				</FianalError>
+				<FianalError Name="Memory Final Error">
+					<Value Name="Memory Overflow"/>
+					<Value Name="Memory Leak"/>
+					<Value Name="Double Free"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Uninitialized Object"/>
+					<Value Name="Not Cleared Object"/>
+					<Value Name="NULL Pointer Dereference"/>
+					<Value Name="Untrusted Pointer Dereference"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Type Confusion"/>
+					<Value Name="Use After Free"/>
+					<Value Name="Buffer Overflow"/>
+					<Value Name="Buffer Underflow"/>
+					<Value Name="Uninitialized Pointer Dereference"/>
+				</FianalError>
+				<FianalError Name="Type Compute Final Error">
+					<Value Name="Undefined"/>
+				</FianalError>
+			</Causes>
+			<Consequences>
+				<Risk Name="Risk">
+					<Value Name="IEX Conseqeunce"/>
+				</Risk>
+			</Consequences>
+		</Class>
+		<!-- Changed RCE to ACE Arbitrary code execution, xxx Remote should be a value of an attribute of the class-->
+		<Class Name="ACE" Title="Arbitrary Code Execution">
+			<Operations>
+				<Operation Name="ACE Operation"/>
+			</Operations>
+			<Causes>
+				<FianalError Name="Access Final Error">
+					<Value Name="Wrong Access Function"/>
+					<Value Name="Wrong Access Object"/>
+					<Value Name="Wrong Access Type"/>
+				</FianalError>
+				<FianalError Name="Injection Final Error">
+					<Value Name="Command Injection"/>
+					<Value Name="File Injection"/>
+					<Value Name="Parameter Injection"/>
+					<Value Name="Query Injection"/>
+					<Value Name="Source Code Injection"/>
+				</FianalError>
+				<FianalError Name="Memory Final Error">
+					<Value Name="Memory Overflow"/>
+					<Value Name="Memory Leak"/>
+					<Value Name="Double Free"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Uninitialized Object"/>
+					<Value Name="Not Cleared Object"/>
+					<Value Name="NULL Pointer Dereference"/>
+					<Value Name="Untrusted Pointer Dereference"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Type Confusion"/>
+					<Value Name="Use After Free"/>
+					<Value Name="Buffer Overflow"/>
+					<Value Name="Buffer Underflow"/>
+					<Value Name="Uninitialized Pointer Dereference"/>
+				</FianalError>
+				<FianalError Name="Type Compute Final Error">
+					<Value Name="Undefined"/>
+				</FianalError>
+			</Causes>
+			<Consequences>
+				<Risk Name="Risk">
+					<Value Name="RCE Conseqeunce"/>
+				</Risk>
+			</Consequences>
+		</Class>
+		<Class Name="DOS" Title="Denial of Service">
+			<Operations>
+				<Operation Name="DOS Operation"/>
+			</Operations>
+			<Causes>
+				<FianalError Name="Access Final Error">
+					<Value Name="Wrong Access Function"/>
+					<Value Name="Wrong Access Object"/>
+					<Value Name="Wrong Access Type"/>
+				</FianalError>
+				<FianalError Name="Injection Final Error">
+					<Value Name="Command Injection"/>
+					<Value Name="File Injection"/>
+					<Value Name="Parameter Injection"/>
+					<Value Name="Query Injection"/>
+					<Value Name="Source Code Injection"/>
+				</FianalError>
+				<FianalError Name="Memory Final Error">
+					<Value Name="Memory Overflow"/>
+					<Value Name="Memory Leak"/>
+					<Value Name="Double Free"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Uninitialized Object"/>
+					<Value Name="Not Cleared Object"/>
+					<Value Name="NULL Pointer Dereference"/>
+					<Value Name="Untrusted Pointer Dereference"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Type Confusion"/>
+					<Value Name="Use After Free"/>
+					<Value Name="Buffer Overflow"/>
+					<Value Name="Buffer Underflow"/>
+					<Value Name="Uninitialized Pointer Dereference"/>
+				</FianalError>
+				<FianalError Name="Type Compute Final Error">
+					<Value Name="Undefined"/>
+				</FianalError>
+			</Causes>
+			<Consequences>
+				<Risk Name="Risk">
+					<Value Name="DOS Conseqeunce"/>
+				</Risk>
+			</Consequences>
+		</Class>
+		<Class Name="TPR" Title="Tempering">
+			<Operations>
+				<Operation Name="DOS Operation"/>
+			</Operations>
+			<Causes>
+				<FianalError Name="Access Final Error">
+					<Value Name="Wrong Access Function"/>
+					<Value Name="Wrong Access Object"/>
+					<Value Name="Wrong Access Type"/>
+				</FianalError>
+				<FianalError Name="Injection Final Error">
+					<Value Name="Command Injection"/>
+					<Value Name="File Injection"/>
+					<Value Name="Parameter Injection"/>
+					<Value Name="Query Injection"/>
+					<Value Name="Source Code Injection"/>
+				</FianalError>
+				<FianalError Name="Memory Final Error">
+					<Value Name="Memory Overflow"/>
+					<Value Name="Memory Leak"/>
+					<Value Name="Double Free"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Uninitialized Object"/>
+					<Value Name="Not Cleared Object"/>
+					<Value Name="NULL Pointer Dereference"/>
+					<Value Name="Untrusted Pointer Dereference"/>
+					<Value Name="Object Corruption"/>
+					<Value Name="Type Confusion"/>
+					<Value Name="Use After Free"/>
+					<Value Name="Buffer Overflow"/>
+					<Value Name="Buffer Underflow"/>
+					<Value Name="Uninitialized Pointer Dereference"/>
+				</FianalError>
+				<FianalError Name="Type Compute Final Error">
+					<Value Name="Undefined"/>
+				</FianalError>
+			</Causes>
+			<Consequences>
+				<Risk Name="Risk">
+					<Value Name="DOS Conseqeunce"/>
+				</Risk>
+			</Consequences>
+		</Class>
+	</Cluster>
 
 	<Definitions>
 		<!--Terms Definitions - xxx can use them as tooltips for labels-->
@@ -1009,111 +1186,84 @@
 		<Definition Name="Moderate">Several bytes of memory are accessed, but less than 1 KB.</Definition>
 		<Definition Name="Huge">More than 1 KB of memory is accessed.</Definition>
 
-<!--Save - for included examples-->
-
-<!--_MEM Final Errors-->
-<Definition Name="Memory Leak">An object has no pointer pointing to it. Risk: Resource exhaustion.Application crash. DoS.</Definition>
-<Definition Name="Double Free">Attempt to deallocate a deallocated object or via an uninitialized pointer. Risk: Arbitrary code execution.</Definition>
-<Definition Name="Object Corruption">Object data is unintentionally altered. Wrong/unexpected results.</Definition>
-<Definition Name="Uninitialized Object">Object data is not filled inbefore use. Controlled or left over data.</Definition>
-<Definition Name="Not Cleared Object">Object data not overwritten before deallocation. Information exposure (e.g. private keys).</Definition>
-<Definition Name="NULL Pointer Dereference"> Attempt to access an object for read or write through a NULL pointer. Program crash. Arbitrary code execution (in some OSs).</Definition>
-<Definition Name="Untrusted Pointer Dereference"> Attempt to access an object via an altered pointer (not legitimate dereference of tainted pointers).DoS. Arbitrary code execution.</Definition>
-<Definition Name="Type Confusion">Pointer and object have different types. Vtable corruption. Hijack.</Definition>
-<Definition Name="Use After Free">Attempt to use a deallocated object. Arbitrary code execution.</Definition>
-<Definition Name="Buffer Overflow">Read or write above the object upper bound. Arbitrary code execution. Information exposure."</Definition>
-<Definition Name="Buffer Underflow">Read or write below the object lower bounds. Arbitrary code execution. Information exposure.</Definition>
-<Definition Name="Uninitialized Pointer Dereference"> An attempt to access an object for read or write via an uninitialized pointer. Control flow hijack.</Definition>-->
-		
-<Definition Name="Command Injection">Malicious insertion of new commands into the input to a command that is sent to an operating system (OS) or to a server.</Definition>
-<Definition Name="Source Code Injection">Injection Malicious insertion of new code (incl. with &lt; &gt; elements) into input used as part of an executing application code.</Definition>
-<Definition Name="Parameter Injection">Malicious insertion of data (e.g., with &amp; parameter separator) into input used as parameter/ argument in other parts of code.</Definition>
-<Definition Name="File Injection">Malicious insertion of data (e.g., with .. and / or with file entries) into input used to access/ modify files or as file content.</Definition>-->
-
-<Definition Name="Denylist">Policy based on a set of known bad content; helps reject outright maliciously malformed data.</Definition>
-<Definition Name="Format">Policy based on syntax format (e.g., defined via regular expression).</Definition>
-<Definition Name="Length">Policy based on allowed number of characters in data. Note that this is not about the data value as size of an object.</Definition>-->
-		
-<!--end Save - because of the included examples-->
-
 	</Definitions>
 </BF>'
 
-insert into bf.[def.clusterType] (Name)
+insert into bf.[ref.clusterType] (Name)
 	select distinct bf.value('@Type','nvarchar(16)') from @data.nodes('BF/Cluster') X(bf);
 
-insert into bf.[def.operationAttribute] (Name, Definition)
-	select distinct bf.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.operationAttribute] (Name, Definition)
+	select distinct bf.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operations/Attribute') X(bf)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on bf.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on bf.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.operationAttributeValue] (Attribute, Name, Definition)
-	select distinct t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.operationAttributeValue] (Attribute, Name, Definition)
+	select distinct t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operations/Attribute') T(t) cross apply t.nodes('Value') A(a)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on a.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on a.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.operand] (Name, Definition)
-	select distinct o.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.operand] (Name, Definition)
+	select distinct o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operands/Operand') O(o)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on o.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.operandAttribute] (Operand, Name, Definition)
-	select distinct o.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.operandAttribute] (Operand, Name, Definition)
+	select distinct o.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operands/Operand') O(o) cross apply o.nodes('Attribute') A(a)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on a.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on a.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.operandAttributeValue] (Operand, Attribute, Name, Definition)
-	select distinct o.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), n.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.operandAttributeValue] (Operand, Attribute, Name, Definition)
+	select distinct o.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), n.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operands/Operand') O(o) cross apply o.nodes('Attribute') A(a) cross apply a.nodes('Value') N(n)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on n.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on n.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.operandError] (Name, Definition)
-	select distinct t.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.operandError] (Name, Definition)
+	select distinct t.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//OperandError') T(t) 
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on t.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on t.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.operandErrorValue] (OperandError, Name, Definition)
-	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.operandErrorValue] (OperandError, Name, Definition)
+	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//OperandError') T(t) cross apply t.nodes('*') O(o)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on o.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.bug] (Name, Definition)
-	select distinct b.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.bug] (Name, Definition)
+	select distinct b.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//Bug') B(b)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on b.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on b.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.bugValue] (Bug, Name, Definition)
-	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.bugValue] (Bug, Name, Definition)
+	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//Bug') T(t) cross apply t.nodes('*') O(o)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on o.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.finalError] (Name, Definition)
-	select distinct t.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.finalError] (Name, Definition)
+	select distinct t.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//FinalError') T(t) 
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on t.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on t.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[def.finalErrorValue] (FinalError, Name, Definition)
-	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), def.value('.','nvarchar(256)')
+insert into bf.[ref.finalErrorValue] (FinalError, Name, Definition)
+	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//FinalError') T(t) cross apply t.nodes('*') O(o)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on o.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
 --
 
 insert into bf.cluster (Type, Name, Title, Definition)
-	select bf.value('@Type','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), bf.value('@Title','nvarchar(64)'), def.value('.','nvarchar(256)')
+	select bf.value('@Type','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), bf.value('@Title','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('BF/Cluster') X(bf)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on bf.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on bf.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
 insert into bf.class(Name, Cluster, Title, Definition)
-	select c.value('@Name','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), c.value('@Title','nvarchar(64)'), def.value('.','nvarchar(256)')
+	select c.value('@Name','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), c.value('@Title','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('BF/Cluster') X(bf) cross apply bf.nodes('Class') C(c)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on c.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on c.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
 insert into bf.operation(Class, Name, Definition)
 	select c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)')
-		, def.value('.','nvarchar(256)')
+		, ref.value('.','nvarchar(256)')
 	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Operations/Operation') O(o)
-		left outer join @data.nodes('BF/Definitions/Definition') D(def) on o.value('@Name','nvarchar(64)')=def.value('@Name','nvarchar(64)');
+		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
 insert into bf.operationAttribute(Class, Attribute, Name)
 	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)')

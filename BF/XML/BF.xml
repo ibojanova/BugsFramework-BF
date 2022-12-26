@@ -1165,10 +1165,7 @@ xxxImproper Data -to- Improper Object (higher level of abstraction
 		</Class>
 	</Cluster>
 
-	<!--Failures should have only Causes and Atributes
-We were discussing that a Failure would be like a class - again with causes and consequences; and the causes are the final errors from previous weakness, the consequences are the risks.
-Or maybe Failures have only Cause and Attributes?
-So far I dont think failure have consequences. I think it is only cause (final errors)-->
+	<!--Failures should have only Causes and Atributes-->
 	<Cluster Name="_FLR" Title="Security Failures Classes" Type="Failure">
 		<Class Name="IEX" Title="Information Exposure">
 			<Operations>
@@ -1300,7 +1297,7 @@ So far I dont think failure have consequences. I think it is only cause (final e
 				</Risk>
 			</Consequences>
 		</Class>
-		<Class Name="TPR" Title="Tmpering">
+		<Class Name="TPR" Title="Tempering">
 			<Operations>
 				<Operation Name="DOS Operation"/>
 			</Operations>
