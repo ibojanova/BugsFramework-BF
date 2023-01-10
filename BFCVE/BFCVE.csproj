@@ -9,7 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BFCVEDB\BFCVEDB.csproj" />
+    <ProjectReference Include="..\BFDB\BFDB.csproj" />
     <ProjectReference Include="..\BF\BF.csproj" />
     <ProjectReference Include="..\Utilities\Utilities.csproj" />
   </ItemGroup>

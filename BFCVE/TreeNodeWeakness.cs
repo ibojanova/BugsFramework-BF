@@ -11,9 +11,9 @@ namespace BFCVE
     public class TreeNodeWeakness : TreeNode
     {
         public Weakness Weakness = new();
-        public readonly BF.Error CauseType;
+        public readonly BF.Cause CauseType;
 
-        public TreeNodeWeakness(Weakness weakness, BF.Error causeType) : base(weakness.Class)
+        public TreeNodeWeakness(Weakness weakness, BF.Cause causeType) : base(weakness.Class)
         {
             CauseType = causeType;
             SetWeakness(weakness);

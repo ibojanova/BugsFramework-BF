@@ -5,6 +5,9 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 
+/*@author Irena Bojanova(ivb)
+ *@date - 12/9/2022*/
+
 public class SQL
 {
     public readonly DbProviderFactory Provider;

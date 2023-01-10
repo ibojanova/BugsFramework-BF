@@ -49,8 +49,8 @@ namespace BFCVE
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.exitToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.cve = new System.Windows.Forms.TreeView();
-            this.cveLabel = new System.Windows.Forms.Label();
+            this.bfcve = new System.Windows.Forms.TreeView();
+            this.BFcveDescriptionLabel = new System.Windows.Forms.Label();
             this.prevButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.peerConseqeunce = new System.Windows.Forms.TextBox();
@@ -62,8 +62,8 @@ namespace BFCVE
             this.conseqeunceGroupBox = new System.Windows.Forms.GroupBox();
             this.WeaknessFailureGroupBox = new System.Windows.Forms.GroupBox();
             this.operandAttributsGgroupBox = new System.Windows.Forms.GroupBox();
-            this.operandAttributes = new Utilities.TreeViewFix();
-            this.operandAttributeComment = new System.Windows.Forms.TextBox();
+            this.faultAttributes = new Utilities.TreeViewFix();
+            this.faultAttributeComment = new System.Windows.Forms.TextBox();
             this.operandAttributeCommentLabel = new System.Windows.Forms.Label();
             this.buttonRollback = new System.Windows.Forms.Button();
             this.peerCause = new System.Windows.Forms.TextBox();
@@ -80,6 +80,10 @@ namespace BFCVE
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cveComboBoxLabel = new System.Windows.Forms.Label();
+            this.cveComboBox = new System.Windows.Forms.ComboBox();
+            this.cveDescription = new System.Windows.Forms.TextBox();
+            this.cveDesriptionLabel = new System.Windows.Forms.Label();
             this.toolStrip.SuspendLayout();
             this.causeGroupBox.SuspendLayout();
             this.operationGroupBox.SuspendLayout();
@@ -279,32 +283,32 @@ namespace BFCVE
             this.exitToolStripButton.Text = "Exit";
             this.exitToolStripButton.Click += new System.EventHandler(this.OnFileClose);
             // 
-            // cve
+            // bfcve
             // 
-            this.cve.FullRowSelect = true;
-            this.cve.HideSelection = false;
-            this.cve.Location = new System.Drawing.Point(19, 72);
-            this.cve.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.cve.Name = "cve";
-            this.cve.ShowNodeToolTips = true;
-            this.cve.Size = new System.Drawing.Size(93, 601);
-            this.cve.TabIndex = 11;
-            this.cve.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.CVE_BeforeSelect);
-            this.cve.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.CVE_AfterSelect);
+            this.bfcve.FullRowSelect = true;
+            this.bfcve.HideSelection = false;
+            this.bfcve.Location = new System.Drawing.Point(18, 150);
+            this.bfcve.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.bfcve.Name = "bfcve";
+            this.bfcve.ShowNodeToolTips = true;
+            this.bfcve.Size = new System.Drawing.Size(110, 601);
+            this.bfcve.TabIndex = 11;
+            this.bfcve.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.CVE_BeforeSelect);
+            this.bfcve.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.CVE_AfterSelect);
             // 
-            // cveLabel
+            // BFcveDescriptionLabel
             // 
-            this.cveLabel.AutoSize = true;
-            this.cveLabel.Location = new System.Drawing.Point(19, 56);
-            this.cveLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cveLabel.Name = "cveLabel";
-            this.cveLabel.Size = new System.Drawing.Size(31, 15);
-            this.cveLabel.TabIndex = 10;
-            this.cveLabel.Text = "CVE:";
+            this.BFcveDescriptionLabel.AutoSize = true;
+            this.BFcveDescriptionLabel.Location = new System.Drawing.Point(18, 134);
+            this.BFcveDescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BFcveDescriptionLabel.Name = "BFcveDescriptionLabel";
+            this.BFcveDescriptionLabel.Size = new System.Drawing.Size(110, 15);
+            this.BFcveDescriptionLabel.TabIndex = 10;
+            this.BFcveDescriptionLabel.Text = "BF CVE Description:";
             // 
             // prevButton
             // 
-            this.prevButton.Location = new System.Drawing.Point(1063, 694);
+            this.prevButton.Location = new System.Drawing.Point(1062, 772);
             this.prevButton.Margin = new System.Windows.Forms.Padding(2);
             this.prevButton.Name = "prevButton";
             this.prevButton.Size = new System.Drawing.Size(80, 22);
@@ -315,7 +319,7 @@ namespace BFCVE
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(1154, 693);
+            this.nextButton.Location = new System.Drawing.Point(1153, 771);
             this.nextButton.Margin = new System.Windows.Forms.Padding(2);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(80, 22);
@@ -340,9 +344,9 @@ namespace BFCVE
             this.peerConseqeunceLabel.Location = new System.Drawing.Point(130, 23);
             this.peerConseqeunceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.peerConseqeunceLabel.Name = "peerConseqeunceLabel";
-            this.peerConseqeunceLabel.Size = new System.Drawing.Size(138, 15);
+            this.peerConseqeunceLabel.Size = new System.Drawing.Size(83, 15);
             this.peerConseqeunceLabel.TabIndex = 120;
-            this.peerConseqeunceLabel.Text = "Preceding Conseqeunce:";
+            this.peerConseqeunceLabel.Text = "Previous Error:";
             // 
             // causeGroupBox
             // 
@@ -356,7 +360,7 @@ namespace BFCVE
             this.causeGroupBox.Size = new System.Drawing.Size(229, 282);
             this.causeGroupBox.TabIndex = 130;
             this.causeGroupBox.TabStop = false;
-            this.causeGroupBox.Text = "Cause:";
+            this.causeGroupBox.Text = "Bug/Fault Cause:";
             // 
             // operationAttributeComment
             // 
@@ -411,7 +415,7 @@ namespace BFCVE
             this.conseqeunceGroupBox.Size = new System.Drawing.Size(229, 282);
             this.conseqeunceGroupBox.TabIndex = 150;
             this.conseqeunceGroupBox.TabStop = false;
-            this.conseqeunceGroupBox.Text = "Consequence:";
+            this.conseqeunceGroupBox.Text = "Error/Final Error Conseqeunce:";
             // 
             // WeaknessFailureGroupBox
             // 
@@ -429,7 +433,7 @@ namespace BFCVE
             this.WeaknessFailureGroupBox.Controls.Add(this.classes);
             this.WeaknessFailureGroupBox.Controls.Add(this.classLabel);
             this.WeaknessFailureGroupBox.Controls.Add(this.operationAttributesGroupBox);
-            this.WeaknessFailureGroupBox.Location = new System.Drawing.Point(142, 56);
+            this.WeaknessFailureGroupBox.Location = new System.Drawing.Point(141, 134);
             this.WeaknessFailureGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.WeaknessFailureGroupBox.Name = "WeaknessFailureGroupBox";
             this.WeaknessFailureGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -440,40 +444,40 @@ namespace BFCVE
             // 
             // operandAttributsGgroupBox
             // 
-            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributes);
-            this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeComment);
+            this.operandAttributsGgroupBox.Controls.Add(this.faultAttributes);
+            this.operandAttributsGgroupBox.Controls.Add(this.faultAttributeComment);
             this.operandAttributsGgroupBox.Controls.Add(this.operandAttributeCommentLabel);
             this.operandAttributsGgroupBox.Location = new System.Drawing.Point(156, 382);
             this.operandAttributsGgroupBox.Name = "operandAttributsGgroupBox";
             this.operandAttributsGgroupBox.Size = new System.Drawing.Size(229, 278);
             this.operandAttributsGgroupBox.TabIndex = 205;
             this.operandAttributsGgroupBox.TabStop = false;
-            this.operandAttributsGgroupBox.Text = "Operand Attributes:";
+            this.operandAttributsGgroupBox.Text = "Fault Attributes:";
             // 
-            // operandAttributes
+            // faultAttributes
             // 
-            this.operandAttributes.CheckBoxes = true;
-            this.operandAttributes.HideSelection = false;
-            this.operandAttributes.Location = new System.Drawing.Point(-5, 16);
-            this.operandAttributes.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.operandAttributes.Name = "operandAttributes";
-            this.operandAttributes.ShowNodeToolTips = true;
-            this.operandAttributes.Size = new System.Drawing.Size(218, 211);
-            this.operandAttributes.TabIndex = 182;
-            this.operandAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
-            this.operandAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
-            this.operandAttributes.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.Any_BeforeSelect);
-            this.operandAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
+            this.faultAttributes.CheckBoxes = true;
+            this.faultAttributes.HideSelection = false;
+            this.faultAttributes.Location = new System.Drawing.Point(-5, 16);
+            this.faultAttributes.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.faultAttributes.Name = "faultAttributes";
+            this.faultAttributes.ShowNodeToolTips = true;
+            this.faultAttributes.Size = new System.Drawing.Size(218, 211);
+            this.faultAttributes.TabIndex = 182;
+            this.faultAttributes.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.Attributes_BeforeCheck);
+            this.faultAttributes.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Attributes_AfterCheck);
+            this.faultAttributes.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.Any_BeforeSelect);
+            this.faultAttributes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Any_AfterSelect);
             // 
-            // operandAttributeComment
+            // faultAttributeComment
             // 
-            this.operandAttributeComment.Enabled = false;
-            this.operandAttributeComment.Location = new System.Drawing.Point(6, 243);
-            this.operandAttributeComment.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.operandAttributeComment.Multiline = true;
-            this.operandAttributeComment.Name = "operandAttributeComment";
-            this.operandAttributeComment.Size = new System.Drawing.Size(218, 28);
-            this.operandAttributeComment.TabIndex = 184;
+            this.faultAttributeComment.Enabled = false;
+            this.faultAttributeComment.Location = new System.Drawing.Point(6, 243);
+            this.faultAttributeComment.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.faultAttributeComment.Multiline = true;
+            this.faultAttributeComment.Name = "faultAttributeComment";
+            this.faultAttributeComment.Size = new System.Drawing.Size(218, 28);
+            this.faultAttributeComment.TabIndex = 184;
             // 
             // operandAttributeCommentLabel
             // 
@@ -512,9 +516,9 @@ namespace BFCVE
             this.peerCauseLabel.Location = new System.Drawing.Point(671, 371);
             this.peerCauseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.peerCauseLabel.Name = "peerCauseLabel";
-            this.peerCauseLabel.Size = new System.Drawing.Size(97, 15);
+            this.peerCauseLabel.Size = new System.Drawing.Size(64, 15);
             this.peerCauseLabel.TabIndex = 180;
-            this.peerCauseLabel.Text = "Following Cause:";
+            this.peerCauseLabel.Text = "Next Fault:";
             // 
             // operationAttributesGroupBox
             // 
@@ -538,7 +542,7 @@ namespace BFCVE
             // 
             // buttonCommit
             // 
-            this.buttonCommit.Location = new System.Drawing.Point(28, 693);
+            this.buttonCommit.Location = new System.Drawing.Point(27, 771);
             this.buttonCommit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCommit.Name = "buttonCommit";
             this.buttonCommit.Size = new System.Drawing.Size(82, 22);
@@ -550,12 +554,12 @@ namespace BFCVE
             // 
             // endButton
             // 
-            this.endButton.Location = new System.Drawing.Point(1245, 693);
+            this.endButton.Location = new System.Drawing.Point(1244, 771);
             this.endButton.Margin = new System.Windows.Forms.Padding(2);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(80, 22);
             this.endButton.TabIndex = 74;
-            this.endButton.Text = "!";
+            this.endButton.Text = "Finish";
             this.endButton.UseVisualStyleBackColor = true;
             this.endButton.Click += new System.EventHandler(this.EndButton_Click);
             // 
@@ -615,16 +619,60 @@ namespace BFCVE
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnFileClose);
             // 
+            // cveComboBoxLabel
+            // 
+            this.cveComboBoxLabel.AutoSize = true;
+            this.cveComboBoxLabel.Location = new System.Drawing.Point(18, 70);
+            this.cveComboBoxLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cveComboBoxLabel.Name = "cveComboBoxLabel";
+            this.cveComboBoxLabel.Size = new System.Drawing.Size(31, 15);
+            this.cveComboBoxLabel.TabIndex = 208;
+            this.cveComboBoxLabel.Text = "CVE:";
+            // 
+            // cveComboBox
+            // 
+            this.cveComboBox.DisplayMember = "cve";
+            this.cveComboBox.FormattingEnabled = true;
+            this.cveComboBox.Location = new System.Drawing.Point(18, 88);
+            this.cveComboBox.Name = "cveComboBox";
+            this.cveComboBox.Size = new System.Drawing.Size(121, 23);
+            this.cveComboBox.TabIndex = 207;
+            this.cveComboBox.SelectedIndexChanged += new System.EventHandler(this.cveComboBox_SelectedIndexChanged);
+            // 
+            // cveDescription
+            // 
+            this.cveDescription.Enabled = false;
+            this.cveDescription.Location = new System.Drawing.Point(153, 83);
+            this.cveDescription.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.cveDescription.Multiline = true;
+            this.cveDescription.Name = "cveDescription";
+            this.cveDescription.Size = new System.Drawing.Size(888, 28);
+            this.cveDescription.TabIndex = 138;
+            // 
+            // cveDesriptionLabel
+            // 
+            this.cveDesriptionLabel.AutoSize = true;
+            this.cveDesriptionLabel.Location = new System.Drawing.Point(151, 68);
+            this.cveDesriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cveDesriptionLabel.Name = "cveDesriptionLabel";
+            this.cveDesriptionLabel.Size = new System.Drawing.Size(88, 15);
+            this.cveDesriptionLabel.TabIndex = 137;
+            this.cveDesriptionLabel.Text = "CVE Desription:";
+            // 
             // BFCVEForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1343, 744);
+            this.ClientSize = new System.Drawing.Size(1343, 824);
+            this.Controls.Add(this.cveDescription);
+            this.Controls.Add(this.cveDesriptionLabel);
+            this.Controls.Add(this.cveComboBoxLabel);
+            this.Controls.Add(this.cveComboBox);
             this.Controls.Add(this.buttonCommit);
             this.Controls.Add(this.endButton);
-            this.Controls.Add(this.cve);
-            this.Controls.Add(this.cveLabel);
+            this.Controls.Add(this.bfcve);
+            this.Controls.Add(this.BFcveDescriptionLabel);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
@@ -658,8 +706,8 @@ namespace BFCVE
 
         #endregion
 
-            private Label cveLabel;
-            private TreeView cve;
+            private Label BFcveDescriptionLabel;
+            private TreeView bfcve;
 
             private GroupBox WeaknessFailureGroupBox;
 
@@ -716,8 +764,12 @@ namespace BFCVE
             public TextBox operationAttributeComment;
             private Label operationAttributesCommentLabel;
         private GroupBox operandAttributsGgroupBox;
-        private TreeViewFix operandAttributes;
-        public TextBox operandAttributeComment;
+        private TreeViewFix faultAttributes;
+        public TextBox faultAttributeComment;
         private Label operandAttributeCommentLabel;
+        private Label cveComboBoxLabel;
+        private ComboBox cveComboBox;
+        public TextBox cveDescription;
+        private Label cveDesriptionLabel;
     }
     }

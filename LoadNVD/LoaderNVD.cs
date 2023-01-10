@@ -4,6 +4,9 @@ using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
 using static System.Web.HttpUtility;
 
+/*@author Irena Bojanova(ivb)
+ *@date - 12/20/2022 */
+
 namespace LoadNVD
 {
     internal class LoaderNVD
@@ -53,21 +56,25 @@ namespace LoadNVD
                     info = data;
                 else yield break;
 
+                Console.Write('*');
                 foreach (var vulnerability in info.vulnerabilities)
-                    yield return new NVDCVE(vulnerability.cve.id, 
-                        vulnerability.cve.metrics?.cvssMetricV30?.FirstOrDefault()?.cvssData?.baseScore,
+                    yield return new NVDCVE(vulnerability.cve.id,
+                        vulnerability.cve.descriptions?.FirstOrDefault()?.value,
+                        vulnerability.cve.metrics?.cvssMetricV30?.FirstOrDefault()?.cvssData?.baseScore ?? vulnerability.cve.metrics?.cvssMetricV2?.FirstOrDefault()?.cvssData?.baseScore,
                         vulnerability.cve.weaknesses?.SelectMany(w => w.description?.Select(d => d.value) ?? Enumerable.Empty<string>()).Distinct().ToArray());
             }
         }
 
+        //xxx use lastModified to update only new staff
         internal record Info(int totalResults, int startIndex, int resultsPerPage, VulnerabilityData[]? vulnerabilities);
             internal record VulnerabilityData(CVE cve);
-                internal record CVE(string id, DateTimeOffset lastModified, Weekness[]? weaknesses, Metrics? metrics);
-                    internal record Weekness(WeeknessDescr[]? description);
-                        internal record WeeknessDescr(string value);
-                    internal record Metrics(Scores[]? cvssMetricV30);
+                internal record CVE(string id, DateTimeOffset lastModified, Description[]? descriptions, Metrics? metrics, Weekness[]? weaknesses);
+                    internal record Description(string value);
+                    internal record Metrics(Scores[]? cvssMetricV30, Scores[]? cvssMetricV2);
                         internal record Scores(CVSSData? cvssData);
                             internal record CVSSData(double? baseScore);
+                    internal record Weekness(WeeknessDescr[]? description);
+                        internal record WeeknessDescr(string value);
 
         #endregion
     }

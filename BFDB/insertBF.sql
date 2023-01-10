@@ -1,4 +1,9 @@
-﻿declare @data xml = '<BF Name="Bugs Framework">
+﻿--@author Irena Bojanova(ivb)
+--@date - 12/9/2022
+ 
+-- replace in BF.xml copy '' with ''''
+
+ declare @data xml = '<BF Name="Bugs Framework">
 	<Cluster Name="_INP" Title="Input/Outpu Bugs Classes" Type="Weakness">
 		<Class Name="DVL" Title="Data Validation Bugs">
 			<Operations>
@@ -33,25 +38,25 @@
 				</Operand>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Missing Code"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<Bug Name="Specification Error">
+				<Bug Name="Specification Defect">
 					<Value Name="Under-Restrictive Policy"/>
 					<Value Name="Over-Restrictive Policy"/>
 					<Value Name="Corrupted Policy Data"/>
 					<Value Name="Tampered Policy Data"/>
 				</Bug>
-				<OperandError Name="Data Error">
+				<Fault Name="Data Error">
 					<Value Name="Corrupted Data"/>
 					<Value Name="Tampered Data"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Type Error">
+				<Error Name="Type Error">
 					<Value Name="Invalid Data"/>
-				</OperandError>
+				</Error>
 				<FinalError Name="Injection Final Error">
 					<Value Name="Query Injection"/>
 					<Value Name="Command Injection"/>
@@ -95,26 +100,26 @@
 				</Operand>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Missing Code"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<Bug Name="Specification Error">
+				<Bug Name="Specification Defect">
 					<Value Name="Under-Restrictive Policy"/>
 					<Value Name="Over-Restrictive Policy"/>
 				</Bug>
-				<OperandError Name="Type Error">
+				<Fault Name="Type Error">
 					<Value Name="Invalid Data"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Data Error">
+				<Error Name="Data Error">
 					<Value Name="Wrong Value"/>
 					<Value Name="Inconsistent Value"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Error>
+				<Error Name="Type Error">
 					<Value Name="Wrong Type"/>
-				</OperandError>
+				</Error>
 			</Consequences>
 		</Class>
 	</Cluster>
@@ -152,33 +157,33 @@
 				</Operand>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Missing Code"/>
 					<Value Name="Wrong Code"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<Bug Name="Specification Error">
+				<Bug Name="Specification Defect">
 					<Value Name="Missing Modifier"/>
 					<Value Name="Wrong Modifier"/>
 					<Value Name="Anonymous Scope"/>
 					<Value Name="Wrong Scope"/>
 				</Bug>
-				<OperandError Name="Type Error">
+				<Fault Name="Type Error">
 					<Value Name="Wrong Type Resolved"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Type Error">
+				<Error Name="Type Error">
 					<Value Name="Wrong Type"/>
 					<Value Name="Incomplete Type"/>
 					<Value Name="Wrong Generic Type"/>
 					<Value Name="Confused Subtype"/>
 					<Value Name="Wrong Argument Type"/>
-				</OperandError>
-				<OperandError Name="Function Error">
+				</Error>
+				<Error Name="Name Error">
 					<Value Name="Missing Overridden Function"/>
 					<Value Name="Missing Overloaded Function"/>
-				</OperandError>
+				</Error>
 				<FinalError Name="Access Final Error">
 					<Value Name="Wrong Access Object"/>
 					<Value Name="Wrong Access Type"/>
@@ -220,37 +225,37 @@
 				<Operand Name="Function"/>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<Bug Name="Specification Error">
+				<Bug Name="Specification Defect">
 					<Value Name="Missing Qualifier"/>
 					<Value Name="Wrong Qualifier"/>
 				</Bug>
-				<OperandError Name="Type Error">
+				<Fault Name="Type Error">
 					<Value Name="Incomplete Type"/>
 					<Value Name="Wrong Generic Type"/>
 					<Value Name="Confused Subtype"/>
 					<Value Name="Wrong Argument Type"/>
-				</OperandError>
-				<OperandError Name="Function Error">
+				</Fault>
+				<Fault Name="Name Error">
 					<Value Name="Missing Overridden Function"/>
 					<Value Name="Missing Overloaded Function"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Improper Object">
+				<Error Name="Data Error">
 					<Value Name="Wrong Object Resolved"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Error>
+				<Error Name="Type Error">
 					<Value Name="Wrong Type Resolved"/>
-				</OperandError>
-				<OperandError Name="Function Error">
+				</Error>
+				<Error Name="Name Error">
 					<Value Name="Wrong Function Resolved"/>
 					<Value Name="Wrong Generic Function Bound"/>
 					<Value Name="Wrong Overridden Function Bound"/>
 					<Value Name="Wrong Overloaded Function Bound"/>
-				</OperandError>
+				</Error>
 			</Consequences>
 		</Class>
 		<Class Name="TCV" Title="Type Conversion Bugs">
@@ -286,35 +291,35 @@
 				<Operand Name="Function"/>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Wrong Code"/>
 					<Value Name="Missing Code"/>
 				</Bug>
-				<OperandError Name="Data Error">
+				<Fault Name="Data Error">
 					<Value Name="Under Range"/>
 					<Value Name="Over Range"/>
 					<Value Name="Flipped Sign"/>
 					<Value Name="Wrong Object Resolved"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Fault>
+				<Fault Name="Type Error">
 					<Value Name="Wrong Type"/>
 					<Value Name="Wrong Object Type Resolved"/>
 					<Value Name="Mismatched Argument"/>
-				</OperandError>
-				<OperandError Name="Function Error">
+				</Fault>
+				<Fault Name="Name Error">
 					<Value Name="Missing Overloaded Function"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Data Error">
+				<Error Name="Data Error">
 					<Value Name="Wrong Value"/>
 					<Value Name="Truncated Value"/>
 					<Value Name="Distorted Value"/>
 					<Value Name="Rounded Value"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Error>
+				<Error Name="Type Error">
 					<Value Name="Wrong Type"/>
-				</OperandError>
+				</Error>
 			</Consequences>
 		</Class>
 		<Class Name="TCM" Title="Type Computation Bugs">
@@ -354,35 +359,34 @@
 				<Operand Name="Function"/>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Wrong Code"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<OperandError Name="Data Error">
+				<Fault Name="Data Error">
 					<Value Name="Wrong Argument"/>
 					<Value Name="Wrong Object Resolved"/>
 					<Value Name="Reference vs. Object"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Fault>
+				<Fault Name="Type Error">
 					<Value Name="Wrong Type"/>
 					<Value Name="Wrong Object Type Resolved"/>
-				</OperandError>
-				<OperandError Name="Function Error">
+				</Fault>
+				<Fault Name="Name Error">
 					<Value Name="Wrong Function Resolved"/>
 					<Value Name="Wrong Generic Function Bound"/>
 					<Value Name="Wrong Overridden Function Bound"/>
 					<Value Name="Wrong Overloaded Function Bound"/>
-				</OperandError>
-			
-		</Causes>
+				</Fault>
+			</Causes>
 			<Consequences>
-				<OperandError Name="Data Error">
+				<Error Name="Data Error">
 					<Value Name="Under Range"/>
 					<Value Name="Over Range"/>
 					<Value Name="Flipped Sign"/>
 					<Value Name="Wrong Result"/>
 					<Value Name="Wrap Around"/>
-				</OperandError>
+				</Error>
 				<FinalError Name="Type Compute Final Error">
 					<Value Name="Undefined"/>
 				</FinalError>
@@ -425,21 +429,21 @@
 				<Operand Name="Size"/>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Missing Code"/>
 					<Value Name="Mismatched Operation"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<OperandError Name="Data Error">
+				<Fault Name="Data Error">
 					<Value Name="Hardcoded Address"/>
 					<Value Name="Wrong Index"/>
 					<Value Name="Wrong Size Used"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Fault>
+				<Fault Name="Type Error">
 					<Value Name="Wrong Index Type"/>
 					<Value Name="Casted Pointer"/>
-				</OperandError>
-				<OperandError Name="Address Error">
+				</Fault>
+				<Fault Name="Address Error">
 					<Value Name="NULL Pointer"/>
 					<Value Name="Wild Pointer"/>
 					<Value Name="Dangling Pointer"/>
@@ -447,19 +451,19 @@
 					<Value Name="Under Bounds Pointer"/>
 					<Value Name="Wrong Position Pointer"/>
 					<Value Name="Over Bounds Pointer"/>
-				</OperandError>
-				<OperandError Name="Size Error">
+				</Fault>
+				<Fault Name="Size Error">
 					<Value Name="Not Enough Memory Allocated"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Data Error">
+				<Error Name="Data Error">
 					<Value Name="Forbidden Address"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Error>
+				<Error Name="Type Error">
 					<Value Name="Casted Pointer"/>
-				</OperandError>
-				<OperandError Name="Address Error">
+				</Error>
+				<Error Name="Address Error">
 					<Value Name="NULL Pointer"/>
 					<Value Name="Wild Pointer"/>
 					<Value Name="Dangling Pointer"/>
@@ -467,7 +471,7 @@
 					<Value Name="Under Bounds Pointer"/>
 					<Value Name="Over Bounds Pointer"/>
 					<Value Name="Wrong Position Pointer"/>
-				</OperandError>
+				</Error>
 			</Consequences>
 		</Class>
 		<Class Name="MAL" Title="Memory Allocation Bugs">
@@ -507,32 +511,32 @@
 				</Operand>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Missing Code"/>
 					<Value Name="Mismatched Operation"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<OperandError Name="Data Error">
+				<Fault Name="Data Error">
 					<Value Name="Hardcoded Address"/>
 					<Value Name="Forbidden Address"/>
 					<Value Name="Single Owned Address"/>
 					<Value Name="Wrong Size Used"/>
-				</OperandError>
-				<OperandError Name="Address Error">
+				</Fault>
+				<Fault Name="Address Error">
 					<Value Name="Wild Pointer"/>
 					<Value Name="Dangling Pointer"/>
 					<Value Name="Wrong Position Pointer"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Address Error">
+				<Error Name="Address Error">
 					<Value Name="NULL Pointer"/>
 					<Value Name="Wild Pointer"/>
-				</OperandError>
-				<OperandError Name="Size Error">
+				</Error>
+				<Error Name="Size Error">
 					<Value Name="Not Enough Memory Allocated"/>
 					<!--xxx Wrong Size Memory Allocated - not enough; too much; or just add Too Much Memory Allocated ???-->
-				</OperandError>
+				</Error>
 				<FinalError Name="Memory Final Error">
 					<Value Name="Memory Overflow"/>
 					<Value Name="Memory Leak"/>
@@ -582,19 +586,19 @@
 				<Operand Name="Size"/>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Missing Code"/>
 					<Value Name="Mismatched Operation"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<OperandError Name="Data Error">
+				<Fault Name="Data Error">
 					<Value Name="Forbidden Address"/>
 					<Value Name="Wrong Size Used"/>
-				</OperandError>
-				<OperandError Name="Type Error">
+				</Fault>
+				<Fault Name="Type Error">
 					<Value Name="Casted Pointer"/>
-				</OperandError>
-				<OperandError Name="Address Error">
+				</Fault>
+				<Fault Name="Address Error">
 					<Value Name="NULL Pointer"/>
 					<Value Name="Wild Pointer"/>
 					<Value Name="Dangling Pointer"/>
@@ -602,10 +606,10 @@
 					<Value Name="Under Bounds Pointer"/>
 					<Value Name="Over Bounds Pointer"/>
 					<Value Name="Wrong Position Pointer"/>
-				</OperandError>
-				<OperandError Name="Size Error">
+				</Fault>
+				<Fault Name="Size Error">
 					<Value Name="Not Enough Memory Allocated"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
 				<FinalError Name="Memory Final Error">
@@ -660,32 +664,32 @@
 				<Operand Name="Size"/>
 			</Operands>
 			<Causes>
-				<Bug Name="Code Error">
+				<Bug Name="Code Defect">
 					<Value Name="Missing Code"/>
 					<Value Name="Mismatched Operation"/>
 					<Value Name="Erroneous Code"/>
 				</Bug>
-				<OperandError Name="Data Error">
+				<Fault Name="Data Error">
 					<Value Name="Hardcoded Address"/>
 					<Value Name="Forbidden Address"/>
 					<Value Name="Wrong Size Used"/>
-				</OperandError>
-				<OperandError Name="Address Error">
+				</Fault>
+				<Fault Name="Address Error">
 					<Value Name="Wild Pointer"/>
 					<Value Name="Dangling Pointer"/>
 					<Value Name="Wrong Position Pointer"/>
-				</OperandError>
-				<OperandError Name="Size Error">
+				</Fault>
+				<Fault Name="Size Error">
 					<Value Name="Not Enough Memory Allocated"/>
-				</OperandError>
+				</Fault>
 			</Causes>
 			<Consequences>
-				<OperandError Name="Address Error">
+				<Error Name="Address Error">
 					<Value Name="NULL Pointer"/>
-				</OperandError>
-				<OperandError Name="Size Error">
+				</Error>
+				<Error Name="Size Error">
 					<Value Name="Not Enough Memory Allocated"/>
-				</OperandError>
+				</Error>
 				<FinalError Name="Memory Final Error">
 					<Value Name="Memory Leak"/>
 					<Value Name="Double Free"/>
@@ -695,6 +699,7 @@
 		</Class>
 	</Cluster>
 
+	<!--Failures should have only Causes and Atributes-->
 	<Cluster Name="_FLR" Title="Security Failures Classes" Type="Failure">
 		<Class Name="IEX" Title="Information Exposure">
 			<Operations>
@@ -871,6 +876,31 @@
 		</Class>
 	</Cluster>
 
+<!-- generate from publications tables 
+\newline 
+nothing
+
+remove text between tables
+remove \code \tcode \mbox \textit{
+
+Reg Exprs
+	remove empty rows
+	^\s*\n
+	nothing
+	<Definition
+	remove comments
+	%.*\n
+	nothing
+
+	remove Overleaf commands
+	\s*\\.*\n
+	nothing
+
+	generate
+	^(.+?)\s*&\s*\n(.+?)[^&]\s*\n
+	<Definition Name="$1">$2</Definition>\n 
+-->
+
 	<Definitions>
 		<!--Terms Definitions - xxx can use them as tooltips for labels-->
 		<Definition Name="Bug">A coding error or a specification error. The first error in a chain of weaknesses. Needs to be fixed<!--xxx to resolve a vulnerability-->.</Definition>
@@ -879,6 +909,7 @@
 		<Definition Name="Failure">A violation of a system security requirement. Caused by the final error.<!--xxx In rare ocasions, several chains might converge at the final error to cause the failure.--></Definition>
 		<!-- xxxIB: check-->
 		<Definition Name="BF Class">A taxonomic category of a weakness type, defined by: a set of operations, all valid cause → consequence relations, and a set of attributes.</Definition>
+		<!--<Definition Name="BF Class">It is a taxonomy category of weakness defined by a set of attributes one cause and one consequence.</Definition>-->
 
 		<!--Clusters-->
 		<Definition Name="_INP">Input/Output Check Bugs - may lead to Injection Error.</Definition>
@@ -1086,31 +1117,33 @@
 		<!--xxxThe operation attributes Source Code and Execution Space explain where a bug is – where the operation is in the program and where its code runs.-->
 		<Definition Name="Mechanism">Shows how the buggy operation is performed.</Definition>
 		<Definition Name="Source Code">Shows in what kind of software the buggy operation is.</Definition>
+		<!--<Definition Name="Source Code">Shows where the buggy operation is the program.</Definition>-->
 		<Definition Name="Execution Space">Shows where the buggy operation code is running.</Definition>
 		<Definition Name="Policy">Lists or rules for checking data syntax and semantics. </Definition>
 		<Definition Name="Entity">Each data type related operation is over an entity - object, function, data type, or namespace - referred in source code via its declared name.</Definition>
 		<!--Each data type bug or weakness involves one data type related operation. Each of these operations is over an entity: object, function, data type, or namespace. An entity is referred in source code via its declared name.-->
-		<Definition Name="Type Kind">Primitive, Structured. A data type can be a primitive data type (scalar) or a structured data type (composite).</Definition>
+		<Definition Name="Type Kind">A data type can be a primitive data type (scalar) or a structured data type (composite).</Definition>
 		<Definition Name="Data Kind">Numeric, Text, Pointer, Boolean.</Definition>
+		<Definition Name="Span">How far outside the bufer boundaries is the over/underflow.</Definition>
 		<Definition Name="Location">Memory region where objects are allocated.</Definition>
-		<Definition Name="Ownership">Responsabile for cleaning and deallocating object''s memory.</Definition>
+		<Definition Name="Ownership">How many pointers point to this object. At least one should eventualy clean and deallocate the object''s memory.</Definition>
 
 		<!--Bug - OperationError-->
-		<Definition Name="Code Error">The bug in the operation. The first cause for the chain of weaknesses commprising a software security vulnerability. It has to be fixed to resolve the vulnerability.</Definition>
+		<Definition Name="Code Defect">The bug in the operation. The first cause for the chain of weaknesses commprising a software security vulnerability. It has to be fixed to resolve the vulnerability.</Definition>
 		<Definition Name="Specification Error">An error in the rules (policy, algorithm, keying material, gomain parameter) used by the operation, that when implemented becomes the bug causing the chain of weaknesses commprising a software security vulnerability. It has to be fixed to resolve the vulnerability.</Definition>
 
-		<!--OperandError-->
+		<!--fault-->
 		<Definition Name="Size Error">The used object size is wrong.</Definition>
+		<!--<Definition Name="Size Error">The information about an object size is inaccurate.</Definition>-->
 		<Definition Name="Address Error">The used object address is wrong.</Definition>
+		<!--<Definition Name="Address Error">A misleading object''s address.</Definition>-->
 		<Definition Name="Type Error">The set or range of allowed values is wrong or the operations allowed on them are wrong.</Definition>
+		<!--<Definition Name="Type Error">The set or range of values is wrong or th eoperations allowed on them are wrong A set of allowed values used with incompatible operations over them.</Definition>-->
 		<!--A data type defines a set or a range of values (e.g. char is [-128, 127]) and the operations allowed over them (e.g. +, *, mod).-->
 		<Definition Name="Data Error" >Has harmed semantics or inconsistent or wrong value <!--xxx or type--> for its intended use.</Definition>
 		<!--xxxNOTE: Improper Data in DVL is like the parent of Improper Data Value and Improper Data Type - so each of these should be able to connect to an Improper Data cause for next weakness-->		
-		
-		<Definition Name="Function Error">xxx need better text - An organized block of code that when called takes in data, processes it, and produces an unexpected result(s).</Definition>
-		<!-- CG: adapted from MEM paper-->
-		<Definition Name="Improper Object">xxx need better text - This is the higher level of Data, Type, Address, Size, Function -- A piece of memory, with a ill-defined size.</Definition>
-		
+		<Definition Name="Name Error">xxx need better text - An organized block of code that when called takes in data, processes it, and produces an unexpected result(s).</Definition>
+
 		<!--xxx???FinalErrors https://blog.klipse.tech/databook/2020/10/02/separate-code-data.html -->
 		<Definition Name="Injection Final Error">Undefined or exploitable system behavior caused by executing user controlled data. OR Undefined or exploitable system behavior caused by bugs in separating code and data</Definition>
 		<!-- xxxCG: do we keep system or just software? Adapted from MEM paper-->
@@ -1147,6 +1180,10 @@
 		<Definition Name="Data Value">A numeric, text, pointer/address, or boolean value stored in an object''s memory.</Definition>
 		<Definition Name="Data Type">A set of allowed values and the operations allowed over them.</Definition>
 		<Definition Name="Function">An organized block of code that when called takes in data, processes it, and produces a result(s).</Definition>
+<!--<Definition Name="Codebase">The operation is in the programmer''s code - in the application itself.</Definition>
+<Definition Name="Third Party">The operation is in a third-party library.</Definition>
+<Definition Name="Standard Library">The operation is in the standard library for a particular programming language.</Definition>
+<Definition Name="Compiler/Interpreter">The operation is in the language processor that allows execution or creates executables (compiler, assembler, interpreter).</Definition>-->
 		<Definition Name="Primitive">Mimics the hardware units and is not built from other data types - e.g. int (long, short, signed), float, double, string, boolean.</Definition>
 		<Definition Name="Structured">Builds of other data types; have members of primitive and/or structured data types - e.g. array, record, struct, union, class, interface.</Definition>
 		<Definition Name="Simple">A non-polymorphic entity.</Definition>
@@ -1160,10 +1197,14 @@
 		<Definition Name="Ad-hoc Bind">Resolve overloaded function via signature and set implementation.</Definition>
 		<Definition Name="Pass In">Supply "in" arguments'' data values to a function/ operator.</Definition>
 		<Definition Name="Pass Out">Supply "out" or "in/out" arguments'' data values or a return value to a function/ operator.</Definition>
+<!--<Definition Name="Function">An organized block of code that when called takes in data, processes it, and returns a result.</Definition>-->
 		<Definition Name="Operator">A function with a symbolic name that implements a mathematical, relational or logical operation.</Definition>
 		<Definition Name="Method">A member function of an OOP class.</Definition>
 		<Definition Name="Lambda Expression">An anonymous function, implemented within another function.</Definition>
 		<Definition Name="Procedure">A function with a void return type.</Definition>
+<!--<Definition Name="Object">A memory region used to store data.</Definition>-->
+<!--<Definition Name="Function">An organized block of code that when called takes in data, processes it, and returns a result.</Definition>-->
+<!--<Definition Name="Data Type">A set or a range of values and the operations allowed over them.</Definition>-->
 		<Definition Name="Namespace">An organization of entities'' names, utilized to avoid names collision.</Definition>
 		<Definition Name="Numeric">A number stored in an object''s memory.</Definition>
 		<Definition Name="Text">A string stored in an object''s memory.</Definition>
@@ -1171,8 +1212,16 @@
 		<Definition Name="Boolean">A truth value (true or false; 1 or 0), stored in an object''s memory.</Definition>
 
 		<!--_MEM-->
+<!--<Definition Name="Object">A memory region used to store data.</Definition>-->
+<!--<Definition Name="Pointer">A holder of the memory address of an object.</Definition>-->
+
+<!--<Definition Name="Codebase">The operation is in programmer''s code - in the application itself.</Definition>
+<Definition Name="Third Party">The operation is in a third party library.</Definition>
+<Definition Name="Standard Library">The operation is in the standard library for a particular programming language.</Definition>
+<Definition Name="Compiler/Interpreter">The operation is in the language processor that allows execution or creates executables (compiler, assembler, interpreter).</Definition>-->
 		<Definition Name="Userland">The bugged code runs in an environment with privilege levels, but in unprivileged mode (e.g., ring 3 in x86 architecture).</Definition>
 		<Definition Name="Kernel">The bugged code runs in an environment with privilege levels with access privileged instructions (e.g., ring 0 in x86 architecture).</Definition>
+<!--<Definition Name="Bare-Metal">The bugged code runs in an environment without privilege control. Usually, the program is the only software running and has total access to the hardware.</Definition>-->
 		<Definition Name="Stack">The object is a non-static local variable (defined in a function, a passed parameters, or a function return address).</Definition>
 		<Definition Name="Heap">The object is a dynamically allocated data structure (e.g., via malloc() and new).</Definition>
 		<Definition Name="Direct">The operation is performed over a particular object element.</Definition>
@@ -1186,6 +1235,38 @@
 		<Definition Name="Moderate">Several bytes of memory are accessed, but less than 1 KB.</Definition>
 		<Definition Name="Huge">More than 1 KB of memory is accessed.</Definition>
 
+<!--Save - for included examples-->
+<!--<Definition Name="Improper State">The (operation, operand1,..., operandn) state tuple has at least one improper element.</Definition>-->
+
+<!--_MEM Final Errors-->
+<!--<Definition Name="Memory Overflow">More memory requested than available. Risk: Stack/heap exhaustion.</Definition>
+<Definition Name="Memory Leak">An object has no pointer pointing to it. Risk: Resource exhaustion.Application crash. DoS.</Definition>
+<Definition Name="Double Free">Attempt to deallocate a deallocated object or via an uninitialized pointer. Risk: Arbitrary code execution.</Definition>
+<Definition Name="Object Corruption">Object data is unintentionally altered. Wrong/unexpected results.</Definition>
+<Definition Name="Uninitialized Object">Object data is not filled inbefore use. Controlled or left over data.</Definition>
+<Definition Name="Not Cleared Object">Object data not overwritten before deallocation. Information exposure (e.g. private keys).</Definition>
+<Definition Name="NULL Pointer Dereference"> Attempt to access an object for read or write through a NULL pointer. Program crash. Arbitrary code execution (in some OSs).</Definition>
+<Definition Name="Untrusted Pointer Dereference"> Attempt to access an object via an altered pointer (not legitimate dereference of tainted pointers).DoS. Arbitrary code execution.</Definition>
+<Definition Name="Type Confusion">Pointer and object have different types. Vtable corruption. Hijack.</Definition>
+<Definition Name="Use After Free">Attempt to use a deallocated object. Arbitrary code execution.</Definition>
+<Definition Name="Buffer Overflow">Read or write above the object upper bound. Arbitrary code execution. Information exposure."</Definition>
+<Definition Name="Buffer Underflow">Read or write below the object lower bounds. Arbitrary code execution. Information exposure.</Definition>
+<Definition Name="Uninitialized Pointer Dereference"> An attempt to access an object for read or write via an uninitialized pointer. Control flow hijack.</Definition>-->
+		
+<!--<Definition Name="Query Injection">Malicious insertion of condition parts (e.g., or 1==1) or entire commands (e.g., drop table) into an input used to construct a database query.</Definition>
+<Definition Name="Command Injection">Malicious insertion of new commands into the input to a command that is sent to an operating system (OS) or to a server.</Definition>
+<Definition Name="Source Code Injection">Injection Malicious insertion of new code (incl. with &lt; &gt; elements) into input used as part of an executing application code.</Definition>
+<Definition Name="Parameter Injection">Malicious insertion of data (e.g., with &amp; parameter separator) into input used as parameter/ argument in other parts of code.</Definition>
+<Definition Name="File Injection">Malicious insertion of data (e.g., with .. and / or with file entries) into input used to access/ modify files or as file content.</Definition>-->
+
+<!--<Definition Name="Safelist">Policy based on a set of known good content.</Definition>
+<Definition Name="Denylist">Policy based on a set of known bad content; helps reject outright maliciously malformed data.</Definition>
+<Definition Name="Format">Policy based on syntax format (e.g., defined via regular expression).</Definition>
+<Definition Name="Length">Policy based on allowed number of characters in data. Note that this is not about the data value as size of an object.</Definition>-->
+		
+<!--<Definition Name="Value">Check data for a specific value ( incl. NULL or list of values).</Definition>-->
+<!--end Save - because of the included examples-->
+
 	</Definitions>
 </BF>'
 
@@ -1197,7 +1278,7 @@ insert into bf.[ref.operationAttribute] (Name, Definition)
 	from @data.nodes('//Operations/Attribute') X(bf)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on bf.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[ref.operationAttributeValue] (Attribute, Name, Definition)
+insert into bf.[ref.operationAttributeValue] (Attribute, Value, Definition)
 	select distinct t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operations/Attribute') T(t) cross apply t.nodes('Value') A(a)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on a.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
@@ -1207,24 +1288,24 @@ insert into bf.[ref.operand] (Name, Definition)
 	from @data.nodes('//Operands/Operand') O(o)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[ref.operandAttribute] (Operand, Name, Definition)
+insert into bf.[ref.faultAttribute] (Operand, Name, Definition)
 	select distinct o.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operands/Operand') O(o) cross apply o.nodes('Attribute') A(a)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on a.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[ref.operandAttributeValue] (Operand, Attribute, Name, Definition)
+insert into bf.[ref.faultAttributeValue] (Operand, Attribute, Value, Definition)
 	select distinct o.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), n.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Operands/Operand') O(o) cross apply o.nodes('Attribute') A(a) cross apply a.nodes('Value') N(n)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on n.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[ref.operandError] (Name, Definition)
+insert into bf.[ref.faultType] (Name, Definition)
 	select distinct t.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
-	from @data.nodes('//Class//OperandError') T(t) 
+	from @data.nodes('//Class//Fault') T(t) 
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on t.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[ref.operandErrorValue] (OperandError, Name, Definition)
+insert into bf.[ref.faultTypeValue] (Fault, Value, Definition)
 	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
-	from @data.nodes('//Class//OperandError') T(t) cross apply t.nodes('*') O(o)
+	from @data.nodes('//Class//Fault') T(t) cross apply t.nodes('*') O(o)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
 insert into bf.[ref.bug] (Name, Definition)
@@ -1232,7 +1313,7 @@ insert into bf.[ref.bug] (Name, Definition)
 	from @data.nodes('//Class//Bug') B(b)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on b.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[ref.bugValue] (Bug, Name, Definition)
+insert into bf.[ref.bugValue] (Bug, Value, Definition)
 	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//Bug') T(t) cross apply t.nodes('*') O(o)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
@@ -1242,54 +1323,63 @@ insert into bf.[ref.finalError] (Name, Definition)
 	from @data.nodes('//Class//FinalError') T(t) 
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on t.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.[ref.finalErrorValue] (FinalError, Name, Definition)
+insert into bf.[ref.finalErrorValue] (FinalError, Value, Definition)
 	select distinct t.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)')
 	from @data.nodes('//Class//FinalError') T(t) cross apply t.nodes('*') O(o)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
 --
 
-insert into bf.cluster (Type, Name, Title, Definition)
-	select bf.value('@Type','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), bf.value('@Title','nvarchar(64)'), ref.value('.','nvarchar(256)')
+insert into bf.cluster (Type, Name, Title, Definition, [Order])
+	select bf.value('@Type','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), bf.value('@Title','nvarchar(64)'), ref.value('.','nvarchar(256)'), 
+	ROW_NUMBER() over (order by (select 0))
 	from @data.nodes('BF/Cluster') X(bf)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on bf.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.class(Name, Cluster, Title, Definition)
-	select c.value('@Name','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), c.value('@Title','nvarchar(64)'), ref.value('.','nvarchar(256)')
+insert into bf.class(Name, Cluster, Title, Definition, [Order])
+	select c.value('@Name','nvarchar(64)'), bf.value('@Name','nvarchar(64)'), c.value('@Title','nvarchar(64)'), ref.value('.','nvarchar(256)'), 
+	ROW_NUMBER() over (partition by bf.value('@Name','nvarchar(64)') order by (select 0))
 	from @data.nodes('BF/Cluster') X(bf) cross apply bf.nodes('Class') C(c)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on c.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.operation(Class, Name, Definition)
-	select c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)')
-		, ref.value('.','nvarchar(256)')
+insert into bf.operation(Class, Name, Definition, [Order])
+	select c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), ref.value('.','nvarchar(256)'), 
+	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)') order by (select 0))
 	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Operations/Operation') O(o)
 		left outer join @data.nodes('BF/Definitions/Definition') D(ref) on o.value('@Name','nvarchar(64)')=ref.value('@Name','nvarchar(64)');
 
-insert into bf.operationAttribute(Class, Attribute, Name)
-	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)')
+insert into bf.operationAttribute(Class, Attribute, Name, [Order])
+	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), 
+	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)') order by (select 0))
 	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Operations/Attribute') T(t) cross apply t.nodes('Value') A(a);
 
-insert into bf.operand(Class, Name)
-	select c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)')
+insert into bf.operand(Class, Name, [Order])
+	select c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), 
+	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)') order by (select 0))
 	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Operands/Operand') O(o);
 
-insert into bf.operandAttribute(Class, Operand, Attribute, Name)
-	select c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)')
+insert into bf.faultAttribute(Class, Operand, Attribute, Name, [Order])
+	select c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), a.value('@Name','nvarchar(64)'), 
+	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)'), o.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)') order by (select 0))
 	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Operands/Operand') O(o)
 		 cross apply o.nodes('Attribute') T(t) cross apply t.nodes('Value') A(a);
 
-insert into bf.causeOperandError (Class, OperandError, Name)
-	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)')
-	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Causes/OperandError') T(t) cross apply t.nodes('Value') X(x);
+insert into bf.fault (Class, Fault, Name, [Order])
+	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)'), 
+	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)') order by (select 0))
+	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Causes/Fault') T(t) cross apply t.nodes('Value') X(x);
 
-insert into bf.consequenceOperandError (Class, OperandError, Name)
-	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)')
-	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Consequences/OperandError') T(t) cross apply t.nodes('Value') X(x);
+--insert into bf.error (Class, Fault, Name, [Order])
+--	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)'), 
+--	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)') order by (select 0))
+--	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Consequences/Error') T(t) cross apply t.nodes('Value') X(x);
 
-insert into bf.fanalError(Class, FinalError, Name)
-	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)')
+insert into bf.finalError(Class, FinalError, Name, [Order])
+	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)'), 
+	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)') order by (select 0))
 	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Consequences/FinalError') T(t) cross apply t.nodes('Value') X(x);
 
-insert into bf.bug(Class, Bug, Name)
-	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)')
+insert into bf.bug(Class, Bug, Name, [Order])
+	select c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)'), x.value('@Name','nvarchar(64)'), 
+	ROW_NUMBER() over (partition by c.value('@Name','nvarchar(64)'), t.value('@Name','nvarchar(64)') order by (select 0))
 	from @data.nodes('BF/Cluster/Class') C(c) cross apply c.nodes('Causes/Bug') T(t) cross apply t.nodes('Value') X(x);

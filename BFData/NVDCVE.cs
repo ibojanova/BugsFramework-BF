@@ -3,5 +3,5 @@
 
 namespace BFData
 {
-    public record NVDCVE(string cve, double? score, string[]? cwe);
+    public record NVDCVE(string cve, string? description, double? score, string[]? cwe);
 }
